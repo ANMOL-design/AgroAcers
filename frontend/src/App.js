@@ -5,6 +5,7 @@ import Home from "./component/home/Home";
 import Login from "./component/auth/login/Login";
 import Register from "./component/auth/Registration/Register";
 import Errorpage from './component/errorPage/error';
+import Footer from './component/footer/footer';
 
 class App extends React.Component {
   render(){
@@ -26,8 +27,10 @@ class App extends React.Component {
       <Route path="" element={<Errorpage/>}/>
       
     </Routes>
+    <Footer />
       </BrowserRouter>
    </>
+
   );
     }
 }

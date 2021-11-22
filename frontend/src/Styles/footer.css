@@ -1,0 +1,62 @@
+.Footer-container {
+  background-color: #bbd0c2;
+  display: flex;
+  bottom: 0px;
+}
+.footer-aboutus-container {
+  margin-left: 5%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  width: 20%;
+}
+.usefull-link-container {
+  margin-left: 5%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  width: 20%;
+}
+.usefull-links-list {
+  list-style: none;
+  text-decoration: none;
+  color: black;
+}
+
+.usefull-links {
+  text-decoration: none;
+  color: black;
+}
+.subscribe-form-container {
+  margin-left: 5%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  width: 20%;
+}
+.subscribe-form input {
+  background: none;
+  margin-bottom: 7%;
+  margin-left: 5%;
+  width: 80%;
+  border: 2px solid gray;
+  border-radius: 2px;
+  
+}
+.subscribe-form button {
+  margin-left: 25%;
+}
+.copyright-footer-container {
+  background-color: #77bc3f;
+}
+.copyright-footer-text {
+  padding: 1%;
+  margin-bottom: 0%;
+  text-align: center;
+}
+.footer-location-container{
+    margin-left: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    width: 20%;
+}
+.footer-map{
+    width:80%
+}
