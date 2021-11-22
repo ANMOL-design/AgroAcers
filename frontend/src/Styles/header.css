@@ -24,23 +24,38 @@
 .navbar-light .navbar-nav .nav-link:visited {
     color: #77BC3F;
     font-weight: bold;
-    border-top: 2px solid #77BC3F;
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
     color: #77BC3F;
     font-weight: bold;
-    border-top: 2px solid #77BC3F;
 }
 
 .navbar-light .navbar-nav .nav-link:active {
     color: #77BC3F;
     font-weight: bold;
-    border-top: 2px solid #77BC3F;
 }
 
 
 /* -------------------- */
+
+.nav-hov:visited {
+    color: #77BC3F;
+    font-weight: bold;
+    border-top: 2px solid #77BC3F;
+}
+
+.nav-hov:hover {
+    color: #77BC3F;
+    font-weight: bold;
+    border-top: 2px solid #77BC3F;
+}
+
+.nav-hov:active {
+    color: #77BC3F;
+    font-weight: bold;
+    border-top: 2px solid #77BC3F;
+}
 
 
 /* Style For Drop Down  */
@@ -86,7 +101,7 @@
 
 .bg-btn {
     background-color: rgba(119, 188, 63, 0.9);
-    padding: 4px 20px;
+    padding: 3px 20px;
     border-radius: 16px;
     color: #fff;
     outline: 0;
@@ -96,19 +111,16 @@
 .bg-btn:visited {
     color: #fff;
     font-weight: bold;
-    border-top: 1px solid rgba(119, 188, 63, 0.9);
 }
 
 .bg-btn:hover {
     color: #fff;
     font-weight: bold;
-    border-top: 1px solid rgba(119, 188, 63, 0.9);
 }
 
 .bg-btn:active {
     color: #fff;
     font-weight: bold;
-    border-top: 1px solid rgba(119, 188, 63, 0.9);
 }
 
 .hide_small {

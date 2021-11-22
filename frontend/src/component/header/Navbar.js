@@ -11,7 +11,7 @@ class Navbar extends React.Component{
             <>
               <nav className="navbar navbar-expand-lg navbar-light">
                   <div className="container-fluid">
-                        <Link className="navbar-brand" to="/" style={{color: "#77BC3F", fontWeight: "700"}}>
+                        <Link className="navbar-brand" to="/" style={{color: "#77BC3F", fontWeight: "700", fontSize: "1.4rem"}}>
                             <img src={Logo} alt="" width="35" height="30" className="d-inline-block align-text-top" /> AgroAcers
                         </Link>
 
@@ -30,23 +30,23 @@ class Navbar extends React.Component{
                                   <ul className="navbar-nav ul-border">
                       
                                       <li className="nav-item">
-                                          <Link className="nav-link" to="/">Home</Link>
+                                          <Link className="nav-link nav-hov" to="/">Home</Link>
                                       </li>
 
                                       <li className="nav-item">
-                                          <Link className="nav-link" to="/shop">Shop</Link>
+                                          <Link className="nav-link nav-hov" to="/shop">Shop</Link>
                                       </li>
 
                                       <li className="nav-item">
-                                          <Link className="nav-link" to="/about">About</Link>
+                                          <Link className="nav-link nav-hov" to="/about">About</Link>
                                       </li>
 
                                       <li className="nav-item">
-                                          <Link className="nav-link" to="/blog">Blog</Link>
+                                          <Link className="nav-link nav-hov" to="/blog">Blog</Link>
                                       </li>
 
                                       <li className="nav-item dropdown">
-                                          <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                          <Link className="nav-link dropdown-toggle nav-hov" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Services
                                           </Link>
                                           <div className="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -57,7 +57,7 @@ class Navbar extends React.Component{
                                           </div>
                                       </li>
 
-                                      <li className="nav-item">
+                                      <li className="nav-item nav-hov">
                                           <Link className="nav-link" to="/contact">Contact</Link>
                                       </li>
                                    </ul>

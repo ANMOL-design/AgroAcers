@@ -1,10 +1,11 @@
 import React from 'react';
+import "./Styles/index.css"
 import {BrowserRouter, Route,Routes}  from 'react-router-dom'
 import Navbar from "./component/header/Navbar";
 import Home from "./component/home/Home";
 import Login from "./component/auth/login/Login";
 import Register from "./component/auth/Registration/Register";
-import Errorpage from './component/errorPage/error';
+import PageNotFound from './component/PageNotFound/PageNotFound';
 
 class App extends React.Component {
   render(){
@@ -19,11 +20,11 @@ class App extends React.Component {
       </Routes> */}
      <Routes>
        
-      <Route exact path="/" element={<Home/>}/>
       <Route path="login" element={<Login/>}/>
       <Route path="register" element={<Register/>}/>
       <Route path="register/login" element={<Login/>}/>
-      <Route path="" element={<Errorpage/>}/>
+      <Route path="/" element={<Home/>} exact/>
+      <Route path="*" element={<PageNotFound/>}/>
       
     </Routes>
       </BrowserRouter>
