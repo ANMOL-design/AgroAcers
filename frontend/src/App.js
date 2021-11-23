@@ -7,6 +7,7 @@ import Login from "./component/auth/login/Login";
 import Register from "./component/auth/Registration/Register";
 import PageNotFound from './component/PageNotFound/PageNotFound';
 import Footer from './component/footer/footer';
+import ContactPage from './component/contactPage/contactPage';
 
 class App extends React.Component {
   render(){
@@ -17,6 +18,7 @@ class App extends React.Component {
           <Routes>
                 <Route path="login" element={<Login/>}/>
                 <Route path="register" element={<Register/>}/>
+                <Route path="contact" element={<ContactPage/>}/>
                 <Route path="register/login" element={<Login/>}/>
                 <Route path="/" element={<Home/>} exact/>
                 <Route path="*" element={<PageNotFound/>}/>

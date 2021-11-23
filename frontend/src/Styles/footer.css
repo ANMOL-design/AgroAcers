@@ -1,74 +1,100 @@
 .Footer-container {
-    background-color: #EFEEEE;
-    display: flex;
-    bottom: 0px;
+  background-color: #efeeee;
+  bottom: 0px;
 }
-
+.footer-section-1 {
+  display: flex;
+}
 .footer-aboutus-container {
-    margin-left: 5%;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    width: 20%;
+  margin-left: 5%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  width: 20%;
 }
 
 .usefull-link-container {
-    margin-left: 5%;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    width: 20%;
+  margin-left: 5%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  width: 20%;
 }
 
 .usefull-links-list {
-    list-style: none;
-    text-decoration: none;
-    color: black;
+  list-style: none;
+  text-decoration: none;
+  color: black;
 }
 
 .usefull-links {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
 .subscribe-form-container {
-    margin-left: 5%;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    width: 20%;
+  margin-left: 5%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  width: 20%;
 }
 
 .subscribe-form input {
-    background: none;
-    margin-bottom: 7%;
-    margin-left: 5%;
-    width: 80%;
-    border: 2px solid gray;
-    border-radius: 2px;
+  background: none;
+  margin-bottom: 7%;
+  margin-left: 5%;
+  width: 80%;
+  border: 2px solid gray;
+  border-radius: 2px;
 }
 
 .subscribe-form button {
-    margin-left: 25%;
+  margin-left: 25%;
 }
 
 .footer-location-container {
-    margin-left: 5%;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    width: 20%;
+  margin-left: 5%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  width: 20%;
 }
 
 .footer-map {
-    width: 80%
+  width: 80%;
 }
-
+.footer-payment-img {
+  width: 35px;
+  margin-left: 7%;
+}
+.payment-app-container {
+  display: block;
+  margin-left: 85%;
+}
 
 /**  CSS for Bottom Copyright (No need to add media) */
 
 .copyright-footer-container {
-    background-color: #77bc3f;
+  background-color: #77bc3f;
 }
 
 .copyright-footer-text {
-    padding: 1%;
-    margin-bottom: 0%;
-    text-align: center;
+  padding: 1%;
+  margin-bottom: 0%;
+  text-align: center;
+}
+
+/* media queries */
+@media (max-width: 550px) {
+  .footer-section-1 {
+    display: flex;
+    flex-direction: column;
+  }
+  .footer-aboutus-container , .usefull-link-container , .subscribe-form-container,.footer-location-container {
+    margin-left: 10%;
+    width: 80%;
+  }
+
+  .payment-app-container {
+    margin-left: 55%;
+    margin-top: 10%;
+    padding-bottom: 5%;
+  }
 }

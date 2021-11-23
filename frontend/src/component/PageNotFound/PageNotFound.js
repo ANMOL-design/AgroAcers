@@ -2,7 +2,6 @@ import { Component } from "react";
 import "./../../Styles/PageNotFound.css"
 import { Link } from "react-router-dom";
 import faultI from "./../../Images/notFound.gif"
-
 class PageNotFound extends Component{
     render(){
         return(
