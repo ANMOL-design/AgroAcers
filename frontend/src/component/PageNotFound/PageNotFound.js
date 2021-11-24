@@ -18,6 +18,7 @@ class PageNotFound extends Component{
                       </div>
                     </div>
                </div>
+               <hr style={{margin: "4px"}}/>
             </>
         )
     }

@@ -92,6 +92,7 @@ class Footer extends React.Component {
               <hr />
               <iframe
                 className="footer-map"
+                title="JMIT"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.0140203144547!2d77.15801211444305!3d30.03645562590628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390e58fe0f7630b9%3A0x25907b84aeed8606!2sSeth%20Jai%20Parkash%20Mukand%20Lal%20Institute%20Of%20Engineering%20And%20Technology!5e0!3m2!1sen!2sin!4v1637601271535!5m2!1sen!2sin"
               ></iframe>
             </div>
