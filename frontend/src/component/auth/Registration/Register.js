@@ -27,8 +27,8 @@ const  Register = ()=>{
       body : JSON.stringify({
         name,email,number,password,cpassword
       })
-  } );
-  const data = await res.json();
+    } );
+    const data = await res.json();
   
   if(res.status === 201){
     window.alert("succesful registeration");

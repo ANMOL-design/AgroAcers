@@ -26,13 +26,13 @@ class Footer extends React.Component {
               <hr />
               <ul className="usefull-links-item">
                 <li className="usefull-links-list">
-                  <Link className="usefull-links" to="">
+                  <Link className="usefull-links" to="/about">
                     About us
                   </Link>
                 </li>
 
                 <li className="usefull-links-list">
-                  <Link className="usefull-links" to="">
+                  <Link className="usefull-links" to="/contact">
                     Contact us
                   </Link>
                 </li>
@@ -56,7 +56,7 @@ class Footer extends React.Component {
                 </li>
 
                 <li className="usefull-links-list">
-                  <Link className="usefull-links" to="">
+                  <Link className="usefull-links" to="/PrivacyPolicy">
                     Privacy policy
                   </Link>
                 </li>
