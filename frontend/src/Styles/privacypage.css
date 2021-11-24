@@ -1,0 +1,24 @@
+.privacy-page-heading{
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+}
+.privacypagecontainer{
+    margin: 5%;
+}
+.privacy-head-1{
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 3%;
+    text-align: left;
+}
+.privacy-2{
+    font-size: 18px;
+    font-weight: 400;
+    text-align: left;
+}
+@media (max-width: 450px){
+    .privacy-page-heading{
+        font-size: 32px;
+    }
+}
