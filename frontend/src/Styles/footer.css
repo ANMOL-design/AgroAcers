@@ -1,100 +1,131 @@
 .Footer-container {
-  background-color: #efeeee;
-  bottom: 0px;
+    background-color: #efeeee;
+    bottom: 0px;
 }
-.footer-section-1 {
-  display: flex;
+
+.footer-section {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
+
 .footer-aboutus-container {
-  margin-left: 5%;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  width: 20%;
+    width: 25%;
+    padding: 30px 15px;
 }
 
 .usefull-link-container {
-  margin-left: 5%;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  width: 20%;
+    padding: 30px 10px;
+    width: 25%;
 }
 
 .usefull-links-list {
-  list-style: none;
-  text-decoration: none;
-  color: black;
+    list-style: none;
+    text-decoration: none;
+    color: black;
 }
 
 .usefull-links {
-  text-decoration: none;
-  color: black;
+    text-decoration: none;
+    color: black;
 }
 
 .subscribe-form-container {
-  margin-left: 5%;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  width: 20%;
+    padding: 30px 10px;
+    width: 25%;
 }
 
 .subscribe-form input {
-  background: none;
-  margin-bottom: 7%;
-  margin-left: 5%;
-  width: 80%;
-  border: 2px solid gray;
-  border-radius: 2px;
+    background: none;
+    margin-bottom: 7%;
+    margin-left: 5%;
+    width: 85%;
+    border: 2px solid gray;
+    border-radius: 3px;
+    padding: 2px;
 }
 
 .subscribe-form button {
-  margin-left: 25%;
+    margin-left: 5%;
 }
 
 .footer-location-container {
-  margin-left: 5%;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  width: 20%;
+    padding: 30px 10px;
+    width: 25%;
 }
 
 .footer-map {
-  width: 80%;
+    width: 90%;
+    border: 1px solid #ddd;
+    padding: 5px;
 }
+
 .footer-payment-img {
-  width: 35px;
-  margin-left: 7%;
+    width: 30px;
+    margin-left: 12px;
+    margin-bottom: 5px;
 }
+
 .payment-app-container {
-  display: block;
-  margin-left: 85%;
+    display: block;
+    margin-left: 78%;
 }
+
 
 /**  CSS for Bottom Copyright (No need to add media) */
 
 .copyright-footer-container {
-  background-color: #77bc3f;
+    background-color: #77bc3f;
 }
 
 .copyright-footer-text {
-  padding: 1%;
-  margin-bottom: 0%;
-  text-align: center;
+    padding: 1%;
+    margin-bottom: 0%;
+    text-align: center;
 }
 
-/* media queries */
-@media (max-width: 550px) {
-  .footer-section-1 {
-    display: flex;
-    flex-direction: column;
-  }
-  .footer-aboutus-container , .usefull-link-container , .subscribe-form-container,.footer-location-container {
-    margin-left: 10%;
-    width: 80%;
-  }
 
-  .payment-app-container {
-    margin-left: 55%;
-    margin-top: 10%;
-    padding-bottom: 5%;
-  }
+/* media queries */
+
+@media (max-width: 1100px) {
+    .footer-aboutus-container,
+    .usefull-link-container,
+    .subscribe-form-container,
+    .footer-location-container {
+        width: 45%;
+    }
+    .payment-app-container {
+        margin-left: 65%;
+        margin-top: 5%;
+        padding-bottom: 2%;
+    }
+}
+
+@media (max-width: 800px) {
+    .footer-aboutus-container,
+    .usefull-link-container,
+    .subscribe-form-container,
+    .footer-location-container {
+        width: 48%;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-section {
+        display: flex;
+        flex-direction: column;
+    }
+    .footer-aboutus-container,
+    .usefull-link-container,
+    .subscribe-form-container,
+    .footer-location-container {
+        margin-left: 10%;
+        width: 80%;
+    }
+    .payment-app-container {
+        margin-left: 55%;
+        margin-top: 10%;
+        padding-bottom: 5%;
+    }
 }

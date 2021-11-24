@@ -5,7 +5,7 @@ class PrivacyPolicy extends React.Component {
   render() {
     return (
       <>
-        <div className="privacypagecontainer">
+        <div className="container-fluid">
           <div className="privacy-page-heading">
             AgroAcers Privacy Policy
             <p className="privacy-head-1">

@@ -16,7 +16,7 @@ class CrousalBanner extends React.Component{
       };
         return( 
             <>
-                <div className="crousal-banner-container">
+                <div className="crousal-banner-container" style={{marginTop : "2px"}}>
                     <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
                         <div className="carousel-inner">
                             <div className="carousel-item active">
