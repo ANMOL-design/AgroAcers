@@ -9,6 +9,7 @@ import PageNotFound from './component/PageNotFound/PageNotFound';
 import Footer from './component/footer/footer';
 import ContactPage from './component/contactPage/contactPage';
 import PrivacyPolicy from './component/footer/PrivacyPolicy';
+import AboutUS from './component/AboutUs/about';
 
 class App extends React.Component {
   render(){
@@ -20,6 +21,7 @@ class App extends React.Component {
                 <Route path="login" element={<Login/>}/>
                 <Route path="register" element={<Register/>}/>
                 <Route path="contact" element={<ContactPage/>}/>
+                <Route path="about" element={<AboutUS />} />
                 <Route path="PrivacyPolicy" element={<PrivacyPolicy/>}/>
                 <Route path="register/login" element={<Login/>}/>
                 <Route path="/" element={<Home/>} exact/>

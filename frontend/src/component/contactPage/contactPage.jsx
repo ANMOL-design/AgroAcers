@@ -2,22 +2,24 @@ import React,{useState} from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "../../Styles/contactus.css";
 import farmerImage from "../../Images/New Img/farmer.jpg";
+import {useNavigate} from 'react-router-dom';
 
 const ContactPage =()=>{
+    const navigate = useNavigate();
     const [contact,setContact] = useState({
       name:"",email:"",phonenumber:"",subject:"",query:""
-  })
-  let name , value;
-const  handleInput = async (e)=>{
-  console.log(e);
-name = e.target.name;
-value = e.target.value;
-setContact({...contact , [name]:value})
-}
-const postData =async (e)=>{
-  e.preventDefault();
-  const {name,email,phonenumber,subject,query} = contact;
-  const res =  await fetch("/contactus" ,{
+    })
+    let name , value;
+    const  handleInput = async (e)=>{
+          console.log(e);
+          name = e.target.name;
+          value = e.target.value;
+          setContact({...contact , [name]:value})
+      }
+    const postData =async (e)=>{
+    e.preventDefault();
+    const {name,email,phonenumber,subject,query} = contact;
+    const res =  await fetch("/contactus" ,{
     method : "POST",
     headers : { 
         "content-Type" : "application/json"
@@ -25,16 +27,16 @@ const postData =async (e)=>{
     body : JSON.stringify({
       name,email,phonenumber,subject,query
     })
-} );
-const data = await res.json();
-console.log(contact)
-if(res.status === 201){
-  window.alert("your query is succesfuly registered our expert team reply you ");
-}
-else {
- 
-  window.alert("error occured , try again")
-}
+  });
+  const data = await res.json();
+  console.log(contact)
+  if(res.status === 201){
+      window.alert("Your query is succesfully registered our expert team will reply you soon.");
+      navigate('/', { replace: true });
+  }
+  else {
+    window.alert("Error occured , try again")
+  }
 }
     return (
       <>
