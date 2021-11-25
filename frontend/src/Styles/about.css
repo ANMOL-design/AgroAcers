@@ -1,0 +1,41 @@
+.about-banner {
+    width: 100%;
+    text-align: center;
+    background-image: linear-gradient(45deg, rgba(90, 128, 0, 0.3), rgba( 0, 0, 128, 0.58)), url("./../Images/crousal/11.jfif");
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    margin-top: 8px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.about-banner-heading {
+    font-size: 4rem;
+    padding: 16px;
+}
+
+.about-banner-para {
+    font-size: 17px;
+}
+
+.about-outer-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.about-img {
+    width: 99%;
+    border-radius: 5px;
+}
+
+.about-heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 24px;
+}
+
+.about-para {
+    text-align: justify;
+    font-size: 14px;
+}
