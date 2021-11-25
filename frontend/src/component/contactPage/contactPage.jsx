@@ -7,7 +7,7 @@ import {useNavigate} from 'react-router-dom';
 const ContactPage =()=>{
     const navigate = useNavigate();
     const [contact,setContact] = useState({
-      name:"",email:"",phonenumber:"",subject:"",query:""
+      name:"",email:"",phonenumber:"",subject:"",query:"",time:""
     })
     let name , value;
     const  handleInput = async (e)=>{
@@ -19,13 +19,21 @@ const ContactPage =()=>{
     const postData =async (e)=>{
     e.preventDefault();
     const {name,email,phonenumber,subject,query} = contact;
+    let today  = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth()+1;
+    let yy =today.getFullYear();
+    let hh = today.getHours();
+    let mi = today.getMinutes();
+    let ss = today.getSeconds();
+    let time = dd+"/"+mm+"/"+yy+"("+hh+":"+mi+":"+ss+")";
     const res =  await fetch("/contactus" ,{
     method : "POST",
     headers : { 
         "content-Type" : "application/json"
     },
     body : JSON.stringify({
-      name,email,phonenumber,subject,query
+      name,email,phonenumber,subject,query,time
     })
   });
   const data = await res.json();

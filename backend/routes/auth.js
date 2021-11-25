@@ -23,7 +23,7 @@ router.get("/",(req,res)=>{
     res.send("hello world")
 })
 router.post("/register",(req,res)=>{
-    const {name,email,number,password,cpassword} = req.body;
+    const {name,email,number,password,cpassword,time} = req.body;
     console.log(name);
 
     if(!name || !email || !number || !password || !cpassword){
@@ -42,7 +42,7 @@ router.post("/register",(req,res)=>{
         if(existingUser){
             res.status(422).json({msg:"user already exist"})
         }
-        const user = new User({name,email,number,password,cpassword});
+        const user = new User({name,email,number,password,cpassword,time});
         user.save().then(()=>{
             res.status(201).json({msg:" registered succesfully"})
         }).catch((err)=>{

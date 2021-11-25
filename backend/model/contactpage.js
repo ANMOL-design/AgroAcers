@@ -20,6 +20,10 @@ const contactPageSchema = mongoose.Schema({
       query: {
         type: String,
         required: true,
+      },
+      time: {
+        type: String,
+        required: true,
       }
 })
 const contactPage = mongoose.model("CONTACTPAGE" , contactPageSchema);

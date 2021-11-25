@@ -20,7 +20,7 @@ const ContactData = require("../model/contactpage");
 
 router.post("/contactus", (req, res) => {
   try {
-    const { name, email, phonenumber, subject, query } = req.body;
+    const { name, email, phonenumber, subject, query,time } = req.body;
     if (!name || !email || !phonenumber || !subject || !query) {
       res.json({ msg: "filled are required to fill" });
     } else {
@@ -30,6 +30,7 @@ router.post("/contactus", (req, res) => {
         phonenumber,
         subject,
         query,
+        time
       });
       newContactData
         .save()

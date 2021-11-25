@@ -103,7 +103,11 @@
 .fouImg {
     border-radius: 10px;
 }
-
+.knowmore-btn{
+    width: 60%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+}
 .fouImground {
     width: 41%;
     height: 38%;

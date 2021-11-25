@@ -120,7 +120,7 @@ class AboutUS extends React.Component {
                         {/* Anmol  */}
                         <div className="card foundercard">
                             <img src={tech} className="card-img-top fouImg" alt="Founder" />
-                            <div className="card-body">
+                            <div className="card-body" >
                                 <h5 className="card-title card-f-head">Anmol Garg</h5>
                                 <p className="card-f-para">Co-Founder, AgroAcers</p>
                                 <hr style={{margin: "6px"}}/>
@@ -130,14 +130,14 @@ class AboutUS extends React.Component {
                         </div>
                         {/* Aman  */}
                         <div className="card foundercard">
-                            <img src={tech} className="card-img-top fouImg" alt="Founder" />
+                            <img src={tech} className="card-img-top fouImg"  alt="Founder" />
                             <div className="card-body">
                                 <h5 className="card-title card-f-head">AmanDeep Singh</h5>
                                 <p className="card-f-para">Co-Founder, AgroAcers</p>
                                 <hr style={{margin: "6px"}}/>
                                 <p className="card-text card-f-para2">Aman has over 5 years experience in Soil and water managementand has been part of multiple organization work for welfare of Farmers. </p>
                             </div>
-                            <img src={Aman} className="card-img-top fouImground" alt="Founder" />
+                            <img src={Aman} className="card-img-top fouImground " alt="Founder" />
                         </div>
                     </div>
                 </div>

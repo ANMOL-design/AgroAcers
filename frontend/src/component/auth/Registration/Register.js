@@ -6,8 +6,9 @@ const  Register = ()=>{
     const navigate = useNavigate();
     // const history = useHistory();
     const [user,setUser] =useState({
-        name:"",email:"",number:"",password:"",cpassword:""
+        name:"",email:"",number:"",password:"",cpassword:"",time:""
     })
+    
     let name , value;
   const  handleInput =async (e)=>{
       console.log(e);
@@ -18,14 +19,21 @@ const  Register = ()=>{
   const postData =async (e)=>{
   e.preventDefault();
   const {name,email,number,password,cpassword} = user;
-
+  let today  = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth()+1;
+    let yy =today.getFullYear();
+    let hh = today.getHours();
+    let mi = today.getMinutes();
+    let ss = today.getSeconds();
+    let time = dd+"/"+mm+"/"+yy+"("+hh+":"+mi+":"+ss+")";
   const res =  await fetch("/register" ,{
       method : "POST",
       headers : { 
           "content-Type" : "application/json"
       },
       body : JSON.stringify({
-        name,email,number,password,cpassword
+        name,email,number,password,cpassword,time
       })
     } );
     const data = await res.json();
