@@ -10,6 +10,7 @@ const middleware = (req, res, next) => {
     console.log("middleware");
 }
 middleware();
+const PORT = 5000;
 
 mongoose.connect(
     process.env.MONGODB_CONNECTION_STRING, {
@@ -24,6 +25,6 @@ mongoose.connect(
 );
 
 
-app.listen(3000, () => {
-    console.log("server is running port No 3000")
+app.listen(PORT, () => {
+    console.log("server is running port No " + PORT)
 })

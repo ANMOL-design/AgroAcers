@@ -50,13 +50,13 @@ const ContactPage =()=>{
                           <img className="farmer-image" src={farmerImage} alt="farmer" />
                           <div className="farmer-address" >
                               <h5>Office Address/Postal Address</h5>
-                              <p>
+                              <cite>
                                   Office of CEO, AgroAcers<br />
                                   3rd Floor, Room no-3015<br />
                                   Anand Vihar, 6, CGO Complex<br />
                                   Lodhi Road, New Delhi, <br />
                                   India<br />
-                              </p>
+                              </cite>
                           </div>
                       </div>
                   </div>
