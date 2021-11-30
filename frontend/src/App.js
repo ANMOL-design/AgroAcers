@@ -10,6 +10,7 @@ import Footer from './component/footer/footer';
 import ContactPage from './component/contactPage/contactPage';
 import PrivacyPolicy from './component/footer/PrivacyPolicy';
 import AboutUS from './component/AboutUs/about';
+import MandiRate from './component/mandiRate/mandiRate.jsx';
 
 class App extends React.Component {
   render(){
@@ -22,6 +23,7 @@ class App extends React.Component {
                 <Route path="register" element={<Register/>}/>
                 <Route path="contact" element={<ContactPage/>}/>
                 <Route path="about" element={<AboutUS />} />
+                <Route path="mandirates" element={<MandiRate/>} />
                 <Route path="PrivacyPolicy" element={<PrivacyPolicy/>}/>
                 <Route path="register/login" element={<Login/>}/>
                 <Route path="/" element={<Home/>} exact/>

@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const bycrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const mandiData = require('../data/data.json')
 dotenv.config()
 mongoose.connect(
     process.env.MONGODB_CONNECTION_STRING,
@@ -18,10 +19,6 @@ mongoose.connect(
      }
      );
 const User = require("../model/userschema") 
-router.get("/",(req,res)=>{
-    // res.cookie("test","aman")
-    res.send("hello world")
-})
 router.post("/register",(req,res)=>{
     const {name,email,number,password,cpassword,time} = req.body;
     console.log(name);
@@ -52,8 +49,10 @@ router.post("/register",(req,res)=>{
   console.log(err)
     })
 })
-
-
+//mandidata
+router.get('/data',(req,res)=>{
+  res.send(mandiData);
+})
 //login
 router.post('/login',async (req,res)=>{
     try{

@@ -51,7 +51,7 @@ class Navbar extends React.Component{
                                           </Link>
                                           <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                                               <NavLink className="dropdown-item" to="/crop">Crops</NavLink>
-                                              <NavLink className="dropdown-item" to="/mandi">Mandi Price</NavLink>
+                                              <NavLink className="dropdown-item" to="/mandirates">Mandi Price</NavLink>
                                               <NavLink className="dropdown-item" to="/agri">Courses/Universities</NavLink>
                                               <NavLink className="dropdown-item" to="/Govt">Government Policies </NavLink>
                                           </div>

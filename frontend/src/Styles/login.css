@@ -1,0 +1,206 @@
+.login-page{
+    display: flex;
+   border:  1px solid gray;
+   padding: 2%;
+   width: 50%;
+   background-color: white;
+  margin: 10px;
+  margin: auto;
+  margin-top: 4%;
+  margin-bottom: 5%;
+   border-radius: 12px;
+   -moz-box-shadow:    3px 3px 5px 5px  grey;
+   -webkit-box-shadow: 3px 3px 5px 5px grey;
+   box-shadow:         3px 3px 5px 5px grey;
+}
+
+.login-heading{
+    font-weight: 700;
+    color: rgba(119, 188, 63, 0.9);
+    margin-top: 20%;
+}
+.email-input , .password-input{
+    border: none;
+    border-bottom: 2px solid black;
+    background:transparent;
+    list-style: none;
+    margin-top: 10%;
+}
+.email-input textarea{
+    background-color: aliceblue;
+}
+.email-input:focus ,.password-input:focus {
+    outline: none;
+}
+input::placeholder{
+    background-color: white;
+}
+form{
+    margin-top: 10%;
+}
+.password-input{
+    margin-top: 30%;
+}
+.login-par{
+    margin-left: 15px;
+}
+.form-submit{
+    width: 200px;
+    margin-top: 30%;
+    border: none;
+    padding: 5px;
+    background-color: rgba(119, 188, 63, 0.9);
+    border-radius: 8px;
+    box-shadow: 3px 3px 3px grey;
+    margin-right: 15px;
+    color: white;
+
+}
+.form-submit:hover{
+    background-color: rgb(100, 184, 32);
+}
+@media  (max-width: 768px )
+
+{
+    .login-page {
+     flex-direction: column;
+     padding: 5%;
+     width: 90%;
+     margin-top: 16%;
+     margin-bottom: 15%;
+ }
+ .login-heading{
+     margin-top: 1%;
+     font-size: 48px;
+     text-align: center;
+ }
+ .email-input , .password-input{
+     background:transparent;
+     margin-top: 0%;
+     width: 260px;
+ }
+ 
+ form{
+     margin-top: 5%;
+     margin-left: 25%;
+ }
+ .password-input{
+     margin-top: 20%;
+ }
+ .login-par{
+     margin-left: 20%;
+     position: absolute;
+     top: 950px;
+ }
+ .form-submit{
+     margin-top: 20%;
+     margin-bottom: 15%;
+     margin-left: 10%;
+ }
+}
+
+@media (max-width: 425px){
+    .login-page {
+     flex-direction: column;
+     padding: 5%;
+     width: 90%;
+     margin-top: 16%;
+     margin-bottom: 15%;
+ }
+ .login-heading{
+     margin-top: 1%;
+     font-size: 34px;
+     text-align: center;
+ }
+ .email-input , .password-input{
+     background:transparent;
+     margin-top: 5%;
+ }
+ 
+ form{
+     margin-top: 10%;
+     margin-left: 5%;
+ }
+ .password-input{
+     margin-top: 20%;
+ }
+ .login-par{
+     margin-left: 15px;
+     position: absolute;
+     top: 780px;
+ }
+ .form-submit{
+     margin-top: 20%;
+     margin-bottom: 15%;
+ }
+}
+@media (max-width: 375px){
+    .login-page {
+     flex-direction: column;
+     padding: 5%;
+     width: 90%;
+     margin-top: 16%;
+     margin-bottom: 15%;
+ }
+ .login-heading{
+     margin-top: 1%;
+     font-size: 34px;
+     text-align: center;
+ }
+ .email-input , .password-input{
+     background:transparent;
+     margin-top: 5%;
+ }
+ 
+ form{
+     margin-top: 10%;
+     margin-left: 5%;
+ }
+ .password-input{
+     margin-top: 20%;
+ }
+ .login-par{
+     margin-left: 15px;
+     position: absolute;
+     top: 740px;
+ }
+ .form-submit{
+     margin-top: 20%;
+     margin-bottom: 15%;
+ }
+}
+@media (max-width: 320px){
+       .login-page {
+        flex-direction: column;
+        padding: 5%;
+        width: 90%;
+        margin-top: 16%;
+        margin-bottom: 15%;
+    }
+    .login-heading{
+        margin-top: 1%;
+        font-size: 34px;
+        text-align: center;
+    }
+    .email-input , .password-input{
+        background:transparent;
+        margin-top: 5%;
+    }
+    
+    form{
+        margin-top: 10%;
+        margin-left: 5%;
+    }
+    .password-input{
+        margin-top: 20%;
+    }
+    .login-par{
+        margin-left: 15px;
+        position: absolute;
+        top: 720px;
+    }
+    .form-submit{
+        margin-top: 20%;
+        margin-bottom: 15%;
+    }
+}

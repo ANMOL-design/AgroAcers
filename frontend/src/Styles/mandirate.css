@@ -1,0 +1,26 @@
+.table-row{
+    border: 2px solid gray;
+}
+.table-head{
+    border: 2px solid rgb(78, 78, 78);
+    background-color: #84c352;
+    padding: 5px;
+    color: white;
+    font-weight: 900;
+
+
+}
+table{
+    margin: 10%;
+}
+.table-des{
+    border: 2px solid gray;
+    padding: 5px;
+    background-color: #85c35259;
+    
+}
+.table-des-2{
+    border: 2px solid gray;
+    padding: 5px;
+    background-color: #85c3523a;
+}
