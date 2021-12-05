@@ -102,24 +102,27 @@
 
 .fouImg {
     border-radius: 10px;
+    height: 40%;
 }
-.knowmore-btn{
+
+.knowmore-btn {
     width: 60%;
     margin-left: 5%;
     margin-bottom: 5%;
 }
+
 .fouImground {
-    width: 41%;
-    height: 38%;
+    width: 38%;
+    height: 36%;
     position: absolute;
     border-radius: 50%;
     border: 4px solid #fff;
-    left: 24px;
-    top: 18%;
+    left: 25px;
+    top: 12%;
 }
 
 .card-f-head {
-    margin-top: 18px;
+    margin-top: 1.5rem;
     font-weight: 700;
     color: rgba(0, 0, 0, 0.9);
     font-size: 1.3rem;
@@ -163,6 +166,11 @@
     .about-story-heading {
         font-size: 2.8rem;
     }
+    .fouImground {
+        width: 36%;
+        height: 34%;
+        top: 11%;
+    }
 }
 
 @media (max-width: 645px) {
@@ -174,5 +182,10 @@
 @media (max-width: 500px) {
     .card {
         width: 95%;
+    }
+    .fouImground {
+        width: 34%;
+        height: 32%;
+        top: 10%;
     }
 }

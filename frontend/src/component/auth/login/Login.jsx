@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useNavigate , Link} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "../../../Styles/login.css";
-import loginfarm from "../../../Images/login/login-farmer.jpg";
+import loginfarm from "../../../Images/New Img/farm2.jpg";
+
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -28,62 +29,73 @@ const Login = () => {
       window.alert("Invalid credential");
     }
   };
+
   return (
     <>
-      <div className="bg-container" id="main-container">
-        <div className="login-page">
-          <div className="login-side-img">
-            <img className="img-fluid" src={loginfarm} alt="loginfarmer" />
-            <p className="login-par">already have account? <Link to="/register">Register</Link> </p>
-          </div>
-          <div className="login-form-container">
-            <h2 className="login-heading">Log in</h2>
-            <form method="POST">
-              <label htmlFor="email">
-                <i class="fa fa-user"></i>
-                <input
-                  className="email-input"
-                  autoComplete="off"
-                  type="email"
-                  name="email"
-                  autoComplete="off"
-                  value={email}
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                  }}
-                  id="email"
-                  placeholder="Enter your email"
-                />
-              </label>
-              <br />
-              <label htmlFor="password">
-                <i class="fa fa-lock"></i>
-                <input
-                  className="password-input"
-                  type="password"
-                  name="password"
-                  autoComplete="off"
-                  value={password}
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                  }}
-                  id="password"
-                  placeholder="Enter your password"
-                />
-              </label>
-              <br />
-              <div className="login-btn btn">
-                <input
-                  type="submit"
-                  name="login"
-                  onClick={loginUser}
-                  id="login"
-                  className="form-submit"
-                  value="login"
-                />
-              </div>
-            </form>
-          </div>
+      <div id="main-container">
+        <div className="login_container">
+            {/* Image code  */}
+            <div className="col-md-6 hidelogin">
+               <img src={loginfarm} alt="Famer" className="LoginsideImg"/>
+            </div>
+            {/* form code  */}
+            <div className="col-md-6 col-sm-12">
+              <div className="login-page">
+                  <div className="login-form-container">
+                      <h2 className="login-heading">Sign in to your account</h2>
+                      <p className="login-para">"Do not wait until the conditions are perfect.<br />&nbsp;&nbsp;&nbsp;&nbsp;Beginning makes the condition perfect."</p>
+                      
+                      <form method="POST">
+                          <label htmlFor="email" className="labelinp">
+                              <i className="fa fa-user">&nbsp;</i>
+                              <input
+                                  className="email-input"
+                                  autoComplete="off"
+                                  type="email"
+                                  name="email"
+                                  value={email}
+                                  onChange={(e) => {
+                                      setEmail(e.target.value);
+                                    }}
+                                  id="email"
+                                  placeholder="Enter your email"
+                              />
+                          </label>
+                          <br />
+
+                          <label htmlFor="password" className="labelinp">
+                                <i className="fa fa-lock">&nbsp;</i>
+                                <input
+                                    className="password-input"
+                                    type="password"
+                                    name="password"
+                                    autoComplete="off"
+                                    value={password}
+                                    onChange={(e) => {
+                                      setPassword(e.target.value);
+                                    }}
+                                    id="password"
+                                  placeholder="Enter your password"
+                                />
+                          </label>
+                          <br />
+                          <div>
+                              <p className="login-par-reg">Don't have account? <Link to="/register">Register</Link> </p>
+                          </div>
+                          <label htmlFor="submit" className="labelinp btn">
+                            <input
+                                type="submit"
+                                name="login"
+                                onClick={loginUser}
+                                id="login"
+                                className="form-submit"
+                                value="Sign In"
+                            />
+                          </label> 
+                      </form>
+                  </div>
+               </div>
+            </div>
         </div>
       </div>
     </>

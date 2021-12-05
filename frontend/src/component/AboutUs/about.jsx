@@ -125,6 +125,7 @@ class AboutUS extends React.Component {
                                 <p className="card-f-para">Co-Founder, AgroAcers</p>
                                 <hr style={{margin: "6px"}}/>
                                 <p className="card-text card-f-para2">Anmol has a great passion for farming and help other farmers in adopt organic farming which reduces their input cost and provide high yielding. </p>
+                                <a href="https://www.linkedin.com/in/anmol-garg-25a5771a2/"  target="_blank" class="btn btn-primary">Know More</a>
                             </div>
                             <img src={Anmol} className="card-img-top fouImground" alt="Founder" />
                         </div>
@@ -136,6 +137,7 @@ class AboutUS extends React.Component {
                                 <p className="card-f-para">Co-Founder, AgroAcers</p>
                                 <hr style={{margin: "6px"}}/>
                                 <p className="card-text card-f-para2">Aman has over 5 years experience in Soil and water managementand has been part of multiple organization work for welfare of Farmers. </p>
+                                <a href="https://www.linkedin.com/in/amandeep-singh-699026196/" target="_blank" class="btn btn-primary">Know More</a>
                             </div>
                             <img src={Aman} className="card-img-top fouImground " alt="Founder" />
                         </div>
