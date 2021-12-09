@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate , Link} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "../../../Styles/login.css";
 import loginfarm from "../../../Images/New Img/farm2.jpg";
-
+import { UserContext } from "../../../App";
 const Login = () => {
+  const {state,dispatch} = useContext(UserContext)
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,16 +21,16 @@ const Login = () => {
         password,
       }),
     });
-    const data = res.JSON;
    
     if (res.status === 201) {
+      dispatch({type:"USER",payload:true})
       window.alert("Login succesful");
       navigate("/", { replace: true });
     } else {
       window.alert("Invalid credential");
     }
   };
-
+ 
   return (
     <>
       <div id="main-container">

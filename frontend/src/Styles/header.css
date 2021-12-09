@@ -2,6 +2,7 @@
     padding: 10px;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.8);
     font-weight: 500;
+    background-color: white;
 }
 
 .collapse {
@@ -12,7 +13,13 @@
 .nav-box-margin {
     margin-left: 135px;
 }
-
+.btn-secondary{
+    background-color: #77BC3F;
+    border-radius: 40px;
+}
+.btn-secondary:hover{
+    background-color: #6fe211;
+}
 .navbar-light .navbar-nav .nav-link:link {
     color: #77BC3F;
     padding: 8px 10px;

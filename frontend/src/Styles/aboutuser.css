@@ -1,0 +1,78 @@
+
+.User-template-img img{
+    width: 200px;
+    margin-left: 10%;
+    margin: 10%;
+}
+
+.User-template-img{
+   width: 300px;
+   height: 400px;
+   display: inline-block;
+   background-color: white;
+   border: 2px solid black;
+   border-radius: 20px;
+   box-shadow: 4px 4px 4px gray;
+   margin-top: 10%;
+}
+.profile-link{
+    font-size: 32px;
+    text-decoration: none;
+    margin-left: 20%;
+}
+.username{
+    font-weight: 700;
+    margin-left: 10%;
+}
+.about-user-card{
+    width: 700px;
+    height: 400px;
+   padding: 40px 80px;
+    display: inline-block;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 20px;
+    box-shadow: 8px 8px 4px gray;
+    margin-left: 10%;
+    margin-bottom: 10%;
+}
+.profile-head{
+    font-size: 52px;
+    margin-bottom: 10%;
+}
+.UserLabel{
+    color: rgba(20, 20, 233, 0.822);
+    margin-top: 5%;
+    
+}
+.user-text{
+    margin-top: 10%;
+}
+@media (max-width: 768px) {
+    .User-template-img img{
+        width: 150px;
+    }
+    
+    .User-template-img{
+       width: 200px;
+       height: 300px;
+    }
+    .profile-link{
+        font-size: 22px;
+    }
+    .username{
+        font-size: 22px;
+    }.about-user-card{
+        width: 400px;
+        height: 300px;
+       padding: 20px 40px;
+       
+    }
+    .profile-head{
+        font-size: 32px;
+    }
+
+    .user-text{
+        font-size: 22px;
+    }
+}

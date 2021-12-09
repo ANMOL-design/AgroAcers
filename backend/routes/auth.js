@@ -4,7 +4,11 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const bycrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+router.use(express.json());
 const mandiData = require('../data/data.json')
+const Authentication = require('../middleware/authentication')
+var cookieParser = require('cookie-parser');
+router.use(cookieParser());
 dotenv.config()
 mongoose.connect(
     process.env.MONGODB_CONNECTION_STRING,
@@ -110,4 +114,17 @@ router.post('/login',async (req,res)=>{
     //     res.status(500).json({msg:"error occured fail to login"})
     // })
 })
+
+router.get('/aboutuser', Authentication, (req, res) => {
+    res.send(req.rootUser);
+
+  
+  });
+router.get('/logout',(req, res) => {
+    res.clearCookie('jwtToken')
+    res.status(200).send('user logout');
+   console.log("logout")
+  
+  });
+  
 module.exports = router;

@@ -12,9 +12,24 @@ class MandiRate extends React.Component {
     this.state = {
       items: [],
       DataisLoaded: false,
+      dataslice :10
     };
+    this.handleClick = this.handleClick.bind(this)
+    this.handleClick2 = this.handleClick2.bind(this)
   }
-
+  handleClick(){
+    
+    // Changing state
+    this.setState({dataslice:this.state.dataslice+10})
+  }
+  handleClick2(){
+    
+    // Changing state
+    this.setState({dataslice:this.state.dataslice-10})
+    if(this.state.dataslice<20){
+      this.setState({dataslice:10})
+    }
+  }
   // ComponentDidMount is used to
   // execute the code
   componentDidMount() {
@@ -37,11 +52,7 @@ class MandiRate extends React.Component {
 
         
       );
-      const dataid = 0;
-    let dataslice = 90;
-    function data1() {
-      dataslice = dataslice + 10;
-    }
+
     return (
       <div className="App">
         <div className="mandi-rate-banner">
@@ -81,7 +92,7 @@ class MandiRate extends React.Component {
           </thead>
 
           <tbody>
-             {items.slice(0, dataslice).map((item) => (
+             {items.slice(0, this.state.dataslice).map((item) => (
                
               <tr className="table-row">
                 <td className="table-des">{item.state}</td>
@@ -97,7 +108,8 @@ class MandiRate extends React.Component {
   
           </tbody>
         </table>
-        <button onClick={data1}>Load more</button>
+        <button onClick={this.handleClick}>Load more</button>
+        <button onClick={this.handleClick2}>Load less</button>
       </div>
     );
   }

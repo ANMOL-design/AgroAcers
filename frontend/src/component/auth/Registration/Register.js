@@ -41,7 +41,7 @@ const  Register = ()=>{
             name,email,number,password,cpassword,time
         })
     } );
-    const data = await res.json();
+    
   
     if(res.status === 201){
         window.alert("Successful Registration.\nCongratulation now you are a part of Agro Family.");

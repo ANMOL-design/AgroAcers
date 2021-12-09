@@ -52,7 +52,7 @@ class Footer extends React.Component {
                             </li>
 
                             <li className="usefull-links-list">
-                                <Link className="usefull-links" to="">
+                                <Link className="usefull-links" to="/mandirates">
                                   Mandi Rates
                                 </Link>
                             </li>

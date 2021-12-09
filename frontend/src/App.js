@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext, useReducer } from 'react';
 import "./Styles/index.css"
 import {BrowserRouter, Route,Routes}  from 'react-router-dom'
 import Navbar from "./component/header/Navbar";
@@ -11,30 +11,49 @@ import ContactPage from './component/contactPage/contactPage';
 import PrivacyPolicy from './component/footer/PrivacyPolicy';
 import AboutUS from './component/AboutUs/about';
 import MandiRate from './component/mandiRate/mandiRate.jsx';
-
-class App extends React.Component {
-  render(){
+import Logout from './component/auth/logout/logout';
+import { initialState,reducer} from './Reducer/useReducer';
+import AboutUser from './component/User/AboutUse';
+export const UserContext = createContext();
+const Routing = ()=>{
+  
+  return(
+    <>
+    
+        <Routes>
+              <Route path="login" element={<Login/>}/>
+              <Route path="register" element={<Register/>}/>
+              <Route path="contact" element={<ContactPage/>}/>
+              <Route path="about" exact element={<AboutUS />} />
+              <Route path="mandirates" element={<MandiRate/>} />
+              <Route path="AboutUser" exact element={<AboutUser/>} />
+              <Route path="register/login" element={<Login/>}/>
+              <Route path="logout" element={<Logout/>}/>
+              <Route path="PrivacyPolicy" element={<PrivacyPolicy/>}/>
+              <Route path="/" element={<Home/>} exact/>
+              <Route path="*" element={<PageNotFound/>}/>
+          </Routes>
+              </>
+          
+  );
+}
+const App = ()=> {
+ const [state,dispatch] =  useReducer(reducer,initialState)
   return (
+    
    <>
+   
       <BrowserRouter>
-          <Navbar/>
-          <Routes>
-                <Route path="login" element={<Login/>}/>
-                <Route path="register" element={<Register/>}/>
-                <Route path="contact" element={<ContactPage/>}/>
-                <Route path="about" element={<AboutUS />} />
-                <Route path="mandirates" element={<MandiRate/>} />
-                <Route path="PrivacyPolicy" element={<PrivacyPolicy/>}/>
-                <Route path="register/login" element={<Login/>}/>
-                <Route path="/" element={<Home/>} exact/>
-                <Route path="*" element={<PageNotFound/>}/>
-            </Routes>
-            <Footer />
+      <UserContext.Provider value={{state,dispatch}}>
+      <Navbar/>
+      <Routing />
+      <Footer />
+           </UserContext.Provider>
        </BrowserRouter>
    </>
 
   );
-    }
+    
 }
 
 export default App;
