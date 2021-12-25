@@ -2,6 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import bannerImg from "../../Images/crousal/4.jfif";
 import { Link } from "react-router-dom";
+import { Country, State, City } from "country-state-city";
 import "../../Styles/mandirate.css";
 import Loader from "../Loader";
 class MandiRate extends React.Component {
@@ -12,24 +13,39 @@ class MandiRate extends React.Component {
     this.state = {
       items: [],
       DataisLoaded: false,
-      dataslice :10
+      dataslice: 10,
+      search : "",
+      output:[]
     };
-    this.handleClick = this.handleClick.bind(this)
-    this.handleClick2 = this.handleClick2.bind(this)
+    this.handleClick = this.handleClick.bind(this);
+    this.handleClick2 = this.handleClick2.bind(this);
+    this.searchHandle = this.searchHandle.bind(this)
+    this.handlevalue = this.handlevalue.bind(this)
   }
-  handleClick(){
-    
+
+  handleClick() {
     // Changing state
-    this.setState({dataslice:this.state.dataslice+10})
+    this.setState({ dataslice: this.state.dataslice + 10 });
   }
-  handleClick2(){
-    
+  handleClick2() {
     // Changing state
-    this.setState({dataslice:this.state.dataslice-10})
-    if(this.state.dataslice<20){
-      this.setState({dataslice:10})
+    this.setState({ dataslice: this.state.dataslice - 10 });
+    if (this.state.dataslice < 20) {
+      this.setState({ dataslice: 10 });
     }
   }
+  searchHandle(){
+     
+    var ans =  this.state.items.filter(e=> e.state === this.state.search);
+    this.setState({output:ans})
+  
+  }
+  
+   handlevalue(j){
+     var inputvalue = j.target.value;
+     this.setState({search:inputvalue})
+   }
+  
   // ComponentDidMount is used to
   // execute the code
   componentDidMount() {
@@ -44,15 +60,16 @@ class MandiRate extends React.Component {
   }
 
   render() {
+  
     const { DataisLoaded, items } = this.state;
-    if (!DataisLoaded)
-      return (
-       
-         <Loader />
-
-        
-      );
-
+    console.log(this.state.search);
+     
+     
+    
+    
+   
+    if (!DataisLoaded) return <Loader />;
+ 
     return (
       <div className="App">
         <div className="mandi-rate-banner">
@@ -75,11 +92,55 @@ class MandiRate extends React.Component {
             </div>
           </div>
         </div>
-
+        <div className="filter-container">
+          <input list="searchBar" onChange={this.handlevalue} type="text" />
+          <datalist id="searchBar">
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Andaman and Nicobar Islands">
+              Andaman and Nicobar Islands
+            </option>
+            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+            <option value="Assam">Assam</option>
+            <option value="Bihar">Bihar</option>
+            <option value="Chandigarh">Chandigarh</option>
+            <option value="Chhattisgarh">Chhattisgarh</option>
+            <option value="Dadar and Nagar Haveli">
+              Dadar and Nagar Haveli
+            </option>
+            <option value="Daman and Diu">Daman and Diu</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Lakshadweep">Lakshadweep</option>
+            <option value="Puducherry">Puducherry</option>
+            <option value="Goa">Goa</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Haryana">Haryana</option>
+            <option value="Himachal Pradesh">Himachal Pradesh</option>
+            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+            <option value="Jharkhand">Jharkhand</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Manipur">Manipur</option>
+            <option value="Meghalaya">Meghalaya</option>
+            <option value="Mizoram">Mizoram</option>
+            <option value="Nagaland">Nagaland</option>
+            <option value="Odisha">Odisha</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Sikkim">Sikkim</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Telangana">Telangana</option>
+            <option value="Tripura">Tripura</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="Uttarakhand">Uttarakhand</option>
+            <option value="West Bengal">West Bengal</option>
+          </datalist>
+          <input type="button" onClick={this.searchHandle} value="search" />
+        </div>
         <table>
           <thead>
             <tr className="table-row">
-              
               <th className="table-head">State</th>
               <th className="table-head">District</th>
               <th className="table-head">Market</th>
@@ -92,8 +153,9 @@ class MandiRate extends React.Component {
           </thead>
 
           <tbody>
-             {items.slice(0, this.state.dataslice).map((item) => (
-               
+          
+            {this.state.output.slice(0, this.state.dataslice).map((item) => (
+           
               <tr className="table-row">
                 <td className="table-des">{item.state}</td>
                 <td className="table-des-2">{item.district}</td>
@@ -105,14 +167,14 @@ class MandiRate extends React.Component {
                 <td className="table-des-2">{item.modal_price}/Quantal</td>
               </tr>
             ))}
-  
           </tbody>
         </table>
         <button onClick={this.handleClick}>Load more</button>
         <button onClick={this.handleClick2}>Load less</button>
       </div>
     );
-  }
+            }
+  
 }
 
 export default MandiRate;

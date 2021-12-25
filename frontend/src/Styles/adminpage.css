@@ -1,0 +1,25 @@
+.admin-card-container{
+    display: flex;
+    justify-content: space-around;
+    margin:5%;
+    flex-wrap: wrap;
+
+}
+.admin-card-container .card{
+    margin-right: 5%;
+    margin-top: 5%;
+}
+.admin-card-container .card .btn{
+    background-color: #77bc3f;
+    border: none;
+}
+.admin-page-heading{
+    color:  #77bc3f;
+    font-size: 48px;
+    margin-top: 3%;
+    text-align: center;
+    
+}
+.admin-card-container .card .btn:hover{
+    background-color: #6de00e;
+}

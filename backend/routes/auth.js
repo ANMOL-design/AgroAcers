@@ -23,6 +23,7 @@ mongoose.connect(
      }
      );
 const User = require("../model/userschema") 
+
 router.post("/register",(req,res)=>{
     const {name,email,number,password,cpassword,time} = req.body;
     console.log(name);
@@ -70,7 +71,7 @@ router.post('/login',async (req,res)=>{
          const isMatch = await bycrypt.compare(password,userLogin.password)
          const token = await userLogin.generateAuthToken(); 
          res.cookie("jwtToken",token,{
-             expires: new Date(Date.now + 25892000000),
+             expires:  new Date(2147483647 * 1000),
              httpOnly :true
          })
      if(!isMatch){
@@ -126,5 +127,6 @@ router.get('/logout',(req, res) => {
    console.log("logout")
   
   });
+
   
 module.exports = router;

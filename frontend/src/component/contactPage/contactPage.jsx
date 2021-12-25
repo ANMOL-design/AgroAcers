@@ -1,10 +1,13 @@
-import React,{useState} from "react";
+import React,{useContext, useEffect, useState} from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "../../Styles/contactus.css";
 import farmerImage from "../../Images/New Img/farmer.jpg";
 import {useNavigate} from 'react-router-dom';
+import { UserContext } from "../../App";
 
 const ContactPage =()=>{
+  const [userData, setUserData] = useState({});
+  const { state, dispatch } = useContext(UserContext);
     const navigate = useNavigate();
     const [contact,setContact] = useState({
       name:"",email:"",phonenumber:"",subject:"",query:"",time:""
@@ -45,7 +48,36 @@ const ContactPage =()=>{
   else {
     window.alert("Error occured , try again")
   }
+
 }
+const callAboutPage = async () => {
+  try {
+    const res = await fetch("/aboutuser", {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    });
+
+    const data = await res.json();
+    console.log(data);
+    setUserData(data);
+
+    if (!res.status === 200) {
+      const error = new Error(res.error);
+      throw error;
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+useEffect(() => {
+  callAboutPage();
+}, []);
+
     return (
       <>
         <div className="container-fluid">
@@ -74,7 +106,7 @@ const ContactPage =()=>{
                             {/* Name  */}
                             <div class="m-2">
                                 <label for="NameI" class="form-label">Name</label>
-                                <input type="text" name="name" class="form-control" value={contact.name} onChange={handleInput} id="NameI" placeholder="John Smith" />
+                                <input type="text"  name="name" class="form-control" value={contact.name} onChange={handleInput} id="NameI" placeholder="John Smith" />
                             </div>
                             {/* Email  */}
                             <div class="m-2">
