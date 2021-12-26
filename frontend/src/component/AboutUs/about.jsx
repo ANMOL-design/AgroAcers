@@ -58,7 +58,7 @@ class AboutUS extends React.Component {
                         <li>They should apply for soil testing and use the ingredients which are required by soil not what market recommend.</li>
                         <li>Financially Stable farmers may adopt micro irrigation to save water for the poor farmers who cannot afford drip irrigation &amp; sprinklers etc.</li>
                         <li>or credit facilities do not buy what shopkeeper recommends you, either try to understand the ingredients or consult with Agro clinics.</li>
-                        <li>Don’t sow the only crop which is beneficial last year, because present year bulk production can suddenly reduce in cost.</li>
+                        <li>Don't sow the only crop which is beneficial last year, because present year bulk production can suddenly reduce in cost.</li>
                         <li>Farmers should about cash crops to boycott the merchants which use harmful chemicals to produce fruits &amp; vegetable sooner to get more profit.</li>
                         <li>Advice to all farmers about Vermicompost Khad, Add more value in Vermicompost like soil bacterial, bio nutrient, carbon contents, etc.</li>
                         <li>Uneducated &amp; illiterate farmers should take advice of educated and genuine farmers before taking any decision.</li>
@@ -125,7 +125,7 @@ class AboutUS extends React.Component {
                                 <p className="card-f-para">Co-Founder, AgroAcers</p>
                                 <hr style={{margin: "6px"}}/>
                                 <p className="card-text card-f-para2">Anmol has a great passion for farming and help other farmers in adopt organic farming which reduces their input cost and provide high yielding. </p>
-                                <a href="https://www.linkedin.com/in/anmol-garg-25a5771a2/"  target="_blank" class="btn btn-primary">Know More</a>
+                                <a href="https://www.linkedin.com/in/anmol-garg-25a5771a2/"  target="_blank"  rel="noreferrer" class="btn btn-primary">Know More</a>
                             </div>
                             <img src={Anmol} className="card-img-top fouImground" alt="Founder" />
                         </div>
@@ -137,7 +137,7 @@ class AboutUS extends React.Component {
                                 <p className="card-f-para">Co-Founder, AgroAcers</p>
                                 <hr style={{margin: "6px"}}/>
                                 <p className="card-text card-f-para2">Aman has over 5 years experience in Soil and water managementand has been part of multiple organization work for welfare of Farmers. </p>
-                                <a href="https://www.linkedin.com/in/amandeep-singh-699026196/" target="_blank" class="btn btn-primary">Know More</a>
+                                <a href="https://www.linkedin.com/in/amandeep-singh-699026196/" target="_blank"  rel="noreferrer" class="btn btn-primary">Know More</a>
                             </div>
                             <img src={Aman} className="card-img-top fouImground " alt="Founder" />
                         </div>

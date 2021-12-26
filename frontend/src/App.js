@@ -14,6 +14,7 @@ import MandiRate from './component/mandiRate/mandiRate.jsx';
 import Logout from './component/auth/logout/logout';
 import { initialState,reducer} from './Reducer/useReducer';
 import AboutUser from './component/User/AboutUse';
+import ShopHome from './component/AgroShop/shop';
 export const UserContext = createContext();
 const Routing = ()=>{
   
@@ -30,6 +31,7 @@ const Routing = ()=>{
               <Route path="register/login" element={<Login/>}/>
               <Route path="logout" element={<Logout/>}/>
               <Route path="PrivacyPolicy" element={<PrivacyPolicy/>}/>
+              <Route path="/shop" element={ <ShopHome />} />
               <Route path="/" element={<Home/>} exact/>
               <Route path="*" element={<PageNotFound/>}/>
           </Routes>
