@@ -8,6 +8,11 @@ app.use(require('./routes/auth'));
 app.use(require('./routes/contactPage'));
 const data = require('./data/product.json');
 
+app.use(require('./routes/auth'))
+app.use(require('./routes/contactPage'))
+app.use(require('./admin/adminroute'))
+app.use(require('./admin/Postblog'))
+app.use(require('./admin/AgricultureUniversit'))
 const PORT = 5000;
 
 mongoose.connect(

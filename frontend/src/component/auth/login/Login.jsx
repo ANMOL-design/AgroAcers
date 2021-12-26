@@ -26,6 +26,7 @@ const Login = () => {
       dispatch({type:"USER",payload:true})
       window.alert("Login succesful");
       navigate("/", { replace: true });
+      window.location.reload()
     } else {
       window.alert("Invalid credential");
     }

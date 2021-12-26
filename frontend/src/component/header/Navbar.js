@@ -7,6 +7,7 @@ import { UserContext } from "../../App";
 
 const Navbar = () => {
     const { state, dispatch } = useContext(UserContext);
+  
     const [userData, setUserData] = useState({});
 
     const callAboutPage = async () => {
@@ -59,8 +60,10 @@ const Navbar = () => {
         </>
       );
     } else {
+      if(userData.isAdmin === true){
       return (
         <>
+        
           <div id="logout-btn">
              <ul className="navbar-nav">
             <div class="dropdown">
@@ -68,13 +71,14 @@ const Navbar = () => {
            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i className="fa fa-user-circle-o"></i> Hi,{userData.name}
         </button>
-      <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-         <a className="dropdown-item" href="/cart">Cart</a>
-         <a className="dropdown-item" href="/aboutuser">About User</a>
-           <NavLink className="dropdown-item nav-link" to="/logout">
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+         <a class="dropdown-item" href="#">Cart</a>
+         <Link class="dropdown-item"  to="/admin">Admin</Link>
+         <a class="dropdown-item" href="/aboutuser">About User</a>
+         <NavLink className="nav-link dropdown-item" to="/logout">
               <button className={"bg-btn"}>Logout</button>
-            </NavLink>
-         
+         </NavLink>
+        
       </div>
       </li>
 </div>
@@ -82,6 +86,33 @@ const Navbar = () => {
           </div>
         </>
       );
+      }
+      else{
+        return (
+          <>
+          
+            <div id="logout-btn">
+               <ul className="navbar-nav">
+              <div class="dropdown">
+                <li className="nav-item">
+             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-user-circle-o"></i> Hi,{userData.name}
+          </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+           <a class="dropdown-item" href="#">Cart</a>
+           <a class="dropdown-item" href="/aboutuser">About User</a>
+           <a class="dropdown-item" href="#">  <NavLink className="nav-link" to="/logout">
+                <button className={"bg-btn"}>Logout</button>
+              </NavLink></a>
+          
+        </div>
+        </li>
+  </div>
+  </ul>
+            </div>
+          </>
+        );
+      }
     }
   };
 
