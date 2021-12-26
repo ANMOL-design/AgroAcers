@@ -10,6 +10,7 @@ const Authentication = require('../middleware/authentication')
 var cookieParser = require('cookie-parser');
 router.use(cookieParser());
 dotenv.config()
+const SendEmail = require("../utils/sendEmail")
 mongoose.connect(
     process.env.MONGODB_CONNECTION_STRING,
      {
@@ -22,7 +23,8 @@ mongoose.connect(
      console.log("MongoDB connection established");
      }
      );
-const User = require("../model/userschema") 
+const User = require("../model/userschema"); 
+const sendEmail = require('../utils/sendEmail');
 
 router.post("/register",(req,res)=>{
     const {name,email,number,password,cpassword,time} = req.body;
@@ -47,6 +49,7 @@ router.post("/register",(req,res)=>{
         const user = new User({name,email,number,password,cpassword,time});
         user.save().then(()=>{
             res.status(201).json({msg:" registered succesfully"})
+            sendEmail(user.email,user.name)
         }).catch((err)=>{
             res.status(501).json({msg:" failed to register"})
         })
@@ -88,32 +91,6 @@ router.post('/login',async (req,res)=>{
     catch(err){
         res.json({msg:"error occured"})
     }
-    // const {email,password} = req.body;
-
-    // if(!email || !password){
-    //     res.status(400).json({msg:"field are mandatory to fill"})
-    // }
-
-   
- 
-    // User.findOne({email:email}).then((userexist)=>{
-    //     if(userexist ){
-    //         const userlogin = User.findOne({email:email});
-    //         console.log(userlogin)
-    //         bycrypt.compare(password,userlogin.password).then((checkpassword)=>{
-    //             if(checkpassword){
-    //                 res.status(201).json({msg:"login Succesful"})
-    //             }
-    //         }).catch((err)=>{
-    //             res.status(402).json({msg:"wrong password"})
-    //         })
-    //     }
-    //     else{
-    //         res.status(402).json({msg:"incredential"})
-    //     }
-    // }).catch((err)=>{
-    //     res.status(500).json({msg:"error occured fail to login"})
-    // })
 })
 
 router.get('/aboutuser', Authentication, (req, res) => {
