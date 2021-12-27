@@ -109,28 +109,28 @@ useEffect(() => {
                                 <input type="text"  name="name" class="form-control" value={contact.name} onChange={handleInput} id="NameI" placeholder="John Smith" />
                             </div>
                             {/* Email  */}
-                            <div class="m-2">
-                                <label for="emailInput" class="form-label">Email address</label>
-                                <input type="email" name="email" class="form-control" id="emailInput" value={contact.email} onChange={handleInput} placeholder="name@example.com" />
+                            <div className="m-2">
+                                <label for="emailInput" className="form-label">Email address</label>
+                                <input type="email" name="email" className="form-control" id="emailInput" value={contact.email} onChange={handleInput} placeholder="name@example.com" />
                             </div>
                             {/* Phone No  */}
-                            <div class="m-2">
-                                <label for="PhoneInput" class="form-label">Phone No.</label>
-                                <input type="number" name="phonenumber" class="form-control" id="PhoneInput" value={contact.phonenumber} onChange={handleInput} placeholder="91234-91234"  min="0"/>
+                            <div className="m-2">
+                                <label for="PhoneInput" className="form-label">Phone No.</label>
+                                <input type="number" name="phonenumber" className="form-control" id="PhoneInput" value={contact.phonenumber} onChange={handleInput} placeholder="91234-91234"  min="0"/>
                             </div>
                             {/* Subject  */}
-                            <div class="m-2">
-                              <label for="SubInput" class="form-label">Subject</label>
-                              <input type="text" name="subject" class="form-control" id="SubInput" value={contact.subject} onChange={handleInput} placeholder="Title" />
+                            <div className="m-2">
+                              <label for="SubInput" className="form-label">Subject</label>
+                              <input type="text" name="subject" className="form-control" id="SubInput" value={contact.subject} onChange={handleInput} placeholder="Title" />
                             </div>
                             {/* Text  */}
-                            <div class="m-2">
-                                <label for="exampleFormControlTextarea1" class="form-label">Write Your Query: </label>
-                                <textarea class="form-control" name="query" id="exampleFormControlTextarea1" placeholder="Write your query here...." value={contact.query} onChange={handleInput} rows="3"></textarea>
+                            <div className="m-2">
+                                <label for="exampleFormControlTextarea1" className="form-label">Write Your Query: </label>
+                                <textarea className="form-control" name="query" id="exampleFormControlTextarea1" placeholder="Write your query here...." value={contact.query} onChange={handleInput} rows="3"></textarea>
                             </div>
                             {/* Submit  */}
-                            <div class="m-3 ">
-                                <button type="submit"  onClick={postData} class="btn btn-success btn-color form-control">Submit</button>
+                            <div className="m-3 ">
+                                <button type="submit"  onClick={postData} className="btn btn-success btn-color form-control">Submit</button>
                             </div>
                         </form>
                   </div>

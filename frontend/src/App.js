@@ -14,6 +14,7 @@ import MandiRate from './component/mandiRate/mandiRate.jsx';
 import Logout from './component/auth/logout/logout';
 import { initialState,reducer} from './Reducer/useReducer';
 import AboutUser from './component/User/AboutUse';
+import ShopHome from './component/AgroShop/shop';
 import UserData from './component/AdminPortal/Userdata';
 import ContactPadeData from './component/AdminPortal/contactDta';
 import AdminPage from './component/AdminPortal/adminPage';
@@ -61,6 +62,7 @@ const Routing = ()=>{
               <Route path="admin/AddUniversity" element={<AddUniversity/>}/>
               <Route path="admin" element={<AdminPage/>}/>
               <Route path="PrivacyPolicy" element={<PrivacyPolicy/>}/>
+              <Route path="/shop" element={ <ShopHome />} />
               <Route path="/" element={<Home/>} exact/>
               <Route path="*" element={<PageNotFound/>}/>
           </Routes>

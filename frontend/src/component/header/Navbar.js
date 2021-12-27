@@ -68,16 +68,16 @@ const Navbar = () => {
              <ul className="navbar-nav">
             <div class="dropdown">
               <li className="nav-item">
-           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fa fa-user-circle-o"></i> Hi,{userData.name}
+           <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i className="fa fa-user-circle-o"></i> Hi,{userData.name}
         </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
          <a class="dropdown-item" href="#">Cart</a>
          <Link class="dropdown-item"  to="/admin">Admin</Link>
          <a class="dropdown-item" href="/aboutuser">About User</a>
-         <a class="dropdown-item" href="#">  <NavLink className="nav-link" to="/logout">
+         <NavLink className="nav-link dropdown-item" to="/logout">
               <button className={"bg-btn"}>Logout</button>
-            </NavLink></a>
+         </NavLink>
         
       </div>
       </li>
