@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-
+const contactemail = require("../utils/contactmail");
 dotenv.config();
 mongoose.connect(
   process.env.MONGODB_CONNECTION_STRING,
@@ -36,6 +36,7 @@ router.post("/contactus", (req, res) => {
         .save()
         .then(() => {
           res.status(201).json({ msg: "data added succesfuly" });
+          contactemail(newContactData.email,newContactData.name)
         })
         .catch((err) => {
           res.json({ msg: "data not added error occured" });

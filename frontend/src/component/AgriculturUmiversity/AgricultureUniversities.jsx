@@ -1,7 +1,7 @@
 import "../../Styles/AgricultureUniversiry.css";
 import Loader from "../Loader";
+import bannerImg from "../../Images/crousal/UniversityBanner.jpg"
 const { useEffect, useState } = require("react");
-
 const AgricultureUniversity = () => {
   const [universityData, setUniversityData] = useState([]);
   const [DataLoading, setDataLoading] = useState(true);
@@ -44,7 +44,21 @@ const AgricultureUniversity = () => {
       return (
         <>
           <div className="university-main-container">
-            <div className="university-banner"></div>
+            <div className="university-banner">
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src={bannerImg} alt="First slide"/>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="https://www.bellenglish.com/wp-content/uploads/2021/02/pexels-thisisengineering-3912372-1920x960-6038c89b85905-1920x960-c-default.jpg" alt="Second slide"/>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="https://www.bellenglish.com/wp-content/uploads/2021/02/pexels-thisisengineering-3912372-1920x960-6038c89b85905-1920x960-c-default.jpg" alt="Third slide"/>
+    </div>
+  </div>
+</div>
+            </div>
             <div className="university-container-headung">
               <h1>Agriculture University Of India</h1>
             </div>
