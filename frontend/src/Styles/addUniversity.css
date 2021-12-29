@@ -1,23 +1,23 @@
-.input-agro-university{
-    width: 800px;
+.input-agro-university {
+    width: 90%;
     margin-top: 2%;
+    padding: 2px;
 }
-.addUniversity-form-container{
+
+.addUniversity-form-container {
     border: 2px solid black;
-    margin: 5%;
+    margin: 3%;
     border-radius: 12px;
     background-color: rgba(231, 255, 195, 0.733);
-    box-shadow: 4px 4px 2px 2px gray;
+    box-shadow: 2px 2px 4px #c0c0c0;
 }
-.addUniversity-form-container form{
-    margin-left: 20%;
+
+.addUniversity-form-container form {
+    margin-left: 3%;
+    margin-top: 1%;
 }
-.add-university-btn{
-    width: 800px;
+
+.add-university-btn {
+    width: 94%;
     margin-top: 5%;
-}
-.heading-add-university{
-    text-align: center;
-    margin-top:5%;
-    color: #77BC3F;
 }

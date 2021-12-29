@@ -1,9 +1,8 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import bannerImg from "../../Images/crousal/4.jfif";
-import { Link } from "react-router-dom";
 import "../../Styles/mandirate.css";
 import Loader from "../Loader";
+
 class UserData extends React.Component {
   // Constructor
   constructor(props) {
@@ -14,8 +13,6 @@ class UserData extends React.Component {
       DataisLoaded: false,
       dataslice :10
     };
-
-  
   
   }
   // ComponentDidMount is used to
@@ -35,15 +32,12 @@ class UserData extends React.Component {
     const { DataisLoaded, items } = this.state;
     if (!DataisLoaded)
       return (
-       
          <Loader />
-
-        
       );
 
     return (
-      <div className="App">
-       <h1 style={{textaling:"center",marginLeft:"30%"}}>User Details</h1>
+      <div className="text-center">
+       <h1 className="m-4 text-decoration-underline"  style={{fontSize: '3rem', color: '#77bc3f'}}>User Details</h1>
         <table>
           <thead>
             <tr className="table-row">

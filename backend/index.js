@@ -13,6 +13,7 @@ app.use(require('./routes/contactPage'))
 app.use(require('./admin/adminroute'))
 app.use(require('./admin/Postblog'))
 app.use(require('./admin/AgricultureUniversit'))
+app.use(require('./admin/shopproduct'))
 const PORT = 5000;
 
 mongoose.connect(

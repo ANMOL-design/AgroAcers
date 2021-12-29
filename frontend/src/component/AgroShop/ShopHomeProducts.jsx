@@ -19,7 +19,8 @@ function HomeProducts(){
 
     useEffect(() => {
         const fetchdata = async () =>{
-            const {data} = await axios.get("/api/products");
+            const {data} = await axios.get("/Shopproductdata");
+            console.log(data);
             setproduct(data);
         }
         fetchdata();
@@ -47,19 +48,19 @@ function HomeProducts(){
           <div className="home-products-details container-fluid">
                 {product.slice(0,cntProduct).map( (item) => {
                     return(
-                        <div key={item.id} className="card " id="pc" style={{width: "17.5rem"}}>
+                        <div key={item._id} className="card " id="pc" style={{width: "17.5rem"}}>
                             {/* Upper Image Portion of card  */}
-                            <div className="Product-image-container">
-                                <img src={item.image} className="card-img-top home-product-image" alt="Products" />
+                            <div className={item.quantity > 0 ? "Product-image-container" : "Product-image-container opacity-25"}>
+                                <img src={item.Imageurl} className="card-img-top home-product-image" alt="Products" />
                                     {/* Hot Icon On Card  */}
                                     <div className="Hotproducts">
-                                        Save {Math.round(100*(item.oldPrice - item.Price)/item.oldPrice)}%
+                                        Save {Math.round(100*(item.old_price - item.new_price)/item.old_price)}%
                                     </div>
                                     {/* OverLay Property of card  */}
                                     <div className="overlay">
                                         <div className="overlay-img">
-                                            <Link to={ "/products/" + item.id }><img src="./Images/Web/favorite_icon.svg" alt="Favorite" className="overlay-img-space" /></Link>
-                                            <Link to={"/cart/" + item.id + "?qty=1"}><img src="./Images/Web/add_cart_icon.svg" alt="CartAdd" className="overlay-img-space" /></Link>
+                                            <Link to={ "/products/" + item._id }><img src="./Images/Web/favorite_icon.svg" alt="Favorite" className="overlay-img-space" /></Link>
+                                            <Link to={"/cart/" + item._id + "?qty=1"}><img src="./Images/Web/add_cart_icon.svg" alt="CartAdd" className="overlay-img-space" /></Link>
                                         </div>
                                     </div>
                              </div>
@@ -67,11 +68,11 @@ function HomeProducts(){
                             <div className="card-body">
                                     {/* Product Price in Body  */}
                                     <div className="product-space">
-                                        <span className="product-actual-price">&#8377;{item.Price}</span>
-                                        <span className="product-old-price">&#8377;{item.oldPrice}</span>
+                                        <span className="product-actual-price">&#8377;{item.new_price}</span>
+                                        <span className="product-old-price">&#8377;{item.old_price}</span>
                                     </div>
-                                    <p className="card-text">{item.product_name}</p>
-                                    <h5 className="card-title fade-title-header">{item.product_nick_name}</h5>   
+                                    <p className="card-text">{item.Name}</p>
+                                    <h5 className="card-title fade-title-header">{item.Hindi_name}</h5>   
                             </div>
                         </div>
                     )

@@ -30,6 +30,7 @@ const AddUniversity = ()=>{
                 })
               })
               const data = await res.json();
+              console.log(data);
              if(res.status === 201){
                  window.alert("Data added succesfully...")
                 navigate("/agri")
@@ -42,7 +43,7 @@ const AddUniversity = ()=>{
     return(
         <>
           <div className="addUniversitycontainer">
-              <div className="heading-add-university">
+              <div style={{fontSize: '3rem', color: '#77bc3f'}} className="m-2 mt-4 text-decoration-underline text-center">
                   <h1>Add University Details</h1>
               </div>
               <div className="addUniversity-form-container">
@@ -53,9 +54,9 @@ const AddUniversity = ()=>{
                   <input className="input-agro-university" placeholder="Adress of University...." type="text" name="adress" value={UniversityDetails.adress} onChange={handleInput} id="adress" /> <br />
                   <label htmlFor="contact">University contact :</label> <br />
                   <input className="input-agro-university" placeholder="Enter University contact details...." type="text" name="contact" value={UniversityDetails.contact} onChange={handleInput} id="contact" />  <br /> 
-                  <label htmlFor="website">University website :</label> <br />
+                  <label htmlFor="website">University Website :</label> <br />
                   <input className="input-agro-university" placeholder="website of University ...." type="text" name="website" value={UniversityDetails.website} onChange={handleInput} id="website" /> <br /> 
-                  <label htmlFor="emailId">University emailId :</label> <br />
+                  <label htmlFor="emailId">University Email Id :</label> <br />
                   <input className="input-agro-university" placeholder="University Email Id..." type="text" name="emailId" value={UniversityDetails.emailId} onChange={handleInput} id="emailId" /> <br /> 
                   <label htmlFor="Imageurl">University Image url :</label> <br />
                   <input className="input-agro-university" placeholder="enter the Url of Image..." type="text" name="Imageurl" value={UniversityDetails.Imageurl} onChange={handleInput} id="Imageurl" /> <br /> 

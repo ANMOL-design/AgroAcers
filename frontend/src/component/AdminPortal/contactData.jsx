@@ -1,9 +1,8 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import bannerImg from "../../Images/crousal/4.jfif";
-import { Link } from "react-router-dom";
 import "../../Styles/mandirate.css";
 import Loader from "../Loader";
+
 class ContactPadeData extends React.Component {
   // Constructor
   constructor(props) {
@@ -14,10 +13,8 @@ class ContactPadeData extends React.Component {
       DataisLoaded: false,
       dataslice :10
     };
-
-  
-  
   }
+
   // ComponentDidMount is used to
   // execute the code
   componentDidMount() {
@@ -36,15 +33,12 @@ class ContactPadeData extends React.Component {
     const { DataisLoaded, items } = this.state;
     if (!DataisLoaded)
       return (
-       
          <Loader />
-
-        
       );
 
     return (
-      <div className="App">
-       <h1 style={{textaling:"center",marginLeft:"30%"}}>Contact Details</h1>
+      <div className="text-center">
+       <h1 className="m-4 text-decoration-underline"  style={{fontSize: '3rem', color: '#77bc3f'}}>Contact Details</h1>
         <table>
           <thead>
             <tr className="table-row">
@@ -73,40 +67,40 @@ class ContactPadeData extends React.Component {
                 <td className="table-des">{item.time}</td>
                 <td className="table-des">
                 <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
-   Reply
-</button>
+                   Reply
+                </button>
 
+              <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div className="modal-dialog" role="document">
+                    <div className="modal-content">
+                      <div className="modal-header">
+                        <h5 className="modal-title" id="exampleModalLabel">Send Reply</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                      </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Send Reply</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <form action={"mailto:"+item.email} method="post">
-      Name:<br></br>
-<input type="text"  name="name"/><br></br>E-mail:<br></br>
-<input type="text"  name="mail"/><br></br>
-Comment:<br></br>
-<textarea rows={3} cols={25} type="text" name="comment" size="50"/><br></br>
+                    <div className="modal-body">
+                        <form action={"mailto:"+item.email} method="post">
+                            Name:<br></br>
+                            <input type="text"  name="name"/><br></br>
+                            E-mail:<br></br>
+                            <input type="text"  name="mail"/><br></br>
+                            Comment:<br></br>
+                            <textarea rows={3} cols={25} type="text" name="comment" size="50"/><br></br>
       
-      
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Send Reply</button>
-        </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-                </td>
+                            <div classname="modal-footer">
+                              <button type="button" className="btn btn-secondary m-2" data-dismiss="modal">Close</button>
+                              <button type="submit" className="btn btn-primary m-2">Send Reply</button>
+                            </div>
+                        </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
                   
-              </tr>
+            </tr>
             ))}
   
           </tbody>

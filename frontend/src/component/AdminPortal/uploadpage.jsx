@@ -100,12 +100,12 @@ useEffect(() => {
       <>
         <div className="container-fluid">
         <div className="uploadpost-container">
-        <h1 className="upload-post-heading">
-            upload blog post
+        <h1 style={{fontSize: '3rem', color: '#77bc3f'}} className="m-2 text-decoration-underline text-center mt-4">
+            Upload Blog Post
         </h1>
           <div className="form-container">
       <form method="POST">
-          <label htmlFor="title">title :</label> <br />
+          <label htmlFor="title">Title :</label> <br />
          <input type="text" placeholder="ENTER THE TITLE..."  name="title" onChange={handleInput} id="title" /> <br />
           <label htmlFor="title">Image :</label><br />
          <input type="text" placeholder="add img url"   name="Image" onChange={handleInput2} id="title" />
@@ -122,48 +122,3 @@ useEffect(() => {
   
 }
 export default Uploadpage;
-
-// import React, { useState } from "react";
-// import ReactQuill from 'react-quill';
-// import 'react-quill/dist/quill.snow.css';
-// import '../../Styles/uploadpost.css'
-// function UploadPost() {
-//   const [currentImg,setCurrentImg] = useState('current Img');
-//   const [Post,setPost]=useState({
-//       title:"",description:"",url:"",author:"",time:""
-//   });
-//   let name,value;
-//   const handleinput = (e)=>{
-//       console.log(e.target);
-//     name = e.target.name;
-//     value = e.target.value;
-//     setPost({...Post, [name]:value})
-//   }
-//   const display = ()=>{
-//       console.log(Post);
-//   }
-
-//   return (
-    
-//     <>
-    // <div className="uploadpost-container">
-    //     <h1 className="upload-post-heading">
-    //         upload blog post
-    //     </h1>
-    //       <div className="form-container">
-    //   <form action="">
-    //       <label htmlFor="title">title :</label> <br />
-    //      <input type="text" onChange={handleinput} value={Post.title}  name="title" id="title" />
-    //      <br />
-    //      <label htmlFor="image">upload Image:</label><br />
-    //      <input type="file"  name="blogImage"  id="image" /><br />
-    //      <label htmlFor="description">Description :</label>
-    //      <ReactQuill className="description" name="description"  value={Post.description}  theme="snow"/>
-    //      <input id="post-btn" onClick={display} type="submit" value="Add Post" />
-    //   </form>
-    //   </div>
-    // </div>
-//     </>
-//   );
-// }
-// export default UploadPost;

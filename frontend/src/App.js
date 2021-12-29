@@ -16,11 +16,12 @@ import { initialState,reducer} from './Reducer/useReducer';
 import AboutUser from './component/User/AboutUse';
 import ShopHome from './component/AgroShop/shop';
 import UserData from './component/AdminPortal/Userdata';
-import ContactPadeData from './component/AdminPortal/contactDta';
+import ContactPadeData from './component/AdminPortal/contactData';
 import AdminPage from './component/AdminPortal/adminPage';
 import UploadPost from './component/AdminPortal/uploadpage';
 import AddUniversity from './component/AdminPortal/addUniversity';
 import AgricultureUniversity from './component/AgriculturUmiversity/AgricultureUniversities';
+import ShoppingData from './component/AdminPortal/shoppingAdmin';
 export const UserContext = createContext();
 
 const App = ()=> {
@@ -60,6 +61,7 @@ const Routing = ()=>{
               <Route path="admin/Contact" element={<ContactPadeData/>}/>
               <Route path="admin/uploadpost" element={<UploadPost/>}/>
               <Route path="admin/AddUniversity" element={<AddUniversity/>}/>
+              <Route path="admin/shoppingpost" element={<ShoppingData />}/>
               <Route path="admin" element={<AdminPage/>}/>
               <Route path="PrivacyPolicy" element={<PrivacyPolicy/>}/>
               <Route path="/shop" element={ <ShopHome />} />

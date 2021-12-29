@@ -40,6 +40,7 @@ const Navbar = () => {
     useEffect(() => {
         callAboutPage();
     }, []);
+
   const RenderAuth = () => {
     if (!state) {
       return (
@@ -65,24 +66,24 @@ const Navbar = () => {
         <>
         
           <div id="logout-btn">
-             <ul className="navbar-nav">
-            <div class="dropdown">
-              <li className="nav-item">
-           <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i className="fa fa-user-circle-o"></i> Hi,{userData.name}
-        </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-         <a class="dropdown-item" href="#">Cart</a>
-         <Link class="dropdown-item"  to="/admin">Admin</Link>
-         <a class="dropdown-item" href="/aboutuser">About User</a>
-         <NavLink className="nav-link dropdown-item" to="/logout">
-              <button className={"bg-btn"}>Logout</button>
-         </NavLink>
+              <ul className="navbar-nav">
+                <div className="dropdown">
+                  <li className="nav-item">
+                    <div className="userinfoheader dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i className="fa fa-user-circle-o">&nbsp;</i> Hi, {userData.name}
+                    </div>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <a class="dropdown-item" href="/">Cart</a>
+                      <Link class="dropdown-item"  to="/admin">Admin</Link>
+                      <Link class="dropdown-item" to="/aboutuser">About User</Link>
+                      <NavLink className="nav-link dropdown-item" to="/logout">
+                        <button className={"bg-btn"}>Logout</button>
+                      </NavLink>
         
-      </div>
-      </li>
-</div>
-</ul>
+                  </div>
+                  </li>
+                </div>
+              </ul>
           </div>
         </>
       );
@@ -90,25 +91,95 @@ const Navbar = () => {
       else{
         return (
           <>
-          
             <div id="logout-btn">
-               <ul className="navbar-nav">
-              <div class="dropdown">
-                <li className="nav-item">
-             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa fa-user-circle-o"></i> Hi,{userData.name}
-          </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-           <a class="dropdown-item" href="#">Cart</a>
-           <a class="dropdown-item" href="/aboutuser">About User</a>
-           <a class="dropdown-item" href="#">  <NavLink className="nav-link" to="/logout">
-                <button className={"bg-btn"}>Logout</button>
-              </NavLink></a>
-          
-        </div>
-        </li>
-  </div>
-  </ul>
+              <ul className="navbar-nav">
+                <div className="dropdown">
+                  <li className="nav-item">
+                    <div className="userinfoheader dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i className="fa fa-user-circle-o">&nbsp;</i> Hi, {userData.name}
+                    </div>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                      <a class="dropdown-item" href="/">Cart</a>
+                      <Link class="dropdown-item"  to="/admin">Admin</Link>
+                      <NavLink className="nav-link dropdown-item" to="/logout">
+                        <button className={"bg-btn"}>Logout</button>
+                      </NavLink>
+        
+                  </div>
+                  </li>
+                </div>
+              </ul>
+          </div>
+          </>
+        );
+      }
+    }
+  };
+
+  // For Small Screen Render Login Register
+  const RenderAuthSmall = () => {
+    if (!state) {
+      return (
+        <>
+          <div className={"hide_small hide_small_login"}>
+              <NavLink className="nav-link" to="/login">
+                <button className={"bg-btn"}>Login</button>
+              </NavLink>
+              <NavLink className="nav-link" to="/register">
+                <button className={"bg-btn"}>Register</button>
+              </NavLink>
+            </div>
+        </>
+      );
+    } else {
+      if(userData.isAdmin === true){
+      return (
+        <>
+        
+            <div className={"hide_small"}>
+              <ul className="navbar-nav">
+                <div className="dropdown">
+                  <li className="nav-item">
+                    <div className="userinfoheader dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i className="fa fa-user-circle-o">&nbsp;</i> Hi, {userData.name}
+                    </div>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="/">Cart</a>
+                      <Link class="dropdown-item"  to="/admin">Admin</Link>
+                      <Link class="dropdown-item" to="/aboutuser">About User</Link>
+                      <NavLink className="nav-link dropdown-item" to="/logout">
+                        <button className={"bg-btn"}>Logout</button>
+                      </NavLink>
+        
+                  </div>
+                  </li>
+                </div>
+              </ul>
+            </div>
+        </>
+      );
+      }
+      else{
+        return (
+          <>
+            <div className={"hide_small"}>
+            <ul className="navbar-nav">
+                <div className="dropdown">
+                  <li className="nav-item">
+                    <div className="userinfoheader dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i className="fa fa-user-circle-o">&nbsp;</i> Hi, {userData.name}
+                    </div>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                      <a class="dropdown-item" href="/">Cart</a>
+                      <Link class="dropdown-item"  to="/admin">Admin</Link>
+                      <NavLink className="nav-link dropdown-item" to="/logout">
+                        <button className={"bg-btn"}>Logout</button>
+                      </NavLink>
+        
+                  </div>
+                  </li>
+                </div>
+              </ul>
             </div>
           </>
         );
@@ -151,16 +222,9 @@ const Navbar = () => {
             className="collapse navbar-collapse ml-auto"
             id="navbarSupportedContent"
           >
-            {/* A list shown on small screen  */}
-
-            <div className={"hide_small"}>
-              <NavLink className="nav-link" to="/login">
-                <button className={"bg-btn"}>Login</button>
-              </NavLink>
-              <NavLink className="nav-link" to="/register">
-                <button className={"bg-btn"}>Register</button>
-              </NavLink>
-            </div>
+          
+          <RenderAuthSmall />
+          
             <div className={"nav-box-margin"}>
               <ul className="navbar-nav ul-border">
                 <li className="nav-item">

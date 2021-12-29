@@ -1,26 +1,29 @@
-.table-row{
+.table-row {
     border: 2px solid gray;
 }
-.table-head{
+
+.table-head {
     border: 2px solid rgb(78, 78, 78);
     background-color: #84c352;
     padding: 5px;
     color: white;
-    font-weight: 900;
-
-
+    font-weight: 800;
 }
-table{
-    margin: 10%;
+
+table {
+    margin: 4%;
 }
-.table-des{
+
+.table-des {
     border: 2px solid gray;
-    padding: 5px;
+    padding: 5px 8px;
     background-color: #85c35259;
-    
+    text-align: left;
 }
-.table-des-2{
+
+.table-des-2 {
     border: 2px solid gray;
-    padding: 5px;
+    padding: 5px 8px;
     background-color: #85c3523a;
+    text-align: left;
 }

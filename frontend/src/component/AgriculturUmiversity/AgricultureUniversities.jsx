@@ -55,7 +55,7 @@ const AgricultureUniversity = () => {
                     <img
                       className="card-img-top img-fluid"
                       src={item.Imageurl}
-                      alt="Card image cap"
+                      alt="Card cap"
                     />
                     <div className="card-body">
                       <h5 className="card-title">{item.UniversityName}</h5>
