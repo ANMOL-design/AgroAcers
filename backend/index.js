@@ -14,6 +14,8 @@ app.use(require('./admin/adminroute'))
 app.use(require('./admin/Postblog'))
 app.use(require('./admin/AgricultureUniversit'))
 app.use(require('./admin/shopproduct'))
+app.use(require('./admin/sendreply'))
+app.use(require('./admin/addScheme'))
 const PORT = 5000;
 
 mongoose.connect(

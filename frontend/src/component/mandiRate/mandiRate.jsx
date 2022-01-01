@@ -92,8 +92,11 @@ class MandiRate extends React.Component {
             </div>
           </div>
         </div>
-        <div className="filter-container">
-          <input list="searchBar" onChange={this.handlevalue} type="text" />
+        <div className="filter-container ">
+          <div className="mandirateheader">
+           <h1> Mandi Rate In India</h1>
+          </div>
+          <input className="mandi-rate-searhBar" list="searchBar" onChange={this.handlevalue} type="text" />
           <datalist id="searchBar">
             <option value="Andhra Pradesh">Andhra Pradesh</option>
             <option value="Andaman and Nicobar Islands">

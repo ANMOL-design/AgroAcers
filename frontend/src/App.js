@@ -22,6 +22,8 @@ import UploadPost from './component/AdminPortal/uploadpage';
 import AddUniversity from './component/AdminPortal/addUniversity';
 import AgricultureUniversity from './component/AgriculturUmiversity/AgricultureUniversities';
 import ShoppingData from './component/AdminPortal/shoppingAdmin';
+import AddGovtScheme from './component/AdminPortal/govtScheme';
+import CropBlog from './component/Crops/Crop-Page';
 export const UserContext = createContext();
 
 const App = ()=> {
@@ -54,6 +56,7 @@ const Routing = ()=>{
               <Route path="about" exact element={<AboutUS />} />
               <Route path="mandirates" element={<MandiRate/>} />
               <Route path="AboutUser" exact element={<AboutUser/>} />
+              <Route path="Crops" exact element={<CropBlog/>} />
               <Route path="register/login" element={<Login/>}/>
               <Route path="logout" element={<Logout/>}/>
               <Route path="agri" element={<AgricultureUniversity/>}/>
@@ -62,6 +65,7 @@ const Routing = ()=>{
               <Route path="admin/uploadpost" element={<UploadPost/>}/>
               <Route path="admin/AddUniversity" element={<AddUniversity/>}/>
               <Route path="admin/shoppingpost" element={<ShoppingData />}/>
+              <Route path="admin/GovtScheme" element={<AddGovtScheme />}/>
               <Route path="admin" element={<AdminPage/>}/>
               <Route path="PrivacyPolicy" element={<PrivacyPolicy/>}/>
               <Route path="/shop" element={ <ShopHome />} />

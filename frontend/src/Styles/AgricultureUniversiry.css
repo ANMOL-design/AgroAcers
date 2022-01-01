@@ -18,3 +18,15 @@ border-radius: 5px;
     color: #77BC3F;
     font-weight: bold;
 }
+
+@media (max-width: 870px) {
+  .university-card-container .card{
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+   width: 400px;
+   border-radius: 5px;
+   }
+}
+
+
