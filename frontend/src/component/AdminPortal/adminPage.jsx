@@ -4,6 +4,7 @@ import contactBanner from "../../Images/New Img/contactPage.jpg";
 import blogBanner from "../../Images/New Img/addBanner.jpg";
 import productBanner from "../../Images/New Img/addProduct.jpg";
 import universityBanner from "../../Images/New Img/agricultureuniversity.jpg";
+import govtSchemeBanner from "../../Images/New Img/Govtschemebanner.jpg";
 import "bootstrap/dist/css/bootstrap.css";
 import { Link } from "react-router-dom";
 import '../../Styles/adminpage.css'
@@ -108,6 +109,22 @@ const AdminPage = () => {
               </p>
               <Link to="AddUniversity"  className="btn btn-primary">
                 Add University
+              </Link>
+            </div>
+          </div>
+          <div className="card" style={{width: '18rem'}}>
+            <img
+              className="card-img-top img-fluid"
+              src={govtSchemeBanner}
+              alt="Card cap"
+            />
+            <div className="card-body">
+              <h5 classname="card-title">Add Govt. Scheme</h5>
+              <p className="card-text">
+                This section is for add theGovernment Schemes in portal.
+              </p>
+              <Link to="GovtScheme"  className="btn btn-primary">
+                Add Scheme
               </Link>
             </div>
           </div>

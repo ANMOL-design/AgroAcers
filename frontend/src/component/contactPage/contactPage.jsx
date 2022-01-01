@@ -14,7 +14,6 @@ const ContactPage =()=>{
     })
     let name , value;
     const  handleInput = async (e)=>{
-          console.log(e);
           name = e.target.name;
           value = e.target.value;
           setContact({...contact , [name]:value})

@@ -246,7 +246,7 @@ const Navbar = () => {
                 </li>
 
                 <li className="nav-item">
-                  <Link className="nav-link nav-hov" to="/blog">
+                  <Link className="nav-link nav-hov" to="/crops">
                     Blog
                   </Link>
                 </li>
@@ -267,7 +267,7 @@ const Navbar = () => {
                     className="dropdown-menu"
                     aria-labelledby="navbarDropdown"
                   >
-                    <NavLink className="dropdown-item" to="/crop">
+                    <NavLink className="dropdown-item" to="/crops">
                       Crops
                     </NavLink>
                     <NavLink className="dropdown-item" to="/mandirates">
