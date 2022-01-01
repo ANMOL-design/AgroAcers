@@ -48,9 +48,9 @@ function HomeProducts(){
           <div className="home-products-details container-fluid">
                 {product.slice(0,cntProduct).map( (item) => {
                     return(
-                        <div key={item._id} className="card " id="pc" style={{width: "17.5rem"}}>
+                        <div key={item._id} className={item.quantity > 0 ?  "card " : "card  opacity-25"} id="pc" style={{width: "17.5rem"}}>
                             {/* Upper Image Portion of card  */}
-                            <div className={item.quantity > 0 ? "Product-image-container" : "Product-image-container opacity-25"}>
+                            <div className="Product-image-container">
                                 <img src={item.Imageurl} className="card-img-top home-product-image" alt="Products" />
                                     {/* Hot Icon On Card  */}
                                     <div className="Hotproducts">
