@@ -4,27 +4,27 @@ const contactPageSchema = mongoose.Schema({
     name: {
         type: String,
         required: true,
-      },
-      email: {
+    },
+    email: {
         type: String,
         required: true,
-      },
-      phonenumber: {
+    },
+    phonenumber: {
         type: Number,
         required: true,
-      },
-      subject: {
+    },
+    subject: {
         type: String,
         required: true,
-      },
-      query: {
+    },
+    query: {
         type: String,
         required: true,
-      },
-      time: {
+    },
+    time: {
         type: String,
         required: true,
-      }
+    }
 })
-const contactPage = mongoose.model("CONTACTPAGE" , contactPageSchema);
+const contactPage = mongoose.model("CONTACTPAGE", contactPageSchema);
 module.exports = contactPage;

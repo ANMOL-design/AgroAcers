@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import "./../../Styles/AgroShopHome.css";
+import "./../../../Styles/AgroShopHome.css";
 import 'bootstrap/dist/css/bootstrap.css';
 
 function HomeProducts(){
@@ -20,7 +20,7 @@ function HomeProducts(){
     useEffect(() => {
         const fetchdata = async () =>{
             const {data} = await axios.get("/Shopproductdata");
-            console.log(data);
+            // console.log(data);
             setproduct(data);
         }
         fetchdata();
@@ -33,16 +33,7 @@ function HomeProducts(){
     return(
         <>
           <div className="home_products_sell">
-            <h1>BEST SELLER</h1>
-            <div className="home_products_links">
-                <ul>
-                    <li><Link to="/shop/products?value=Hybrid Seeds">Hybrid Seeds</Link></li>
-                    <li><Link to="/shop/products?value=Fertilizers">Fertilizers</Link></li>
-                    <li><Link to="/shop/products?value=Agro Tools">Hardware &amp; Tools</Link></li>  
-                    <li><Link to="/shop/products?value=Organic Farming">Organic Farming</Link></li>
-                    <li><Link to="/shop/products?value=Farm Products">Farm Products</Link></li>
-                </ul>
-            </div>
+                <h1 className="mb-3">BEST SELLER</h1>
           </div>
           {/* Details of Product  */}
           <div className="home-products-details container-fluid">
