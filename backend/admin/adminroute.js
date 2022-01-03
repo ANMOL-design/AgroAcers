@@ -37,7 +37,7 @@ router.get("/AdminAgroAcers362/ContactResult", (req, res) => {
         res.send(result)
     })
 })
-router.get('/blogdata', (req, res) => {
+router.get('/cropdata', (req, res) => {
     AddBlog.find({}).then((result) => {
 
         res.send(result)

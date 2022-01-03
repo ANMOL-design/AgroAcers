@@ -113,13 +113,20 @@ class ContactPadeData extends React.Component {
                     <div className="modal-body">
                         <form  method="post">
                             Name:<br></br>
-                            <input type="text" onChange={handleInput} value={this.state.name}   name="name"/><br></br>
-
+                            <input type="text" onChange={handleInput} value={this.state.name} list={item.phonenumber}   name="name"/><br></br>
+                               <datalist id={item.phonenumber}>
+                                 <option value={item.name}>{item.name}</option>
+                               </datalist>
                             E-mail:<br></br>
-                            <input type="text" onChange={handleInput}  value={this.state.mail}  name="mail"/><br></br>
-          
+                            <input type="text" onChange={handleInput} list={item.email} value={this.state.mail}  name="mail"/><br></br>
+                             <datalist id={item.email}>
+                                <option value={item.email}>{item.email}</option>
+                             </datalist>
                            Subject:<br></br>
-                            <input type="text" onChange={handleInput}  value={this.state.subject}   name="subject"/><br></br>
+                            <input type="text" onChange={handleInput} list={item.subject}  value={this.state.subject}   name="subject"/><br></br>
+                            <datalist id={item.subject}>
+                                <option value={item.subject}>{item.subject}</option>
+                             </datalist>
                            Body:<br></br>
                             <textarea rows={3} onChange={handleInput}  value={this.state.body}  cols={25} type="text" name="body" size="50"/><br></br>
       

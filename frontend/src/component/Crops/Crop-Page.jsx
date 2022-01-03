@@ -13,15 +13,13 @@ const CropBlog = () => {
       <div
         id="carouselExampleSlidesOnly"
         className="carousel slide"
-        data-ride="carousel"
-      >
+        data-ride="carousel">
         <div className="carousel-inner">
           <div className="carousel-item active">
             <img
               className="d-block w-100 img-fluid"
               src={CropBanner1}
-              alt="First slide"
-            />
+              alt="First slide"/>
             <div className="carousel-caption crousal-text d-none d-md-block">
               <h2>Indian Crops</h2>
               <p>
@@ -67,7 +65,7 @@ const CropBlog = () => {
         <div className="crop-blog-type-container">
           <h2 className="types-o-crop-head">Types Of crops</h2>
           <div className="crop-card-container">
-            <Link className="Crop-link" to="/Rabi">
+            <Link className="Crop-link" to="Rabi">
               <div class="card">
                 <img
                   class="card-img-top img-fluid"
@@ -85,7 +83,7 @@ const CropBlog = () => {
                 </div>
               </div>
             </Link>
-            <Link className="Crop-link" to="/Rabi">
+            <Link className="Crop-link" to="kharif">
               <div class="card">
                 <img class="card-img-top img-fluid" src={kharifimg} alt="Card image cap" />
                 <div class="card-body">
@@ -100,7 +98,7 @@ const CropBlog = () => {
                 </div>
               </div>
             </Link>
-            <Link className="Crop-link" to="crops/Vegetables">
+            <Link className="Crop-link" to="Vegetables">
               <div class="card">
                 <img class="card-img-top img-fluid" src={vegetableimg} alt="Card image cap" />
                 <div class="card-body">

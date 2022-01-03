@@ -24,6 +24,10 @@ const PostBlogSchema = mongoose.Schema({
       time: {
         type: String,
         required: true,
+      },
+      category : {
+        type : String,
+        required : true 
       }
 })
 const AddBlog = mongoose.model("POSTBLOG" , PostBlogSchema);

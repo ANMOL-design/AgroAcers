@@ -20,8 +20,8 @@ const PostData = require("../model/Postblog");
 
 router.post("/admin/Postblog", (req, res) => {
   try {
-    const {title, Image, Description, Author, UserId,time} = req.body;
-    if (!title || !Image || !Description) {
+    const {title, Image, Description, Author, UserId,time,category} = req.body;
+    if (!title || !Image || !Description || !category) {
       res.json({ msg: "filled are required to fill" });
     } else {
       const newContactData = new PostData({
@@ -30,7 +30,8 @@ router.post("/admin/Postblog", (req, res) => {
         Description,
         Author,
         UserId,
-        time
+        time,
+        category
       });
       newContactData
         .save()

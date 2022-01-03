@@ -22,7 +22,7 @@ const Navbar = () => {
             });
 
             const data = await res.json();
-            console.log(data);
+           
             setUserData(data);
 
             if (!res.status === 200) {
@@ -100,7 +100,7 @@ const Navbar = () => {
                     </div>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
                       <a class="dropdown-item" href="/">Cart</a>
-                      <Link class="dropdown-item"  to="/admin">Admin</Link>
+                      <Link class="dropdown-item" to="/aboutuser">About User</Link>
                       <NavLink className="nav-link dropdown-item" to="/logout">
                         <button className={"bg-btn"}>Logout</button>
                       </NavLink>

@@ -136,7 +136,7 @@ class AboutUS extends React.Component {
                                 <h5 className="card-title card-f-head">AmanDeep Singh</h5>
                                 <p className="card-f-para">Co-Founder, AgroAcers</p>
                                 <hr style={{margin: "6px"}}/>
-                                <p className="card-text card-f-para2">Aman has over 5 years experience in Soil and water managementand has been part of multiple organization work for welfare of Farmers. </p>
+                                <p className="card-text card-f-para2">Amandeep singh is a fullstack web developer and he is a nature lover and belong to farming family . SO decided to cretate the website to contribute for the farmers of india. </p>
                                 <a href="https://www.linkedin.com/in/amandeep-singh-699026196/" target="_blank"  rel="noreferrer" class="btn btn-primary">Know More</a>
                             </div>
                             <img src={Aman} className="card-img-top fouImground " alt="Founder" />

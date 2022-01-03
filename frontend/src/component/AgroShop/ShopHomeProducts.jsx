@@ -20,7 +20,7 @@ function HomeProducts(){
     useEffect(() => {
         const fetchdata = async () =>{
             const {data} = await axios.get("/Shopproductdata");
-            console.log(data);
+
             setproduct(data);
         }
         fetchdata();

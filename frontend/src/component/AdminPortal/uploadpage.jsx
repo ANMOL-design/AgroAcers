@@ -5,13 +5,14 @@ import 'react-quill/dist/quill.snow.css';
 import "../../Styles/contactus.css";
 import {useNavigate} from 'react-router-dom';
 import { UserContext } from "../../App";
-import '../../Styles/uploadpost.css'
+import '../../Styles/uploadpost.css';
 const Uploadpage =()=>{
   const [userData, setUserData] = useState({});
   const {state,dispatch}= useContext(UserContext);
   const [quill,setQuill] = useState("");
   const [title1,setTitle] = useState("");
   const [Image,setImage] = useState("");
+  const [CropCategory,setCropcategory] = useState("");
     const navigate = useNavigate();
     
     const quillcontent = (e)=>{
@@ -31,6 +32,10 @@ const Uploadpage =()=>{
           value = e.target.value;
           setImage(value)
       }
+      const handleCategory = (e)=>{
+        let categoryvalue = e.target.value;
+        setCropcategory(categoryvalue);
+      }
     const postData =async (e)=>{
     e.preventDefault();
     let today  = new Date();
@@ -45,6 +50,7 @@ const Uploadpage =()=>{
     let Description = quill;
     let UserId = userData._id;
     let Author = userData.name;
+    let category = CropCategory
     let Url = title.split(" ").join("-")
   console.log(Url);
   
@@ -54,7 +60,7 @@ const Uploadpage =()=>{
         "content-Type" : "application/json"
     },
     body : JSON.stringify({
-      title,Image,Description,Author,UserId,time
+      title,Image,Description,Author,UserId,time,category
     })
   });
   const data = await res.json();
@@ -80,7 +86,6 @@ const callAboutPage = async () => {
     });
 
     const data = await res.json();
-    console.log(data);
     setUserData(data);
 
     if (!res.status === 200) {
@@ -108,7 +113,14 @@ useEffect(() => {
           <label htmlFor="title">Title :</label> <br />
          <input type="text" placeholder="ENTER THE TITLE..."  name="title" onChange={handleInput} id="title" /> <br />
           <label htmlFor="title">Image :</label><br />
-         <input type="text" placeholder="add img url"   name="Image" onChange={handleInput2} id="title" />
+         <input type="text" placeholder="add img url"   name="Image" onChange={handleInput2} id="title" /><br />
+         <label htmlFor="category">Category :</label><br />
+         <input type="radio" name="category" onClick={handleCategory} id="Rabi" value="Rabi"/>
+         <label htmlFor="Rabi">Rabi</label>
+         <input style={{marginLeft:"20px"}} onClick={handleCategory} type="radio" name="category" id="Kharif" value="Kharif"/>
+         <label  htmlFor="Kharif">Kharif</label>
+         <input type="radio" style={{marginLeft:"20px"}} onClick={handleCategory} name="category" id="Vegetables" value="Vegetables"/>
+         <label htmlFor="Vegetables">Vegetables</label> 
          <br />
          <label htmlFor="description">Description :</label>
          <ReactQuill className="description"  onChange={quillcontent}   name="description"    theme="snow"/>
