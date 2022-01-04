@@ -2,13 +2,14 @@ import React,{useEffect, useState} from "react";
 import "./../../Styles/AgroShopHome.css";
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css'
-import Banner1 from "./ImagesShop/Banner1.jpeg";
+import Banner from "./ImagesShop/agriculture-banner-new.jpg";
 import Banner2 from "./ImagesShop/Banner5.jpg";
-import Banner3 from "./ImagesShop/infobanner1.jpg";
 import Loader from "../Loader";
-import ShopPolicy from "./ShopPolicy";
-import HomeProducts from "./ShopHomeProducts";
-import ProductsForYou from "./ProductsInHome";
+import ShopPolicy from "./AgroShopSubComponents/ShopPolicy";
+import HomeProducts from "./AgroShopSubComponents/ShopHomeProducts";
+import ProductsForYou from "./AgroShopSubComponents/ProductsInHome";
+import ProductsBrand from "./AgroShopSubComponents/ProductBrands";
+import SellProduct from "./AgroShopSubComponents/ProductSubscribe";
 
 
 function ShopHome(){
@@ -31,41 +32,45 @@ function ShopHome(){
     return(
         <>
             {/* Print The Slider  */}
-            <div id="carouselExampleControls" className="carousel slide border-on-slider" data-bs-ride="carousel">
-                <div className="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <div className="ShopPageBannerHome">
+                <img src={Banner} alt="" className="ShopPageBannerHomeImage"/>
+                <div className="ShopPageBannerHomeInner">
+                    <button className="btn btn-light">SHOP NOW</button>
                 </div>
-                <div className="carousel-inner">
-                    <div className="carousel-item active">
-                        <Link to="/"><img src={Banner1} className="d-block w-100" alt="ShoppingBanner" /></Link>
-                    </div> 
-                    <div className="carousel-item ">
-                        <Link to="/"><img src={Banner2} className="d-block w-100" alt="ShoppingBanner" /></Link>
-                    </div>
-                    <div className="carousel-item">
-                        <Link to="/"><img src={Banner3} className="d-block w-100" alt="ShoppingBanner" /></Link>
-                    </div>
+            </div>
+
+            {/* Links */}
+            <div className="home_products_links">
+                <Link to="/">Hybrid Seeds</Link>
+                <Link to="/">Fertilizer</Link>
+                <Link to="/">Hardware &amp; Tools</Link>
+                <Link to="/">Organic Farming</Link>
+                <Link to="/">Farm Product</Link>
+            </div>
+           
+            {/* Adding The Products to home  */}
+            <HomeProducts />
+
+            <div className="ShopPageBannerHome mt-2">
+                <img src={Banner2} alt="" className="ShopPageBannerHomeImage"/>
+                <div className="ShopPageBannerHomeInner2">
+                    <h1>BEST PRICE AVAILABLE</h1>
+                    <p>Our Best Seed Available At Your Doorstep!</p>
+                    <button className="btn btn-success">SHOP NOW</button>
                 </div>
-                    <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span className="visually-hidden">Previous</span>
-                    </button>
-                    <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span className="visually-hidden">Next</span>
-                    </button>
             </div>
 
             {/* Print The Policy  */}
             <ShopPolicy />
 
-            {/* Adding The Products to home  */}
-            <HomeProducts />
-
             {/*Products for You to home  */}
             <ProductsForYou />
+
+            {/* Top Brands  */}
+            <ProductsBrand />
+
+            {/* Sell Products  */}
+            <SellProduct />
         </>
     )
 }

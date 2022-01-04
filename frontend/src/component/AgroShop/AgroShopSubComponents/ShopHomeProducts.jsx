@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import "./../../Styles/AgroShopHome.css";
+import "./../../../Styles/AgroShopHome.css";
 import 'bootstrap/dist/css/bootstrap.css';
 
 function HomeProducts(){
@@ -20,7 +20,11 @@ function HomeProducts(){
     useEffect(() => {
         const fetchdata = async () =>{
             const {data} = await axios.get("/Shopproductdata");
+// <<<<<<< HEAD:frontend/src/component/AgroShop/ShopHomeProducts.jsx
 
+// =======
+            // console.log(data);
+// >>>>>>> e38427b4092736fd32314a283ad2213cdaf9bfa5:frontend/src/component/AgroShop/AgroShopSubComponents/ShopHomeProducts.jsx
             setproduct(data);
         }
         fetchdata();
@@ -33,24 +37,15 @@ function HomeProducts(){
     return(
         <>
           <div className="home_products_sell">
-            <h1>BEST SELLER</h1>
-            <div className="home_products_links">
-                <ul>
-                    <li><Link to="/shop/products?value=Hybrid Seeds">Hybrid Seeds</Link></li>
-                    <li><Link to="/shop/products?value=Fertilizers">Fertilizers</Link></li>
-                    <li><Link to="/shop/products?value=Agro Tools">Hardware &amp; Tools</Link></li>  
-                    <li><Link to="/shop/products?value=Organic Farming">Organic Farming</Link></li>
-                    <li><Link to="/shop/products?value=Farm Products">Farm Products</Link></li>
-                </ul>
-            </div>
+                <h1 className="mb-3">BEST SELLER</h1>
           </div>
           {/* Details of Product  */}
           <div className="home-products-details container-fluid">
                 {product.slice(0,cntProduct).map( (item) => {
                     return(
-                        <div key={item._id} className="card " id="pc" style={{width: "17.5rem"}}>
+                        <div key={item._id} className={item.quantity > 0 ?  "card " : "card  opacity-25"} id="pc" style={{width: "17.5rem"}}>
                             {/* Upper Image Portion of card  */}
-                            <div className={item.quantity > 0 ? "Product-image-container" : "Product-image-container opacity-25"}>
+                            <div className="Product-image-container">
                                 <img src={item.Imageurl} className="card-img-top home-product-image" alt="Products" />
                                     {/* Hot Icon On Card  */}
                                     <div className="Hotproducts">
