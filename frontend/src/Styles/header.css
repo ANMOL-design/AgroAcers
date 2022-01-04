@@ -173,4 +173,7 @@
     .bg-btn {
         border-radius: 5px;
     }
+    .hide_small_header {
+        display: none;
+    }
 }
