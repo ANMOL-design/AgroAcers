@@ -18,6 +18,7 @@ function ProductsDetails(){
     const navigate = useNavigate();
 
     const [product, setproduct] = useState([]);
+    const [productbackup, setproductbackup] = useState([]);
     const [cntProduct, setcntProduct] = useState([8]);
 
     const IncrementProductsCards = () =>{
@@ -31,15 +32,12 @@ function ProductsDetails(){
             const {data} = await axios.get("/Shopproductdata");
             // console.log(data);
             setproduct(data);
+            setproductbackup(data)
 
             window.scroll(0,0);
             setDataLoading(true);
         }
         fetchdata();
-
-        return () => {
-            //
-        }
     }, [])
 
     if (!DataLoading){
@@ -48,18 +46,15 @@ function ProductsDetails(){
         );
     }
 
-    var result = [];
+    var result = product.filter( (e) => e.category === qty);
 
-    product.map((data) => {
-        // console.log(data.category, qty);
-        if(data.category === qty){
-            // console.log("I got The Same Category")
-            result.push(data);
-        }
-    });
+    // console.log(productbackup)
 
     if(cntProduct >= result.length){
-        document.getElementById("load").style.display = "none";
+        var e = document.getElementById("load");
+        if(e){
+            e.style.display = "none";
+        }
     }
 
     if(qty === "AgricultureTools"){
@@ -74,9 +69,45 @@ function ProductsDetails(){
         if(value === "Select"){
             
         }
-        else(
+        else{
+            setproduct(productbackup)
             navigate(value)
-        )
+        }
+    }
+
+    const sortproduct = () => {
+        var e = document.getElementById("SortedProduct");
+        var value = e.value;
+
+        console.log(value)
+        if(value === "Select"){
+            
+        }
+        else if(value === "Lowest"){       
+            result.sort((a, b) => {
+                return a.new_price - b.new_price;
+            });
+            setproduct(result)
+        }
+        else{       
+            result.sort((a, b) => {
+                return b.new_price - a.new_price;
+            });
+            setproduct(result)
+        }
+    }
+
+    const SearchProductDetails = () => {
+        var e = document.getElementById("ProductSearcher");
+        var value = e.value;
+
+        console.log(value)
+
+        result.sort((a) => {
+            return  a.Name.search(value);
+        });
+        
+        console.log(result)
     }
 
     return(
@@ -92,17 +123,17 @@ function ProductsDetails(){
                 <h3 className="mb-0 text-capitalize">Total Items in {qty} Store: {result.length}</h3>  
                 <div className="innner-product-info-container">
                     <span>Sort By: </span>
-                    <select>
-                        <option selected>Select </option>
+                    <select onChange={sortproduct} id={"SortedProduct"}>
+                        <option value="Select">Select </option>
                         <option value="Lowest">Lowest </option>
                         <option value="Highest">Highest</option>
                     </select>
 
                     <span>Filter</span>
                     <select onChange={navigatefilterproduct} id="FindProducts">
-                            <option selected>Select </option>
+                            <option value="Select">Select </option>
                             <option value="/ProductsDetails?value=seeds">Hybrid Seeds</option>
-                            <option value="/ProductsDetails?value=seeds">Fertilizer</option>
+                            <option value="/ProductsDetails?value=Fertilizer">Fertilizer</option>
                             <option value="/ProductsDetails?value=AgricultureTools">Hardware &amp; Tools</option>
                             <option value="/ProductsDetails?value=seeds">Organic Farming</option>
                             <option value="/ProductsDetails?value=seeds">Farm Product</option>
@@ -110,8 +141,8 @@ function ProductsDetails(){
                 </div> 
 
                 <div className="d-flex">
-                    <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                    <button className="btn btn-outline-success" type="submit">Search</button>
+                    <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="ProductSearcher" />
+                    <button className="btn btn-outline-success" type="submit" onClick={SearchProductDetails}>Search</button>
                 </div>
             </div>   
 
