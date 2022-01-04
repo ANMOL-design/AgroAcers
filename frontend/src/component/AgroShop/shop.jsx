@@ -35,7 +35,7 @@ function ShopHome(){
             <div className="ShopPageBannerHome">
                 <img src={Banner} alt="" className="ShopPageBannerHomeImage"/>
                 <div className="ShopPageBannerHomeInner">
-                    <button className="btn btn-light">SHOP NOW</button>
+                    <Link to="/Products?value=Agro"><button className="btn btn-light">SHOP NOW</button></Link>
                 </div>
             </div>
 
@@ -45,7 +45,7 @@ function ShopHome(){
                 <Link to="/ProductsDetails?value=Fertilizer">Fertilizer</Link>
                 <Link to="/ProductsDetails?value=AgricultureTools">Hardware &amp; Tools</Link>
                 <Link to="/">Organic Farming</Link>
-                <Link to="/">Farm Product</Link>
+                <Link to="/Products?value=Agro">Farm Product</Link>
             </div>
            
             {/* Adding The Products to home  */}
@@ -56,7 +56,7 @@ function ShopHome(){
                 <div className="ShopPageBannerHomeInner2">
                     <h1>BEST PRICE AVAILABLE</h1>
                     <p>Our Best Seed Available At Your Doorstep!</p>
-                    <button className="btn btn-success">SHOP NOW</button>
+                    <Link to="/Products?value=Agro"><button className="btn btn-success">SHOP NOW</button></Link>
                 </div>
             </div>
 

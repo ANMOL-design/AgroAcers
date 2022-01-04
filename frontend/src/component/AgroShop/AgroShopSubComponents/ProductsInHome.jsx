@@ -16,7 +16,7 @@ function ProductsForYou(){
                 {ProductsData.map( (item) => {
                     return(
                        <div className="Productforyoucont" key={item.id}>
-                            <Link to="/">
+                            <Link to="/ProductsDetails?value=seeds">
                                 <img src={item.image} alt="Product" className="Productforyouimage" />
                                 <h6 className="Productforyouheading">{item.heading}</h6>
                            </Link>

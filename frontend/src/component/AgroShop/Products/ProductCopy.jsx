@@ -10,7 +10,7 @@ import GrowBusiness from "./../ImagesShop/Grow.png"
 import GrowBusiness2 from "./../ImagesShop/Grow2.png"
 import ShopPolicy from "../AgroShopSubComponents/ShopPolicy";
 
-function ProductsDetails(){ 
+function ProductsDetailsAll(){ 
 
     const value = useLocation().search;
     var qty = value.split("=")[1];
@@ -46,9 +46,9 @@ function ProductsDetails(){
         );
     }
 
-    var result = product.filter( (e) => e.category === qty);
+    var result = []
+    product.map( (e) => result.push(e));
 
-    // console.log(productbackup)
 
     if(cntProduct >= result.length){
         var e = document.getElementById("load");
@@ -57,9 +57,6 @@ function ProductsDetails(){
         }
     }
 
-    if(qty === "AgricultureTools"){
-        qty = "Tools"
-    }
 
     const navigatefilterproduct = () => {
         var e = document.getElementById("FindProducts");
@@ -143,7 +140,7 @@ function ProductsDetails(){
             <img src={Banner} alt="Product Banner" className="productsDetailsImage"/>
 
             <div className="productsDetailsHeading">
-                <p className="productsDetailsinfo text-capitalize">Store / {qty}</p>
+                <p className="productsDetailsinfo text-capitalize">AgroAcers Store</p>
             </div> 
             
             <div className="product-info-right-inner-acc">
@@ -236,4 +233,4 @@ function ProductsDetails(){
     )
 }
 
-export default ProductsDetails;
+export default ProductsDetailsAll;

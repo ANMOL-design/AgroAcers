@@ -9,8 +9,14 @@ function HomeFeatures(){
     const [product, setproduct] = useState([]);
     const navigate = useNavigate();
 
-    const HandleClick = () =>{
-        navigate("/products?value=Accesories");
+    const HandleClickSeed = () =>{
+        navigate("/ProductsDetails?value=seeds");
+    }
+    const HandleClickTool = () =>{
+        navigate("/ProductsDetails?value=AgricultureTools");
+    }
+    const HandleClickFertilizer = () =>{
+        navigate("/ProductsDetails?value=Fertilizer");
     }
 
     useEffect(() => {
@@ -36,8 +42,8 @@ function HomeFeatures(){
             <div className="carousel-inner">
                 {/* Feature Product Feature 1  */}
                 <div className="carousel-item active">   
-                    <div className="home-features-details" onClick={HandleClick}>
-                        {product.slice(9,13).map( (item) => {
+                    <div className="home-features-details" onClick={HandleClickSeed}>
+                        {product.slice(4,8).map( (item) => {
                         return(
                         <div key={item.id} className="card " id="fc" style={{width: "18rem"}}>
                             {/* Upper Image Portion of card  */}
@@ -60,8 +66,8 @@ function HomeFeatures(){
                 </div>
                 {/* Feature Product Feature   */}
                 <div className="carousel-item">   
-                    <div className="home-features-details" onClick={HandleClick}>
-                        {product.slice(4,8).map( (item) => {
+                    <div className="home-features-details" onClick={HandleClickTool}>
+                        {product.slice(14,18).map( (item) => {
                         return(
                         <div key={item.id} className="card " id="fc" style={{width: "18rem"}}>
                             {/* Upper Image Portion of card  */}
@@ -84,8 +90,8 @@ function HomeFeatures(){
                 </div>
                 {/* Feature Product Feature 3  */}
                 <div className="carousel-item">   
-                    <div className="home-features-details" onClick={HandleClick}>
-                        {product.slice(13,17).map( (item) => {
+                    <div className="home-features-details" onClick={HandleClickFertilizer}>
+                        {product.slice(24, 28).map( (item) => {
                         return(
                         <div key={item.id} className="card " id="fc" style={{width: "18rem"}}>
                             {/* Upper Image Portion of card  */}
