@@ -48,7 +48,7 @@ const AgricultureUniversity = () => {
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src={bannerImg} alt="First slide"/>
+      <img class="d-block w-100" src="https://pimt.in/wp-content/uploads/2017/10/Image-37-1066x500-1-1.jpg" alt="First slide"/>
     </div>
     <div class="carousel-item">
       <img class="d-block w-100" src="https://www.bellenglish.com/wp-content/uploads/2021/02/pexels-thisisengineering-3912372-1920x960-6038c89b85905-1920x960-c-default.jpg" alt="Second slide"/>

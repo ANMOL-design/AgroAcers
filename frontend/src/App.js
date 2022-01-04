@@ -24,7 +24,11 @@ import AgricultureUniversity from './component/AgriculturUmiversity/AgricultureU
 import ShoppingData from './component/AdminPortal/shoppingAdmin';
 import AddGovtScheme from './component/AdminPortal/govtScheme';
 import CropBlog from './component/Crops/Crop-Page';
+// <<<<<<< HEAD
+import RabiCrop from './component/Crops/rabicrop';
+// =======
 import ProductsDetails from './component/AgroShop/Products/ProductsDetails';
+// >>>>>>> 73eced15fb38282b3eff138482a4059ebfdcfeee
 export const UserContext = createContext();
 
 const App = ()=> {
@@ -58,6 +62,7 @@ const Routing = ()=>{
               <Route path="mandirates" element={<MandiRate/>} />
               <Route path="AboutUser" exact element={<AboutUser/>} />
               <Route path="Crops" exact element={<CropBlog/>} />
+              <Route path="Crops/rabi" exact element={<RabiCrop/>} />
               <Route path="register/login" element={<Login/>}/>
               <Route path="logout" element={<Logout/>}/>
               <Route path="agri" element={<AgricultureUniversity/>}/>

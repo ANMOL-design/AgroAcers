@@ -20,7 +20,11 @@ function HomeProducts(){
     useEffect(() => {
         const fetchdata = async () =>{
             const {data} = await axios.get("/Shopproductdata");
+// <<<<<<< HEAD:frontend/src/component/AgroShop/ShopHomeProducts.jsx
+
+// =======
             // console.log(data);
+// >>>>>>> e38427b4092736fd32314a283ad2213cdaf9bfa5:frontend/src/component/AgroShop/AgroShopSubComponents/ShopHomeProducts.jsx
             setproduct(data);
         }
         fetchdata();

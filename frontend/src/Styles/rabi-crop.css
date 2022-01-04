@@ -1,0 +1,40 @@
+.rabi-crop-header h2{
+    font-size: 52px;
+    text-align: center;
+    color: #77BC3F;
+    text-decoration: underline;
+    margin-top: 2%;
+}
+.rabi-crop-header p{
+    margin: 2%;
+    font-size: 18px;
+    color: #07853b;
+}
+.type-rabi-header{
+    font-size: 42px;
+    text-align: center;
+    color: #77BC3F;
+    text-decoration: underline;
+}
+.crop-type-card-container{
+    margin-top: 5%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 15%;
+}
+.crop-type-card-container .card{
+ width: 350px;
+ height: 200px;
+ margin: 5%;
+}
+.crop-type-card-container .card-body{
+    background-color: rgb(114, 204, 114);
+    color: rgb(255, 255, 255);
+}
+.crop-type-card-container .card-body:hover{
+    background-image: linear-gradient(45deg,rgb(61, 238, 76),#77bc3fc2,rgba(74, 218, 74, 0.432));
+    color: white;
+ 
+}
