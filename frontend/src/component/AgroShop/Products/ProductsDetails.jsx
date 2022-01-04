@@ -38,6 +38,7 @@ function ProductsDetails(){
             setDataLoading(true);
         }
         fetchdata();
+        window.scroll(0,0);
     }, [])
 
     if (!DataLoading){
@@ -79,7 +80,7 @@ function ProductsDetails(){
         var e = document.getElementById("SortedProduct");
         var value = e.value;
 
-        console.log(value)
+        // console.log(value)
         if(value === "Select"){
             
         }
@@ -97,17 +98,44 @@ function ProductsDetails(){
         }
     }
 
+    const RenderNone = () => {
+        return(
+            <> 
+               <div className="d-flex justify-content-center align-items-center" style={{height: "34vh", fontSize: "2rem", color: "#c0c0c0"}}>
+                        No data Found ...
+               </div>
+            </>
+        )
+    }
+
+    const HandleTheSearch = (value) => {
+        var ans = productbackup.map((a) => {
+            if(a.Name.search(value) > -1){
+                return a
+            }
+        });
+
+        ans = ans.filter((e) => e !== undefined)
+        
+        // console.log(result, ans)
+        setproduct(ans);
+    }
+
     const SearchProductDetails = () => {
         var e = document.getElementById("ProductSearcher");
         var value = e.value;
 
-        console.log(value)
 
-        result.sort((a) => {
-            return  a.Name.search(value);
-        });
-        
-        console.log(result)
+        setproduct(productbackup)
+        // console.log(product)
+
+
+        if(value === ""){
+            setproduct(productbackup)
+        }
+        else{
+            HandleTheSearch(value)
+        }       
     }
 
     return(
@@ -146,8 +174,10 @@ function ProductsDetails(){
                 </div>
             </div>   
 
+            {(!result.length) ? <RenderNone /> : null}
+
             {/* Details of Product  */}
-            <div className="home-products-details container-fluid mt-3">
+            <div className="home-products-details container-fluid mt-4 mb-4">
                 {result.slice(0,cntProduct).map( (item) => {
                     return(
                         <div key={item._id} className={item.quantity > 0 ?  "card " : "card  opacity-25"} id="pc" style={{width: "17.5rem"}}>
