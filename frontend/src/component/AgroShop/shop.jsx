@@ -41,7 +41,7 @@ function ShopHome(){
 
             {/* Links */}
             <div className="home_products_links">
-                <Link to="/">Hybrid Seeds</Link>
+                <Link to="/ProductsDetails?value=seeds">Hybrid Seeds</Link>
                 <Link to="/">Fertilizer</Link>
                 <Link to="/">Hardware &amp; Tools</Link>
                 <Link to="/">Organic Farming</Link>
