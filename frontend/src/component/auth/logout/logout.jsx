@@ -1,7 +1,9 @@
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../../App";
+
 function Logout(){
+
     const {state,dispatch} = useContext(UserContext)
     const navigate = useNavigate();
     useEffect(()=>{

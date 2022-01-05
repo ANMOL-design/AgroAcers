@@ -6,6 +6,7 @@ import {useNavigate, useParams  } from "react-router-dom";
 import axios from "axios";
 import Loader from "../../Loader";
 import SellProduct from "../AgroShopSubComponents/ProductSubscribe";
+import HomeFeaturesSlider from "./ProductSliderUnique";
 
 
 function UniqueProductsDetails(){ 
@@ -56,18 +57,19 @@ function UniqueProductsDetails(){
                         <li>
                             <h3><span style={{color: "#77BC3F"}}>Product : </span> {product.Name} ( {product.Hindi_name} )</h3>
                         </li>
-                        <li>
+                        {/* <li>
                             <h4><span style={{color: "#77BC3F"}}>Product ID : </span> {product._id}</h4>
-                        </li>
+                        </li> */}
                         <li>
                             <h4><span style={{color: "#77BC3F"}}>Price : </span>&#8377;{product.new_price} &nbsp;&nbsp;
                             <span style={{color: "#c0c0c0", textDecoration: "line-through"}}>(&#8377;{product.old_price})</span></h4>
                         </li>
                         <li>
-                            <h5><span style={{color: "#77BC3F"}}>Discount : </span>{Math.round(100*(product.old_price - product.new_price)/product.old_price)}% &nbsp; 
-                            ( Save : &#8377;{product.old_price - product.new_price} )</h5>
-                        </li>                       
-                        
+                            <h5><span style={{color: "#77BC3F"}}>You Save : </span>&#8377;{product.old_price - product.new_price} </h5>
+                        </li> 
+                        <li>
+                            <h5><span style={{color: "#77BC3F"}}>Discount : </span>{Math.round(100*(product.old_price - product.new_price)/product.old_price)}% </h5>
+                        </li>                   
                         <li>
                             <p style={{textAlign: "justify", fontWeight: "500"}}><span style={{color: "#77BC3F", fontSize: "20px"}}>Description: </span>{product.Description}</p>
                         </li>
@@ -77,11 +79,11 @@ function UniqueProductsDetails(){
 
                 <div className="details-action col-md-4">
                 <ul>
-                    <li>
+                    <li className="mt-2">
                         <h3><span style={{color: "#FF1E56"}}>Order Now : </span>  {product.Name}</h3>
                     </li>
                     <li>
-                        <h4><span style={{color: "#FF1E56"}}>Price : </span> ${product.old_price}</h4> 
+                        <h4><span style={{color: "#FF1E56"}}>Price : </span> &#8377;{product.new_price}</h4> 
                     </li>
                     <li>
                         <h4><span style={{color: "#FF1E56"}}>Status : </span>{product.quantity > 0 ? "Available In Stock" : "Out Of Stock"}</h4>
@@ -104,6 +106,10 @@ function UniqueProductsDetails(){
             </div>
 
             {/* Display The Products Silder  */}
+            <hr style={{marginTop: "5px", marginBottom: "0px"}}/>
+            <HomeFeaturesSlider />
+
+            {/* Display The Subscription  */}
             <hr style={{marginTop: "5px", marginBottom: "0px"}}/>
             <SellProduct />
         </>

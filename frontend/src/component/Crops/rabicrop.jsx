@@ -82,7 +82,7 @@ let rabiCrop = cropData.filter(item=>item.category==="Rabi")
             <>
                 <Link style={{textDecoration:"none"}} to={item._id}>
                 <div className="card">
-                  <img className="card-img-top img-fluid" src={item.Image} alt="Card image cap" />
+                  <img className="card-img-top img-fluid" src={item.Image} alt="Card cap" />
                   <div className="card-body">
                     <h2 className="card-title">
                       {item.title}

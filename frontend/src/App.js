@@ -12,7 +12,7 @@ import PrivacyPolicy from './component/footer/PrivacyPolicy';
 import AboutUS from './component/AboutUs/about';
 import MandiRate from './component/mandiRate/mandiRate.jsx';
 import Logout from './component/auth/logout/logout';
-import { initialState,reducer} from './Reducer/useReducer';
+import { initialState, reducer} from './Reducer/useReducer';
 import AboutUser from './component/User/AboutUse';
 import ShopHome from './component/AgroShop/shop';
 import UserData from './component/AdminPortal/Userdata';
@@ -24,28 +24,27 @@ import AgricultureUniversity from './component/AgriculturUmiversity/AgricultureU
 import ShoppingData from './component/AdminPortal/shoppingAdmin';
 import AddGovtScheme from './component/AdminPortal/govtScheme';
 import CropBlog from './component/Crops/Crop-Page';
-// <<<<<<< HEAD
 import RabiCrop from './component/Crops/rabicrop';
-// =======
 import ProductsDetails from './component/AgroShop/Products/ProductsDetails';
 import UniqueProductsDetails from './component/AgroShop/Products/UniqueProduct';
 import ProductsDetailsAll from './component/AgroShop/Products/ProductCopy';
-// >>>>>>> 73eced15fb38282b3eff138482a4059ebfdcfeee
+import MyCart from './component/AgroShop/Agrocart/cart';
 export const UserContext = createContext();
 
 const App = ()=> {
+
  const [state,dispatch] =  useReducer(reducer,initialState)
   return (
     
    <>
    
       <BrowserRouter>
-      <UserContext.Provider value={{state,dispatch}}>
-      <Navbar/>
-      <Routing />
-      <Footer />
-           </UserContext.Provider>
-       </BrowserRouter>
+        <UserContext.Provider value={{state,dispatch}}>
+            <Navbar/>
+            <Routing />
+            <Footer />
+        </UserContext.Provider>
+      </BrowserRouter>
    </>
 
   );
@@ -80,6 +79,8 @@ const Routing = ()=>{
               <Route path="/ProductsDetails" element={ <ProductsDetails /> } />
               <Route path="/Products" element={ <ProductsDetailsAll /> } />
               <Route path="/products/:id" element={ <UniqueProductsDetails /> } />
+              <Route path="/cart/:id" element={ <MyCart /> } />
+              <Route path="/cart" element={ <MyCart /> } />
               <Route path="/" element={<Home/>} exact/>
               <Route path="*" element={<PageNotFound/>}/>
           </Routes>

@@ -44,6 +44,7 @@
     border: 2px solid grey;
     border-radius: 3px;
     padding: 2px;
+    background-color: #fff;
 }
 
 .subscribe-form button {

@@ -6,6 +6,7 @@ import "./../../Styles/header.css";
 import { UserContext } from "../../App";
 
 const Navbar = () => {
+  
     const { state, dispatch } = useContext(UserContext);
   
     const [userData, setUserData] = useState({});
@@ -73,10 +74,10 @@ const Navbar = () => {
                     <div className="userinfoheader dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i className="fa fa-user-circle-o">&nbsp;</i> Hi, {userData.name}
                     </div>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                      <a class="dropdown-item" href="/">Cart</a>
-                      <Link class="dropdown-item"  to="/admin">Admin</Link>
-                      <Link class="dropdown-item" to="/aboutuser">About User</Link>
+                  <div className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <Link className="dropdown-item" to="/cart">Cart</Link>
+                      <Link className="dropdown-item"  to="/admin">Admin</Link>
+                      <Link className="dropdown-item" to="/aboutuser">About User</Link>
                       <NavLink className="nav-link dropdown-item" to="/logout">
                         <button className={"bg-btn"}>Logout</button>
                       </NavLink>
@@ -99,9 +100,9 @@ const Navbar = () => {
                     <div className="userinfoheader dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i className="fa fa-user-circle-o">&nbsp;</i> Hi, {userData.name}
                     </div>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                      <a class="dropdown-item" href="/">Cart</a>
-                      <Link class="dropdown-item" to="/aboutuser">About User</Link>
+                  <div className="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                      <Link className="dropdown-item" to="/cart">Cart</Link>
+                      <Link className="dropdown-item" to="/aboutuser">About User</Link>
                       <NavLink className="nav-link dropdown-item" to="/logout">
                         <button className={"bg-btn"}>Logout</button>
                       </NavLink>
@@ -157,13 +158,13 @@ const Navbar = () => {
                         <i className="fa fa-user-circle-o">&nbsp;</i> Hi, {userData.name}
                     </div>
                   <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a className="dropdown-item" href="/" 
+                      <Link className="dropdown-item" to="/cart" 
                         data-toggle="collapse"
                         data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent"
                         aria-expanded="false"
                         aria-label="Toggle navigation"
-                      >Cart</a>
+                      >Cart</Link>
                       <Link className="dropdown-item"  to="/admin"
                             data-toggle="collapse"
                             data-target="#navbarSupportedContent"
@@ -207,13 +208,13 @@ const Navbar = () => {
                         <i className="fa fa-user-circle-o">&nbsp;</i> Hi, {userData.name}
                     </div>
                   <div className="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                      <a className="dropdown-item" href="/" 
+                      <Link className="dropdown-item" to="/cart" 
                          data-toggle="collapse"
                          data-target="#navbarSupportedContent"
                          aria-controls="navbarSupportedContent"
                          aria-expanded="false"
                          aria-label="Toggle navigation"
-                      >Cart</a>
+                      >Cart</Link>
                       <Link className="dropdown-item" to="/aboutuser" 
                             data-toggle="collapse"
                             data-target="#navbarSupportedContent"
@@ -282,50 +283,49 @@ const Navbar = () => {
           
             <div className={"nav-box-margin hide_small"}>
               <ul className="navbar-nav ul-border">
-                <li className="nav-item"
+                <li className="nav-item">
+                  <Link className="nav-link nav-hov" to="/"
                    data-toggle="collapse"
                    data-target="#navbarSupportedContent"
                    aria-controls="navbarSupportedContent"
                    aria-expanded="false"
-                   aria-label="Toggle navigation"
-                >
-                  <Link className="nav-link nav-hov" to="/">
+                   aria-label="Toggle navigation">
                     Home
                   </Link>
                 </li>
 
-                <li className="nav-item"
-                    data-toggle="collapse"
-                    data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                  <Link className="nav-link nav-hov" to="/shop">
+                <li className="nav-item">
+                  <Link className="nav-link nav-hov" to="/shop"
+                  data-toggle="collapse"
+                  data-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                  >
                     Shop
                   </Link>
                 </li>
 
-                <li className="nav-item"
-                    data-toggle="collapse"
-                    data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                  <Link className="nav-link nav-hov" to="/about">
+                <li className="nav-item">
+                  <Link className="nav-link nav-hov" to="/about"
+                  data-toggle="collapse"
+                  data-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                  >
                     About
                   </Link>
                 </li>
 
-                <li className="nav-item"
+                <li className="nav-item">
+                  <Link className="nav-link nav-hov" to="/crops"
                     data-toggle="collapse"
                     data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent"
                     aria-expanded="false"
                     aria-label="Toggle navigation"
-                >
-                  <Link className="nav-link nav-hov" to="/crops">
+                  >
                     Blog
                   </Link>
                 </li>

@@ -5,8 +5,10 @@ import userImg from "../../Images/New Img/UserImg.png";
 import "../../Styles/aboutuser.css";
 import Login from "../auth/login/Login";
 const AboutUser = () => {
+
   const [userData, setUserData] = useState({});
   const { state, dispatch } = useContext(UserContext);
+  
   const RenderAboutUser = () => {
     if (!state){
        return(
