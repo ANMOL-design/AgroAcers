@@ -18,6 +18,9 @@ function HomeFeaturesSlider(){
     const HandleClickFertilizer = () =>{
         navigate("/ProductsDetails?value=Fertilizer");
     }
+    const HandleClickPlant = () =>{
+        navigate("/ProductsDetails?value=Pots&Planter");
+    }
 
     useEffect(() => {
         const fetchdata = async () =>{
@@ -92,6 +95,30 @@ function HomeFeaturesSlider(){
                 <div className="carousel-item">   
                     <div className="home-features-details" onClick={HandleClickFertilizer}>
                         {product.slice(24, 28).map( (item) => {
+                        return(
+                        <div key={item.id} className="card " id="fc" style={{width: "18rem"}}>
+                            {/* Upper Image Portion of card  */}
+                            <div className="Product-image-container">
+                                <img src={"./../" + item.Imageurl} className="card-img-top" alt="Products" />
+                            </div>
+                            {/* Lower Body Portion of card  */}
+                            <div className="card-body">
+                                <h5 className="card-title" style={{fontSize: '1.1rem'}}>{item.Hindi_name}</h5>
+                                {/* Product Price in Body  */}
+                                <div className="product-space">
+                                    <span className="product-actual-price">&#8377;{item.new_price}</span>
+                                    <span className="product-old-price">&#8377;{item.old_price}</span> 
+                                </div>
+                            </div>                                                       
+                        </div>
+                        )
+                    })}
+                    </div>
+                </div>
+                {/* Feature Product Feature 4  */}
+                <div className="carousel-item">   
+                    <div className="home-features-details" onClick={HandleClickPlant}>
+                        {product.slice(36, 40).map( (item) => {
                         return(
                         <div key={item.id} className="card " id="fc" style={{width: "18rem"}}>
                             {/* Upper Image Portion of card  */}

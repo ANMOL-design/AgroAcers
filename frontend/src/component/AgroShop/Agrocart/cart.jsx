@@ -9,15 +9,14 @@ function MyCart(){
 
     const { addToCart, removeitem, cartItems } = useContext(CartContext);
 
-    console.log(cartItems);
+    // console.log(cartItems);
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
     const navigate = useNavigate();
     const [DataLoading, setDataLoading] = useState(false);
 
     const {id} = useParams();
     const value = useLocation().search;
     const qty = Number(value.split("=")[1]);
-
-    console.log(id, value, typeof(qty));
 
     const callAboutPage = async () => {
         try {
@@ -37,7 +36,7 @@ function MyCart(){
                 throw error;
             }
 
-            console.log(data);
+            // console.log(data);
         } 
         catch (err) {
             console.log(err);
@@ -51,8 +50,8 @@ function MyCart(){
         const fetchdata = async () =>{
             if(id){
                 const {data} = await axios.get("/Shopproductdata/" + id);
-                console.log(data);
-                addToCart(data);
+                // console.log(data, qty);
+                addToCart(data, qty);
             }
         }
         fetchdata();
@@ -61,7 +60,7 @@ function MyCart(){
         setDataLoading(true);
     }, []);
 
-    var totalPrice = cartItems.reduce( (a, c) => a + c.new_price * c.quantity, 0 + 20);
+    var totalPrice = cartItems.reduce( (a, c) => a + c.new_price * Number(c.qty), 0 + 20);
  
     const removeFromCartHandler = (productId) =>{
         removeitem(productId)
@@ -103,12 +102,12 @@ function MyCart(){
                            cartItems.map((item) => {
                                return(
                                    <>
-                                   <tr key={item.id}>
+                                   <tr key={item._id}>
                                         <td onClick={() => removeFromCartHandler(item._id)}><div className="cutitem">x</div></td>
                                         <td><img src={"./../" + item.Imageurl} alt="CartProduct" /></td>
                                         <td  onClick={() => navigatetoproduct(item._id)} className="cartproduct">{item.Name}</td>
-                                        <td>$ {item.new_price * item.quantity}</td>
-                                        <td><select value={item.quantity} onChange={ (e) => dispatchEvent(addToCart(item.product, e.target.value))}>
+                                        <td>$ {item.new_price * Number(item.qty)}</td>
+                                        <td><select value={item.qty} onChange={ (e) => addToCart(item, e.target.value)}>
                                                 {[...Array(item.quantity).keys()].map( x => {
                                                     return(
                                                         <option value={x+1}>{x+1}</option>

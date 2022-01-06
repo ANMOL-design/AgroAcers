@@ -1,26 +1,29 @@
 import { useReducer } from "react";
 import CartContext from "./CartContext";
 import CartReducer from "./CartReducer";
-import { SHOW_HIDE_CART, ADD_TO_CART, REMOVE_ITEMS} from "./Types"
+import { ADD_TO_CART, REMOVE_ITEMS} from "./Types"
 
 const CartState = ({children}) => {
 
     const initialState = {
-        showcart: false,
-        cartItems: []
+        cartItems: JSON.parse(localStorage.getItem('cartItems') || '[]')
     }
 
     const [state, dispatch] = useReducer(CartReducer, initialState);
 
-    console.log(state);
+    // console.log(state);
 
-    const addToCart = (item) => {
-        // console.log(item);
-        dispatch( {type: ADD_TO_CART, payload: item})
-    }
-
-    const showhidecart = () => {
-        dispatch( {type: SHOW_HIDE_CART})
+    const addToCart = (item, qty) => {
+        // console.log(item._id,item.Name, item.Imageurl, item.new_price, item.quantity ,  qty);
+        dispatch( {type: ADD_TO_CART, 
+            payload:{ 
+                _id : item._id,
+                Name: item.Name,
+                Imageurl: item.Imageurl,
+                new_price: item.new_price,
+                quantity: item.quantity,
+                qty}
+        })
     }
 
     const removeitem = id => {
@@ -30,10 +33,8 @@ const CartState = ({children}) => {
 
     return(
         <CartContext.Provider value={{
-            showcart: state.showcart,
             cartItems: state.cartItems,
             addToCart,
-            showhidecart,
             removeitem
         }}>{children}
 

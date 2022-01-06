@@ -60,6 +60,9 @@ function ProductsDetails(){
     if(qty === "AgricultureTools"){
         qty = "Tools"
     }
+    if(qty === "Pots&Planter"){
+        qty = "Planter"
+    }
 
     const navigatefilterproduct = () => {
         var e = document.getElementById("FindProducts");
@@ -162,7 +165,7 @@ function ProductsDetails(){
                             <option value="/ProductsDetails?value=seeds">Hybrid Seeds</option>
                             <option value="/ProductsDetails?value=Fertilizer">Fertilizer</option>
                             <option value="/ProductsDetails?value=AgricultureTools">Hardware &amp; Tools</option>
-                            <option value="/ProductsDetails?value=seeds">Organic Farming</option>
+                            <option value="/ProductsDetails?value=Pots&amp;Planter">Pots &amp; Planter</option>
                             <option value="/Products?value=Agro">Farm Product</option>
                     </select>
                 </div> 
