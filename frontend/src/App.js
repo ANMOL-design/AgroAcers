@@ -30,6 +30,7 @@ import RabiCrop from './component/Crops/rabicrop';
 import ProductsDetails from './component/AgroShop/Products/ProductsDetails';
 import UniqueProductsDetails from './component/AgroShop/Products/UniqueProduct';
 import ProductsDetailsAll from './component/AgroShop/Products/ProductCopy';
+import CRopDetails from './component/Crops/cropdetails';
 // >>>>>>> 73eced15fb38282b3eff138482a4059ebfdcfeee
 export const UserContext = createContext();
 
@@ -65,6 +66,7 @@ const Routing = ()=>{
               <Route path="AboutUser" exact element={<AboutUser/>} />
               <Route path="Crops" exact element={<CropBlog/>} />
               <Route path="Crops/rabi" exact element={<RabiCrop/>} />
+              <Route path="Crops/rabi/:id" exact element={<CRopDetails/>} />
               <Route path="register/login" element={<Login/>}/>
               <Route path="logout" element={<Logout/>}/>
               <Route path="agri" element={<AgricultureUniversity/>}/>

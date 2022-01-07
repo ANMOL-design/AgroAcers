@@ -76,4 +76,20 @@ router.get('/Shopproductdata/:id', (req, res) => {
     })
 })
 
+router.get('/cropdata/:id', (req, res) => {
+
+    const id = req.params.id;
+    // console.log(id);
+
+    AddBlog.findOne({ _id: id }).then((product) => {
+        if (product) {
+            // console.log(product)
+            return res.send(product)
+        }
+    }).catch((err) => {
+        console.log(err)
+        res.sendStatus(404)
+    })
+})
+
 module.exports = router;
