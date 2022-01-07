@@ -7,27 +7,50 @@ import 'bootstrap/dist/css/bootstrap.css';
 function HomeProducts(){
 
     const [product, setproduct] = useState([]);
-    const [cntProduct, setcntProduct] = useState([8]);
 
-    const IncrementProductsCards = () =>{
-        setcntProduct(Number(cntProduct) + 4);
-    }
-
-    if(cntProduct >= 20){
-        document.getElementById("load").style.display = "none";
-    }
-
+    const [currentPage, setcurrentPage] = useState(0);
+    const [productPerPage, setproductPerPage] = useState(8);
+  
     useEffect(() => {
         const fetchdata = async () =>{
             const {data} = await axios.get("/Shopproductdata");
             setproduct(data);
         }
         fetchdata();
-
-        return () => {
-            //
-        }
     }, [])
+
+    const ProductItemShowDisplay1 = () => {
+        setcurrentPage(0)
+        setproductPerPage(8);
+        window.scroll(0, 200)
+    }
+    const ProductItemShowDisplay2 = () => {
+        setcurrentPage(8)
+        setproductPerPage(16);
+        window.scroll(0, 200)
+    }
+    const ProductItemShowDisplay3 = () => {
+        setcurrentPage(16)
+        setproductPerPage(24);
+        window.scroll(0, 200)
+    }
+    const ProductItemShowDisplay4 = () => {
+        setcurrentPage(24)
+        setproductPerPage(32);
+        window.scroll(0, 200)
+    }
+    const ProductItemShowDisplay5 = () => {
+        setcurrentPage(32)
+        setproductPerPage(40);
+        window.scroll(0, 200)
+    }
+    const ProductItemShowDisplay6 = () => {
+        setcurrentPage(40)
+        setproductPerPage(48);
+        window.scroll(0, 200)
+    }
+
+    
 
     return(
         <>
@@ -36,7 +59,7 @@ function HomeProducts(){
           </div>
           {/* Details of Product  */}
           <div className="home-products-details container-fluid">
-                {product.slice(0,cntProduct).map( (item) => {
+                {product.slice(currentPage,productPerPage).map( (item) => {
                     return(
                         <div key={item._id} className={item.quantity > 0 ?  "card " : "card  opacity-25"} id="pc" style={{width: "17.5rem"}}>
                             {/* Upper Image Portion of card  */}
@@ -69,9 +92,19 @@ function HomeProducts(){
                 })}
           </div>
 
-          <div className="product-load-more-container" id="load"> 
-              <span onClick={IncrementProductsCards} className="product-load-more-btn">LOAD MORE</span>
-          </div>
+     
+            {product.length > 8 ? 
+                <div className="product-load-more-container-brand" id="load"> 
+                    <span className="dis-btn-brand" onClick={ProductItemShowDisplay1}>1</span> 
+                    <span className="dis-btn-brand" onClick={ProductItemShowDisplay2}>2</span> 
+                    <span className="dis-btn-brand" onClick={ProductItemShowDisplay3}>3</span> 
+                    <span className="dis-btn-brand" onClick={ProductItemShowDisplay4}>4</span> 
+                    <span className="dis-btn-brand" onClick={ProductItemShowDisplay5}>5</span> 
+                    <span className="dis-btn-brand" onClick={ProductItemShowDisplay6}>6</span> 
+                </div>
+                : 
+                null
+            } 
         </>
     )
 }

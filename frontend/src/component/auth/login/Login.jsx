@@ -26,6 +26,7 @@ const Login = () => {
    
     if (res.status === 201) {
       dispatch({type:"USER",payload:true})
+      localStorage.removeItem("cartItems");
       window.alert("Login succesful");
       navigate("/", { replace: true });
       window.location.reload()

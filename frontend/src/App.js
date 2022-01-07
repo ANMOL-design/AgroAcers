@@ -29,6 +29,7 @@ import ProductsDetails from './component/AgroShop/Products/ProductsDetails';
 import UniqueProductsDetails from './component/AgroShop/Products/UniqueProduct';
 import ProductsDetailsAll from './component/AgroShop/Products/ProductCopy';
 import MyCart from './component/AgroShop/Agrocart/cart';
+import SubscribeToShop from './component/AgroShop/Agrocart/SubscribeShop';
 export const UserContext = createContext();
 
 const App = ()=> {
@@ -79,6 +80,7 @@ const Routing = ()=>{
               <Route path="/ProductsDetails" element={ <ProductsDetails /> } />
               <Route path="/Products" element={ <ProductsDetailsAll /> } />
               <Route path="/products/:id" element={ <UniqueProductsDetails /> } />
+              <Route path="/shop/subscribeshop" element={ <SubscribeToShop /> } />
               <Route path="/cart/:id" element={ <MyCart /> } />
               <Route path="/cart" element={ <MyCart /> } />
               <Route path="/" element={<Home/>} exact/>

@@ -29,7 +29,7 @@ function SellProduct(){
                     </ul>
                     <h5 className="mb-4">Don't wait for the 'right time' because it never comes. Just go ahead and do it NOW!</h5>
                     <div className="text-center">
-                        <button className="btn btn-primary mb-2 w-100">Subscribe Now</button>
+                        <Link to="/shop/subscribeshop"><button className="btn btn-primary mb-2 w-100">Subscribe Now</button></Link>
                     </div>
                 </div>
           </div>

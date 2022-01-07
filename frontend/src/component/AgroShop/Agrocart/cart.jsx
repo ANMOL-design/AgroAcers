@@ -1,9 +1,23 @@
 import React, { useEffect, useState, useContext } from "react";
-import {useParams, useLocation, useNavigate } from "react-router-dom";
+import {useParams, useLocation, useNavigate, Link } from "react-router-dom";
 import Loader from "../../Loader";
 import axios from "axios";
 import "./../../../Styles/Cart.css";
 import CartContext from "../../../Reducer/Cart/CartContext";
+
+function loadScript(src) {
+	return new Promise((resolve) => {
+		const script = document.createElement('script')
+		script.src = src
+		script.onload = () => {
+			resolve(true)
+		}
+		script.onerror = () => {
+			resolve(false)
+		}
+		document.body.appendChild(script)
+	})
+}
 
 function MyCart(){
 
@@ -13,6 +27,12 @@ function MyCart(){
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
     const navigate = useNavigate();
     const [DataLoading, setDataLoading] = useState(false);
+    const [coupon, setcoupon] = useState("");
+    const [couponvalue, setcouponvalue] = useState("");
+
+    const [userData, setUserData] = useState({});
+
+    const [pricepay, setpricepay] = useState(0);
 
     const {id} = useParams();
     const value = useLocation().search;
@@ -36,7 +56,7 @@ function MyCart(){
                 throw error;
             }
 
-            // console.log(data);
+            setUserData(data);
         } 
         catch (err) {
             console.log(err);
@@ -59,16 +79,82 @@ function MyCart(){
         window.scroll(0,0);
         setDataLoading(true);
     }, []);
-
-    var totalPrice = cartItems.reduce( (a, c) => a + c.new_price * Number(c.qty), 0 + 20);
  
     const removeFromCartHandler = (productId) =>{
-        removeitem(productId)
+        removeitem(productId);
     }
 
     const navigatetoproduct = (id) => {
         navigate("/products/" + id);
     }
+
+    const totalPrice = cartItems.reduce( (a, c) => a + c.new_price * Number(c.qty), 0 + 200);
+
+    const HandleVoucher = () => {
+        if(couponvalue === "AGROACERSVOUCHER200"){
+            setcoupon("YES")
+            var element = document.getElementById("button-addon2voucher");
+            if(element){
+                element.disabled = true;
+                setpricepay(totalPrice-200)
+            }
+        }
+        else if(couponvalue === ""){
+            setcoupon("")
+            setpricepay(totalPrice)
+        }
+        else{
+            setcoupon("Invalid")
+            setpricepay(totalPrice)
+        }
+    }
+
+    async function displayRazorpay() {
+
+        setpricepay(totalPrice);
+
+        // console.log(pricepay)
+
+		const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
+
+		if (!res) {
+			alert('Razorpay SDK failed to load. Check your Internet Connection.')
+			return
+		}
+
+		const data = await fetch('/razorpay',{ 
+            method: 'POST',
+            headers: {
+                "content-Type" : "application/json",
+            },
+            body: JSON.stringify({
+                pricepay,
+            })
+        }).then((t) =>
+			t.json()
+		)
+
+		// console.log(data)
+
+		const options = {
+			key: 'rzp_test_119cJvO3u59nKY',
+			currency: data.currency,
+			amount: data.amount.toString(),
+			order_id: data.id,
+			name: userData.name,
+			description: 'AgroAcers Payment Gateway',
+			handler: function (response) {
+				// alert(response.razorpay_payment_id, response.razorpay_order_id, response.razorpay_order_id)
+				alert(`Successful Transaction.\nPayment ID: ${response.razorpay_payment_id}`);
+                 // destroy the cookies
+                localStorage.removeItem("cartItems");
+                navigate("/");
+                window.location.reload();
+			},
+		}
+		const paymentObject = new window.Razorpay(options)
+		paymentObject.open();
+	}
 
 
     if (!DataLoading){
@@ -81,15 +167,18 @@ function MyCart(){
         <>
            <div className="cart mb-5">
               <div className="cartheading">
-                  Cart
+                  AgroAcers Cart
               </div>
-              <div className="cart-list container-fluid">
+              <div className="cartLinkStyle">
+                <Link to="/shop">&lt;- Return</Link>
+              </div>
+              <div className="cart-list">
                     <table className="table">
                         <thead>
                             <tr>
                                 <th></th>
                                 <th>PRODUCT</th>
-                                <th></th>
+                                <th>PRODUCT NAME</th>
                                 <th>PRICE</th>
                                 <th>QTY</th>
                                 <th>UNIT PRICE</th>
@@ -97,7 +186,7 @@ function MyCart(){
                         </thead>
                         <tbody>
                         {
-                           cartItems.length === 0 ? <div className="noitems">Cart Is Empty</div> 
+                           cartItems.length === 0 ? <tr><td className="noitems">Cart Is Empty</td></tr> 
                            :
                            cartItems.map((item) => {
                                return(
@@ -106,8 +195,8 @@ function MyCart(){
                                         <td onClick={() => removeFromCartHandler(item._id)}><div className="cutitem">x</div></td>
                                         <td><img src={"./../" + item.Imageurl} alt="CartProduct" /></td>
                                         <td  onClick={() => navigatetoproduct(item._id)} className="cartproduct">{item.Name}</td>
-                                        <td>$ {item.new_price * Number(item.qty)}</td>
-                                        <td><select value={item.qty} onChange={ (e) => addToCart(item, e.target.value)}>
+                                        <td><span className="hideonsmallcart">Total Price:&nbsp;&nbsp;</span> &#8377; {item.new_price * Number(item.qty)}</td>
+                                        <td><span className="hideonsmallcart">Quantity:  &nbsp; &nbsp; </span><select value={item.qty} onChange={ (e) => addToCart(item, e.target.value)}>
                                                 {[...Array(item.quantity).keys()].map( x => {
                                                     return(
                                                         <option value={x+1}>{x+1}</option>
@@ -115,7 +204,7 @@ function MyCart(){
                                                 })}
                                            </select>
                                         </td>
-                                        <td>${item.new_price}</td>
+                                        <td><span className="hideonsmallcart">Unit Price:  &nbsp; &nbsp;</span>&#8377;{item.new_price}</td>
                                     </tr>
                                    </>
                                )
@@ -126,31 +215,32 @@ function MyCart(){
               <div className="cart-action">
                     {/* left Coupon  */}
                     <div className="mb-3 inputvoutcher">
-                        <input type="text"  placeholder="Voucher code" aria-label="Recipient's username" aria-describedby="button-addon2" />
-                        <button className="btn btn-primary" type="button" id="button-addon2">Redeem</button>
+                        <input type="text"  placeholder="Voucher code" aria-label="Recipient's username" aria-describedby="button-addon2" onChange={(e) => {
+                                      setcouponvalue(e.target.value);
+                                    }} />
+                        <button className="btn btn-success" type="button" id="button-addon2voucher" onClick={HandleVoucher}>Redeem</button>
                     </div>
                     {/* Right Add Cart  */}
-                    <div className="mb-3 col-md-4">
+                    <div className="mb-3 mt-3 col-md-5">
                         <div className="checkout marginsmall">
                             <p>SubTotal </p>
-                            <span>${cartItems.reduce( (a, c) => a + c.new_price * c.qty , 0)}</span> 
+                            <span>&#8377;{cartItems.reduce( (a, c) => a + c.new_price * c.qty , 0)}</span> 
                         </div>
                         <div className="checkout">
                             <p>Shipping fee</p>
-                            <span>$20</span> 
+                            <span>&#8377;200</span> 
                         </div>
                         <div className="checkout">
                             <p>Coupon</p>
-                            <span>No</span> 
+                            {coupon ? (coupon === "YES") ? <span>Accepted</span> : <span>Incorrect</span> : <span>No</span>} 
                         </div>
                         <hr />
                         <div className="checkout">
-                            <h3>TOTAL </h3>
-                            
-                            <h3>${totalPrice}</h3>
+                            <h3>GRAND TOTAL </h3>
+                            {coupon ? (coupon === "YES") ? <h3>&#8377;{totalPrice-200}</h3> : <h3>&#8377;{totalPrice}</h3> : <h3>&#8377;{totalPrice}</h3>} 
                         </div>
                         <div className="checkout mt-3">
-                            <button className="btn btn-primary btn-block" disabled={cartItems.length === 0}>Check out</button>
+                            <button onClick={displayRazorpay} className="btn btn-success btn-block" disabled={cartItems.length === 0}>Check out</button>
                         </div>
                     </div>
               </div>
