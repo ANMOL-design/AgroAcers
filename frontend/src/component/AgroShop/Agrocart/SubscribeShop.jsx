@@ -1,23 +1,73 @@
-import React, {useEffect} from "react";
-import {Link} from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import {Link, useNavigate} from "react-router-dom";
+import Loader from "../../Loader";
 import "./../../../Styles/addUniversity.css"
 
 const SubscribeToShop = ()=>{
 
+    const [DataLoading, setDataLoading] = useState(false);
+
+    const [ShopProductDetails,setShopProductDetails] = useState("");
+    const [Email,setEmail] = useState("");
+    const [Aadhar,setAadhar] = useState("");
+    const [Address,setAddress] = useState("");
+    const [Bank,setBank] = useState("");
+    const [info, setinfo] = useState("");
+
+    const navigate = useNavigate();
+
+    const callAboutPage = async () => {
+        try {
+            const res = await fetch("/aboutuser", {
+                method: "GET",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                },
+                credentials: "include",
+            });
+    
+            const data = await res.json();
+                
+            if (!res.status === 200) {
+                const error = new Error(res.error);
+                throw error;
+            }
+        } 
+        catch (err) {
+            console.log(err);
+            navigate("/login", { replace: true })
+        }
+    };
+
     useEffect(() => {
-        window.scroll(0,0)
+        callAboutPage();
+        window.scroll(0,0);
+        setDataLoading(true);
     }, [])
+
+    if (!DataLoading){
+        return (
+            <Loader />
+        );
+    }
 
     const handleSubmitbtn = () => {
         var element = document.getElementById("invalidCheck")
         var submit = document.getElementById("submitsub")
-        if(element.value){
+        if(ShopProductDetails && Email && Aadhar && Address && Bank && info){
            if(submit){
                 submit.disabled = false;
            }
         }
+        else{
+            if(submit){
+                submit.disabled = true;
+           }
+        }
     }
    
+    // console.log(ShopProductDetails);
     return(
         <>
           <div className="container-fluid">
@@ -25,10 +75,10 @@ const SubscribeToShop = ()=>{
                     <h1>Subscribe To AgroAcers Shop</h1>
                 </div>
                 <div className="container-fluid" style={{border: "1px solid #c0c0c0", padding: "5px 1.5%", borderRadius: "5px"}}>
-                    <form className="row g-3 p-2 needs-validation">
+                    <div className="row g-3 p-2">
                         <div className="col-md-4">
-                            <label for="validationCustom01" class="form-label">First name</label>
-                            <input type="text" class="form-control" id="validationCustom01" placeholder="Firstname" required />
+                            <label for="FirstName" class="form-label">First name</label>
+                            <input type="text" class="form-control" id="FirstName" placeholder="Firstname" name="FirstName" value={ShopProductDetails} required onChange={e => setShopProductDetails(e.target.value)} />
                             <div className="valid-feedback">
                                 Looks good!
                             </div>
@@ -42,7 +92,7 @@ const SubscribeToShop = ()=>{
                         </div>
                         <div className="col-md-4">
                             <label for="inputEmail4" className="form-label">Email</label>
-                            <input type="email" className="form-control" placeholder="agroacers@gmail.com" id="inputEmail4" />
+                            <input type="email" className="form-control" placeholder="agroacers@gmail.com" id="inputEmail4" value={Email} required onChange={e => setEmail(e.target.value)} />
                         </div>
                         <div className="col-md-4">
                             <label for="inputNumber" className="form-label">Phone</label>
@@ -50,7 +100,7 @@ const SubscribeToShop = ()=>{
                         </div>
                         <div className="col-md-4">
                             <label for="inputNumberadd" className="form-label">Aadhar Number</label>
-                            <input type="number" className="form-control" placeholder="XXXX" id="inputNumberadd" min={0} />
+                            <input type="number" className="form-control" placeholder="XXXX" id="inputNumberadd" min={0} value={Aadhar} required onChange={e => setAadhar(e.target.value)} />
                         </div>
                         <div className="col-md-4">
                             <label for="validationCustomgender" className="form-label">Gender</label>
@@ -121,7 +171,7 @@ const SubscribeToShop = ()=>{
                         </div>
                         <div className="col-12">
                             <label for="inputAddress" className="form-label mt-1">Address</label>
-                            <input type="text" className="form-control" id="inputAddress" placeholder="27 Main Steet, Delhi" />
+                            <input type="text" className="form-control" id="inputAddress" placeholder="27 Main Steet, Delhi"  value={Address} required onChange={e => setAddress(e.target.value)} />
                         </div>
                         <div className="col-12">
                             <label for="inputAddress2" class="form-label mt-1">Address 2</label>
@@ -129,7 +179,7 @@ const SubscribeToShop = ()=>{
                         </div>
                         <div className="col-md-6">
                             <label for="BANKACCOUNTNUMBER" className="form-label mt-1">Bank Account Number</label>
-                            <input type="number" className="form-control" id="BANKACCOUNTNUMBER" />
+                            <input type="number" className="form-control" id="BANKACCOUNTNUMBER"  value={Bank} required onChange={e => setBank(e.target.value)} />
                         </div>
                         <div className="col-md-6">
                             <label for="IFSCCODE" class="form-label mt-1">Bank IFSC CODE</label>
@@ -137,7 +187,7 @@ const SubscribeToShop = ()=>{
                         </div>
                         <div className="col-md-12 mt-1">
                             <label for="whyjoin" class="form-label mb-1 mt-4">Why you want to be Part of AgroAcers ?</label><br />
-                            <textarea className="form-control" aria-label="With textarea" id="whyjoin"></textarea>
+                            <textarea className="form-control" aria-label="With textarea" id="whyjoin" value={info} required onChange={e => setinfo(e.target.value)} ></textarea>
                         </div>
                         <div className="col-12 mt-5">
                             <div className="form-check">
@@ -159,7 +209,7 @@ const SubscribeToShop = ()=>{
                                     <div className="modal-content">
                                         <div className="modal-header">
                                             <h5 className="modal-title" id="exampleModalLabel">AgroAcers Subscription</h5>
-                                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <Link to="/"><button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></Link>
                                         </div>
                                         <div className="modal-body">
                                             <p>
@@ -175,7 +225,7 @@ const SubscribeToShop = ()=>{
                                 </div>
                             </div>
                         </div>
-                    </form>      
+                    </div>      
                 </div>
           </div>
         </>
