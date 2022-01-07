@@ -143,9 +143,33 @@ function MyCart(){
 			order_id: data.id,
 			name: userData.name,
 			description: 'AgroAcers Payment Gateway',
-			handler: function (response) {
+			handler: async function (response) {
 				// alert(response.razorpay_payment_id, response.razorpay_order_id, response.razorpay_order_id)
 				alert(`Successful Transaction.\nPayment ID: ${response.razorpay_payment_id}`);
+
+                const name = userData.name;
+                const mail = userData.email;
+                const orderid = response.razorpay_order_id;
+                const transid = response.razorpay_payment_id;
+                const amountpay = Number(data.amount.toString())/100;
+
+                const res =  await fetch("/sendcartReply" ,{
+                    method : "POST",
+                    headers : { 
+                        "content-Type" : "application/json"
+                    },
+                    body : JSON.stringify({
+                        name,mail,orderid,transid,amountpay
+                    })
+                });
+
+                if(res.status === 201){
+                    window.alert("Your mail is succesfully sent.");
+                }
+                else {
+                  window.alert("Error occured , try again")
+                }
+
                  // destroy the cookies
                 localStorage.removeItem("cartItems");
                 navigate("/");

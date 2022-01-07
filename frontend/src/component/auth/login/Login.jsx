@@ -24,14 +24,23 @@ const Login = () => {
       }),
     });
    
-    if (res.status === 201) {
+    if (res.status === 200) {
       dispatch({type:"USER",payload:true})
       localStorage.removeItem("cartItems");
       window.alert("Login succesful");
       navigate("/", { replace: true });
       window.location.reload()
-    } else {
-      window.alert("Invalid credential");
+    }else if (res.status === 400){
+      window.alert("Enter Email and Password.");
+    }
+    else if (res.status === 401){
+      window.alert("Incorrect Password.");
+    }
+    else if (res.status === 402){
+        window.alert("Email don't exist Invalid Credential.");
+    }
+    else{
+        window.alert("Invalid Credential");
     }
   };
  

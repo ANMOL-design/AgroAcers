@@ -43,11 +43,23 @@ const  Register = ()=>{
     } );
     
   
-    if(res.status === 201){
+    if(res.status === 200){
         window.alert("Successful Registration.\nCongratulation now you are a part of Agro Family.");
         navigate('login', { replace: true });
     }
-    else {
+    else if(res.status === 201){
+        window.alert("Fill all the reqired fields.");
+    }
+    else if(res.status === 202){
+        window.alert("Password are not same.");
+    }
+    else if(res.status === 220){
+        window.alert("User Mobile Number is already Registered.");
+    }
+    else if(res.status === 422){
+        window.alert("User Already exist.");
+    }
+    else{
         console.log(res)
         window.alert("Registration Fails , Try again")
     }
