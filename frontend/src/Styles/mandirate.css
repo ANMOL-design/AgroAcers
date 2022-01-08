@@ -1,29 +1,145 @@
-.table-row {
-    border: 2px solid gray;
+.mandi-banner {
+    width: 100%;
+    text-align: center;
+    background-image: linear-gradient(45deg, rgba(90, 128, 0, 0.3), rgba( 0, 0, 128, 0.58)), url("./../Images/MSP.jpg");
+    background-color: rgba(0, 0, 0, 0.2);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    margin-top: 3px;
+    padding: 20px;
+    border-radius: 3px;
+    height: 45vh;
 }
 
-.table-head {
-    border: 2px solid rgb(78, 78, 78);
-    background-color: #84c352;
-    padding: 5px;
-    color: white;
-    font-weight: 800;
+.mandi-banner-heading {
+    font-size: 4rem;
+    padding: 16px;
+    margin-top: 22px;
 }
 
-table {
-    margin: 4%;
+.mandi-banner-para {
+    font-size: 17px;
 }
 
-.table-des {
-    border: 2px solid gray;
-    padding: 5px 8px;
-    background-color: #85c35259;
+
+/* Mandi Analysis  */
+
+.mandi-Analysis {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    border: 1px solid #c0c0c0;
+    border-radius: 3px;
+    padding: 8px;
+    margin: 2px;
+}
+
+.mandi-Analysis p {
+    display: inline;
+}
+
+.mandi-Analysis-image {
+    width: 100%;
+}
+
+.mandi-Analysis-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-left: 1%;
+}
+
+.mandi-Analysis-inner h1 {
+    margin: 1rem 1px;
+    margin-bottom: 2rem;
+}
+
+.mandi-Analysis-inner ul li {
+    margin-bottom: 2px;
+}
+
+
+/* Top Brands  */
+
+.TopBrandsMandiPrice {
+    transition: transform 0.4s linear;
+    margin: 1%;
+    cursor: pointer;
+}
+
+.TopBrandsMandiPrice:hover {
+    transform: scale(1.06);
+}
+
+.MandiBrandsImage {
+    max-width: 200px;
+}
+
+
+/* Heading Of Price Table  */
+
+.MSP-info-container {
+    background: rgb(241, 248, 237) 0% 0% no-repeat padding-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 1.2%;
+    border: 1px solid #c0c0c0;
+    box-shadow: 2px 2px 4px #ddd;
+}
+
+.innner-MSP-info-container span {
+    font-size: 1.23rem;
+    font-weight: 500;
+    margin-right: 8px;
+    margin-left: 1rem;
+}
+
+.innner-MSP-info-container select {
+    background-color: #fff;
+    padding: 3px 5px;
+    border-radius: 4px;
+    outline: none;
+    border-color: #c0c0c0;
+}
+
+.innner-MSP-info-container {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    flex-wrap: wrap;
+    margin-right: 1%;
+}
+
+
+/* Table  */
+
+.norenderdata {
+    text-align: center;
+    font-weight: 600;
+    font-size: 2rem;
+    margin: 2%;
+}
+
+#CheckMSPPrice {
+    font-size: 3rem;
+    text-decoration: underline;
+    margin-bottom: 2%;
+    text-transform: uppercase;
+}
+
+.table-heading-msp thead tr th {
     text-align: left;
+    font-size: 1.2rem;
 }
 
-.table-des-2 {
-    border: 2px solid gray;
-    padding: 5px 8px;
-    background-color: #85c3523a;
+.table-heading-msp tbody tr td {
     text-align: left;
+    vertical-align: middle;
+    font-size: 1.05rem;
+    font-weight: 500;
 }

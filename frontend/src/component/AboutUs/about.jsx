@@ -1,7 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./../../Styles/about.css"
-import AboutImg from "./../../Images/5469.jpg";
 import AImg1 from "./../../Images/info.jpg";
 import AImg2 from "./../../Images/blogs.jpg";
 import AImg3 from "./../../Images/buy2.jpg";
@@ -23,9 +22,6 @@ class AboutUS extends React.Component {
 
                 {/* Image and Text  */}
                 <div className="about-outer-container mt-2">
-                    <div className="img-dis">
-                        <img src={AboutImg} alt="mud" className="about-img"/>
-                    </div>
                     <div className="p-3 pt-0">
                         <h2 className="about-heading">All you need for your farming</h2>
                         <p className="about-para">Agriculture, with its allied sectors, is the largest source of livelihoods in India. 
