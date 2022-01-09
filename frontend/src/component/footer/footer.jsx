@@ -2,9 +2,11 @@ import React from "react";
 import "../../Styles/footer.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { Link } from "react-router-dom";
-import visa from "../../Images/footer/visa.png";
-import mastercard from "../../Images/footer/mastercard.png";
-import Rupay from "../../Images/footer/rupay.jpg";
+import visa from "../../Images/footer/visa.svg";
+import mastercard from "../../Images/footer/master_card.svg";
+import Rupay from "../../Images/footer/Western_union.svg";
+import Paypal from "../../Images/footer/Paypal.svg";
+
 class Footer extends React.Component {
   render() {
     return (
@@ -102,6 +104,11 @@ class Footer extends React.Component {
                               className="footer-payment-img img-fluid"
                               src={Rupay}
                               alt="Rupay"
+                          />
+                          <img
+                              className="footer-payment-img img-fluid"
+                              src={Paypal}
+                              alt="Paypal"
                           />
                       </div>
               </div>

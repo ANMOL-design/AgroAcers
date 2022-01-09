@@ -13,7 +13,7 @@ function MandiRate() {
   const [pricedatabackup, setpricedatabackup] = useState([]);
   var result = [];
   
-  const [start, setstart] = useState(10);
+  const [start, setstart] = useState(20);
 
   var x = 1;
 
@@ -64,6 +64,32 @@ function MandiRate() {
 
   result = pricedata.filter( (e) => e);
 
+  const HandleTheSearch = (value) => {
+    var ans = pricedatabackup.filter( (e) => e.state === value);
+
+    ans = ans.filter((e) => e !== undefined)
+    
+    // console.log(result, ans)
+    setpricedata(ans);
+}
+
+  const SearchMSPDetails = () => {
+    var e = document.getElementById("FindProductsMSP");
+    var value = e.value;
+
+
+    setpricedata(pricedatabackup)
+    // console.log(pricedata, pricedatabackup)
+
+
+    if(value === "selected"){
+      setpricedata(pricedatabackup)
+    }
+    else{
+        HandleTheSearch(value)
+    }       
+}
+
   if (!DataisLoading) return <Loader />;
  
     return (
@@ -86,49 +112,34 @@ function MandiRate() {
             <div className="innner-MSP-info-container">
                 <span>Sort By: </span>
                 <select id={"SortedProductMSP"} onChange={sortproductMSP}>
-                    <option value="Select">Select </option>
+                    <option value="Select">ALL MSP Data </option>
                     <option value="Lowest">Lowest Price</option>
                     <option value="Highest">Highest Price</option>
                 </select>
 
                 <span>Filter By: </span>
-                <select id="FindProductsMSP">
-                    <option value="selected">Choose...</option>
+                <select id="FindProductsMSP" onChange={SearchMSPDetails}>
+                    <option value="selected">ALL MSP Data</option>
                     <option value="Andhra Pradesh">Andhra Pradesh</option>
-                    <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                    <option value="Assam">Assam</option>
-                    <option value="Bihar">Bihar</option>
-                    <option value="Chandigarh">Chandigarh</option>
-                    <option value="Chhattisgarh">Chhattisgarh</option>
-                    <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
-                    <option value="Daman and Diu">Daman and Diu</option>
-                    <option value="Delhi">Delhi</option>
-                    <option value="Lakshadweep">Lakshadweep</option>
-                    <option value="Puducherry">Puducherry</option>
-                    <option value="Goa">Goa</option>
+                    <option value="Chattisgarh">Chhattisgarh</option>
                     <option value="Gujarat">Gujarat</option>
                     <option value="Haryana">Haryana</option>
                     <option value="Himachal Pradesh">Himachal Pradesh</option>
                     <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                    <option value="Jharkhand">Jharkhand</option>
                     <option value="Karnataka">Karnataka</option>
                     <option value="Kerala">Kerala</option>
                     <option value="Madhya Pradesh">Madhya Pradesh</option>
                     <option value="Maharashtra">Maharashtra</option>
-                    <option value="Manipur">Manipur</option>
-                    <option value="Meghalaya">Meghalaya</option>
-                    <option value="Mizoram">Mizoram</option>
                     <option value="Nagaland">Nagaland</option>
                     <option value="Odisha">Odisha</option>
+                    <option value="Pondicherry">Pondicherry</option>
                     <option value="Punjab">Punjab</option>
                     <option value="Rajasthan">Rajasthan</option>
-                    <option value="Sikkim">Sikkim</option>
                     <option value="Tamil Nadu">Tamil Nadu</option>
                     <option value="Telangana">Telangana</option>
                     <option value="Tripura">Tripura</option>
                     <option value="Uttar Pradesh">Uttar Pradesh</option>
-                    <option value="Uttarakhand">Uttarakhand</option>
+                    <option value="Uttrakhand">Uttarakhand</option>
                     <option value="West Bengal">West Bengal</option>
                 </select>
             </div> 
@@ -173,10 +184,10 @@ function MandiRate() {
 
         {start <= 0 ? <div className="norenderdata">No Data Found...</div> : null}
         
-        <div className="text-center mb-3">
-            <button className="btn btn-outline-success" onClick={LoadMoreData}>Load More</button>
-            <button className="btn btn-outline-success mx-4" onClick={LoadLessData}>Load Less</button>
-        </div>
+        {result.length > 20 ? <div className="text-center mb-3">
+              <button className="btn btn-outline-success" onClick={LoadMoreData}>Load More</button>
+              <button className="btn btn-outline-success mx-4" onClick={LoadLessData}>Load Less</button>
+            </div> : null}
 
         {/* Analysis Image of Mandi Price  */}
         <div className="mandi-Analysis">

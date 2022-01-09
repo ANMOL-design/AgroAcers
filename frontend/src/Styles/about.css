@@ -92,13 +92,14 @@
 .foundercard {
     width: 28%;
     position: relative;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
+    border: 3px solid #f0f0f0;
 }
 
 .fouImg {
-    border-radius: 10px;
     height: 40%;
+    border-radius: 3px;
 }
 
 .knowmore-btn {
