@@ -13,10 +13,9 @@ function ShopPolicy(){
           <div className="home-products-policies-container poicy_check mt-4 pb-4">
             <h1>We take complete control of the supply chain</h1>
             <div className="poicy_check_div">
-            <p>Agro Network connects Indian farmers directly to businesses across 
-              the country by taking complete control of the supply chain. 
-              Each step is captured and monitored by our team enabled rural management portal. 
-              Our integrated services include:</p>
+            <p>Agro Network connects Indian farmers directly to businesses across the country by taking complete <br />
+              control of the supply chain. Each step is captured and monitored by our team enabled rural <br />
+              management portal. Our integrated services include:</p>
             </div>
           </div>
 

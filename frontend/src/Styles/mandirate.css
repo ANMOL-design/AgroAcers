@@ -36,6 +36,10 @@
     margin: 2px;
 }
 
+.mandi-Analysis-image-container {
+    max-width: 50%;
+}
+
 .mandi-Analysis p {
     display: inline;
 }
@@ -54,7 +58,7 @@
 }
 
 .mandi-Analysis-inner h1 {
-    margin: 1rem 1px;
+    margin: 2rem 1px 1rem;
     margin-bottom: 2rem;
 }
 
@@ -142,4 +146,76 @@
     vertical-align: middle;
     font-size: 1.05rem;
     font-weight: 500;
+}
+
+@media (max-width: 1280px) {
+    .mandi-Analysis-image-container {
+        max-width: 40%;
+    }
+}
+
+@media (max-width: 920px) {
+    #CheckMSPPrice {
+        font-size: 2.4rem;
+    }
+    .table-heading-msp thead tr th {
+        text-align: left;
+        font-size: 1rem;
+    }
+    .table-heading-msp tbody tr td {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 800px) {
+    .MSP-info-container {
+        display: block;
+    }
+    .MSP-info-container h3 {
+        margin-left: 16px;
+    }
+    .innner-MSP-info-container {
+        margin-top: 0.8rem;
+        display: inline-block;
+    }
+}
+
+@media (max-width: 730px) {
+    #CheckMSPPrice {
+        font-size: 2.2rem;
+    }
+    #showsmalltable {
+        display: table-row;
+        border-spacing: 2px;
+    }
+    #overflowonsmall {
+        overflow-x: scroll;
+        margin-bottom: 3%;
+    }
+}
+
+@media (max-width: 540px) {
+    .MSP-info-container h3 {
+        font-size: 2rem;
+        margin: auto
+    }
+    .innner-MSP-info-container {
+        margin-top: 0.8rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: space-evenly;
+    }
+    .innner-MSP-info-container span {
+        margin-left: 8px;
+    }
+    .innner-MSP-info-container input {
+        display: inline;
+    }
+}
+
+@media (max-width: 490px) {
+    .mandi-banner-para {
+        display: none;
+    }
 }

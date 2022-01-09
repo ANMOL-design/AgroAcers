@@ -14,7 +14,7 @@ class AboutUS extends React.Component {
     render() {
     return (
         <>
-           <div className="container-fluid">
+           <div>
                 <div className="about-banner">
                     <h1 className="about-banner-heading">About Us</h1>
                     <p className="about-banner-para">We are an all in one solution for your farming, our services ranges from <br />employee management to accounting know-how, to  increase production and income</p>
@@ -66,7 +66,7 @@ class AboutUS extends React.Component {
                 <hr />
                 {/* Features  */}
                 <h1 className="about-story-heading">Our Features</h1>
-                <div className="container-fluid features-container">
+                <div className="features-container">
                      {/* Image 1  */}
                      <div className="card">
                         <img src={AImg1} className="card-img-top" alt="Feature" />

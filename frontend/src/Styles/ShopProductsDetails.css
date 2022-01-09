@@ -25,6 +25,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     padding: 10px 1%;
     border: 1px solid #c0c0c0;
     box-shadow: 2px 2px 4px #ddd;
@@ -50,6 +51,7 @@
     justify-content: space-between;
     text-align: center;
     flex-wrap: wrap;
+    margin: 0px 1%;
 }
 
 .Productdetailsgrowbusinness {
@@ -61,6 +63,7 @@
     margin-top: 2px;
     background-color: #acf76f;
     position: relative;
+    cursor: pointer;
 }
 
 .Productdetailsgrowbusinnessimg {
@@ -79,7 +82,43 @@
     left: 47vw;
 }
 
+@media (max-width: 1145px) {
+    .product-info-right-inner-acc {
+        justify-content: space-around;
+        align-items: center;
+    }
+    .innner-product-info-container {
+        margin: 0px 2%;
+    }
+    .marginforsmalltop {
+        margin-top: 16px;
+    }
+    .absproductbutton button {
+        font-size: 1rem;
+        padding: 5px 10px;
+    }
+}
+
+@media (max-width: 835px) {
+    .marginforsmalltopagain {
+        margin-top: 16px;
+    }
+}
+
+@media (max-width: 440px) {
+    .product-info-right-inner-acc {
+        justify-content: space-between;
+        align-items: center;
+    }
+    .innner-product-info-container {
+        flex-direction: column;
+    }
+}
+
 @media (max-width: 1060px) {
+    .productsDetailsImage {
+        height: 65vh;
+    }
     .product-banner-text {
         margin-left: 5%;
         margin-right: 1%;
@@ -98,6 +137,17 @@
         max-height: 300px;
         margin-right: 1%;
     }
+    .absproductbutton {
+        top: 45%;
+        left: 45vw;
+    }
+    .Productdetailsgrowbusinnessimg {
+        width: 100%;
+    }
+    .Productdetailsgrowbusinnessimg2 {
+        width: 100%;
+        margin-top: 12px;
+    }
 }
 
 @media (max-width: 950px) {
@@ -107,9 +157,21 @@
     .RightWidth {
         width: 100%;
     }
+    .absproductbutton {
+        display: none;
+    }
+}
+
+@media (max-width: 850px) {
+    .productsDetailsImage {
+        height: 55vh;
+    }
 }
 
 @media (max-width: 650px) {
+    .productsDetailsImage {
+        height: 45vh;
+    }
     .product-banner {
         flex-direction: column;
         justify-content: center;
@@ -118,5 +180,11 @@
     .product-banner-text {
         padding-top: 6%;
         padding-left: 8%;
+    }
+}
+
+@media (max-width: 500px) {
+    .productsDetailsImage {
+        height: 35vh;
     }
 }

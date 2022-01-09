@@ -151,7 +151,7 @@ function ProductsDetails(){
             
             <div className="product-info-right-inner-acc">
                 <h3 className="mb-0 text-capitalize">Total Items in {qty} Store: {result.length}</h3>  
-                <div className="innner-product-info-container">
+                <div className="innner-product-info-container marginforsmalltopagain">
                     <span>Sort By: </span>
                     <select onChange={sortproduct} id={"SortedProduct"}>
                         <option value="Select">Select </option>
@@ -170,7 +170,7 @@ function ProductsDetails(){
                     </select>
                 </div> 
 
-                <div className="d-flex">
+                <div className="d-flex marginforsmalltop">
                     <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="ProductSearcher" />
                     <button className="btn btn-outline-success" type="submit" onClick={SearchProductDetails}>Search</button>
                 </div>
@@ -227,7 +227,7 @@ function ProductsDetails(){
           {/* Show The Product Slider  */}
           <ShopPolicy />
 
-            <div className="Productdetailsgrowbusinness">
+            <div className="Productdetailsgrowbusinness" onClick={ (e) =>  navigate("/shop/subscribeshop")}>
                 <img src={GrowBusiness} alt="GrowYourBusiness" className="Productdetailsgrowbusinnessimg"/>
                 <img src={GrowBusiness2} alt="GrowYourBusiness" className="Productdetailsgrowbusinnessimg2"/>
                 <div className="absproductbutton">

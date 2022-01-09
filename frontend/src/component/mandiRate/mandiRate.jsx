@@ -112,14 +112,14 @@ function MandiRate() {
             <div className="innner-MSP-info-container">
                 <span>Sort By: </span>
                 <select id={"SortedProductMSP"} onChange={sortproductMSP}>
-                    <option value="Select">ALL MSP Data </option>
+                    <option value="Select">Select All...</option>
                     <option value="Lowest">Lowest Price</option>
                     <option value="Highest">Highest Price</option>
                 </select>
 
                 <span>Filter By: </span>
                 <select id="FindProductsMSP" onChange={SearchMSPDetails}>
-                    <option value="selected">ALL MSP Data</option>
+                    <option value="selected">Select All...</option>
                     <option value="Andhra Pradesh">Andhra Pradesh</option>
                     <option value="Chattisgarh">Chhattisgarh</option>
                     <option value="Gujarat">Gujarat</option>
@@ -148,9 +148,11 @@ function MandiRate() {
         <div className="text-center m-3">
             <h1 id="CheckMSPPrice">MSP Price List</h1>
         </div>
-        <table className="table table-striped table-light table-heading-msp mt-1">
+
+        <div id="overflowonsmall">
+        <table className="table table-striped table-light table-heading-msp mt-1" >
           <thead>
-            <tr>
+            <tr id="showsmalltable">
               <th>Sr No.</th>
               <th>State</th>
               <th>District</th>
@@ -167,20 +169,21 @@ function MandiRate() {
           
             {result.slice(0,start).map((item) => (
            
-              <tr className="table-row" key={x}>
-                <td className="table-des">{x++}.</td>
-                <td className="table-des">{item.state}</td>
-                <td className="table-des-2">{item.district}</td>
-                <td className="table-des">{item.market}</td>
-                <td className="table-des-2">{item.commodity}</td>
-                <td className="table-des">{item.variety}</td>
-                <td className="table-des-2">{item.min_price}/ Quantal</td>
-                <td className="table-des">{item.max_price}/ Quantal</td>
-                <td className="table-des-2">{item.modal_price}/ Quantal</td>
+              <tr id="showsmalltable" key={x}>
+                <td>{x++}.</td>
+                <td>{item.state}</td>
+                <td>{item.district}</td>
+                <td>{item.market}</td>
+                <td>{item.commodity}</td>
+                <td>{item.variety}</td>
+                <td>{item.min_price} / Quantal</td>
+                <td>{item.max_price} / Quantal</td>
+                <td>{item.modal_price} / Quantal</td>
               </tr>
             ))}
           </tbody>
         </table>
+        </div>
 
         {start <= 0 ? <div className="norenderdata">No Data Found...</div> : null}
         
@@ -191,21 +194,22 @@ function MandiRate() {
 
         {/* Analysis Image of Mandi Price  */}
         <div className="mandi-Analysis">
-            <div>
+            <div className="mandi-Analysis-image-container">
                 <img src={Analysis} alt="Analysis" className="mandi-Analysis-image"/>
             </div>
             <div>
                 <div  className="mandi-Analysis-inner">
                     <h1>AgroAcers MSP Price List</h1>
                     <ul>
-                      <li>AgroAcers works with idea of वन Nation, वन MSP, वन DBT</li>
+                      <li>AgroAcers works with idea of One Nation, One MSP, One DBT</li>
                       <li>AgroAcers have more than 3000+ MSP Price List of various Mandi all over India.</li>
-                      <li>AgroAcers design a Model to calculate the Profit/Loss on your crop after selling.</li>
                       <li>AgroAcers helps you to deal with Companies and sell crops on the best price.</li>
                       <li>Sell your Crops directly to Mandi and Companies without any middleman.</li>
-                      <li>AgroAcers Sofware help your to get the best deal on your Crops.</li>
+                      <li>AgroAcers help you to get the best deal on your Crops.</li>
                     </ul>
-                    <a href="#CheckMSPPrice"><button className="btn btn-outline-success mt-4">Check Now</button></a>
+                   <div className="w-100 text-center mb-4">
+                      <a href="#CheckMSPPrice"><button className="btn btn-outline-success mt-4 w-100">Check Now</button></a>
+                   </div>
                 </div>
             </div>
         </div>
@@ -223,7 +227,7 @@ function MandiRate() {
                     )
                 })}
           </div>
-  
+          <hr />
         </div>
     )
 }
