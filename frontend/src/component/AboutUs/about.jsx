@@ -1,7 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./../../Styles/about.css"
-import AboutImg from "./../../Images/5469.jpg";
 import AImg1 from "./../../Images/info.jpg";
 import AImg2 from "./../../Images/blogs.jpg";
 import AImg3 from "./../../Images/buy2.jpg";
@@ -15,7 +14,7 @@ class AboutUS extends React.Component {
     render() {
     return (
         <>
-           <div className="container-fluid">
+           <div>
                 <div className="about-banner">
                     <h1 className="about-banner-heading">About Us</h1>
                     <p className="about-banner-para">We are an all in one solution for your farming, our services ranges from <br />employee management to accounting know-how, to  increase production and income</p>
@@ -23,11 +22,8 @@ class AboutUS extends React.Component {
 
                 {/* Image and Text  */}
                 <div className="about-outer-container mt-2">
-                    <div className="img-dis">
-                        <img src={AboutImg} alt="mud" className="about-img"/>
-                    </div>
                     <div className="p-3 pt-0">
-                        <h2 className="about-heading">All you need for your farming</h2>
+                        <h2 className="about-story-heading">All you need for your farming</h2>
                         <p className="about-para">Agriculture, with its allied sectors, is the largest source of livelihoods in India. 
                         70 percent of its rural households still depend primarily on agriculture for their livelihood, with 82 percent of farmers being small and marginal. 
                         In 2017-18, total food grain production was estimated at 275 million tonnes (MT).  India is the largest producer (25% of global production), consumer 
@@ -70,7 +66,7 @@ class AboutUS extends React.Component {
                 <hr />
                 {/* Features  */}
                 <h1 className="about-story-heading">Our Features</h1>
-                <div className="container-fluid features-container">
+                <div className="features-container">
                      {/* Image 1  */}
                      <div className="card">
                         <img src={AImg1} className="card-img-top" alt="Feature" />
@@ -124,7 +120,7 @@ class AboutUS extends React.Component {
                                 <h5 className="card-title card-f-head">Anmol Garg</h5>
                                 <p className="card-f-para">Co-Founder, AgroAcers</p>
                                 <hr style={{margin: "6px"}}/>
-                                <p className="card-text card-f-para2">Anmol has a great passion for farming and help other farmers in adopt organic farming which reduces their input cost and provide high yielding. </p>
+                                <p className="card-text card-f-para2">Anmol is a Full Stack Web Developer and has a great passion for farming and help other farmers in adopt organic farming which reduces their input cost and provide high yielding. </p>
                                 <a href="https://www.linkedin.com/in/anmol-garg-25a5771a2/"  target="_blank"  rel="noreferrer" class="btn btn-primary">Know More</a>
                             </div>
                             <img src={Anmol} className="card-img-top fouImground" alt="Founder" />
@@ -136,7 +132,7 @@ class AboutUS extends React.Component {
                                 <h5 className="card-title card-f-head">AmanDeep Singh</h5>
                                 <p className="card-f-para">Co-Founder, AgroAcers</p>
                                 <hr style={{margin: "6px"}}/>
-                                <p className="card-text card-f-para2">Amandeep singh is a fullstack web developer and he is a nature lover and belong to farming family . SO decided to cretate the website to contribute for the farmers of india. </p>
+                                <p className="card-text card-f-para2">Amandeep singh is a Fullstack Web developer and he is a nature lover and belong to farming family . So decided to create the website to contribute for the farmers of india. </p>
                                 <a href="https://www.linkedin.com/in/amandeep-singh-699026196/" target="_blank"  rel="noreferrer" class="btn btn-primary">Know More</a>
                             </div>
                             <img src={Aman} className="card-img-top fouImground " alt="Founder" />

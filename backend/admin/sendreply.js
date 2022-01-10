@@ -3,27 +3,43 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const sendReplymsg = require("../utils/sendReplyMsg");
+const cartmail = require("../utils/cartmail");
 dotenv.config();
+
 mongoose.connect(
-  process.env.MONGODB_CONNECTION_STRING,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
-  (err) => {
-    if (err) throw err;
-    console.log("MongoDB connection established");
-  }
+    process.env.MONGODB_CONNECTION_STRING, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    },
+    (err) => {
+        if (err) throw err;
+        console.log("MongoDB connection established");
+    }
 );
-router.post("/sendReply",(req,res)=>{
+
+router.post("/sendReply", (req, res) => {
     try {
-        const {name,mail,subject,body} = req.body;
-        sendReplymsg(mail,name,subject,body).then(()=>{
-            res.status(201).json({msg:"mail sent Succesfully"})
-        }).catch((err)=>{
-            res.status(400).json({msg:"error occured"})
+        const { name, mail, subject, body } = req.body;
+        sendReplymsg(mail, name, subject, body).then(() => {
+            res.status(201).json({ msg: "mail sent Succesfully" })
+        }).catch((err) => {
+            res.status(400).json({ msg: "error occured" })
         })
-        
+
+    } catch (error) {
+        console.log(error);
+    }
+})
+
+router.post("/sendcartReply", (req, res) => {
+    try {
+        const { name, mail, orderid, transid, amountpay } = req.body;
+        cartmail(mail, name, orderid, transid, amountpay).then(() => {
+            res.status(201).json({ msg: "mail sent Succesfully" })
+        }).catch((err) => {
+            res.status(400).json({ msg: "error occured" })
+        })
+
     } catch (error) {
         console.log(error);
     }
