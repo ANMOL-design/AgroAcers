@@ -16,6 +16,10 @@ app.use(require('./admin/AgricultureUniversit'))
 app.use(require('./admin/shopproduct'))
 app.use(require('./admin/sendreply'))
 app.use(require('./admin/addScheme'))
+
+// RazorPay Integration 
+app.use(require('./routes/Razorpay'));
+
 const PORT = 5000;
 
 mongoose.connect(

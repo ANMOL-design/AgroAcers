@@ -4,7 +4,9 @@ import "bootstrap/dist/css/bootstrap.css";
 import "../../../Styles/login.css";
 import loginfarm from "../../../Images/New Img/farm2.jpg";
 import { UserContext } from "../../../App";
+
 const Login = () => {
+  
   const {state,dispatch} = useContext(UserContext)
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -24,6 +26,7 @@ const Login = () => {
    
     if (res.status === 201) {
       dispatch({type:"USER",payload:true})
+      localStorage.removeItem("cartItems");
       window.alert("Login succesful");
       navigate("/", { replace: true });
       window.location.reload()

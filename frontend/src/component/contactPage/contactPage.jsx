@@ -1,56 +1,61 @@
-import React,{useContext, useEffect, useState} from "react";
+import React, { useEffect, useState} from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "../../Styles/contactus.css";
 import farmerImage from "../../Images/New Img/farmer.jpg";
 import {useNavigate} from 'react-router-dom';
-import { UserContext } from "../../App";
+
 
 const ContactPage =()=>{
-  const [userData, setUserData] = useState({});
-  const { state, dispatch } = useContext(UserContext);
+
     const navigate = useNavigate();
+
     const [contact,setContact] = useState({
       name:"",email:"",phonenumber:"",subject:"",query:"",time:""
     })
+
     let name , value;
+
     const  handleInput = async (e)=>{
           name = e.target.name;
           value = e.target.value;
           setContact({...contact , [name]:value})
       }
+
     const postData =async (e)=>{
-    e.preventDefault();
-    const {name,email,phonenumber,subject,query} = contact;
-    let today  = new Date();
-    let dd = today.getDate();
-    let mm = today.getMonth()+1;
-    let yy =today.getFullYear();
-    let hh = today.getHours();
-    let mi = today.getMinutes();
-    let ss = today.getSeconds();
-    let time = dd+"/"+mm+"/"+yy+"("+hh+":"+mi+":"+ss+")";
-    const res =  await fetch("/contactus" ,{
-    method : "POST",
-    headers : { 
-        "content-Type" : "application/json"
-    },
-    body : JSON.stringify({
-      name,email,phonenumber,subject,query,time
-    })
-  });
-  const data = await res.json();
-  console.log(contact)
-  if(res.status === 201){
-      window.alert("Your query is succesfully registered our expert team will reply you soon.");
-      navigate('/', { replace: true });
-  }
-  else {
-    window.alert("Error occured , try again")
+        e.preventDefault();
+        const {name,email,phonenumber,subject,query} = contact;
+        let today  = new Date();
+        let dd = today.getDate();
+        let mm = today.getMonth()+1;
+        let yy =today.getFullYear();
+        let hh = today.getHours();
+        let mi = today.getMinutes();
+        let ss = today.getSeconds();
+        let time = dd+"/"+mm+"/"+yy+"("+hh+":"+mi+":"+ss+")";
+        const res =  await fetch("/contactus" ,{
+            method : "POST",
+            headers : { 
+                "content-Type" : "application/json"
+            },
+            body : JSON.stringify({
+                name,email,phonenumber,subject,query,time
+            })
+        });
+
+      const data = await res.json();
+      // console.log(contact)
+
+    if(res.status === 201){
+          window.alert("Your query is succesfully registered our expert team will reply you soon.");
+          navigate('/', { replace: true });
+      }
+    else {
+        window.alert("Error occured , try again")
+    }
   }
 
-}
-const callAboutPage = async () => {
-  try {
+  const callAboutPage = async () => {
+     try {
     const res = await fetch("/aboutuser", {
       method: "GET",
       headers: {
@@ -59,10 +64,6 @@ const callAboutPage = async () => {
       },
       credentials: "include",
     });
-
-    const data = await res.json();
-    console.log(data);
-    setUserData(data);
 
     if (!res.status === 200) {
       const error = new Error(res.error);

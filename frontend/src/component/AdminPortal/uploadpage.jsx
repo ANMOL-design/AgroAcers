@@ -1,14 +1,14 @@
-import React,{useContext, useEffect, useState} from "react";
+import React,{useEffect, useState} from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import "../../Styles/contactus.css";
 import {useNavigate} from 'react-router-dom';
-import { UserContext } from "../../App";
 import '../../Styles/uploadpost.css';
+
 const Uploadpage =()=>{
+
   const [userData, setUserData] = useState({});
-  const {state,dispatch}= useContext(UserContext);
   const [quill,setQuill] = useState("");
   const [title1,setTitle] = useState("");
   const [Image,setImage] = useState("");
@@ -64,7 +64,7 @@ const Uploadpage =()=>{
     })
   });
   const data = await res.json();
-console.log(data);
+  console.log(data);
   if(res.status === 201){
       window.alert("Your blog is added.");
       navigate('/', { replace: true });

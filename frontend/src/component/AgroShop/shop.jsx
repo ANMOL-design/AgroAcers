@@ -44,7 +44,7 @@ function ShopHome(){
                 <Link to="/ProductsDetails?value=seeds">Hybrid Seeds</Link>
                 <Link to="/ProductsDetails?value=Fertilizer">Fertilizer</Link>
                 <Link to="/ProductsDetails?value=AgricultureTools">Hardware &amp; Tools</Link>
-                <Link to="/">Organic Farming</Link>
+                <Link to="/ProductsDetails?value=Pots&amp;Planter">Pots &amp; Planter</Link>
                 <Link to="/Products?value=Agro">Farm Product</Link>
             </div>
            

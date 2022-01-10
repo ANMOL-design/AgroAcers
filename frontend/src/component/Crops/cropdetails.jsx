@@ -19,6 +19,34 @@ const CRopDetails = (e)=>{
     const { id } = useParams();
     const [blogData,setblogData] = useState([]);
     const [cropData, setCropdata] = useState([]);
+    const SimiliarProducts = ()=>{
+       return(
+         <>
+         <div className="similiar-article">
+              <h1>Similiar Crops :-</h1>
+              <div className="crop-type-card-container">
+          {
+           rabiCrop.slice(0,5).map((i) => (
+            <>
+                <Link style={{textDecoration:"none"}} to={"/crops/Rabi/"+i._id}>
+                <div className="card">
+                  <img className="card-img-top img-fluid" src={i.Image} alt="Card image cap" />
+                  <div className="card-body" style={{height:"2px"}}>
+                    <h2 className="card-title">
+                      {i.title}
+                    </h2>
+                  </div>
+                </div>
+                </Link>
+             
+            </>
+          ))}
+          </div>
+            </div>
+         </>
+       )
+      //  window.location.reload()
+    }
     const getblogData = async () => {
       try {
         const res = await fetch("/cropdata", {
@@ -67,6 +95,7 @@ const CRopDetails = (e)=>{
       useEffect(() => {
         getPageData();
         getblogData();
+        
         console.log(blogData);
         document.getElementById("crop-blog-description").innerHTML = blogData.Description;
       });
@@ -110,29 +139,7 @@ const CRopDetails = (e)=>{
               <h3>Article Contributed by : </h3>
               <span className="Author-name"><i class='fas fa-user-circle'></i>{blogData.Author}</span>
             </div>
-            <div className="similiar-article">
-              <h1>Similiar Crops :-</h1>
-              <div className="crop-type-card-container">
-          {
-           rabiCrop.slice(0,5).map((item) => (
-            <>
-                <Link style={{textDecoration:"none"}} to={item._id}>
-                <div className="card">
-                  <img className="card-img-top img-fluid" src={item.Image} alt="Card image cap" />
-                  <div className="card-body">
-                    <h2 className="card-title">
-                      {item.title}
-                    </h2>
-                    <hr style={{color:"black",width:"100%",height:"2px"}} />
-                    <span><i class="fa fa-user" aria-hidden="true"></i> <cite>{item.Author}</cite></span>
-                  </div>
-                </div>
-                </Link>
-             
-            </>
-          ))}
-          </div>
-            </div>
+            <SimiliarProducts />
         </div>
         </>
     )

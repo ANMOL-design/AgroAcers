@@ -82,13 +82,11 @@ let rabiCrop = cropData.filter(item=>item.category==="Rabi")
             <>
                 <Link style={{textDecoration:"none"}} to={item._id}>
                 <div className="card">
-                  <img className="card-img-top img-fluid" src={item.Image} alt="Card image cap" />
-                  <div className="card-body">
+                  <img className="card-img-top img-fluid" src={item.Image} alt="Card cap" />
+                  <div className="card-body" style={{height:"2px"}}>
                     <h2 className="card-title">
                       {item.title}
                     </h2>
-                    <hr style={{color:"black",width:"100%",height:"2px"}} />
-                    <span><i class="fa fa-user" aria-hidden="true"></i> <cite>{item.Author}</cite></span>
                   </div>
                 </div>
                 </Link>

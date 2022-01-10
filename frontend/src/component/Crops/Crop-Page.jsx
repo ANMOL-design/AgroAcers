@@ -66,15 +66,15 @@ const CropBlog = () => {
           <h2 className="types-o-crop-head">Types Of crops</h2>
           <div className="crop-card-container">
             <Link className="Crop-link" to="Rabi">
-              <div class="card">
+              <div className="card">
                 <img
-                  class="card-img-top img-fluid"
+                  className="card-img-top img-fluid"
                   src={rabiimg}
-                  alt="Card image cap"
+                  alt="Card cap"
                 />
-                <div class="card-body">
-                  <h5 class="card-title">Rabi Crops</h5>
-                  <p class="card-text">
+                <div className="card-body">
+                  <h5 className="card-title">Rabi Crops</h5>
+                  <p className="card-text">
                     The main crops of the rabi season include wheat, maize,
                     gram, sesame, mustard, peas, oats, jowar, bajra. Rabi sowing
                     begins in October and concludes in mid-November. Sugarcane
@@ -84,11 +84,11 @@ const CropBlog = () => {
               </div>
             </Link>
             <Link className="Crop-link" to="kharif">
-              <div class="card">
-                <img class="card-img-top img-fluid" src={kharifimg} alt="Card image cap" />
-                <div class="card-body">
-                  <h5 class="card-title">Kharif Crops</h5>
-                  <p class="card-text">
+              <div className="card">
+                <img className="card-img-top img-fluid" src={kharifimg} alt="Card cap" />
+                <div className="card-body">
+                  <h5 className="card-title">Kharif Crops</h5>
+                  <p className="card-text">
                     What is kharif and rabi crop? Image result for kharif crops
                     The crops that are sown in the rainy season are called
                     kharif crops. ... Kharif crops are usually sown with the
@@ -99,11 +99,11 @@ const CropBlog = () => {
               </div>
             </Link>
             <Link className="Crop-link" to="Vegetables">
-              <div class="card">
-                <img class="card-img-top img-fluid" src={vegetableimg} alt="Card image cap" />
-                <div class="card-body">
-                  <h5 class="card-title">Vegetables</h5>
-                  <p class="card-text">
+              <div className="card">
+                <img className="card-img-top img-fluid" src={vegetableimg} alt="Card cap" />
+                <div className="card-body">
+                  <h5 className="card-title">Vegetables</h5>
+                  <p className="card-text">
                   Salad vegetable crops consist of a diverse range of plants that are suitable for eating raw or uncooked. This group includes lettuce, baby leaf, celery, radish, and salad onion. ... Crops may consist of individual plants or separated leaves.
                   </p>
                 </div>
