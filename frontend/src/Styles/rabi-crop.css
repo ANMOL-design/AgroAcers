@@ -22,11 +22,10 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin-bottom: 15%;
+    margin-bottom: 5%;
 }
 .crop-type-card-container .card{
-width: 340px;
- margin: 5%;
+ margin : 3%;
 }
 .crop-type-card-container .card-body{
     background-color: rgb(114, 204, 114);

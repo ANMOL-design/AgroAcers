@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import {Link} from "react-router-dom"
 import rabicropbanner from "../../Images/crousal/rabi-crop-banner.jpg";
 import "../../Styles/rabi-crop.css";
+import Loader from "../Loader";
 const RabiCrop = () => {
   const [cropData, setCropdata] = useState([]);
+  const [IsLoading,setIsLoading] = useState(false)
   const getblogData = async () => {
     try {
       const res = await fetch("/cropdata", {
@@ -17,7 +19,9 @@ const RabiCrop = () => {
 
       const data = await res.json();
       setCropdata(data);
-
+       if(res.status ===200){
+         setIsLoading(true);
+       }
       if (!res.status === 200) {
         const error = new Error(res.error);
         throw error;
@@ -31,7 +35,12 @@ let rabiCrop = cropData.filter(item=>item.category==="Rabi")
   useEffect(() => {
     getblogData();
   });
-
+if(!IsLoading){
+  return(
+    <Loader />
+  )
+}
+else{
   return (
     <>
       <div className="rabi-crop-container">
@@ -80,16 +89,16 @@ let rabiCrop = cropData.filter(item=>item.category==="Rabi")
           {
            rabiCrop.map((item) => (
             <>
-                <Link style={{textDecoration:"none"}} to={item._id}>
                 <div className="card">
+                <Link style={{textDecoration:"none"}} to={item._id}>
                   <img className="card-img-top img-fluid" src={item.Image} alt="Card cap" />
-                  <div className="card-body" style={{height:"2px"}}>
+                  <div className="card-body">
                     <h2 className="card-title">
                       {item.title}
                     </h2>
                   </div>
-                </div>
                 </Link>
+                </div>
              
             </>
           ))}
@@ -98,6 +107,7 @@ let rabiCrop = cropData.filter(item=>item.category==="Rabi")
       </div>
     </>
   );
+           }
 };
 
 export default RabiCrop;

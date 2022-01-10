@@ -15,10 +15,13 @@ import {
   TelegramIcon
 } from "react-share";
 import "../../Styles/cropdetails.css"
+import Loader from "../Loader";
 const CRopDetails = (e)=>{
     const { id } = useParams();
     const [blogData,setblogData] = useState([]);
     const [cropData, setCropdata] = useState([]);
+    const [isLoadData1,setIsLoadData1] =useState(false)
+    const [isLoadData2,setIsLoadData2] =useState(false)
     const SimiliarProducts = ()=>{
        return(
          <>
@@ -26,18 +29,18 @@ const CRopDetails = (e)=>{
               <h1>Similiar Crops :-</h1>
               <div className="crop-type-card-container">
           {
-           rabiCrop.slice(0,5).map((i) => (
+           rabiCrop.slice(0,3).map((i) => (
             <>
-                <Link style={{textDecoration:"none"}} to={"/crops/Rabi/"+i._id}>
                 <div className="card">
+                <Link style={{textDecoration:"none"}} to={"/crops/Rabi/"+i._id}>
                   <img className="card-img-top img-fluid" src={i.Image} alt="Card image cap" />
-                  <div className="card-body" style={{height:"2px"}}>
+                  <div className="card-body">
                     <h2 className="card-title">
                       {i.title}
                     </h2>
                   </div>
-                </div>
                 </Link>
+                </div>
              
             </>
           ))}
@@ -60,7 +63,9 @@ const CRopDetails = (e)=>{
   
         const data = await res.json();
         setCropdata(data);
-  
+     if(res.status === 200){
+       setIsLoadData1(true);
+     }
         if (!res.status === 200) {
           const error = new Error(res.error);
           throw error;
@@ -83,6 +88,9 @@ const CRopDetails = (e)=>{
     
           const data = await res.json();
           setblogData(data);
+          if(res.status === 200){
+            setIsLoadData2(true);
+          }
           if (!res.status === 200) {
             const error = new Error(res.error);
             throw error;
@@ -99,6 +107,7 @@ const CRopDetails = (e)=>{
         console.log(blogData);
         document.getElementById("crop-blog-description").innerHTML = blogData.Description;
       });
+      
     return(
         <>
         <div className="crop-blog-container">
@@ -137,11 +146,12 @@ const CRopDetails = (e)=>{
             <hr />
           
               <h3>Article Contributed by : </h3>
-              <span className="Author-name"><i class='fas fa-user-circle'></i>{blogData.Author}</span>
+              <span className="Author-name"><img style={{width:"3%"}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWp0MYJDYDd4v9GVzKp4wdx6MoIv-qeQdSwg&usqp=CAU" alt="" /> {blogData.Author}</span>
             </div>
             <SimiliarProducts />
         </div>
         </>
     )
-}
+      }
+
 export default CRopDetails;
