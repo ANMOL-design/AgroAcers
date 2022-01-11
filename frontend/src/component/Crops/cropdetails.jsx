@@ -22,6 +22,7 @@ const CRopDetails = (e)=>{
     const [cropData, setCropdata] = useState([]);
     const [isLoadData1,setIsLoadData1] =useState(false)
     const [isLoadData2,setIsLoadData2] =useState(false)
+    let rabiCrop = cropData.filter(item=>item.category==="Rabi"&&item.title!=blogData.title)
     const SimiliarProducts = ()=>{
        return(
          <>
@@ -42,7 +43,9 @@ const CRopDetails = (e)=>{
                 </Link>
                 </div>
              
+              
             </>
+            
           ))}
           </div>
             </div>
@@ -74,7 +77,7 @@ const CRopDetails = (e)=>{
         console.log(err);
       }
   };
-  let rabiCrop = cropData.filter(item=>item.category==="Rabi"&&item.title!=blogData.title)
+ 
     const getPageData = async () => {
         try {
           const res = await fetch("/cropData/"+id, {
@@ -103,8 +106,6 @@ const CRopDetails = (e)=>{
       useEffect(() => {
         getPageData();
         getblogData();
-        
-        console.log(blogData);
         document.getElementById("crop-blog-description").innerHTML = blogData.Description;
       });
       
@@ -119,10 +120,10 @@ const CRopDetails = (e)=>{
                 <img className="img-fluid" src={blogData.Image} alt={blogData.title} />
             </div>
             <div className="share-blog-container">
-            <FacebookShareButton style={{marginRight:"2%"}} url={window.location.href} >
+            <FacebookShareButton style={{marginRight:"2%"}} title={cropData.title} url={window.location.href} >
                 <FacebookIcon  size={52} round={true}/>
          </FacebookShareButton>
-            <WhatsappShareButton  style={{marginRight:"2%"}} url={window.location.href} >
+            <WhatsappShareButton  style={{marginRight:"2%"}} title={cropData.title}  url={window.location.href} >
                 <WhatsappIcon size={52} round={true}/>
          </WhatsappShareButton>
          <TwitterShareButton style={{marginRight:"2%"}}  url={window.location.href}  hashtags="#kisan #AgroAcers #website for helping India">
