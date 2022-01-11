@@ -1,6 +1,5 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import "../../Styles/mandirate.css";
 import Loader from "../Loader";
 
 class ContactPadeData extends React.Component {
@@ -69,33 +68,33 @@ class ContactPadeData extends React.Component {
     return (
       <div className="text-center">
        <h1 className="m-4 text-decoration-underline"  style={{fontSize: '3rem', color: '#77bc3f'}}>Contact Details</h1>
-        <table>
+        <table className="table table-light table-striped">
           <thead>
-            <tr className="table-row">
+            <tr>
               
-              <th className="table-head">User Id</th>
-              <th className="table-head">Name</th>
-              <th className="table-head">Email</th>
-              <th className="table-head">Mobile No</th>
-              <th className="table-head">Subject</th>
-              <th className="table-head">Query</th>
-              <th className="table-head">Time</th>
-              <th className="table-head">Send reply</th>
+              <th>User Id</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Mobile No</th>
+              <th>Subject</th>
+              <th>Query</th>
+              <th>Time</th>
+              <th>Send reply</th>
             </tr>
           </thead>
 
           <tbody>
              {items.map((item) => (
                
-              <tr className="table-row">
-                <td className="table-des">{item._id}</td>
-                <td className="table-des-2">{item.name}</td>
-                <td className="table-des">{item.email}</td>
-                <td className="table-des-2">{item.phonenumber}</td>
-                <td className="table-des-2">{item.subject}</td>
-                <td className="table-des-2">{item.query}</td>
-                <td className="table-des">{item.time}</td>
-                <td className="table-des">
+              <tr>
+                <td>{item._id}</td>
+                <td>{item.name}</td>
+                <td>{item.email}</td>
+                <td>{item.phonenumber}</td>
+                <td>{item.subject}</td>
+                <td>{item.query}</td>
+                <td>{item.time}</td>
+                <td>
                 <button type="button" class="btn btn-secondary" data-toggle="modal" data-target={"#"+item._id}>
                    Reply
                 </button>

@@ -10,7 +10,7 @@ function ShopPolicy(){
     return(
         <>
            {/* policies Shown  */}
-          <div className="home-products-policies-container poicy_check mt-4 pb-4">
+          <div className="home-products-policies-container poicy_check mt-4 pb-4" data-aos="fade-down-right">
             <h1>We take complete control of the supply chain</h1>
             <div className="poicy_check_div">
             <p>Agro Network connects Indian farmers directly to businesses across the country by taking complete <br />
@@ -19,7 +19,7 @@ function ShopPolicy(){
             </div>
           </div>
 
-          <div className="home-products-policies-container mt-4 pb-4">
+          <div className="home-products-policies-container mt-4 pb-4" data-aos="fade-right">
             {DataImages.map( (item) => {
               return(
                 <div className="text-center main-product-poicy-container" key={item.id}>
