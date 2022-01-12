@@ -66,7 +66,7 @@ class AboutUS extends React.Component {
                 <hr />
                 {/* Features  */}
                 <h1 className="about-story-heading">Our Features</h1>
-                <div className="features-container">
+                <div className="features-container" data-aos="fade-right">
                      {/* Image 1  */}
                      <div className="card">
                         <img src={AImg1} className="card-img-top" alt="Feature" />
@@ -89,7 +89,7 @@ class AboutUS extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="container-fluid features-container">
+                <div className="container-fluid features-container" data-aos="fade-right">
                    
                     {/* Image 4  */}
                     <div className="card">
@@ -108,7 +108,7 @@ class AboutUS extends React.Component {
                 </div>
                 <hr />
                 {/* Founder Info  */}
-                <div className="container-fluid">
+                <div className="container-fluid" data-aos="fade-down">
                     <h1 className="about-story-heading">AgroAcers Founders</h1>
                     <p className="about-found-para">AgroAcers works to improve the financial condition of farmers &amp; <br /> awareness them about all new farming methods and Latest Technology.</p>
 
