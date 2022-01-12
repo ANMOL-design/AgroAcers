@@ -7,6 +7,7 @@ import vegetableimg from "../../Images/vegetable-crop.jpg"
 import { Link } from "react-router-dom";
 import "../../Styles/croppage.css";
 import "bootstrap/dist/css/bootstrap.css";
+
 const CropBlog = () => {
   return (
     <>
@@ -54,7 +55,7 @@ const CropBlog = () => {
             cumin, onion, mustard, rabi vegetables, pea, opium, coriander,
             barley, strawberry and oat), Kharif (urad, cotton, maize, onion,
             vegetables, ginger, rice, moong, sorghum, pearl millet/bajra, finger
-            millet/ragi (cereals), arhar (pulses), soybean, groundnut (oilseeds)
+            millet/ragi (cereals), arhar (pulses), groundnut (oilseeds)
             and herbal like turmeric, tulsi, kalmegh, stevia, giloy, betel leaf,
             white musli, mentha, moringa, Malabar neem, sandalwood, flex seeds,
             kalonji, quinoa seeds, black cumin, mushroom. All mentioned

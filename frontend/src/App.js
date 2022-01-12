@@ -31,6 +31,7 @@ import ProductsDetailsAll from './component/AgroShop/Products/ProductCopy';
 import MyCart from './component/AgroShop/Agrocart/cart';
 import SubscribeToShop from './component/AgroShop/Agrocart/SubscribeShop';
 import CRopDetails from './component/Crops/cropdetails';
+import KharifCrop from './component/Crops/Kharifcrop';
 export const UserContext = createContext();
 
 const App = ()=> {
@@ -66,6 +67,8 @@ const Routing = ()=>{
               <Route path="AboutUser" exact element={<AboutUser/>} />
               <Route path="Crops" exact element={<CropBlog/>} />
               <Route path="Crops/rabi" exact element={<RabiCrop/>} />
+              <Route path="Crops/Kharif" exact element={<KharifCrop/>} />
+              <Route path="Crops/Kharif/:id" exact element={<CRopDetails/>} />
               <Route path="Crops/rabi/:id" exact element={<CRopDetails/>} />
               <Route path="register/login" element={<Login/>}/>
               <Route path="logout" element={<Logout/>}/>
