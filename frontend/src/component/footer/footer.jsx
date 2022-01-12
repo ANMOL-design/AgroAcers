@@ -8,6 +8,11 @@ import Rupay from "../../Images/footer/Western_union.svg";
 import Paypal from "../../Images/footer/Paypal.svg";
 
 class Footer extends React.Component {
+
+  scroller = () => {
+    window.scroll(0,0)
+  }
+
   render() {
     return (
       <>
@@ -70,12 +75,12 @@ class Footer extends React.Component {
                       <div className="subscribe-form-container">
                               <h3>Subscribe us</h3>
                               <hr />
-                              <form className="subscribe-form">
+                              <div className="subscribe-form">
                                   <input type="text" placeholder="First Name" name="FName" id="FName" />
                                   <input type="text" name="Lname" placeholder="Last Name" id="LName" />
                                   <input type="email" name="Email" placeholder="Email" id="emailid" />
-                                  <button className="btn btn-primary">Subscribe</button>
-                              </form>
+                                  <button className="btn btn-primary" onClick={this.scroller}>Subscribe</button>
+                              </div>
                       </div>
                       {/* Map  */}
                       <div className="footer-location-container">

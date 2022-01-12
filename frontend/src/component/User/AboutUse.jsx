@@ -8,6 +8,8 @@ const AboutUser = () => {
 
   const [userData, setUserData] = useState({});
   const { state, dispatch } = useContext(UserContext);
+
+  console.log(userData);
   
   const RenderAboutUser = () => {
     if (!state){
@@ -20,26 +22,31 @@ const AboutUser = () => {
     else{
         return (
             <>
-              <div className="container">
-                <div className="aboutuser-container">
+              <div>
+                <div className="userinfo-outercontainer">
+                   {/* Left Side  */}
                   <div className="User-template-img">
                     <img src={userImg} alt="" />
-                    <h3 className="username">{userData.name}</h3>
+                    <h1 className="mt-3">{userData.name}</h1>
                     <Link className="profile-link" to="/Aboutuser">
                       Profile
                     </Link>
                   </div>
                   <div className="about-user-card">
                     <h1 className="profile-head">Profile</h1>
-                    <h4 className="nameuser user-text">
+                    <h4 className="user-text">
                       <span className="UserLabel">Name : </span>
                       <span className="userinfo">{userData.name}</span>
                     </h4>
-                    <h4 className="emailuser user-text">
+                    <h4 className="user-text">
+                      <span className="UserLabel">User Id : </span>
+                      <span className="userinfo">{userData._id}</span>
+                    </h4>
+                    <h4 className="user-text">
                       <span className="UserLabel">Email Id : </span>
                       <span className="userinfo"> {userData.email}</span>
                     </h4>
-                    <h4 className="numuser user-text">
+                    <h4 className="user-text">
                       <span className="UserLabel">Phone no : </span>
                       <span className="userinfo"> {userData.number}</span>
                     </h4>

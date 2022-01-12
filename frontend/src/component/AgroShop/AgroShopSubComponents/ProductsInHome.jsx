@@ -12,7 +12,7 @@ function ProductsForYou(){
             <h1  className="m-0">Products for you!</h1>
           </div>
           {/* Details of Product  */}
-          <div className="home-products-details container-fluid mb-4 animation-overlay">
+          <div className="home-products-details container-fluid mb-4" data-aos="fade-down">
                 {ProductsData.map( (item) => {
                     return(
                        <div className="Productforyoucont" key={item.id}>
