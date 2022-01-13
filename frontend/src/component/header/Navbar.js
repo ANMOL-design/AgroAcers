@@ -326,7 +326,7 @@ const Navbar = () => {
                     aria-expanded="false"
                     aria-label="Toggle navigation"
                   >
-                    Blog
+                    Crops
                   </Link>
                 </li>
 
@@ -347,7 +347,7 @@ const Navbar = () => {
                     className="dropdown-menu"
                     aria-labelledby="navbarDropdown"
                   >
-                    <NavLink className="dropdown-item" to="/crops" 
+                    {/* <NavLink className="dropdown-item" to="/crops" 
                              data-toggle="collapse"
                              data-target="#navbarSupportedContent"
                              aria-controls="navbarSupportedContent"
@@ -355,7 +355,7 @@ const Navbar = () => {
                              aria-label="Toggle navigation" 
                     >
                       Crops
-                    </NavLink>
+                    </NavLink> */}
                     <NavLink className="dropdown-item" to="/mandirates"
                               data-toggle="collapse"
                               data-target="#navbarSupportedContent"
@@ -424,7 +424,7 @@ const Navbar = () => {
 
                 <li className="nav-item">
                   <Link className="nav-link nav-hov" to="/crops">
-                    Blog
+                    Crops
                   </Link>
                 </li>
 
@@ -445,9 +445,7 @@ const Navbar = () => {
                     className="dropdown-menu"
                     aria-labelledby="navbarDropdown"
                   >
-                    <NavLink className="dropdown-item" to="/crops">
-                      Crops
-                    </NavLink>
+                  
                     <NavLink className="dropdown-item" to="/mandirates">
                       Mandi Price
                     </NavLink>

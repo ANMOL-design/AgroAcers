@@ -91,7 +91,7 @@ function MyCart(){
     const totalPrice = cartItems.reduce( (a, c) => a + c.new_price * Number(c.qty), 0 + 200);
 
     const HandleVoucher = () => {
-        if(couponvalue === "AGROACERSVOUCHER200"){
+        if(couponvalue === "AGROACERSVOUCHER200"||couponvalue === "FARMER200"){
             setcoupon("YES")
             var element = document.getElementById("button-addon2voucher");
             if(element){

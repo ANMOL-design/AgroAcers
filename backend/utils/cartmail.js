@@ -17,7 +17,7 @@ const cartmail = async(UseremailId, username, orderid, transid, amountpay) => {
     var mailOptions = {
         from: 'agroacers.team@gmail.com',
         to: UseremailId,
-        subject: 'Your Request have been Created || AgroAcers Support',
+        subject: 'Your Order Has Been Placed || AgroAcers Support',
         html: `<div style="display: flex; justify-content: flex-start; align-items: flex-end; flex-wrap: wrap;
         background-image: url(https://www.pngkey.com/png/detail/138-1383389_png-lines-image-arts-library-green-abstract-lines.png);
         border-radius: 4px; background-repeat: no-repeat;
