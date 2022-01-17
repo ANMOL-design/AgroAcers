@@ -374,7 +374,7 @@ const Navbar = () => {
                     >
                       Courses/Universities
                     </NavLink>
-                    <NavLink className="dropdown-item" to="/Govt"
+                    <NavLink className="dropdown-item" to="/GovternmentScheme"
                              data-toggle="collapse"
                              data-target="#navbarSupportedContent"
                              aria-controls="navbarSupportedContent"
@@ -452,7 +452,7 @@ const Navbar = () => {
                     <NavLink className="dropdown-item" to="/agri">
                       Courses/Universities
                     </NavLink>
-                    <NavLink className="dropdown-item" to="/Govt">
+                    <NavLink className="dropdown-item" to="/GovternmentScheme">
                       Government Policies{" "}
                     </NavLink>
                   </div>

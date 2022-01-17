@@ -6,7 +6,7 @@ import "../../Styles/aboutuser.css";
 import Login from "../auth/login/Login";
 const AboutUser = () => {
 
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState([]);
   const { state, dispatch } = useContext(UserContext);
 
   console.log(userData);

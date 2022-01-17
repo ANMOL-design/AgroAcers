@@ -6,7 +6,7 @@ import {useNavigate} from 'react-router-dom';
 
 
 const ContactPage =()=>{
-
+  window.scroll(0,0)
     const navigate = useNavigate();
 
     const [contact,setContact] = useState({

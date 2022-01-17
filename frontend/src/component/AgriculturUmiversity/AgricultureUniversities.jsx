@@ -1,6 +1,6 @@
 import "../../Styles/AgricultureUniversiry.css";
 import Loader from "../Loader";
-import Image from "./../../Images/crousal/AgroSchemes1.jpg"
+import Image from "./../../Images/crousal/agroSchemes2.jpg"
 const { useEffect, useState } = require("react");
 
 const AgricultureUniversity = () => {

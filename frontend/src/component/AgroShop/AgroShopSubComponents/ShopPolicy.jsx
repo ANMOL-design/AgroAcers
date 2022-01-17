@@ -35,7 +35,7 @@ function ShopPolicy(){
           {/* Products  */}
           <HomeFeatures />
 
-          <div className="home-products-policies-container xyzborder">
+          <div className="home-products-policies-container xyzborder" data-aos="fade-up">
             {Data.map( (item) => {
               return(
                 <div className="products-shipping" key={item.id}>

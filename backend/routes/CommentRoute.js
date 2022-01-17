@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-
 dotenv.config();
 mongoose.connect(
   process.env.MONGODB_CONNECTION_STRING,
@@ -16,24 +15,25 @@ mongoose.connect(
   }
 );
 
-const GovtScheme = require("../model/GovtSheme");
+const CommentBox = require("../model/commentBox");
 
-router.post("/admin/GovtScheme", (req, res) => {
+router.post("/commentBox", (req, res) => {
   try {
-    const { SchemeName, state, website, Description, Imageurl } = req.body;
-    if (!SchemeName || !state || !website || !Description || !Imageurl) {
+    const { Username,commentOnCrop,CommentMsg,time } = req.body;
+    if (!CommentMsg) {
       res.json({ msg: "filled are required to fill" });
     } else {
-      const GovtSchemeData = new GovtScheme({
-        SchemeName,
-        state,
-        website,
-        Description,
-        Imageurl,
+      const newComment = new CommentBox({
+        Username,
+        commentOnCrop,
+        CommentMsg,
+        time 
       });
-     GovtSchemeData.save()
+      newComment
+        .save()
         .then(() => {
           res.status(201).json({ msg: "data added succesfuly" });
+        
         })
         .catch((err) => {
           res.json({ msg: "data not added error occured" });
@@ -43,11 +43,4 @@ router.post("/admin/GovtScheme", (req, res) => {
     console.log("error occcured " + error);
   }
 });
-router.get('/GovtSchemeData', (req, res) => {
-  GovtScheme.find({}).then((result) => {
-
-      res.send(result)
-  })
-
-})
 module.exports = router;

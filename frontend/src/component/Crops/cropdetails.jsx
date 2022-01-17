@@ -18,6 +18,7 @@ import "../../Styles/cropdetails.css"
 import Loader from "../Loader";
 import axios from "axios";
 import SimilarProduct from "./MorePageBlog";
+import CommentBox from "../../CommentBox/CommentBox";
 
 const CRopDetails = (e) => {
 
@@ -37,6 +38,7 @@ const CRopDetails = (e) => {
         window.scroll(0,0);
 
     }, [id]);
+  
 
     useEffect(() => {
        const mountdesc = () => {
@@ -47,7 +49,7 @@ const CRopDetails = (e) => {
        }
        mountdesc()
     }, [blogData.Description, IsLoading])
-
+   
     if(!IsLoading){
       return(
         <Loader />
@@ -108,6 +110,7 @@ const CRopDetails = (e) => {
             
             <hr />
             {/* More Products  */}
+           <CommentBox Cropname={blogData.title}/>
             <SimilarProduct category={blogData.category} title={blogData.title} />
         </div>
         </>

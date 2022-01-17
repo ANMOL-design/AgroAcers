@@ -218,7 +218,7 @@ function MandiRate() {
             <h1  className="m-4 mb-5">Top Trusted Brands</h1>
           </div>
           {/* Details of Product Brands */}
-          <div className="home-products-details container-fluid mb-5" id="UniqueBrandsDetails">
+          <div className="home-products-details container-fluid mb-5" data-aos="fade-down">
                 {ProductsBrands.map( (item) => {
                     return(
                        <div className="TopBrandsMandiPrice" key={item.id}>

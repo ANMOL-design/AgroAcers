@@ -21,7 +21,7 @@ const Contact = require('../model/contactpage')
 const AddBlog = require("../model/Postblog")
 const AgricultureUniversity = require("../model/AgricultureUniversitySchema");
 const ShoppingPage = require("../model/ShoppingProduct");
-
+const Commentbox = require("../model/commentBox")
 router.get("/AdminAgroAcers362/UserDetails", (req, res) => {
 
     User.find({}).then((result) => {
@@ -46,6 +46,13 @@ router.get('/cropdata', (req, res) => {
 })
 router.get('/AgricultureUniversityData', (req, res) => {
     AgricultureUniversity.find({}).then((result) => {
+
+        res.send(result)
+    })
+
+})
+router.get('/CommentData', (req, res) => {
+    Commentbox.find({}).then((result) => {
 
         res.send(result)
     })
