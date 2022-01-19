@@ -25,7 +25,8 @@ const Login = () => {
     });
    
     if (res.status === 200) {
-      dispatch({type:"USER",payload:true})
+      dispatch({type:"USER",payload:true});
+      localStorage.setItem("isLoggedin", Number(true));
       localStorage.removeItem("cartItems");
       window.alert("Login succesful");
       navigate("/", { replace: true });

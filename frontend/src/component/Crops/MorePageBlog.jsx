@@ -17,7 +17,7 @@ const SimilarProduct = (props) => {
       fetchdata();
       window.scroll(0,0);
     }, []);
-    let rabiCrop = cropData.filter(item=>item.category===props.category&&item.title!=props.title)
+    let rabiCrop = cropData.filter(item=>item.category===props.category&&item.title!==props.title)
 
 
     if(!IsLoading){

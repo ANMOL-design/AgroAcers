@@ -14,7 +14,8 @@ function Logout(){
                 },
                
         }).then((res)=>{
-            dispatch({type:"USER",payload:false})
+            dispatch({type:"USER",payload:false});
+            localStorage.setItem("isLoggedin", undefined);
             navigate("/login", { replace: true });
             // if(!res.status===200){
             //     const error = new Error(res.error);
