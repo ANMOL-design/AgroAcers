@@ -1,4 +1,4 @@
-export let initialState = null;
+//  = null;
 
 export const reducer = (state, action) => {
 
@@ -8,6 +8,6 @@ export const reducer = (state, action) => {
     return state;
 }
 
-initialState = {
+export let initialState = {
     loggedIn: localStorage.getItem('isLoggedin') || false,
 }

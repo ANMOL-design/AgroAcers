@@ -8,7 +8,7 @@ import { UserContext } from "../../App";
 const Navbar = () => {
   
     const { state, dispatch } = useContext(UserContext);
-  
+     
     const [userData, setUserData] = useState({});
 
     const callAboutPage = async () => {
@@ -62,7 +62,28 @@ const Navbar = () => {
           </ul>
         </>
       );
-    } else {
+    } 
+    //Testing
+    else if (state.loggedIn === "undefined") {
+      return (
+        <>
+          <ul className="navbar-nav" id="auth-btn">
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/login">
+                <button className={"bg-btn"}>Login</button>
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/register">
+                <button className={"bg-btn"}>Register</button>
+              </NavLink>
+            </li>
+          </ul>
+        </>
+      );
+    }
+    //
+    else {
       if(userData.isAdmin === true){
       return (
         <>
@@ -145,7 +166,34 @@ const Navbar = () => {
             </div>
         </>
       );
-    } else {
+    } 
+    else if (state.loggedIn === "undefined") {
+      return (
+        <>
+          <div className={"hide_small hide_small_login"}>
+              <NavLink className="nav-link" to="/login"
+                       data-toggle="collapse"
+                       data-target="#navbarSupportedContent"
+                       aria-controls="navbarSupportedContent"
+                       aria-expanded="false"
+                       aria-label="Toggle navigation"
+              >
+                <button className={"bg-btn"}>Login</button>
+              </NavLink>
+              <NavLink className="nav-link" to="/register"
+                       data-toggle="collapse"
+                       data-target="#navbarSupportedContent"
+                       aria-controls="navbarSupportedContent"
+                       aria-expanded="false"
+                       aria-label="Toggle navigation"
+              >
+                <button className={"bg-btn"}>Register</button>
+              </NavLink>
+            </div>
+        </>
+      );
+    }
+    else {
       if(userData.isAdmin === true){
       return (
         <>
@@ -318,16 +366,51 @@ const Navbar = () => {
                   </Link>
                 </li>
 
-                <li className="nav-item">
-                  <Link className="nav-link nav-hov" to="/crops"
-                    data-toggle="collapse"
-                    data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
+                <li className="nav-item dropdown">
+                  <Link
+                    className="nav-link dropdown-toggle nav-hov"
+                    to="#"
+                    id="navbarDropdownbloge"
+                    role="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
                     aria-expanded="false"
-                    aria-label="Toggle navigation"
+                    
                   >
-                    Crops
+                    Blogs
                   </Link>
+                  <div
+                    className="dropdown-menu"
+                    aria-labelledby="navbarDropdownbloge"
+                  >
+                    <NavLink className="dropdown-item" to="/crops/rabi" 
+                             data-toggle="collapse"
+                             data-target="#navbarSupportedContent"
+                             aria-controls="navbarSupportedContent"
+                             aria-expanded="false"
+                             aria-label="Toggle navigation" 
+                    >
+                      Rabi
+                    </NavLink>
+                    <NavLink className="dropdown-item" to="/crops/kharif"
+                              data-toggle="collapse"
+                              data-target="#navbarSupportedContent"
+                              aria-controls="navbarSupportedContent"
+                              aria-expanded="false"
+                              aria-label="Toggle navigation"
+                    >
+                      Kharif
+                    </NavLink>
+                    <NavLink className="dropdown-item" to="/crops/vegetables"
+                              data-toggle="collapse"
+                              data-target="#navbarSupportedContent"
+                              aria-controls="navbarSupportedContent"
+                              aria-expanded="false"
+                              aria-label="Toggle navigation"
+                    >
+                      Vegetables
+                    </NavLink>
+                  </div>
                 </li>
 
                 <li className="nav-item dropdown">
@@ -347,7 +430,7 @@ const Navbar = () => {
                     className="dropdown-menu"
                     aria-labelledby="navbarDropdown"
                   >
-                    {/* <NavLink className="dropdown-item" to="/crops" 
+                    <NavLink className="dropdown-item" to="/crops" 
                              data-toggle="collapse"
                              data-target="#navbarSupportedContent"
                              aria-controls="navbarSupportedContent"
@@ -355,7 +438,7 @@ const Navbar = () => {
                              aria-label="Toggle navigation" 
                     >
                       Crops
-                    </NavLink> */}
+                    </NavLink>
                     <NavLink className="dropdown-item" to="/mandirates"
                               data-toggle="collapse"
                               data-target="#navbarSupportedContent"
@@ -381,7 +464,7 @@ const Navbar = () => {
                              aria-expanded="false"
                              aria-label="Toggle navigation"
                     >
-                      Government Policies{" "}
+                      Government Policies
                     </NavLink>
                   </div>
                 </li>
@@ -422,10 +505,33 @@ const Navbar = () => {
                   </Link>
                 </li>
 
-                <li className="nav-item">
-                  <Link className="nav-link nav-hov" to="/crops">
-                    Crops
+                <li className="nav-item dropdown">
+                  <Link
+                    className="nav-link dropdown-toggle nav-hov"
+                    to="#"
+                    id="navbarDropdownblog"
+                    role="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    
+                  >
+                    Blogs
                   </Link>
+                  <div
+                    className="dropdown-menu"
+                    aria-labelledby="navbarDropdownblog"
+                  >
+                    <NavLink className="dropdown-item" to="/crops/Rabi">
+                      Rabi
+                    </NavLink>
+                    <NavLink className="dropdown-item" to="/crops/kharif">
+                      Kharif
+                    </NavLink>
+                    <NavLink className="dropdown-item" to="/crops/Vegetables">
+                      Vegetables
+                    </NavLink>
+                  </div>
                 </li>
 
                 <li className="nav-item dropdown">
@@ -445,7 +551,9 @@ const Navbar = () => {
                     className="dropdown-menu"
                     aria-labelledby="navbarDropdown"
                   >
-                  
+                    <NavLink className="dropdown-item" to="/crops">
+                      Crops
+                    </NavLink>
                     <NavLink className="dropdown-item" to="/mandirates">
                       Mandi Price
                     </NavLink>
@@ -453,7 +561,7 @@ const Navbar = () => {
                       Courses/Universities
                     </NavLink>
                     <NavLink className="dropdown-item" to="/GovternmentScheme">
-                      Government Policies{" "}
+                      Government Policies
                     </NavLink>
                   </div>
                 </li>

@@ -32,7 +32,7 @@ class CrousalBanner extends React.Component{
                             <div className="carousel-item">
                                   <img className="d-block img-fluid  w-100" src={image2} alt="First slide"/>
                                   <Link to="/blog">
-                                    <div class="carousel-caption d-none d-md-block" style={mystyle}>
+                                    <div className="carousel-caption d-none d-md-block" style={mystyle}>
                                       <h3>The life-givers</h3>
                                       <p>An agricultural life is one eminently calculated for human happiness and human virtue.</p>
                                     </div>
@@ -42,7 +42,7 @@ class CrousalBanner extends React.Component{
                             <div className="carousel-item">
                                   <img className="d-block img-fluid  w-100" src={image3} alt="First slide"/>
                                   <Link to="/blog"> 
-                                    <div class="carousel-caption d-none d-md-block" style={mystyle}>
+                                    <div className="carousel-caption d-none d-md-block" style={mystyle}>
                                       <h3>The nature’s people</h3>
                                       <p>It is only the farmer who faithfully plants seeds in the Spring, who reaps a harvest in the Autumn.</p>
                                     </div>

@@ -2,7 +2,7 @@ import React,{useEffect, useState} from "react";
 import {useNavigate, Link} from 'react-router-dom';
 import "./../../../Styles/register.css";
 import "bootstrap/dist/css/bootstrap.css";
-import regfarm from "../../../Images/reg4.jpg";
+import regfarm from "../../../Images/New Img/Register1.jpg";
 import Loader from "../../Loader";
 
 
@@ -140,7 +140,7 @@ const  Register = ()=>{
                                         onChange={handleInput} 
                                         id="password" 
                                         placeholder="Enter your password" 
-                                        minlength="8"
+                                        minLength="8"
                                     />
                                 </label><br />
                                 <label htmlFor="cpassword" className="labelinp">
@@ -152,7 +152,7 @@ const  Register = ()=>{
                                         required value={user.cpassword} 
                                         onChange={handleInput} id="cpassword" 
                                         placeholder="Confirm your password"
-                                        minlength="8"
+                                        minLength="8"
                                     />
                                 </label><br />
 
@@ -160,7 +160,7 @@ const  Register = ()=>{
                                     <p className="reg-par-reg">Already have an Account? <Link to="/login">Login</Link> </p>
                                 </div>
 
-                                <label htmlFor="submit" className="labelinp btn">
+                                <label htmlFor="submit" className="labelinp btn mb-5">
                                     <input type="submit"  
                                         name="register" 
                                         id="register" 
