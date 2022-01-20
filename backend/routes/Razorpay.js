@@ -44,11 +44,11 @@ router.post('/verification', (req, res) => {
 
 router.post('/razorpay', async(req, res) => {
     const payment_capture = 1
-    const { pricepay } = req.body;
+    const {  pricePay } = req.body;
     const currency = 'INR'
 
     const options = {
-        amount: pricepay * 100,
+        amount:  pricePay * 100,
         currency,
         receipt: shortid.generate(),
         payment_capture

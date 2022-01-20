@@ -34,6 +34,7 @@ import KharifCrop from './component/Crops/Kharifcrop';
 import VegetableCrop from './component/Crops/vegetable-crop';
 import GovtScheme from './component/govtSchemes/govtSchemes';
 import FarmerCropDetail from './component/SellPurchaceCrop/FarmerCropDetails';
+import SubscriberPlan from './component/Subscription/Subscriber-plan';
 export const UserContext = createContext();
 
 const App = ()=> {
@@ -70,6 +71,7 @@ const Routing = ()=>{
               <Route path="Crops" exact element={<CropBlog/>} />
               <Route path="GovternmentScheme" exact element={<GovtScheme/>} />
               <Route path="FarmerDetail" exact element={<FarmerCropDetail/>} />
+              <Route path="SubscriberPlan" exact element={<SubscriberPlan/>} />
               <Route path="Crops/rabi" exact element={<RabiCrop/>} />
               <Route path="Crops/Kharif" exact element={<KharifCrop/>} />
               <Route path="Crops/Vegetables" exact element={<VegetableCrop/>} />
