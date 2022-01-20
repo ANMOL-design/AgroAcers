@@ -32,6 +32,14 @@ const userSchema = new mongoose.Schema({
     type : Boolean,
     default : false
   },
+  isSubscriber :{
+    type:Boolean,
+    default : false
+  },
+  NoOfBids : {
+   type:Number,
+   default : 0
+  },
   tokens : [{
     token :{
       type: String,

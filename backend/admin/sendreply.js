@@ -44,4 +44,38 @@ router.post("/sendcartReply", (req, res) => {
         console.log(error);
     }
 })
+const UserInfo = require("../model/userschema");
+const Subscribermail = require("../utils/subscriberemail");
+router.post("/sendSubscription", (req, res) => {
+    try {
+        const { name, mail, orderid, transid, amountpay, UserId } = req.body;
+        console.log(UserId);
+        UserInfo.findByIdAndUpdate(UserId,{isSubscriber:true},function (err, docs) {
+if (err){
+console.log(err)
+}
+else{
+console.log("Updated User : "+docs);
+}
+})
+        UserInfo.findByIdAndUpdate(UserId,{NoOfBids:60},function (err, docs) {
+if (err){
+console.log(err)
+}
+else{
+console.log("Updated User : "+docs);
+}
+})
+        // cartmail(mail, name, orderid, transid, amountpay).then(() => {
+        //     res.status(201).json({ msg: "mail sent Succesfully" })
+        // }).catch((err) => {
+        //     res.status(400).json({ msg: "error occured" })
+        // })
+
+        Subscribermail( mail,name, orderid, transid, amountpay);
+    } catch (error) {
+        console.log(error);
+    }
+
+})
 module.exports = router;

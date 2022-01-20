@@ -114,6 +114,7 @@ const Navbar = () => {
       else{
         return (
           <>
+              
             <div id="logout-btn">
               <ul className="navbar-nav">
                 <div className="dropdown">
@@ -248,6 +249,7 @@ const Navbar = () => {
       else{
         return (
           <>
+        
             <div className={"hide_small"}>
             <ul className="navbar-nav">
                 <div className="dropdown">
@@ -279,11 +281,12 @@ const Navbar = () => {
                       >
                         <button className={"bg-btn"}>Logout</button>
                       </NavLink>
-        
+                      
                   </div>
                   </li>
                 </div>
               </ul>
+
             </div>
           </>
         );
