@@ -66,7 +66,7 @@ SetComment({...Comment,[name]:value})
   console.log(data)
 
 if(res.status === 201){
-      window.alert("Your query is succesfully registered our expert team will reply you soon.");
+      window.alert("Thankyou for giving your valuable comment on Post.");
      
   }
 else {
@@ -122,7 +122,7 @@ else {
        </div>
        <div className="commentBox">
            
-           <p className="taskDescription">Start a Discussion not a fire Post with Kindness...</p>
+           <p className="taskDescription">Start a Discussion!Not a fire Post with Kindness...</p>
        </div>
        <div className="actionBox">
            <ul className="commentList">
@@ -147,9 +147,9 @@ else {
                </li>
               
            </ul>
-           <div className="commenterImage">
+           {/* <div className="commenterImage">
                      <img  className="Comment-avtar commenterImage" src={"https://ui-avatars.com/api/?name="+userData.name} alt="" />
-                  </div>
+                  </div> */}
            <form className="form-inline" role="form">
           
                <div className="form-group">
@@ -178,7 +178,7 @@ else {
     </div>
     <div className="commentBox">
         
-        <p className="taskDescription">Start a Discussion not a fire Post with Kindness...</p>
+        <p className="taskDescription">Start a Discussion!Not a fire Post with Kindness...</p>
     </div>
     <div className="actionBox">
         <ul className="commentList">

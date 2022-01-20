@@ -7,6 +7,7 @@ app.use(express.json());
 app.use(require('./routes/auth'));
 app.use(require('./routes/contactPage'));
 app.use(require('./routes/CommentRoute'));
+app.use(require('./routes/SellCropRoute'));
 // const data = require('./data/product.json');
 
 app.use(require('./routes/auth'))

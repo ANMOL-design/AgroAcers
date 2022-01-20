@@ -1,8 +1,9 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import {useNavigate, Link} from 'react-router-dom';
 import "./../../../Styles/register.css";
 import "bootstrap/dist/css/bootstrap.css";
 import regfarm from "../../../Images/reg4.jpg";
+import Loader from "../../Loader";
 
 
 const  Register = ()=>{
@@ -11,7 +12,7 @@ const  Register = ()=>{
     const [user,setUser] =useState({
         name:"",email:"",number:"",password:"",cpassword:"",time:""
     })
-    
+     const [Isloading,setisloading] = useState(false);
     let name , value;
     const  handleInput =async (e)=>{
         console.log(e);
@@ -64,6 +65,17 @@ const  Register = ()=>{
         window.alert("Registration Fails , Try again")
     }
   }
+  useEffect(()=>{
+ setisloading(true)
+  },[])
+  if(!Isloading){
+      return(
+          <>
+          <Loader />
+          </>
+      )
+      }
+  else{
     return(
         <>
            <div id="main-container">
@@ -165,6 +177,7 @@ const  Register = ()=>{
         </div>   
         </>
     );
+  }
     }
 
 export default Register;

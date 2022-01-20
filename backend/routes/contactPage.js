@@ -39,7 +39,7 @@ router.post("/contactus", (req, res) => {
           contactemail(newContactData.email,newContactData.name)
         })
         .catch((err) => {
-          res.json({ msg: "data not added error occured" });
+          res.json({ msg: "data not added error occured"});
         });
     }
   } catch (error) {
