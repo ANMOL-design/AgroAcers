@@ -467,7 +467,7 @@ const FarmerCropDetail = () => {
                              <label htmlFor="BankCode" className="form-label">Bank IFSC CODE</label>
                              <input
                                  name="BankCode"
-                                 type="number"
+                                 type="text"
                                  className="form-control"
                                  id="BankCode"
                                  value={BankCode}
