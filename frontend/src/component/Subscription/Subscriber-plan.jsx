@@ -1,11 +1,15 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../App";
 import "../../Styles/subscriberplan.css"
+import Login from "../auth/login/Login";
 const SubscriberPlan = ()=>{
+     const { state, dispatch } = useContext(UserContext);
     const navigate = useNavigate();
-    const [pricePay,setPricePay] = useState("");
+    const [pricepay,setPricePay] = useState("");
     const [UserDetail,setUserDetail] = useState([]);
+ 
     function loadScript(src) {
         return new Promise((resolve) => {
             const script = document.createElement('script')
@@ -41,9 +45,11 @@ const SubscriberPlan = ()=>{
           console.log(err);
         }
       };
+    
     useEffect(()=>{
         callAboutPage();
     },[])
+   
      const displayRazorpay=async (e)=> {
          let totalPrice =e.target.value;
         setPricePay(totalPrice);
@@ -63,7 +69,7 @@ const SubscriberPlan = ()=>{
                 "content-Type" : "application/json",
             },
             body: JSON.stringify({
-                pricePay,
+              pricepay,
             })
         }).then((t) =>
 			t.json()
@@ -113,7 +119,17 @@ const SubscriberPlan = ()=>{
 		paymentObject.open();
 	}
 
+  
     const Subscribercard = ()=>{
+
+  if(UserDetail.isSubscriber === true && state){
+        return(
+          <>
+          <h1>You are Already Subscriber of agroacers</h1>
+          </>
+        )
+      }
+      else if(UserDetail.isSubscriber===false){
         return(
             <>
             <div className="pricing8 py-5">
@@ -163,6 +179,14 @@ const SubscriberPlan = ()=>{
 </div>
             </>
         )
+      
+      }
+      else{
+        return(
+          <Login/>
+        )
+      }
+    
     }
     return(
         <>
