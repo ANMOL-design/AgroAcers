@@ -153,6 +153,8 @@ const FarmerCropDetail = () => {
 
     const pricepay = 199;
 
+    // console.log(pricepay + "I/m running to pay")
+
     const data = await fetch('/razorpay',{ 
             method: 'POST',
             headers: {

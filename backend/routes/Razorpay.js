@@ -44,11 +44,11 @@ router.post('/verification', (req, res) => {
 
 router.post('/razorpay', async(req, res) => {
     const payment_capture = 1
-    const {  pricePay } = req.body;
+    const { pricePay } = req.body;
     const currency = 'INR'
 
     const options = {
-        amount:  pricePay * 100,
+        amount: pricePay * 100,
         currency,
         receipt: shortid.generate(),
         payment_capture
@@ -63,7 +63,7 @@ router.post('/razorpay', async(req, res) => {
             amount: response.amount
         })
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
 })
 
