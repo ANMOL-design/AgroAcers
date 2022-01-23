@@ -3,9 +3,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../App";
 import "../../Styles/subscriberplan.css"
-import Login from "../auth/login/Login";
+import 'bootstrap/dist/css/bootstrap.css';
+
 const SubscriberPlan = ()=>{
-     const { state, dispatch } = useContext(UserContext);
+
+    const { state, dispatch } = useContext(UserContext);
     const navigate = useNavigate();
     const [pricepay,setPricePay] = useState("");
     const [UserDetail,setUserDetail] = useState([]);
@@ -43,6 +45,7 @@ const SubscriberPlan = ()=>{
           }
         } catch (err) {
           console.log(err);
+          navigate("/login", { replace: true })
         }
       };
     
@@ -50,8 +53,9 @@ const SubscriberPlan = ()=>{
         callAboutPage();
     },[])
    
-     const displayRazorpay=async (e)=> {
-         let totalPrice =e.target.value;
+     const displayRazorpay= async (e)=> {
+
+        let totalPrice = e.target.value;
         setPricePay(totalPrice);
 
         // console.log(pricepay)
@@ -82,12 +86,11 @@ const SubscriberPlan = ()=>{
 			currency: data.currency,
 			amount: data.amount.toString(),
 			order_id: data.id,
-			name: "amandeep",
+			name: UserDetail.name,
 			description: 'AgroAcers Payment Gateway',
 			handler: async function (response) {
 				// alert(response.razorpay_payment_id, response.razorpay_order_id, response.razorpay_order_id)
-				alert(`Successful Transaction.\nPayment ID: ${response.razorpay_payment_id}`);
-                
+
                 const name = UserDetail.name;
                 const mail = UserDetail.email;
                 const UserId = UserDetail._id;
@@ -103,16 +106,14 @@ const SubscriberPlan = ()=>{
                         name,mail,orderid,transid,amountpay,UserId
                     })
                 });
-                navigate("/");
-                if(res.status === 201){
-                    window.alert("Your mail is succesfully sent.");
-                }
-                else {
-                  window.alert("Error occured , try again")
-                }
 
-              
-               
+                if(res.status === 201){
+                   alert(`Successful Transaction.\nPayment ID: ${response.razorpay_payment_id}. \nNow You are Part of AgroAcers Shop.`);
+                   navigate("/CropSellDashboard"); 
+                      }
+                else {
+                    window.alert("Error occured , try again")
+                }
 			},
 		}
 		const paymentObject = new window.Razorpay(options)
@@ -120,70 +121,73 @@ const SubscriberPlan = ()=>{
 	}
 
   
-    const Subscribercard = ()=>{
+  const Subscribercard = ()=>{
 
-  if(UserDetail.isSubscriber === true && state){
+    if(UserDetail.isSubscriber === true && state){
         return(
           <>
-          <h1>You are Already Subscriber of agroacers</h1>
+             <div className="d-flex justify-content-center align-items-center w-100" style={{height: '75vh'}}>
+                <h1>Already a Subscriber of AgroAcers Shop.</h1>
+             </div>
           </>
         )
       }
-      else if(UserDetail.isSubscriber===false){
+    else if(UserDetail.isSubscriber===false){
         return(
             <>
-            <div className="pricing8 py-5">
-  <div className="container">
-    <div className="row justify-content-center">
-      <div className="col-md-8 text-center">
-        <h3 className="mb-3">Pricing to make your Work Effective</h3>
-        <h6 className="subtitle font-weight-normal">We offer 100% satisafaction and Money back Guarantee</h6>
-      </div>
-    </div>
-    <div className="row mt-4">
-      <div className="col-md-4 ml-auto pricing-box align-self-center">
-        <div className="card mb-4">
-          <div className="card-body p-4 text-center">
-            <h5 className="font-weight-normal">Regular Plan</h5>
-            <span className="text-dark display-5">99 ₹</span>
-            <h6 className="font-weight-light font-14">Monthly</h6>
-            <p className="mt-4">The Master license allows you to Bid on your Favourite crop unlimited till 1 months and enjoy a realible communication with farmer</p>
-          </div>
-          <button className="btn  btn-info-gradiant p-3 btn-block border-0 text-white"  onClick={displayRazorpay} value="99"  >CHOOSE PLAN </button>
-        </div>
-      </div>
-      <div className="col-md-4 ml-auto pricing-box align-self-center">
-        <div className="card mb-4">
-          <div className="card-body p-4 text-center">
-            <h5 className="font-weight-normal">Master Plan</h5>
-             <span className="text-dark display-5">249 ₹</span>
-            <h6 className="font-weight-light font-14">6 Months</h6>
-            <p className="mt-4">The Master license allows you to Bid on your Favourite crop unlimited till 6 months and enjoy a realible communication with farmer</p>
-          </div>
-          <button className="btn btn-info-gradiant p-3 btn-block border-0 text-white"  onClick={displayRazorpay} value="249"  >CHOOSE PLAN </button>
-        </div>
-      </div>
-      <div className="col-md-4 ml-auto pricing-box align-self-center">
-        <div className="card mb-4">
-          <div className="card-body p-4 text-center">
-            <h5 className="font-weight-normal">Premium Plan</h5>
-            <span className="text-dark display-5">499 ₹</span>
-            <h6 className="font-weight-light font-14">YEARLY</h6>
-            <p className="mt-4">The Master license allows you to Bid on your Favourite crop unlimited till yearly and enjoy a realible communication with farmer</p>
-          </div>
-          <button className="btn btn-info-gradiant p-3 btn-block border-0 text-white"  onClick={displayRazorpay} value="499"  >CHOOSE PLAN </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+              <div className="pricing8 py-5">
+                <div className="container-fluid">
+                  {/* Heading  */}
+                  <div className="row justify-content-center">
+                    <div className="col-md-8 text-center">
+                      <h3 className="mb-3">Pricing to make your Work Effective</h3>
+                      <h6 className="subtitle font-weight-normal">We offer 100% satisafaction and Money back Guarantee</h6>
+                    </div>
+                  </div>
+
+                  {/* Plans for Subscribe  */}
+                  <div className="d-flex justify-content-evenly align-items-center flex-wrap mt-4">
+                      {/* Regular Plan  */} 
+                      <div className="card p-0 m-3" style={{width: "18rem"}}>
+                        <div className="card-body m-2">
+                              <h5 className="card-title">Regular Plan</h5>
+                              <span className="text-dark display-5">99 ₹</span>
+                              <h6 className="font-weight-light font-14">Monthly</h6>
+                              <p className="card-text mb-2 mt-2">The Master license allows you to Bid on your Favourite crop unlimited till 1 months and enjoy a realible / easy communication with farmer.</p>  
+                        </div>
+                        <button className="btn  btn-info-gradiant p-3 btn-block border-0 text-white"  onClick={displayRazorpay} value="99"  >CHOOSE PLAN </button>
+                      </div>
+                      {/* Master Plan  */}
+                      <div className="card p-0 m-3" style={{width: "18rem"}}>
+                        <div className="card-body m-2">
+                              <h5 className="card-title">Master Plan</h5>
+                              <span className="text-dark display-5">249 ₹</span>
+                              <h6 className="font-weight-light font-14">6 Months</h6>
+                              <p className="card-text mb-2 mt-2">The Master license allows you to Bid on your Favourite crop unlimited till 6 months and enjoy a realible / easy communication with farmer.</p>  
+                        </div>
+                        <button className="btn btn-info-gradiant p-3 btn-block border-0 text-white"  onClick={displayRazorpay} value="249"  >CHOOSE PLAN </button>
+                      </div>
+
+                      {/* Premium Plan  */}
+                      <div className="card p-0 m-3" style={{width: "18rem"}}>
+                        <div className="card-body m-2">
+                              <h5 className="card-title">Premium Plan</h5>
+                              <span className="text-dark display-5">499 ₹</span>
+                              <h6 className="font-weight-light font-14">YEARLY</h6>
+                              <p className="card-text mb-2 mt-2">The Master license allows you to Bid on your Favourite crop unlimited till yearly and enjoy a realible communication with farmer.</p>  
+                        </div>
+                        <button className="btn btn-info-gradiant p-3 btn-block border-0 text-white"  onClick={displayRazorpay} value="499"  >CHOOSE PLAN </button>
+                      </div>
+                  </div>
+                </div>
+              </div>
             </>
         )
       
       }
       else{
         return(
-          <Login/>
+          null
         )
       }
     

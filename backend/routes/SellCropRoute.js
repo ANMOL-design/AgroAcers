@@ -80,4 +80,26 @@ router.post("/SellCrop", (req, res) => {
         console.log("error occcured " + error);
     }
 });
+
+router.get('/SellCropdata', (req, res) => {
+    SellerData.find({}).then((result) => {
+        res.send(result)
+    })
+
+})
+
+router.get('/SellCropdata/:id', (req, res) => {
+
+    const id = req.params.id;
+
+    SellerData.findOne({ _id: id }).then((product) => {
+        if (product) {
+            return res.send(product)
+        }
+    }).catch((err) => {
+        console.log(err)
+        res.sendStatus(404)
+    })
+})
+
 module.exports = router;

@@ -44,7 +44,7 @@ router.post('/verification', (req, res) => {
 
 router.post('/razorpay', async(req, res) => {
     const payment_capture = 1
-    const {  pricepay } = req.body;
+    const { pricepay } = req.body;
     const currency = 'INR'
 
     const options = {
@@ -63,7 +63,7 @@ router.post('/razorpay', async(req, res) => {
             amount: response.amount
         })
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
 })
 
