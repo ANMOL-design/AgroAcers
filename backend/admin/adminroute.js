@@ -65,6 +65,20 @@ router.get('/Shopproductdata', (req, res) => {
     })
 
 })
+const SellerCropData = require("../model/SellCropSchema")
+router.get('/sellerCrop/:id', (req, res) => {
+    const id = req.params.id;
+
+    SellerCropData.findOne({ _id: id }).then((product) => {
+        if (product) {
+            return res.send(product)
+        }
+    }).catch((err) => {
+        console.log(err)
+        res.sendStatus(404)
+    })
+
+})
 
 router.get('/Shopproductdata/:id', (req, res) => {
 

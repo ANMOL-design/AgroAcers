@@ -1,0 +1,65 @@
+.seller-purchace-header-container {
+    border: 2px solid black;
+    margin: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-radius: 12px;
+    box-shadow: 4px 4px 4px gray;
+}
+.sell-p-image-container{
+    width: 50%;
+}
+.sell-p-image-container img{
+    border: 2px solid black;
+    width: 100%;
+    margin: 10% 2% 5% 5%;
+}
+.sell-p-image-container .btn{
+    width: 100%;
+    margin: 5%;
+}
+.sell-pur-crop-con table tr {
+    border: 2px solid black;
+}
+.sell-pur-crop-con table{
+    margin: 10% 2% 5% 5%;
+}
+.sell-pur-crop-con table td {
+    border: 2px solid black;
+    padding: 5px;
+}
+.sell-pur-dis-container{
+    margin: 5%;
+}
+.sell-pur-dis-container h2{
+    color: #77BC3F;
+}
+.sell-pur-dis-container p{
+    color: #35630f;
+}
+.farmer-informaition-container{
+    margin: 5%;
+}
+.farmer-informaition-container h2{
+    color: #77BC3F;
+}
+.farmer-informaition-container tr{
+ border: 2px solid black;
+ border-radius: 12px;
+}
+.farmer-informaition-container td{
+ border: 2px solid black;
+ padding: 5px;
+}
+.farmer-informaition-container table{
+    margin: 3% 5% 3% 5%;
+    box-shadow: 4px 4px 4px gray;
+  
+}
+.farmer-informaition-container td:nth-child(1){
+    background-color: #bbf3ae;
+   }
+.farmer-informaition-container td:nth-child(2){
+    background-color: #d5f1be;
+   }

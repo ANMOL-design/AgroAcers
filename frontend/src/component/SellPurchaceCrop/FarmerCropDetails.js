@@ -4,7 +4,6 @@ import Loader from "../Loader";
 import "./../../Styles/addUniversity.css";
 import "./../../Styles/Agrosubscribe.css";
 import 'bootstrap/dist/css/bootstrap.css';
-
 function loadScript(src) {
 	return new Promise((resolve) => {
 		const script = document.createElement('script')
