@@ -54,6 +54,7 @@ const FarmerCropDetail = () => {
 
   const [page, setpage] = useState(1);
   const [DataLoading, setDataLoading] = useState(false);
+  const [UserDetail,setUserDetail] = useState([]);
 
   const navigate = useNavigate();
 
@@ -69,7 +70,8 @@ const FarmerCropDetail = () => {
             });
     
             const data = await res.json();
-                
+            setUserDetail(data);
+
             if (!res.status === 200) {
                 const error = new Error(res.error);
                 throw error;
@@ -178,9 +180,32 @@ const FarmerCropDetail = () => {
       description: 'AgroAcers Subscription Payment Gateway',
       handler: async function (response) {
         // alert(response.razorpay_payment_id, response.razorpay_order_id, response.razorpay_order_id)
-        alert(`Successful Transaction.\nPayment ID: ${response.razorpay_payment_id}`);
+        // alert(`Successful Transaction.\nPayment ID: ${response.razorpay_payment_id}`);
 
-        const res =  await fetch("/SellCrop" ,{
+                const name = UserDetail.name;
+                const mail = UserDetail.email;
+                const UserId = UserDetail._id;
+                const orderid = response.razorpay_order_id;
+                const transid = response.razorpay_payment_id;
+                const amountpay = Number(data.amount.toString())/100;
+                const res =  await fetch("/sendSubscription" ,{
+                    method : "POST",
+                    headers : { 
+                        "content-Type" : "application/json"
+                    },
+                    body : JSON.stringify({
+                        name,mail,orderid,transid,amountpay,UserId
+                    })
+                });
+
+                if(res.status === 201){
+                   alert(`Successful Transaction.\nPayment ID: ${response.razorpay_payment_id}.`);
+                }
+                else {
+                    window.alert("Error occured , try again")
+                }
+
+        const resp =  await fetch("/SellCrop" ,{
           method : "POST",
           headers : { 
               "content-Type" : "application/json"
@@ -208,8 +233,9 @@ const FarmerCropDetail = () => {
           })
         });
 
-        if(res.status === 200){
-            window.alert("Data Added SuccessFully");
+        if(resp.status === 200){
+            window.alert("Now You are Part of AgroAcers Shop.");
+            navigate("/CropSellDashboard"); 
         }
         else {
           window.alert("Error occured , try again")

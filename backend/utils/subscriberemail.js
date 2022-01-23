@@ -46,7 +46,7 @@ const Subscribermail = async(UseremailId, username, orderid, transid, amountpay)
                 <p style="margin: 2px"><b>Order ID : <span style="color: #c0c0c0;">${orderid}</span></b></p>
                 <p style="margin: 2px"><b>Transaction ID : <span style="color: #c0c0c0;">${transid}</span></b></p>
                 <p style="margin: 2px"><b>Amount Pay : <span style="color: #c0c0c0;">&#8377; ${amountpay} (inclusive of 18% GST)</span></b></p>
-                
+                <br>
                 <h4 style="margin: 1px">Regards,</h4>
                 <h4 style="margin: 1px">Team AgroAcers</h4>
             </div>

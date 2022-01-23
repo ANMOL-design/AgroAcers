@@ -1,19 +1,20 @@
 import React from "react";
 import "../../Styles/footer.css";
 import "bootstrap/dist/css/bootstrap.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import visa from "../../Images/footer/visa.svg";
 import mastercard from "../../Images/footer/master_card.svg";
 import Rupay from "../../Images/footer/Western_union.svg";
 import Paypal from "../../Images/footer/Paypal.svg";
 
-class Footer extends React.Component {
+function Footer() {
 
-  scroller = () => {
-    window.scroll(0,0)
+  const navigate = useNavigate();
+
+  const footnavigate = () => {
+    navigate("/shop/subscribeshop", { replace: true })
   }
 
-  render() {
     return (
       <>
         <div className="Footer-container">
@@ -79,7 +80,7 @@ class Footer extends React.Component {
                                   <input type="text" placeholder="First Name" name="FName" id="FName" />
                                   <input type="text" name="Lname" placeholder="Last Name" id="LName" />
                                   <input type="email" name="Email" placeholder="Email" id="emailid" />
-                                  <button className="btn btn-primary" onClick={this.scroller}>Subscribe</button>
+                                  <button className="btn btn-primary" onClick={footnavigate}>Subscribe</button>
                               </div>
                       </div>
                       {/* Map  */}
@@ -127,7 +128,6 @@ class Footer extends React.Component {
         </div>
       </>
     );
-  }
 }
 export default Footer;
 

@@ -58,7 +58,7 @@ function MyLocalWeather(){
                 </div>
                 :
                 <div>
-                    <div className={(typeof weather.main != "undefined") ? ((weather.main.temp > 16) ? 'weatherapp warm' : 'weatherapp')  : 'weatherapp'}>
+                    <div className={(typeof weather.main != "undefined") ? ((weather.main.temp > 20) ? 'weatherapp warm' : 'weatherapp')  : 'weatherapp'}>
                         <main className="main-weather-box">
                             <div className="search-box">
                                 <input 
@@ -78,8 +78,8 @@ function MyLocalWeather(){
                                 <div className="weather-box">
                                     <div className="temp">
                                         <div className="tempmain">{Math.round(weather.main.temp)}°c</div>
-                                        <div className="tempmain2">min temperature: {weather.main.temp_min}°c</div>
-                                        <div className="tempmain2">max temperature: {weather.main.temp_max + 2}°c</div>
+                                        <div className="tempmain2">min temperature: { parseFloat(weather.main.temp_min).toFixed(2) }°c</div>
+                                        <div className="tempmain2">max temperature: { parseFloat(weather.main.temp_max).toFixed(2) + 2}°c</div>
                                         <div className="tempmain2">Wind Speed: {weather.wind.speed}</div>
                                     </div>
                                     <div className="d-flex align-items-center justify-content-center">
