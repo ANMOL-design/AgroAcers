@@ -50,6 +50,7 @@ function CropsDashboard(){
         window.scroll(0,0);  
     }, [])
 
+
     if (!DataLoading){
         return (
             <Loader />
@@ -134,9 +135,12 @@ function CropsDashboard(){
                                         <span className="smalldash">
                                             Agroacers helps farmers to get true MSP of their crops.
                                         </span>
-                                        <button className="btn btn-primary w-100">
+
+                                        <Link to={UserDetail.isSubscriber === false ? "/CropSellDashboard" : "/sellerCrop/" + item._id} className="dashlink">
+                                        <button className="btn btn-primary w-100" disabled={UserDetail.isSubscriber === false}>
                                             Buy Now
                                         </button>
+                                        </Link>
                                     </div>
                                 </div>
 
