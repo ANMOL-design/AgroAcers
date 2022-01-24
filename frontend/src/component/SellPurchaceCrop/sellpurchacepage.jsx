@@ -137,9 +137,9 @@ else{
         </table>
         <hr />
       </div>
-      <div className="bidding">
-        <h3><span><strong>Bidding Amount :</strong></span>{bidvalue||pagedata.Min_price}</h3>
-       <span>{pagedata.Min_price}</span> <input type="range" min={pagedata.Min_price} max={pagedata.Max_price} name="BidValue" onChange={HandleBid}  id="BidValue" /> <span>{pagedata.Max_price}</span>
+      <div className="bidding-container">
+        <h3><span><strong>Bidding Amount :</strong></span><span>{bidvalue||pagedata.Min_price}</span></h3>
+       <span>Min Price({pagedata.Min_price})</span> <input type="range" min={pagedata.Min_price} max={pagedata.Max_price} name="BidValue" onChange={HandleBid}  id="BidValue" />max Price(<span>{pagedata.Max_price})</span>
        <button className="btn btn-success">Bid Your Price</button>
       </div>
       </div>
