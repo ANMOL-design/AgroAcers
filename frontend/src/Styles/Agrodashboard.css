@@ -90,6 +90,12 @@
     display: none;
 }
 
+.dashlink {
+    color: #fff;
+    width: 100%;
+    text-decoration: none;
+}
+
 @media (max-width: 1089px) {
     .dashboard-card-body-btn {
         max-width: 100%;

@@ -76,6 +76,7 @@ const Routing = ()=>{
               <Route path="SellerCrop/:id" exact element={<SellerPurchace/>} />
               <Route path="SubscriberPlan" exact element={<SubscriberPlan/>} />
               <Route path="CropSellDashboard" exact element={ <CropsDashboard /> } />
+              <Route path="Sellercrop/:id" exact element={<SellerPurchace />} />
               <Route path="Crops/rabi" exact element={<RabiCrop/>} />
               <Route path="Crops/Kharif" exact element={<KharifCrop/>} />
               <Route path="Crops/Vegetables" exact element={<VegetableCrop/>} />
