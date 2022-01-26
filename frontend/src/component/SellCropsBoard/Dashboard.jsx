@@ -78,6 +78,9 @@ function CropsDashboard(){
                     are the founders of human civilization.
                     AgroAcers took the responsibility of securing their rights and give them their true spirit.
                 </p>
+                <Link to="/sellYourCrop">
+                <button className="btn btn-success">Start Selling Your Crop</button>
+                </Link>
             </div>
 
             {/* Data of Users  */}
