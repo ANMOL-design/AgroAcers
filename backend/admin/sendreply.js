@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const sendReplymsg = require("../utils/sendReplyMsg");
+const sendmsgtofarmer = require("../utils/SendmailFarmer");
 const cartmail = require("../utils/cartmail");
 dotenv.config();
 
@@ -22,6 +23,20 @@ router.post("/sendReply", (req, res) => {
         const { name, mail, subject, body } = req.body;
         sendReplymsg(mail, name, subject, body).then(() => {
             res.status(201).json({ msg: "mail sent Succesfully" })
+        }).catch((err) => {
+            res.status(400).json({ msg: "error occured" })
+        })
+
+    } catch (error) {
+        console.log(error);
+    }
+})
+
+router.post("/sendMessagetofarmer", (req, res) => {
+    try {
+        const { name, company, body, Farmername, Farmeremail } = req.body;
+        sendmsgtofarmer(name, company, body, Farmername, Farmeremail).then(() => {
+            res.status(200).json({ msg: "mail sent Succesfully" })
         }).catch((err) => {
             res.status(400).json({ msg: "error occured" })
         })

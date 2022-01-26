@@ -118,3 +118,7 @@
     font-weight: 500;
     margin: 2%;
 }
+
+.modal-body form {
+    margin: 0px;
+}
