@@ -33,8 +33,8 @@ router.post("/sendReply", (req, res) => {
 })
 router.post("/sendMessagetofarmer", (req, res) => {
     try {
-        const { name, company, body, Farmername, Farmeremail } = req.body;
-        sendmsgtofarmer(name, company, body, Farmername, Farmeremail).then(() => {
+        const { name, email, contact, company, body, Farmername, Farmeremail } = req.body;
+        sendmsgtofarmer(name, email, contact, company, body, Farmername, Farmeremail).then(() => {
             res.status(200).json({ msg: "mail sent Succesfully" })
         }).catch((err) => {
             res.status(400).json({ msg: "error occured" })

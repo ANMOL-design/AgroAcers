@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link  } from "react-router-dom";
 import "../../Styles/sellcropDetail.css";
 import Loader from "../Loader";
 import axios from "axios";
 const SellerPurchace = () => {
+
   const { id } = useParams();
   const navigate = useNavigate();
   const [pagedata, setPagedate] = useState([]);
   const [userData, setuserData] = useState([]);
   const [name, setname] = useState("");
   const [company, setcompany] = useState("");
+  const [email, setemail] = useState("");
+  const [contact, setcontact] = useState("");
   const [body, setbody] = useState("");
   const [sendbid, setsendbid] = useState({
     nameOfOrg: "",
@@ -20,16 +23,18 @@ const SellerPurchace = () => {
   const [isLoading, setisLoading] = useState(false);
 
   useEffect(() => {
-    const fetchdata = async () => {
-      if (id) {
-        const { data } = await axios.get("/sellerCrop/" + id);
-        setPagedate(data);
-        setisLoading(true);
-      }
-    };
+    const fetchdata = async () =>{
+        if(id){
+            const {data} = await axios.get("/sellerCrop/" + id);
+            setPagedate(data);
+            setisLoading(true)
+        }
+    }
     fetchdata();
-    window.scroll(0, 0);
-  }, [id]);
+    window.scroll(0,0);
+    
+    }, [id]);
+    
   useEffect(() => {
     const callAboutPage = async () => {
       try {
@@ -55,18 +60,22 @@ const SellerPurchace = () => {
     };
     callAboutPage();
   }, []);
+
   const [bidvalue, setbidvalue] = useState(pagedata.Min_price);
 
   const HandleBid = (e) => {
     setbidvalue(e.target.value);
   };
+    
   let name1, value;
+
   const handlebidInput = (e) => {
     name1 = e.target.name;
     value = e.target.value;
     setsendbid({ ...sendbid, [name1]: value });
     console.log(sendbid);
   };
+
   const postmessage = async (e)=>{
     e.preventDefault();
 
@@ -91,14 +100,17 @@ const SellerPurchace = () => {
       window.alert("Error occured , try again")
     }
   }
+
   const postBid = async (e) => {
     e.preventDefault();
+
     const { nameOfOrg, emailoforg, contactoforg, intrestoforg , } = sendbid;
     const cropname = pagedata.CropVariety;
     const farmername = pagedata.FarmerName;
     const bidprice = bidvalue;
     const farmeremail = pagedata.EmailOfFarmer;
-    const UserId = userData._id
+    const UserId = userData._id;
+
     const res = await fetch("/sendbid", {
       method: "POST",
       headers: {
@@ -116,23 +128,31 @@ const SellerPurchace = () => {
         UserId
       }),
     });
+
     const data = await res.json();
+
     if (res.status === 201) {
       window.alert("Your bid is succesfully sent.");
       navigate("/CropSellDashboard");
       window.location.reload()
-    } else if (res.status === 500) {
+    } 
+    else if (res.status === 500) {
       window.alert("Filled are required to fill");
-    } else {
+    } 
+    else {
       window.alert("Error occured , try again");
     }
   };
+
   if (!isLoading) {
     return <Loader />;
-  } else {
+  } 
+  
+  else {
     return (
       <>
         <div>
+
           {/* Heading  */}
           <h1 className="headingofseller">{pagedata.CropVariety}</h1>
 
@@ -179,6 +199,31 @@ const SellerPurchace = () => {
                                   placeholder="Farmers Wealth Foundation" 
                                   value={company}
                                   onChange={(e) => setcompany(e.target.value)}
+                                />
+                            </div>
+
+                            <div className="mb-3">
+                              <label htmlFor="formGroupExampleInputmodalemail" className="form-label mt-1">Email Id</label>
+                              <input 
+                                  type="email" 
+                                  className="form-control" 
+                                  id="formGroupExampleInputmodalemail" 
+                                  placeholder="agroacers.team@gmail.com" 
+                                  value={email}
+                                  onChange={(e) => setemail(e.target.value)}
+                                />
+                            </div>
+
+                            <div className="mb-3">
+                              <label htmlFor="formGroupExampleInputmodalnum" className="form-label mt-1">Phone Number</label>
+                              <input 
+                                  type="number" 
+                                  min={0}
+                                  className="form-control" 
+                                  id="formGroupExampleInputmodalnum" 
+                                  placeholder="Farmers Wealth Foundation" 
+                                  value={contact}
+                                  onChange={(e) => setcontact(e.target.value)}
                                 />
                             </div>
 
@@ -390,13 +435,14 @@ const SellerPurchace = () => {
               type="button"
               className="btn btn-success"
               data-toggle="modal"
-              data-target=".bd-example-modal-lg"
+              data-target="#bd-example-modal-lg"
             >
               Bid your Price
             </button>
 
             <div
-              class="modal fade bd-example-modal-lg"
+              class="modal fade"
+              id={"bd-example-modal-lg"}
               tabindex="-1"
               role="dialog"
               aria-labelledby="myLargeModalLabel"

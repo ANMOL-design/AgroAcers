@@ -182,7 +182,7 @@ function ProductsDetails(){
             <div className="home-products-details container-fluid mt-4 mb-4">
                 {result.slice(0,cntProduct).map( (item) => {
                     return(
-                        <div key={item._id} className={item.quantity > 0 ?  "card " : "card  opacity-25"} id="pc" style={{width: "17.5rem"}}>
+                        <div key={item._id} className={"card "} id="pc" style={{width: "17.5rem"}}>
                             {/* Upper Image Portion of card  */}
                             <div className="Product-image-container">
                                 <img src={item.Imageurl} className="card-img-top home-product-image" alt="Products" />
@@ -191,12 +191,19 @@ function ProductsDetails(){
                                         Save {Math.round(100*(item.old_price - item.new_price)/item.old_price)}%
                                     </div>
                                     {/* OverLay Property of card  */}
-                                    <div className="overlay">
-                                        <div className="overlay-img">
-                                            <Link to={ "/products/" + item._id }><img src="./Images/Web/favorite_icon.svg" alt="Favorite" className="overlay-img-space" /></Link>
-                                            <Link to={"/cart/" + item._id + "?qty=1"}><img src="./Images/Web/add_cart_icon.svg" alt="CartAdd" className="overlay-img-space" /></Link>
+                                    {item.quantity > 0 ? 
+                                        <div className="overlay">
+                                            <div className="overlay-img">
+                                                <Link to={ "/products/" + item._id }><img src="./Images/Web/favorite_icon.svg" alt="Favorite" className="overlay-img-space" /></Link>
+                                                <Link to={"/cart/" + item._id + "?qty=1"}><img src="./Images/Web/add_cart_icon.svg" alt="CartAdd" className="overlay-img-space" /></Link>
+                                            </div>
+                                        </div> : 
+                                        <div className="overlay">
+                                            <div className="overlay-img">
+                                                <h5 className="overlay-out-0f-stock">Out Of Stock</h5>
+                                            </div>
                                         </div>
-                                    </div>
+                                    }
                              </div>
                              {/* Lower Body Portion of card  */}
                             <div className="card-body">

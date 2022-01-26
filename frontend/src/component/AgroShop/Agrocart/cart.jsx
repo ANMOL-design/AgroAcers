@@ -23,7 +23,7 @@ function MyCart(){
 
     const { addToCart, removeitem, cartItems } = useContext(CartContext);
 
-    // console.log(cartItems);
+    console.log(cartItems);
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
     const navigate = useNavigate();
     const [DataLoading, setDataLoading] = useState(false);
@@ -169,7 +169,30 @@ function MyCart(){
                   window.alert("Error occured , try again")
                 }
 
-                 // destroy the cookies
+                // Update items in backend 
+
+                async function changeitem(id, quantity) {
+
+                    const res =  await fetch("/Shopproductcartdata" ,{
+                        method : "POST",
+                        headers : { 
+                            "content-Type" : "application/json"
+                        },
+                        body : JSON.stringify({
+                            id, quantity
+                    })
+                    });
+    
+                }
+
+                cartItems.map((item) => {
+                    var id = item._id;
+                    var quantity = item.quantity - item.qty;
+
+                    changeitem(id, quantity);
+                })
+
+                // destroy the cookies
                 localStorage.removeItem("cartItems");
                 navigate("/");
                 window.location.reload();
