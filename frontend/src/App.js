@@ -72,7 +72,7 @@ const Routing = ()=>{
               <Route path="AboutUser" exact element={<AboutUser/>} />
               <Route path="Crops" exact element={<CropBlog/>} />
               <Route path="GovternmentScheme" exact element={<GovtScheme/>} />
-              <Route path="FarmerDetail" exact element={<FarmerCropDetail/>} />
+              <Route path="sellYourCrop" exact element={<FarmerCropDetail/>} />
               <Route path="SellerCrop/:id" exact element={<SellerPurchace/>} />
               <Route path="SubscriberPlan" exact element={<SubscriberPlan/>} />
               <Route path="CropSellDashboard" exact element={ <CropsDashboard /> } />
