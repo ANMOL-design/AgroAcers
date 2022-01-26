@@ -4,6 +4,7 @@ import { NavLink, Link } from "react-router-dom";
 import Logo from "./../../Images/Logo.png";
 import "./../../Styles/header.css";
 import { UserContext } from "../../App";
+import UserData from "../AdminPortal/Userdata";
 
 const Navbar = () => {
   
@@ -111,7 +112,7 @@ const Navbar = () => {
         </>
       );
       }
-      else{
+      else if(userData.isAdmin === false){
         return (
           <>
               
@@ -137,6 +138,25 @@ const Navbar = () => {
           </>
         );
       }
+      else{
+        return (
+        <>
+        <ul className="navbar-nav" id="auth-btn">
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/login">
+              <button className={"bg-btn"}>Login</button>
+            </NavLink>
+          </li>
+
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/register">
+              <button className={"bg-btn"}>Register</button>
+            </NavLink>
+          </li>
+        </ul>
+      </>
+        )}
+        
     }
   };
 
@@ -246,7 +266,7 @@ const Navbar = () => {
         </>
       );
       }
-      else{
+      else if(userData.isAdmin=== false) {
         return (
           <>
         
@@ -291,6 +311,25 @@ const Navbar = () => {
           </>
         );
       }
+      else{
+        return (
+        <>
+        <ul className="navbar-nav" id="auth-btn">
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/login">
+              <button className={"bg-btn"}>Login</button>
+            </NavLink>
+          </li>
+
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/register">
+              <button className={"bg-btn"}>Register</button>
+            </NavLink>
+          </li>
+        </ul>
+      </>
+        )}
+        
     }
   };
 

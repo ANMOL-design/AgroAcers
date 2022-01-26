@@ -29,7 +29,6 @@ function MyCart(){
     const [DataLoading, setDataLoading] = useState(false);
     const [coupon, setcoupon] = useState("");
     const [couponvalue, setcouponvalue] = useState("");
-    const [productId,setProductId] = useState()
     const [userData, setUserData] = useState({});
 
     const [pricepay, setpricepay] = useState(0);
@@ -72,7 +71,6 @@ function MyCart(){
                 const {data} = await axios.get("/Shopproductdata/" + id);
                 // console.log(data, qty);
                 addToCart(data, qty);
-                setProductId(data._id);
             }
         }
         fetchdata();
@@ -153,14 +151,14 @@ function MyCart(){
                 const orderid = response.razorpay_order_id;
                 const transid = response.razorpay_payment_id;
                 const amountpay = Number(data.amount.toString())/100;
-                const productid = productId
+                
                 const res =  await fetch("/sendcartReply" ,{
                     method : "POST",
                     headers : { 
                         "content-Type" : "application/json"
                     },
                     body : JSON.stringify({
-                        name,mail,orderid,transid,amountpay,productid
+                        name,mail,orderid,transid,amountpay
                     })
                 });
 

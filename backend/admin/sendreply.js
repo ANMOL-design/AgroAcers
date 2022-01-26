@@ -73,16 +73,9 @@ router.post("/sendbid", (req, res) => {
 const shoppingProduct = require("../model/ShoppingProduct")
 router.post("/sendcartReply", (req, res) => {
     try {
-        const { name, mail, orderid, transid, amountpay,productid } = req.body;
+        const { name, mail, orderid, transid, amountpay } = req.body;
         cartmail(mail, name, orderid, transid, amountpay).then(() => {
             res.status(201).json({ msg: "mail sent Succesfully" })
-          shoppingProduct.findByIdAndUpdate(productid,{$inc: {quantity: -1}}, function(err, docs) {
-            if (err) {
-                console.log(err)
-            } else {
-                console.log("Updated User : " + docs);
-            }
-        })
         }).catch((err) => {
             res.status(400).json({ msg: "error occured" })
         })
