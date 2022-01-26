@@ -329,6 +329,12 @@
     left: 0.1rem;
 }
 
+.overlay-out-0f-stock {
+    color: #E71D3A;
+    border: 5px double #E71D3A;
+    padding: 5px;
+}
+
 .home-product-image {
     max-width: 17.5rem;
     max-height: 200px;

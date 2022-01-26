@@ -42,7 +42,7 @@ function CropsDashboard(){
 
         const fetchdata = async () =>{
             const {data} = await axios.get("/SellCropdata");
-            console.log(data);
+            // console.log(data);
             setuserdata(data);
         }
         fetchdata();
@@ -87,7 +87,7 @@ function CropsDashboard(){
               </div>
                 <div>    
                     {
-                        userdata.length === 0 ? <div className="text-center m-4 h-75">No Data Found</div> 
+                        userdata.length === 0 ? <div className="text-center m-4 h-75 font-monospace" style={{fontSize: "2rem"}}>Loading ...</div> 
                         :
                         <div className="dashboard-card-container">
                             {userdata.map((item) => (

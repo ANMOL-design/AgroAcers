@@ -1,5 +1,5 @@
 import  React, {useEffect, useState} from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import "../../Styles/sellcropDetail.css";
 import Loader from "../Loader";
 import axios from "axios";
@@ -12,6 +12,8 @@ const SellerPurchace = () => {
 
   const [name, setname] = useState("");
   const [company, setcompany] = useState("");
+  const [email, setemail] = useState("");
+  const [contact, setcontact] = useState("");
   const [body, setbody] = useState("");
 
   
@@ -45,7 +47,7 @@ const SellerPurchace = () => {
             "content-Type" : "application/json"
         },
         body : JSON.stringify({
-          name,company,body,Farmername,Farmeremail
+          name,email,contact,company,body,Farmername,Farmeremail
         })
       });
 
@@ -67,6 +69,7 @@ const SellerPurchace = () => {
     return (
       <>
         <div>
+
           {/* Heading  */}
           <h1 className="headingofseller">{pagedata.CropVariety}</h1>
 
@@ -112,6 +115,31 @@ const SellerPurchace = () => {
                                   placeholder="Farmers Wealth Foundation" 
                                   value={company}
                                   onChange={(e) => setcompany(e.target.value)}
+                                />
+                            </div>
+
+                            <div className="mb-3">
+                              <label htmlFor="formGroupExampleInputmodalemail" className="form-label mt-1">Email Id</label>
+                              <input 
+                                  type="email" 
+                                  className="form-control" 
+                                  id="formGroupExampleInputmodalemail" 
+                                  placeholder="agroacers.team@gmail.com" 
+                                  value={email}
+                                  onChange={(e) => setemail(e.target.value)}
+                                />
+                            </div>
+
+                            <div className="mb-3">
+                              <label htmlFor="formGroupExampleInputmodalnum" className="form-label mt-1">Phone Number</label>
+                              <input 
+                                  type="number" 
+                                  min={0}
+                                  className="form-control" 
+                                  id="formGroupExampleInputmodalnum" 
+                                  placeholder="Farmers Wealth Foundation" 
+                                  value={contact}
+                                  onChange={(e) => setcontact(e.target.value)}
                                 />
                             </div>
 

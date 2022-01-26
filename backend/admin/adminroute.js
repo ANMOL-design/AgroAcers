@@ -94,6 +94,21 @@ router.get('/Shopproductdata/:id', (req, res) => {
     })
 })
 
+
+router.post('/Shopproductcartdata', (req, res) => {
+
+    const { id, quantity } = req.body;
+
+    ShoppingPage.findByIdAndUpdate(id, { quantity: quantity }, function(err, docs) {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log("Updated User : " + docs);
+        }
+    })
+
+})
+
 router.get('/cropdata/:id', (req, res) => {
     const id = req.params.id;
 

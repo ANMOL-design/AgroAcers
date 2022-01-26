@@ -1,8 +1,8 @@
 .headingofseller {
-    text-align: center;
     font-size: 5rem;
     color: #77BC3F;
     text-decoration: underline;
+    text-align: center;
 }
 
 .seller-purchace-header-container {
@@ -17,6 +17,11 @@
 }
 
 .sell-p-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
     width: 50%;
 }
 
@@ -46,6 +51,7 @@
     padding: 0.5rem;
     text-transform: capitalize;
     font-weight: 500;
+    max-width: 320px;
 }
 
 .sell-pur-dis-container {
@@ -121,4 +127,70 @@
 
 .modal-body form {
     margin: 0px;
+}
+
+@media (max-width: 1350px) {
+    .sell-pur-crop-con {
+        margin: 1%;
+        margin-right: 1%;
+    }
+}
+
+@media (max-width: 1270px) {
+    .sell-p-image-container {
+        margin: 1.42%;
+        width: 100%;
+    }
+    .sell-p-image-container img {
+        width: 100%;
+        max-height: 70vh;
+        margin: 0px;
+    }
+    .sell-p-image-container .btn {
+        width: 100%;
+        margin: 2% 0px;
+    }
+    .sell-pur-crop-con {
+        margin: 1.42%;
+        width: 100%;
+    }
+    .sell-pur-crop-con table tr {
+        border: 2px solid #333232;
+    }
+    .sell-pur-crop-con table td {
+        border: 2px solid #333232;
+        padding: 0.5rem;
+        text-transform: capitalize;
+        font-weight: 500;
+    }
+}
+
+@media (max-width: 980px) {
+    .sell-p-image-container img {
+        max-height: 65vh;
+    }
+}
+
+@media (max-width: 790px) {
+    .sell-p-image-container img {
+        max-height: 55vh;
+    }
+    .headingofseller {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 490px) {
+    .sell-p-image-container img {
+        max-height: 48vh;
+    }
+}
+
+@media (max-width: 450px) {
+    .farmer-informaition-container {
+        overflow-x: scroll;
+    }
+    .sell-pur-crop-con {
+        overflow-x: scroll;
+    }
 }
