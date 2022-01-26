@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const sendmsgtofarmer = require("../utils/SendmailFarmer")
 const sendbidmsg = require("../utils/sentbidmsg");
 const cartmail = require("../utils/cartmail");
 dotenv.config();
@@ -30,6 +31,20 @@ router.post("/sendReply", (req, res) => {
         console.log(error);
     }
 })
+router.post("/sendMessagetofarmer", (req, res) => {
+    try {
+        const { name, company, body, Farmername, Farmeremail } = req.body;
+        sendmsgtofarmer(name, company, body, Farmername, Farmeremail).then(() => {
+            res.status(200).json({ msg: "mail sent Succesfully" })
+        }).catch((err) => {
+            res.status(400).json({ msg: "error occured" })
+        })
+
+    } catch (error) {
+        console.log(error);
+    }
+})
+
 router.post("/sendbid", (req, res) => {
     try {
         const { nameOfOrg,emailoforg,contactoforg,intrestoforg,cropname,farmername,bidprice,farmeremail , UserId} = req.body;

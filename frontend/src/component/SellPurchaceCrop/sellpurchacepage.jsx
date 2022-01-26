@@ -8,6 +8,9 @@ const SellerPurchace = () => {
   const navigate = useNavigate();
   const [pagedata, setPagedate] = useState([]);
   const [userData, setuserData] = useState([]);
+  const [name, setname] = useState("");
+  const [company, setcompany] = useState("");
+  const [body, setbody] = useState("");
   const [sendbid, setsendbid] = useState({
     nameOfOrg: "",
     emailoforg: "",
@@ -57,13 +60,37 @@ const SellerPurchace = () => {
   const HandleBid = (e) => {
     setbidvalue(e.target.value);
   };
-  let name, value;
+  let name1, value;
   const handlebidInput = (e) => {
-    name = e.target.name;
+    name1 = e.target.name;
     value = e.target.value;
-    setsendbid({ ...sendbid, [name]: value });
+    setsendbid({ ...sendbid, [name1]: value });
     console.log(sendbid);
   };
+  const postmessage = async (e)=>{
+    e.preventDefault();
+
+    let Farmername = pagedata.FarmerName;
+    let Farmeremail = pagedata.EmailOfFarmer;
+
+    const res =  await fetch("/sendMessagetofarmer" ,{
+      method : "POST",
+      headers : { 
+          "content-Type" : "application/json"
+      },
+      body : JSON.stringify({
+        name,company,body,Farmername,Farmeremail
+      })
+    });
+
+    const data = await res.json();
+    if(res.status === 200){
+        window.alert("Your mail is succesfully sent.");
+    }
+    else {
+      window.alert("Error occured , try again")
+    }
+  }
   const postBid = async (e) => {
     e.preventDefault();
     const { nameOfOrg, emailoforg, contactoforg, intrestoforg , } = sendbid;
@@ -114,9 +141,67 @@ const SellerPurchace = () => {
             {/* Image  */}
             <div className="sell-p-image-container">
               <img src={pagedata.ImageOfCrop} alt="Crop" />
-              <button className="btn btn-success">
-                Send Message to Farmer
-              </button>
+             
+              {/* Button to send message to Farmer  */}
+                  <button type="button" className="btn btn-success" data-toggle="modal" data-target={"#Contactwithfarmer"}>Send Message to Farmer</button>
+              
+            </div>
+              {/* Modal of Button  */}
+              <div className="modal fade" id={"Contactwithfarmer"} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                      <div className="modal-content">
+                        <div className="modal-header">
+                              <h4 className="modal-title" id="exampleModalLabel">Send Message to {pagedata.FarmerName}</h4>
+                              <button type="button" className="btn-close text-reset" data-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                      <div className="modal-body">
+                          <form  method="post">
+
+                            <div className="mb-3">
+                              <label htmlFor="formGroupExampleInputmodal" className="form-label mt-1">Sender Name</label>
+                              <input 
+                                  type="text" 
+                                  className="form-control" 
+                                  id="formGroupExampleInputmodal" 
+                                  placeholder="John Smith" 
+                                  value={name}
+                                  onChange={(e) => setname(e.target.value)}
+                                />
+                            </div>
+
+                            <div className="mb-3">
+                              <label htmlFor="formGroupExampleInputmodalcomp" className="form-label mt-1">Company Name</label>
+                              <input 
+                                  type="text" 
+                                  className="form-control" 
+                                  id="formGroupExampleInputmodalcomp" 
+                                  placeholder="Farmers Wealth Foundation" 
+                                  value={company}
+                                  onChange={(e) => setcompany(e.target.value)}
+                                />
+                            </div>
+
+                            <div className="mb-3">
+                              <label htmlFor="formGroupExampleInputmodalbody" className="form-label mt-1">Message</label>
+                              <textarea 
+                                  type="text" 
+                                  className="form-control" 
+                                  id="formGroupExampleInputmodalcomp" 
+                                  placeholder="I'm from xyz company want to deal with you." 
+                                  value={body}
+                                  onChange={(e) => setbody(e.target.value)}
+                                />
+                            </div>
+        
+                              <div classname="modal-footer">
+                                <button type="submit" className="btn btn-primary" onClick={postmessage}>Send Message</button>
+                              </div>
+                          </form>
+                      </div>
+                    </div>
+                  </div>
+              </div>
             </div>
 
             {/* Table of Details */}
@@ -424,7 +509,7 @@ const SellerPurchace = () => {
               </div>
             </div>
           </div>
-        </div>
+        
       </>
     );
   }
