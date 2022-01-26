@@ -103,7 +103,7 @@ const AdminPage = () => {
               alt="Card cap"
             />
             <div className="card-body">
-              <h5 classname="card-title">Add  University</h5>
+              <h5 className="card-title">Add  University</h5>
               <p className="card-text">
                 This section is for add the details of university in Agriculture University.
               </p>
@@ -119,7 +119,7 @@ const AdminPage = () => {
               alt="Card cap"
             />
             <div className="card-body">
-              <h5 classname="card-title">Add Govt. Scheme</h5>
+              <h5 className="card-title">Add Govt. Scheme</h5>
               <p className="card-text">
                 This section is for add theGovernment Schemes in portal.
               </p>

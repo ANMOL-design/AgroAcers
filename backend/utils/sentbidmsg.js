@@ -18,7 +18,7 @@ const sendbidmsg = async(nameOfOrg, emailoforg, contactoforg, intrestoforg, crop
         html: `
         <p>Hello ${farmername}</p>
         <p>Regarding the crop of, ${cropname} which you post on AgroAcers.
-        We have a good news for you that one organization/company have show 
+        We have a good news for you that one organization / company have show 
         interest on your crop and they are ready to deal with you.</p>
               
         <h4>Details of orgainization/company :</h4>

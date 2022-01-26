@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams, Link  } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "../../Styles/sellcropDetail.css";
 import Loader from "../Loader";
 import axios from "axios";
@@ -545,7 +545,10 @@ const SellerPurchace = () => {
                   </div>
               </div>
             </div>
-        
+
+            <div className="dash-banner-per-id">
+              <h2 className="dash-banner-headingper-id">My Crop, My MSP</h2>
+            </div> 
       </>
     );
   }

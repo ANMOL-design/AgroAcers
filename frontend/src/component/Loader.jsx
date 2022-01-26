@@ -6,9 +6,10 @@ class Loader extends React.Component {
      render(){
          return(
              <>  
-                 <img style={{width:"30%",margin:"auto",marginLeft:"30%"}} src={loader} alt="" />
-                 <h1  style={{margin:"auto",marginLeft:"35%",color:"green"}}>Data is Loading...</h1>
-            
+                <div style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", height: "80vh"}}>
+                    <img  style={{width:"28%"}} src={loader} alt="Loader" />
+                    <h1  style={{color:"#77BC3F"}}>Data is Loading ...</h1>
+                </div>            
              </>
          );
      }
