@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams, Link  } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "../../Styles/sellcropDetail.css";
 import Loader from "../Loader";
 import axios from "axios";
@@ -14,6 +14,7 @@ const SellerPurchace = () => {
   const [email, setemail] = useState("");
   const [contact, setcontact] = useState("");
   const [body, setbody] = useState("");
+  const [bidvalue, setbidvalue] = useState(0);
   const [sendbid, setsendbid] = useState({
     nameOfOrg: "",
     emailoforg: "",
@@ -27,6 +28,7 @@ const SellerPurchace = () => {
         if(id){
             const {data} = await axios.get("/sellerCrop/" + id);
             setPagedate(data);
+            setbidvalue(data.Min_price);
             setisLoading(true)
         }
     }
@@ -59,9 +61,8 @@ const SellerPurchace = () => {
       }
     };
     callAboutPage();
-  }, []);
 
-  const [bidvalue, setbidvalue] = useState(pagedata.Min_price);
+  }, []);
 
   const HandleBid = (e) => {
     setbidvalue(e.target.value);
@@ -73,7 +74,7 @@ const SellerPurchace = () => {
     name1 = e.target.name;
     value = e.target.value;
     setsendbid({ ...sendbid, [name1]: value });
-    console.log(sendbid);
+    // console.log(sendbid);
   };
 
   const postmessage = async (e)=>{
@@ -95,6 +96,14 @@ const SellerPurchace = () => {
     const data = await res.json();
     if(res.status === 200){
         window.alert("Your mail is succesfully sent.");
+        const element = document.getElementsByClassName("btn-close");
+      
+        if(element){
+          element[0].click();
+          element[1].click();
+        }
+
+      navigate("/CropSellDashboard");
     }
     else {
       window.alert("Error occured , try again")
@@ -104,7 +113,7 @@ const SellerPurchace = () => {
   const postBid = async (e) => {
     e.preventDefault();
 
-    const { nameOfOrg, emailoforg, contactoforg, intrestoforg , } = sendbid;
+    const { nameOfOrg, emailoforg, contactoforg, intrestoforg  } = sendbid;
     const cropname = pagedata.CropVariety;
     const farmername = pagedata.FarmerName;
     const bidprice = bidvalue;
@@ -133,8 +142,15 @@ const SellerPurchace = () => {
 
     if (res.status === 201) {
       window.alert("Your bid is succesfully sent.");
+      const element = document.getElementsByClassName("btn-close");
+      // console.log(element);
+      if(element){
+        element[0].click();
+        element[1].click();
+      }
+
       navigate("/CropSellDashboard");
-      window.location.reload()
+      // window.location.reload()
     } 
     else if (res.status === 500) {
       window.alert("Filled are required to fill");
@@ -239,7 +255,7 @@ const SellerPurchace = () => {
                                 />
                             </div>
         
-                              <div classname="modal-footer">
+                              <div className="modal-footer">
                                 <button type="submit" className="btn btn-primary" onClick={postmessage}>Send Message</button>
                               </div>
                           </form>
@@ -247,77 +263,79 @@ const SellerPurchace = () => {
                     </div>
                   </div>
               </div>
+            
+
+              {/* Table of Details */}
+              <div className="sell-pur-crop-con">
+                <table className="table">
+                  <tr>
+                    <td colSpan={2}>
+                      <h2 style={{ textAlign: "center" }}>
+                        <strong>Details</strong>
+                      </h2>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Crop Produce : </strong>
+                    </td>
+                    <td>{pagedata.CropVariety}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Seed Company Used : </strong>
+                    </td>
+                    <td>{pagedata.SeedUsed}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>
+                        Total Land Farmer <br />
+                        &nbsp; Want to Deal :{" "}
+                      </strong>
+                    </td>
+                    <td>{pagedata.TotalLandinAcers} Acers</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Time of Yielding :</strong>
+                    </td>
+                    <td>{pagedata.YieldTime}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>State :</strong>
+                    </td>
+                    <td>{pagedata.State}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>City :</strong>
+                    </td>
+                    <td>{pagedata.city}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Address of Land :</strong>
+                    </td>
+                    <td>{pagedata.AdressOfLand}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Min Price Offer(per Quantal) :</strong>
+                    </td>
+                    <td>{pagedata.Min_price} Rs.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Max Price Offer(per Quantal) :</strong>
+                    </td>
+                    <td>{pagedata.Max_price} Rs.</td>
+                  </tr>
+                </table>
+              </div>
             </div>
 
-            {/* Table of Details */}
-            <div className="sell-pur-crop-con">
-              <table className="table">
-                <tr>
-                  <td colSpan={2}>
-                    <h2 style={{ textAlign: "center" }}>
-                      <strong>Details</strong>
-                    </h2>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong>Crop Produce : </strong>
-                  </td>
-                  <td>{pagedata.CropVariety}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong>Seed Company Used : </strong>
-                  </td>
-                  <td>{pagedata.SeedUsed}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong>
-                      Total Land Farmer <br />
-                      &nbsp; Want to Deal :{" "}
-                    </strong>
-                  </td>
-                  <td>{pagedata.TotalLandinAcers} Acers</td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong>Time of Yielding :</strong>
-                  </td>
-                  <td>{pagedata.YieldTime}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong>State :</strong>
-                  </td>
-                  <td>{pagedata.State}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong>City :</strong>
-                  </td>
-                  <td>{pagedata.city}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong>Address of Land :</strong>
-                  </td>
-                  <td>{pagedata.AdressOfLand}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong>Min Price Offer(per Quantal) :</strong>
-                  </td>
-                  <td>{pagedata.Min_price} Rs.</td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong>Max Price Offer(per Quantal) :</strong>
-                  </td>
-                  <td>{pagedata.Max_price} Rs.</td>
-                </tr>
-              </table>
-            </div>
           </div>
 
           {/* description of crop  */}
@@ -434,128 +452,103 @@ const SellerPurchace = () => {
             <button
               type="button"
               className="btn btn-success"
-              data-toggle="modal"
-              data-target="#bd-example-modal-lg"
+              data-toggle="modal" 
+              data-target={"#bd-example-modal-lg"}
             >
               Bid your Price
             </button>
 
-            <div
-              class="modal fade"
-              id={"bd-example-modal-lg"}
-              tabindex="-1"
-              role="dialog"
-              aria-labelledby="myLargeModalLabel"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog modal-lg">
-                <form method="post">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5
-                        style={{ color: "#77BC18", fontSize: "32px" }}
-                        class="modal-title"
-                        id="exampleModalLabel"
-                      >
-                        Bid your Ammount to deal with farmer
-                      </h5>
-                      <button
-                        type="button"
-                        class="close"
-                        data-dismiss="modal"
-                        aria-label="Close"
-                      >
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div className="modal-body">
-                      <p style={{ color: "#77BC3F", fontSize: "32px" }}>
-                        <strong>Yout Bidding Ammount : </strong>
-                        {bidvalue}
-                      </p>
-                      <div className="bid-form-container">
-                        <label htmlFor="nameOfOrg">
-                          Name Of Organization :
-                        </label>{" "}
-                        <br />
-                        <input
-                          type="text"
-                          required
-                          style={{ width: "90%" }}
-                          name="nameOfOrg"
-                          value={sendbid.nameOfOrg}
-                          onChange={handlebidInput}
-                          placeholder="enter the name or company or Organisation"
-                          id="nameOfOrg"
-                        />
-                        <br />
-                        <label htmlFor="emailoforg">
-                          Email of Organization :
-                        </label>{" "}
-                        <br />
-                        <input
-                          type="email"
-                          required
-                          style={{ width: "90%" }}
-                          name="emailoforg"
-                          value={sendbid.emailoforg}
-                          onChange={handlebidInput}
-                          placeholder="organiztion@gmail.com"
-                          id="emailoforg"
-                        />{" "}
-                        <br />
-                        <label htmlFor="contactnooforg">Contact no :</label>
-                        <br />
-                        <input
-                          type="number"
-                          required
-                          style={{ width: "90%" }}
-                          name="contactoforg"
-                          value={sendbid.contactoforg}
-                          onChange={handlebidInput}
-                          id="contactnooforg"
-                          placeholder="Contact of Organization"
-                        />
-                        <br />
-                        <label htmlFor="intrestoforg">
-                          Why you want to Buy this Crop ?
-                        </label>
-                        <br />
-                        <textarea
-                          name="intrestoforg"
-                          required
-                          style={{ width: "90%" }}
-                          id="intrestoforg"
-                          value={sendbid.intrestoforg}
-                          onChange={handlebidInput}
-                          placeholder="Write the intrest about crop you want to buy"
-                          cols="30"
-                          rows="3"
-                        ></textarea>
-                        <br />
+            {/* modal of Bid Price  */}
+          
+            {/* Modal of Button  */}
+            <div className="modal fade" id={"bd-example-modal-lg"} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog modal-lg" role="document">
+                      <div className="modal-content">
+                        <div className="modal-header">
+                              <h4  style={{ color: "#77BC18", fontSize: "32px" }} className="modal-title" id="exampleModalLabel">Bid your Amount to deal with {pagedata.FarmerName}</h4>
+                              <button type="button" className="btn-close text-reset" data-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                      <div className="modal-body">
+
+                          <p style={{ color: "#77BC3F", fontSize: "32px" }}>
+                            <strong>Your Bidding Amount : </strong>
+                            {bidvalue} Rs.
+                          </p>
+                          <form  method="post">
+
+                            <div className="mb-3">
+                              <label htmlFor="nameOfOrg" className="form-label mt-1">Name Of Organization :</label>
+                              <input 
+                                  type="text" 
+                                  className="form-control" 
+                                  id="nameOfOrg" 
+                                  placeholder="Enter the Name or Company or Organisation"
+                                  value={sendbid.nameOfOrg}
+                                  onChange={handlebidInput}
+                                  name="nameOfOrg"
+                                  required
+                                />
+                            </div>
+
+                            <div className="mb-3">
+                              <label htmlFor="emailoforg" className="form-label mt-1">Email of Organization :</label>
+                              <input 
+                                  type="email" 
+                                  className="form-control" 
+                                  id="emailoforg" 
+                                  name="emailoforg"
+                                  placeholder="Organization@gmail.com"
+                                  value={sendbid.emailoforg}
+                                  onChange={handlebidInput}
+                                  required
+                                />
+                            </div>
+
+                            <div className="mb-3">
+                              <label htmlFor="contactnooforg" className="form-label mt-1">Contact Number :</label>
+                              <input 
+                                  type="number" 
+                                  className="form-control" 
+                                  id="contactnooforg" 
+                                  min={0}
+                                  name="contactoforg"
+                                  value={sendbid.contactoforg}
+                                  onChange={handlebidInput}
+                                  required
+                                />
+                            </div>
+
+                            <div className="mb-3">
+                              <label htmlFor="intrestoforg" className="form-label mt-1">Why you want to Buy this Crop ?</label>
+                              <textarea 
+                                  type="text" 
+                                  className="form-control" 
+                                  id="intrestoforg" 
+                                  placeholder="Write the intrest about crop you want to buy"
+                                  value={sendbid.intrestoforg}
+                                  onChange={handlebidInput}
+                                  name="intrestoforg"
+                                  required
+                                />
+                            </div>
+        
+                              <div className="modal-footer m-2">
+                                  <button type="button" className="btn btn-secondary" data-dismiss="modal">
+                                     Close
+                                  </button>
+                                <button type="submit" className="btn btn-primary mx-3" onClick={postBid}  value="Send your Bid">Send Message</button>
+                              </div>
+                          </form>
                       </div>
                     </div>
-                    <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn btn-secondary"
-                        data-dismiss="modal"
-                      >
-                        Close
-                      </button>
-                      <input
-                        type="submit"
-                        onClick={postBid}
-                        class="btn btn-primary"
-                        value="Send your Bid"
-                      />
-                    </div>
                   </div>
-                </form>
               </div>
             </div>
-          </div>
-        
+
+            <div className="dash-banner-per-id">
+              <h2 className="dash-banner-headingper-id">My Crop, My MSP</h2>
+            </div> 
       </>
     );
   }

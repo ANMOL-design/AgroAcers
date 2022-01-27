@@ -120,7 +120,7 @@ const CommentBox = (props)=>{
           <div className="detailBox">
             <div className="titleBox">
               <label>Comments({cropComment.length})</label>
-                <button type="button" className="close" aria-hidden="true">&times;</button>
+                <button type="button" className="btn-close text-reset close" aria-hidden="true"></button>
             </div>
             <div className="commentBox">
                 <p className="taskDescription">Start a Discussion not a fire Post with Kindness...</p>
@@ -176,7 +176,7 @@ const CommentBox = (props)=>{
         <div className="detailBox">
           <div className="titleBox">
             <label>Comments({cropComment.length})</label>
-              <button type="button" className="close" aria-hidden="true">&times;</button>
+            <button type="button" className="btn-close text-reset close" aria-hidden="true"></button>
           </div>
           <div className="commentBox">
               <p className="taskDescription">Start a Discussion not a fire Post with Kindness...</p>
@@ -230,7 +230,7 @@ const CommentBox = (props)=>{
         <div className="detailBox">
           <div className="titleBox">
             <label>Comments({cropComment.length})</label>
-              <button type="button" className="close" aria-hidden="true">&times;</button>
+              <button type="button" className="btn-close text-reset close" aria-hidden="true"></button>
           </div>
           <div className="commentBox">
               <p className="taskDescription">Start a Discussion not a fire Post with Kindness...</p>

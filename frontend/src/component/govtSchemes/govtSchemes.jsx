@@ -25,43 +25,43 @@ const GovtScheme = ()=>{
       }
       else{
     return(
-        <>
+      <>
         <div className="govt-scheme-container">
             <div className="Govt-scheme-header">
                 <img style={{width:"100%"}} src={AgroSchemeBanner} alt="Govt Scheme" />
             </div>
             <div className="govt-scheme-header">
-            <h1 >Government Schemes</h1>
+                <h1 >Government Schemes</h1>
                 <p>All agriculture government schemes with accurate information. Our goal to deliver this service to every Indian farmer.</p>
             </div>
            <div className="govt-schemes-body university-card-container">
               {SchemeData.map((item)=>{
                   return(
                       <>
-                     <div className="card mb-3" key={x++}>
-                    <img className="card-img-top imageuniver" src={item.Imageurl} alt="Card cap" />
-                    
-                    <div className="card-body">
-                      <h2 className="card-title pagricheckhead" style={{color:"#198754"}}>{item.SchemeName}</h2>
-                      <p className="card-text pagricheck">
-                        <span style={{fontWeight: "300",fontSize:"16px" ,color:"green"}}>{item.Description}</span>
-                      </p>
+                        <div className="card mb-3" key={x++}>
+                            <img className="card-img-top imageuniver" src={item.Imageurl} alt="Card cap" />
+                        
+                            <div className="card-body">
+                              <h2 className="card-title pagricheckhead" style={{color:"#77BC3F"}}>{item.SchemeName}</h2>
+                              <p className="card-text pagricheck">
+                                <span style={{fontWeight: "300",fontSize:"16px" ,color:"#77BC3F"}}>{item.Description}</span>
+                              </p>
 
-                      {item.website && (
-                        <a href={item.website} target={"_blank"} rel="noopener noreferrer external">
-                          <button className="btn btn-success">
-                            Visit Scheme
-                          </button>
-                        </a>
-                      )}
-                    </div>
-                  </div>
+                              {item.website && (
+                                <a href={item.website} target={"_blank"} rel="noopener noreferrer external">
+                                  <button className="btn btn-success mt-2">
+                                    Visit Scheme
+                                  </button>
+                                </a>
+                              )}
+                            </div>
+                          </div>
                       </>
                   )
               })}
            </div>
         </div>
-        </>
+      </>
     )
             }
 }

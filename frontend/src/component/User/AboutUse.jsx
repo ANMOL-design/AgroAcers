@@ -8,8 +8,6 @@ const AboutUser = () => {
 
   const [userData, setUserData] = useState([]);
   const { state, dispatch } = useContext(UserContext);
-
-  console.log(userData);
   
   const RenderAboutUser = () => {
     if (!state){
@@ -39,8 +37,8 @@ const AboutUser = () => {
                       <span className="userinfo">{userData.name}</span>
                     </h4>
                     <h4 className="user-text">
-                      <span className="UserLabel">User Id : </span>
-                      <span className="userinfo">{userData._id}</span>
+                      <span className="UserLabel">Subscriber : </span>
+                      <span className="userinfo text-capitalize">{userData.isSubscriber ? "True" : "False"}</span>
                     </h4>
                     <h4 className="user-text">
                       <span className="UserLabel">Email Id : </span>
