@@ -1,14 +1,15 @@
 import React from "react";
 import "../../Styles/privacypage.css";
 import { Link } from "react-router-dom";
+
 class PrivacyPolicy extends React.Component {
   render() {
     window.scroll(0,0)
     return (
       <>
         <div className="container-fluid">
-          <div className="privacy-page-heading">
-            AgroAcers Privacy Policy
+            <h1 className="privacy-page-heading">AgroAcers Privacy Policy</h1>
+
             <p className="privacy-head-1">
               This is the Privacy Policy governing your use of the AgroAcers.com
               Site.
@@ -36,7 +37,7 @@ class PrivacyPolicy extends React.Component {
               profile/company or update your company's information, please
               Contact Us.
             </p>
-            <h4 className="privacy-2">
+            <h4 className="privacy-head">
               <strong> 1. The Information We Collect</strong>
             </h4>
             <p className="privacy-2">
@@ -82,7 +83,7 @@ class PrivacyPolicy extends React.Component {
               ACCESS_NETWORK_STATE, ACCESS_WIFI_STATE, SEND_SMS, READ_SMS,
               RECEIVE_SMS, CAMERA.
             </p>
-            <h4 className="privacy-2">
+            <h4 className="privacy-head">
               <strong>2. Contacting Us</strong>
             </h4>
             <p className="privacy-2">
@@ -90,7 +91,7 @@ class PrivacyPolicy extends React.Component {
               Policy, Contact us at <Link to="/contact">www.agroacers/contact</Link> , or your dealings with this Web
               site, you can contact at: AgroAcersInfo@gmail.com
             </p>
-          </div>
+            <br />
         </div>
       </>
     );

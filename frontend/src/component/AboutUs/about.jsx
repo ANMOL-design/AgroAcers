@@ -11,6 +11,10 @@ import Anmol from "./../../Images/Founder1.jpg";
 import Aman from "./../../Images/Founder 2.jpg";
 
 class AboutUS extends React.Component {
+
+    componentDidMount(){
+        window.scroll(0,0);
+    }
     render() {
     return (
         <>
@@ -121,7 +125,7 @@ class AboutUS extends React.Component {
                                 <p className="card-f-para">Co-Founder, AgroAcers</p>
                                 <hr style={{margin: "6px"}}/>
                                 <p className="card-text card-f-para2">Anmol is a Full Stack Web Developer and has a great passion for farming and help other farmers in adopt organic farming which reduces their input cost and provide high yielding. </p>
-                                <a href="https://www.linkedin.com/in/anmol-garg-25a5771a2/"  target="_blank"  rel="noreferrer" class="btn btn-primary">Know More</a>
+                                <a href="https://www.linkedin.com/in/anmol-garg-25a5771a2/"  target="_blank"  rel="noreferrer" className="btn btn-primary">Know More</a>
                             </div>
                             <img src={Anmol} className="card-img-top fouImground" alt="Founder" />
                         </div>
@@ -133,7 +137,7 @@ class AboutUS extends React.Component {
                                 <p className="card-f-para">Co-Founder, AgroAcers</p>
                                 <hr style={{margin: "6px"}}/>
                                 <p className="card-text card-f-para2">Amandeep singh is a Fullstack Web developer and he is a nature lover and belong to farming family . So decided to create the website to contribute for the farmers of india. </p>
-                                <a href="https://www.linkedin.com/in/amandeep-singh-699026196/" target="_blank"  rel="noreferrer" class="btn btn-primary">Know More</a>
+                                <a href="https://www.linkedin.com/in/amandeep-singh-699026196/" target="_blank"  rel="noreferrer" className="btn btn-primary">Know More</a>
                             </div>
                             <img src={Aman} className="card-img-top fouImground " alt="Founder" />
                         </div>

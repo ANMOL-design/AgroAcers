@@ -141,20 +141,20 @@ const Navbar = () => {
       else{
         return (
         <>
-        <ul className="navbar-nav" id="auth-btn">
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/login">
-              <button className={"bg-btn"}>Login</button>
-            </NavLink>
-          </li>
+          <ul className="navbar-nav" id="auth-btn">
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/login">
+                <button className={"bg-btn"}>Login</button>
+              </NavLink>
+            </li>
 
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/register">
-              <button className={"bg-btn"}>Register</button>
-            </NavLink>
-          </li>
-        </ul>
-      </>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/register">
+                <button className={"bg-btn"}>Register</button>
+              </NavLink>
+            </li>
+          </ul>
+        </>
         )}
         
     }
@@ -314,20 +314,27 @@ const Navbar = () => {
       else{
         return (
         <>
-        <ul className="navbar-nav" id="auth-btn">
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/login">
-              <button className={"bg-btn"}>Login</button>
-            </NavLink>
-          </li>
-
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/register">
-              <button className={"bg-btn"}>Register</button>
-            </NavLink>
-          </li>
-        </ul>
-      </>
+          <div className={"hide_small hide_small_login"}>
+              <NavLink className="nav-link" to="/login"
+                       data-toggle="collapse"
+                       data-target="#navbarSupportedContent"
+                       aria-controls="navbarSupportedContent"
+                       aria-expanded="false"
+                       aria-label="Toggle navigation"
+              >
+                <button className={"bg-btn"}>Login</button>
+              </NavLink>
+              <NavLink className="nav-link" to="/register"
+                       data-toggle="collapse"
+                       data-target="#navbarSupportedContent"
+                       aria-controls="navbarSupportedContent"
+                       aria-expanded="false"
+                       aria-label="Toggle navigation"
+              >
+                <button className={"bg-btn"}>Register</button>
+              </NavLink>
+            </div>
+        </>
         )}
         
     }

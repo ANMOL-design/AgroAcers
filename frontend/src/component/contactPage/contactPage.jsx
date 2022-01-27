@@ -104,28 +104,28 @@ useEffect(() => {
                         <h3 className="contactus-form-heading">Send us your Query</h3>
                         <form method="POST">
                             {/* Name  */}
-                            <div class="m-2">
-                                <label for="NameI" class="form-label">Name</label>
-                                <input type="text"  name="name" class="form-control" value={contact.name} onChange={handleInput} id="NameI" placeholder="John Smith" />
+                            <div className="m-2">
+                                <label htmlFor="NameI" className="form-label">Name</label>
+                                <input type="text"  name="name" className="form-control" value={contact.name} onChange={handleInput} id="NameI" placeholder="John Smith" />
                             </div>
                             {/* Email  */}
                             <div className="m-2">
-                                <label for="emailInput" className="form-label">Email address</label>
+                                <label htmlFor="emailInput" className="form-label">Email address</label>
                                 <input type="email" name="email" className="form-control" id="emailInput" value={contact.email} onChange={handleInput} placeholder="name@example.com" />
                             </div>
                             {/* Phone No  */}
                             <div className="m-2">
-                                <label for="PhoneInput" className="form-label">Phone No.</label>
+                                <label htmlFor="PhoneInput" className="form-label">Phone No.</label>
                                 <input type="number" name="phonenumber" className="form-control" id="PhoneInput" value={contact.phonenumber} onChange={handleInput} placeholder="91234-91234"  min="0"/>
                             </div>
                             {/* Subject  */}
                             <div className="m-2">
-                              <label for="SubInput" className="form-label">Subject</label>
+                              <label htmlFor="SubInput" className="form-label">Subject</label>
                               <input type="text" name="subject" className="form-control" id="SubInput" value={contact.subject} onChange={handleInput} placeholder="Title" />
                             </div>
                             {/* Text  */}
                             <div className="m-2">
-                                <label for="exampleFormControlTextarea1" className="form-label">Write Your Query: </label>
+                                <label htmlFor="exampleFormControlTextarea1" className="form-label">Write Your Query: </label>
                                 <textarea className="form-control" name="query" id="exampleFormControlTextarea1" placeholder="Write your query here...." value={contact.query} onChange={handleInput} rows="3"></textarea>
                             </div>
                             {/* Submit  */}
