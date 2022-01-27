@@ -1,3 +1,4 @@
+import React, {useEffect} from "react";
 import CropBanner1 from "../../Images/crousal/indian-crop-banner-1.jpg";
 import CropBanner2 from "../../Images/crousal/image-3.jpg";
 import CropBanner3 from "../../Images/crousal/image-4.jpg";
@@ -9,6 +10,11 @@ import "../../Styles/croppage.css";
 import "bootstrap/dist/css/bootstrap.css";
 
 const CropBlog = () => {
+
+  useEffect(() => {
+    window.scroll(0,0);
+  }, []);
+  
   return (
     <>
       <div
