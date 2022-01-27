@@ -1,0 +1,40 @@
+.crousal-statistic-outer-container {
+    margin: 4px 0px;
+    border: 1px solid #f0f0f0;
+}
+
+.homepage-story-heading {
+    text-align: center;
+    text-shadow: 2px 2px 3px #ddd;
+    color: #77BC3F;
+    font-size: 3.4rem;
+}
+
+.crousal-statistic-inner-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 2% 0.5%;
+    padding: 1%;
+}
+
+.crousal-statistic-maincont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+}
+
+.fixthewidth {
+    text-align: center;
+    margin-left: 0.6rem;
+    width: 175px;
+    /* color: #77BC3F; */
+    color: #252525;
+}
+
+.card-title-link-home {
+    text-decoration: none;
+    color: #252525;
+}

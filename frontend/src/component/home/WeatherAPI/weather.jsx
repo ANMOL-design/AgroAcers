@@ -21,6 +21,7 @@ function MyLocalWeather(){
         }
 
         fetchAPI();
+        window.scroll(0,0);
     }, [cityname])
 
     const dateBuilder = (d) => {
@@ -39,7 +40,7 @@ function MyLocalWeather(){
         <>
            {!weather ? 
                 <div>
-                    <div className='weatherappno'>
+                    <div className='weatherappno mb-3'>
                         <main className="main-nodata-box">
                             <div className="search-box">
                                 <input 
