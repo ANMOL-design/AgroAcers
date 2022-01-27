@@ -48,13 +48,13 @@ function Footer() {
                             </li>
 
                             <li className="usefull-links-list">
-                                <Link className="usefull-links" to="">
+                                <Link className="usefull-links" to="/shop">
                                     AgroAcers Store
                                 </Link>
                             </li>
 
                             <li className="usefull-links-list">
-                                <Link className="usefull-links" to="">
+                                <Link className="usefull-links" to="/GovternmentScheme">
                                   Government Schemes
                                 </Link>
                             </li>

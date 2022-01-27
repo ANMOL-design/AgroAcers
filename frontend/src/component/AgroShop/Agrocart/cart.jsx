@@ -23,7 +23,7 @@ function MyCart(){
 
     const { addToCart, removeitem, cartItems } = useContext(CartContext);
 
-    console.log(cartItems);
+    // console.log(cartItems);
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
     const navigate = useNavigate();
     const [DataLoading, setDataLoading] = useState(false);
