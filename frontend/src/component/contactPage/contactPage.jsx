@@ -42,7 +42,7 @@ const ContactPage =()=>{
             })
         });
 
-      const data = await res.json();
+      // const data = await res.json();
       // console.log(contact)
 
     if(res.status === 201){

@@ -93,7 +93,6 @@ const SellerPurchace = () => {
       })
     });
 
-    const data = await res.json();
     if(res.status === 200){
         window.alert("Your mail is succesfully sent.");
         const element = document.getElementsByClassName("btn-close");
@@ -138,7 +137,7 @@ const SellerPurchace = () => {
       }),
     });
 
-    const data = await res.json();
+
 
     if (res.status === 201) {
       window.alert("Your bid is succesfully sent.");

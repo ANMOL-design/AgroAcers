@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 const SubscriberPlan = ()=>{
 
-    const { state, dispatch } = useContext(UserContext);
+    const { state} = useContext(UserContext);
     const navigate = useNavigate();
     const [pricepay,setPricePay] = useState("");
     const [UserDetail,setUserDetail] = useState([]);
@@ -25,6 +25,7 @@ const SubscriberPlan = ()=>{
             document.body.appendChild(script)
         })
     }
+  
     const callAboutPage = async () => {
         try {
           const res = await fetch("/aboutuser", {
@@ -48,8 +49,7 @@ const SubscriberPlan = ()=>{
           navigate("/login", { replace: true })
         }
       };
-    
-    useEffect(()=>{
+      useEffect(()=>{
         callAboutPage();
     },[])
    

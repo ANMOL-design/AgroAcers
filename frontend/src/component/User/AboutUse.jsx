@@ -7,7 +7,7 @@ import Login from "../auth/login/Login";
 const AboutUser = () => {
 
   const [userData, setUserData] = useState([]);
-  const { state, dispatch } = useContext(UserContext);
+  const { state} = useContext(UserContext);
   
   const RenderAboutUser = () => {
     if (!state){

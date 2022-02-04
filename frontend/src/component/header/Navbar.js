@@ -4,12 +4,12 @@ import { NavLink, Link } from "react-router-dom";
 import Logo from "./../../Images/Logo.png";
 import "./../../Styles/header.css";
 import { UserContext } from "../../App";
-import UserData from "../AdminPortal/Userdata";
+
 
 const Navbar = () => {
   
     const { state, dispatch } = useContext(UserContext);
-     
+     console.log(dispatch);
     const [userData, setUserData] = useState({});
 
     const callAboutPage = async () => {

@@ -16,7 +16,6 @@ const GovtScheme = ()=>{
           }
         fetchdata();
         window.scroll(0,0);
-        console.log(SchemeData);
       },[]);
       if(!IsLoading){
           return(
