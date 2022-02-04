@@ -1,9 +1,7 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "../../Styles/addUniversity.css"
 
 const AddUniversity = ()=>{
-    const navigate = useNavigate();
 
     const [ShopProductDetails,setShopProductDetails] = useState({
         Hindi_name:"",Name:"",Description:"",new_price:"",old_price:"",quantity:"", category: "",Imageurl:""
@@ -17,7 +15,7 @@ const AddUniversity = ()=>{
         setShopProductDetails({...ShopProductDetails,[name]:value})
     }
 
-    console.log(ShopProductDetails);
+    // console.log(ShopProductDetails);
 
     const uploadData =async (e)=>{
         e.preventDefault();

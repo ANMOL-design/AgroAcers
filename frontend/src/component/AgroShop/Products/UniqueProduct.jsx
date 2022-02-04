@@ -29,7 +29,7 @@ function UniqueProductsDetails(){
         }
         fetchdata();
         window.scroll(0,0);
-    }, [])
+    }, [id])
 
     if (!DataLoading){
         return (

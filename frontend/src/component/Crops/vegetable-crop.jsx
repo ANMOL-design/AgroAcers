@@ -74,7 +74,6 @@ const VegetableCrop = () => {
           <h2 className="type-rabi-header">Types Of Rabi Crops</h2>
           <div className="crop-type-card-container">
             {VegetableCrops.map((item) => (
-              <>
                 <div className="card" key={item._id}>
                   <Link style={{ textDecoration: "none" }} to={item._id}>
                     <img
@@ -87,7 +86,6 @@ const VegetableCrop = () => {
                     </div>
                   </Link>
                 </div>
-              </>
             ))}
           </div>
         </div>

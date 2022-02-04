@@ -86,7 +86,7 @@ class ContactPadeData extends React.Component {
           <tbody>
              {items.map((item) => (
                
-              <tr>
+              <tr  key={item._id}>
                 <td>{item._id}</td>
                 <td>{item.name}</td>
                 <td>{item.email}</td>
@@ -95,7 +95,7 @@ class ContactPadeData extends React.Component {
                 <td>{item.query}</td>
                 <td>{item.time}</td>
                 <td>
-                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target={"#"+item._id}>
+                <button type="button" className="btn btn-secondary" data-toggle="modal" data-target={"#"+item._id}>
                    Reply
                 </button>
 
@@ -104,7 +104,7 @@ class ContactPadeData extends React.Component {
                     <div className="modal-content">
                       <div className="modal-header">
                         <h5 className="modal-title" id="exampleModalLabel">Send Reply</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                             </button>
                       </div>
@@ -129,7 +129,7 @@ class ContactPadeData extends React.Component {
                            Body:<br></br>
                             <textarea rows={3} onChange={handleInput}  value={this.state.body}  cols={25} type="text" name="body" size="50"/><br></br>
       
-                            <div classname="modal-footer">
+                            <div className="modal-footer">
                               <button type="button" className="btn btn-secondary m-2" data-dismiss="modal">Close</button>
                               <button type="submit" className="btn btn-primary m-2" onClick={postData} >Send Reply</button>
                             </div>

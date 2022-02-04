@@ -77,7 +77,7 @@ function MyCart(){
 
         window.scroll(0,0);
         setDataLoading(true);
-    }, []);
+    }, [id]);
  
     const removeFromCartHandler = (productId) =>{
         removeitem(productId);

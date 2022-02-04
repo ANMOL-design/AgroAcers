@@ -43,7 +43,7 @@ const CRopDetails = (e) => {
     useEffect(() => {
        const mountdesc = () => {
           if (IsLoading) {
-            console.log("Render The Description");
+            // console.log("Render The Description");
             document.getElementById("crop-blog-description").innerHTML = blogData.Description;
           }
        }

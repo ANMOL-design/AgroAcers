@@ -49,9 +49,8 @@ class UserData extends React.Component {
           </thead>
 
           <tbody>
-             {items.map((item) => (
-               
-              <tr>
+             {items.map((item) => (   
+              <tr key={item._id}>
                 <td>{item._id}</td>
                 <td>{item.name}</td>
                 <td>{item.email}</td>
@@ -59,7 +58,6 @@ class UserData extends React.Component {
                 <td>{item.time}</td>
               </tr>
             ))}
-  
           </tbody>
         </table>
       </div>

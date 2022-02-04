@@ -78,8 +78,7 @@ const KharifCrop = () => {
           <h2 className="type-rabi-header">Types Of Kharif Crops</h2>
           <div className="crop-type-card-container">
             {KharifCrop.map((item) => (
-              <>
-                <div className="card" key={item._id}>
+              <div className="card" key={item._id}>
                   <Link style={{ textDecoration: "none" }} to={item._id}>
                     <img
                       className="card-img-top img-fluid"
@@ -90,8 +89,7 @@ const KharifCrop = () => {
                       <h3 className="card-title">{item.title}</h3>
                     </div>
                   </Link>
-                </div>
-              </>
+              </div>
             ))}
           </div>
         </div>

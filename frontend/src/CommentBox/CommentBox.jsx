@@ -64,7 +64,7 @@ const CommentBox = (props)=>{
     });
 
   const data = await res.json();
-  console.log(data)
+  // console.log(data)
 
     if(res.status === 201){
           window.alert("Your query is succesfully registered our expert team will reply you soon.");
@@ -96,18 +96,11 @@ const CommentBox = (props)=>{
         console.log(err);
       }
     };
-    // function getRandomColor() {
-    //   var letters = '0123456789ABCDEF';
-    //   var color = '#';
-    //   for (var i = 100; i < 6; i++) {
-    //     color += letters[Math.floor(Math.random() * 16)];
-    //   }
-    //   return color;
-    // }
+
       useEffect(() => {
         callAboutPage();
         
-    }, []);
+      }, []);
 
     useEffect(() => {
         getCommentData();
@@ -130,31 +123,25 @@ const CommentBox = (props)=>{
                     <li>
                       {cropComment.map((item)=>{
                         return(
-                          <>
+                         <div  key={item._id}  style={{display: "list-item"}}>
                             <div className="commenterImage">
-                          
-                            <img  className="Comment-avtar commenterImage" src={"https://ui-avatars.com/api/?name="+item.Username} alt="" />
-                        </div>
-                        <div className="commentText">
-                            <h6>{item.Username}</h6> <p className="">{item.CommentMsg}</p> <span className="date sub-text">{item.time}</span>
-        
-                        </div>
-                        <hr />
-                          </>
+                              <img  className="Comment-avtar commenterImage" src={"https://ui-avatars.com/api/?name="+item.Username} alt="" />
+                            </div>
+                            <div className="commentText">
+                             <h6>{item.Username}</h6> <p className="">{item.CommentMsg}</p> <span className="date sub-text">{item.time}</span>
+                            </div>
+                            <hr />
+                         </div>
                         )
-                        
-                        })}
-                    
+                        })}     
                     </li>
                     
                 </ul>
                 <div className="commenterImage">
                           <img  className="Comment-avtar commenterImage" src={"https://ui-avatars.com/api/?name="+userData.name} alt="" />
                         </div>
-                <form className="form-inline" role="form">
-                
+                  <form className="form-inline">
                     <div className="form-group">
-                    
                         <input type="text" className="form-control" name="CommentMsg" placeholder="Add Your Comment...." id="CommentBox" onChange={handleValue} value={Comment.CommentMsg} />
                     </div>
                     <div className="form-group">
@@ -186,17 +173,15 @@ const CommentBox = (props)=>{
                   <li>
                     {cropComment.map((item)=>{
                       return(
-                        <>
+                        <div  key={item._id}  style={{display: "list-item"}}>
                           <div className="commenterImage">
-                        
-                          <img  className="Comment-avtar commenterImage" src={"https://ui-avatars.com/api/?name="+item.Username} alt="" />
-                      </div>
-                      <div className="commentText">
-                          <h6>{item.Username}</h6> <p className="">{item.CommentMsg}</p> <span className="date sub-text">{item.time}</span>
-      
-                      </div>
-                      <hr />
-                        </>
+                              <img  className="Comment-avtar commenterImage" src={"https://ui-avatars.com/api/?name="+item.Username} alt="" />
+                          </div>
+                          <div className="commentText">
+                            <h6>{item.Username}</h6> <p className="">{item.CommentMsg}</p> <span className="date sub-text">{item.time}</span>
+                          </div>
+                          <hr />
+                        </div>
                       )
                       
                       })}
@@ -207,12 +192,10 @@ const CommentBox = (props)=>{
               <div className="commenterImage">
                         <img  className="Comment-avtar commenterImage" src={"https://ui-avatars.com/api/?name="+userData.name} alt="" />
                       </div>
-              <form className="form-inline" role="form">
-              
-                  <div className="form-group">
-                  
+                  <form className="form-inline">
+                    <div className="form-group">
                       <input type="text" className="form-control" name="CommentMsg" placeholder="Add Your Comment...." id="CommentBox" onChange={handleValue} value={Comment.CommentMsg} />
-                  </div>
+                    </div>
                   <div className="form-group">
                     <Link to="/login">
                       <button className="btn btn-default">Login</button>
@@ -240,17 +223,15 @@ const CommentBox = (props)=>{
                   <li>
                     {cropComment.map((item)=>{
                       return(
-                        <>
-                        <div className="commenterImage">
-                        
-                        <img  className="Comment-avtar commenterImage" src={"https://ui-avatars.com/api/?name="+item.Username} alt="" />
-                      </div>
-                      <div className="commentText">
-                        <h6>{item.Username}</h6> <p className="">{item.CommentMsg}</p> <span className="date sub-text">{item.time}</span>
-
-                      </div>
-                      <hr />
-                        </>
+                        <div  key={item._id} style={{display: "list-item"}}>
+                            <div className="commenterImage">
+                              <img  className="Comment-avtar commenterImage" src={"https://ui-avatars.com/api/?name="+item.Username} alt="" />
+                            </div>
+                            <div className="commentText">
+                              <h6>{item.Username}</h6> <p className="">{item.CommentMsg}</p> <span className="date sub-text">{item.time}</span>
+                            </div>
+                            <hr />
+                        </div>
                       )
                     
                       })}
@@ -261,10 +242,8 @@ const CommentBox = (props)=>{
               <div className="commenterImage">
                         <img  className="Comment-avtar commenterImage" src={"https://ui-avatars.com/api/?name="+userData.name} alt="" />
                     </div>
-              <form className="form-inline" role="form">
-            
+                <form className="form-inline">
                   <div className="form-group">
-                
                       <input type="text" className="form-control" name="CommentMsg" placeholder="Add Your Comment...." id="CommentBox" onChange={handleValue} value={Comment.CommentMsg} />
                   </div>
                   <div className="form-group">

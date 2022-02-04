@@ -33,8 +33,7 @@ const SimilarProduct = (props) => {
             <div className="crop-type-card-container">
                 {
                 rabiCrop.map((i) => (
-                    <>
-                        <div className="card">
+                        <div className="card" key={i._id}>
                             <Link style={{textDecoration:"none"}} to={"/crops/Rabi/" + i._id}>
                                 <img className="card-img-top img-fluid" src={i.Image} alt="Cardcap" />
                                 <div className="card-body">
@@ -44,8 +43,6 @@ const SimilarProduct = (props) => {
                                 </div>
                             </Link>
                         </div>
-                    
-                    </>
                 ))}
           </div>
         </div>

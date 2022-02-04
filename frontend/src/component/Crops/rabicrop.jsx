@@ -75,8 +75,7 @@ const RabiCrop = () => {
             <div className="crop-type-card-container">
             {
             rabiCrop.map((item) => (
-              <>
-                  <div className="card" key={item._id}>
+                <div className="card" key={item._id}>
                   <Link style={{textDecoration:"none"}} to={item._id}>
                     <img className="card-img-top img-fluid" src={item.Image} alt="Card cap" />
                     <div className="card-body">
@@ -85,8 +84,7 @@ const RabiCrop = () => {
                       </h3>
                     </div>
                   </Link>
-                  </div>
-              </>
+                </div>
               ))}
             </div>
           </div>
