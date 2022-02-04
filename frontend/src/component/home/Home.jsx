@@ -15,6 +15,7 @@ import Productseat from "./../mandiRate/Mandibrands.json";
 class Home extends React.Component{
 
     componentDidMount(){
+        window.scroll(0,0);
         var counter = document.querySelector(".countermystatistic");
         var company = document.querySelector(".countermystatisticcompany");
         var Blog = document.querySelector(".countermystatisticblog");
