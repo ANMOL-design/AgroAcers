@@ -21,7 +21,7 @@ function UniqueProductsDetails(){
     useEffect(() => {
         const fetchdata = async () =>{
             const {data} = await axios.get("/Shopproductdata/" + id);
-            console.log(data);
+            // console.log(data);
             setproduct(data);
 
             window.scroll(0,0);
@@ -43,7 +43,6 @@ function UniqueProductsDetails(){
     }
     
     return(
-        <>
             <div className="details" key={product._id}>
                 
                 <div className="smallrenderingproductuni col-md-8">
@@ -103,7 +102,7 @@ function UniqueProductsDetails(){
                     </li>
                 </ul>
             </div>
-            </div>
+            
 
             {/* Display The Products Silder  */}
             <hr style={{marginTop: "5px", marginBottom: "0px"}}/>
@@ -112,9 +111,8 @@ function UniqueProductsDetails(){
             {/* Display The Subscription  */}
             <hr style={{marginTop: "5px", marginBottom: "0px"}}/>
             <SellProduct />
-        </>
+        </div>
     )
-   
 }
 
 export default UniqueProductsDetails;

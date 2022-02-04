@@ -7,7 +7,7 @@ const AgricultureUniversity = () => {
 
   const [universityData, setUniversityData] = useState([]);
   const [DataLoading, setDataLoading] = useState(true);
-  const [Dataslice,setDataSlice] = useState(5)
+  const [Dataslice,setDataSlice] = useState(8);
   var x = 0;
 
   const getPageData = async () => {
@@ -59,7 +59,6 @@ const AgricultureUniversity = () => {
             {/* Data of University  */}
             <div className="university-card-container">
               {universityData.slice(0,Dataslice).map((item) => (
-                <>
                   <div className="card mb-3" key={x++}>
                     <img className="card-img-top imageuniver" src={item.Imageurl} alt="Card cap" />
                     
@@ -79,12 +78,18 @@ const AgricultureUniversity = () => {
                       )}
                     </div>
                   </div>
-                </>
               ))}
             </div>
-            <button onClick={()=>{
-              setDataSlice(Dataslice+5)
-            }} className="btn btn-success" id="load-more-btn" style={{margin:"3% 45%"}}>Load more <i class="fa fa-chevron-circle-down"></i></button>
+            {
+              Dataslice <= universityData.length ?
+              <div className=" d-flex align-items-center justify-content-center">
+                <button onClick={()=>{
+                  setDataSlice(Dataslice + 5)
+                }} className="btn btn-success" id="load-more-btn" style={{margin:"3%"}}>Load more &nbsp;<i className="fa fa-chevron-circle-down"></i></button>
+              </div>
+              : 
+              null
+            }        
           </div>
         </>
       );

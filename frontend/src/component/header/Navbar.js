@@ -9,7 +9,7 @@ import { UserContext } from "../../App";
 const Navbar = () => {
   
     const { state, dispatch } = useContext(UserContext);
-     console.log(dispatch);
+    //  console.log(dispatch);
     const [userData, setUserData] = useState({});
 
     const callAboutPage = async () => {

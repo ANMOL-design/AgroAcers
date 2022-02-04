@@ -1,7 +1,7 @@
 import { useReducer } from "react";
 import CartContext from "./CartContext";
 import CartReducer from "./CartReducer";
-import { ADD_TO_CART, REMOVE_ITEMS} from "./Types"
+import { ADD_TO_CART, REMOVE_ITEMS, SHOW_HIDE_CART} from "./Types"
 
 const CartState = ({children}) => {
 
@@ -27,15 +27,20 @@ const CartState = ({children}) => {
     }
 
     const removeitem = id => {
-        console.log(id);
+        // console.log(id);
         dispatch( {type: REMOVE_ITEMS, payload: id})
+    }
+
+    const emptymycartitem = () => {
+        dispatch( {type: SHOW_HIDE_CART, payload: []})
     }
 
     return(
         <CartContext.Provider value={{
             cartItems: state.cartItems,
             addToCart,
-            removeitem
+            removeitem,
+            emptymycartitem
         }}>{children}
 
         </CartContext.Provider>

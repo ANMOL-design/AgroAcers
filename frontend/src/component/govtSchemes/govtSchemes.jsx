@@ -6,6 +6,7 @@ import Loader from "../Loader";
 const GovtScheme = ()=>{
     const [SchemeData,SetSchemeData] = useState([]);
     const [IsLoading,setIsLoading] = useState(false);
+    const [Dataslice,setDataSlice] = useState(5);
     var x=1;
     useEffect(() => {
         const fetchdata = async () =>{
@@ -34,9 +35,8 @@ const GovtScheme = ()=>{
                 <p>All agriculture government schemes with accurate information. Our goal to deliver this service to every Indian farmer.</p>
             </div>
            <div className="govt-schemes-body university-card-container">
-              {SchemeData.map((item)=>{
+              {SchemeData.slice(0,Dataslice).map((item)=>{
                   return(
-                      <>
                         <div className="card mb-3" key={x++}>
                             <img className="card-img-top imageuniver" src={item.Imageurl} alt="Card cap" />
                         
@@ -54,11 +54,20 @@ const GovtScheme = ()=>{
                                 </a>
                               )}
                             </div>
-                          </div>
-                      </>
+                        </div>
                   )
               })}
            </div>
+           {
+              Dataslice <= SchemeData.length ?
+              <div className=" d-flex align-items-center justify-content-center">
+                <button onClick={()=>{
+                  setDataSlice(Dataslice + 5)
+                }} className="btn btn-success" id="load-more-btn" style={{margin:"3%"}}>Load more &nbsp;<i className="fa fa-chevron-circle-down"></i></button>
+              </div>
+              : 
+              null
+            }   
         </div>
       </>
     )

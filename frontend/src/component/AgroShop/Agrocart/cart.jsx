@@ -21,7 +21,7 @@ function loadScript(src) {
 
 function MyCart(){
 
-    const { addToCart, removeitem, cartItems } = useContext(CartContext);
+    const { addToCart, removeitem, emptymycartitem, cartItems } = useContext(CartContext);
 
     // console.log(cartItems);
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
@@ -194,8 +194,9 @@ function MyCart(){
 
                 // destroy the cookies
                 localStorage.removeItem("cartItems");
+                emptymycartitem();
                 navigate("/");
-                window.location.reload();
+                // window.location.reload();
 			},
 		}
 		const paymentObject = new window.Razorpay(options)
@@ -236,7 +237,6 @@ function MyCart(){
                            :
                            cartItems.map((item) => {
                                return(
-                                   <>
                                    <tr key={item._id}>
                                         <td onClick={() => removeFromCartHandler(item._id)}><div className="cutitem">x</div></td>
                                         <td><img src={"./../" + item.Imageurl} alt="CartProduct" /></td>
@@ -252,7 +252,6 @@ function MyCart(){
                                         </td>
                                         <td><span className="hideonsmallcart">Unit Price:  &nbsp; &nbsp;</span>&#8377;{item.new_price}</td>
                                     </tr>
-                                   </>
                                )
                                })}
                         </tbody>

@@ -48,7 +48,7 @@ function HomeFeatures(){
                     <div className="home-features-details" onClick={HandleClickSeed}>
                         {product.slice(4,8).map( (item) => {
                         return(
-                        <div key={item.id} className="card " id="fc" style={{width: "18rem"}}>
+                        <div key={item._id} className="card " id="fc" style={{width: "18rem"}}>
                             {/* Upper Image Portion of card  */}
                             <div className="Product-image-container">
                                 <img src={item.Imageurl} className="card-img-top" alt="Products" />
@@ -72,7 +72,7 @@ function HomeFeatures(){
                     <div className="home-features-details" onClick={HandleClickTool}>
                         {product.slice(14,18).map( (item) => {
                         return(
-                        <div key={item.id} className="card " id="fc" style={{width: "18rem"}}>
+                        <div key={item._id} className="card " id="fc" style={{width: "18rem"}}>
                             {/* Upper Image Portion of card  */}
                             <div className="Product-image-container">
                                 <img src={item.Imageurl} className="card-img-top" alt="Products" />
@@ -96,7 +96,7 @@ function HomeFeatures(){
                     <div className="home-features-details" onClick={HandleClickFertilizer}>
                         {product.slice(24, 28).map( (item) => {
                         return(
-                        <div key={item.id} className="card " id="fc" style={{width: "18rem"}}>
+                        <div key={item._id} className="card " id="fc" style={{width: "18rem"}}>
                             {/* Upper Image Portion of card  */}
                             <div className="Product-image-container">
                                 <img src={item.Imageurl} className="card-img-top" alt="Products" />
@@ -120,7 +120,7 @@ function HomeFeatures(){
                     <div className="home-features-details" onClick={HandleClickPlant}>
                         {product.slice(36, 40).map( (item) => {
                         return(
-                        <div key={item.id} className="card " id="fc" style={{width: "18rem"}}>
+                        <div key={item._id} className="card " id="fc" style={{width: "18rem"}}>
                             {/* Upper Image Portion of card  */}
                             <div className="Product-image-container">
                                 <img src={item.Imageurl} className="card-img-top" alt="Products" />
