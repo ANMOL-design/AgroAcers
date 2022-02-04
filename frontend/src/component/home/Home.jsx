@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import SellProduct from '../AgroShop/AgroShopSubComponents/ProductSubscribe';
 import CrousalBanner from './Crousal';
-import voucherbanner from "../../Images/crousal/voucherbanner.jpg";
 import weather from "./../../Images/weather-forecast.jpg"
 import AImg1 from "./../../Images/info.jpg";
 import AImg2 from "./../../Images/blogs.jpg";
@@ -10,6 +9,8 @@ import AImg3 from "./../../Images/buy2.jpg";
 import AImg4 from "./../../Images/govt.jpg";
 import AImg5 from "./../../Images/advice2.jfif";
 import "./../../Styles/Homepage.css";
+import ProductsBrands from "./../AgroShop/AgroShopJSON/ProductBrands.json";
+import Productseat from "./../mandiRate/Mandibrands.json";
 
 class Home extends React.Component{
 
@@ -89,11 +90,11 @@ class Home extends React.Component{
                 <div className="crousal-statistic-outer-container">
                     {/* Head  */}
                     <div className="m-1 mt-2">
-                        <h1 className="homepage-story-heading mb-0" style={{fontSize:"3rem", textDecoration: "underline"}}>Our Main Statistics</h1>
+                        <h1 className="homepage-story-heading mb-2" style={{fontSize:"2.7rem", textDecoration: "underline"}}>Our Main Statistics</h1>
                     </div>
 
                     {/* inner contaier  */}
-                    <div className="crousal-statistic-inner-container"  data-aos="fade-down">
+                    <div className="crousal-statistic-inner-container">
                         <div className="crousal-statistic-maincont">
                             <i className='fa fa-opencart' style={{color: "#77BC3F", fontSize: "100px"}}></i>
                             <div className='fixthewidth'>
@@ -141,7 +142,7 @@ class Home extends React.Component{
                      <div className="card">
                         <img src={AImg3} className="card-img-top" alt="Feature" />
                         <div className="card-body">
-                            <Link to="/CropSellDashboard" className="card-title-link-home">
+                            <Link to="/shop" className="card-title-link-home">
                                 <h5 className="card-title">Buy and Sell Crops in just one click.</h5>
                             </Link>
                         </div>
@@ -179,32 +180,57 @@ class Home extends React.Component{
                 </div>
 
                 {/* shop  */}
-                <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel">
-                    <div className="carousel-inner">
-                        <div className="carousel-item active">
-                            <img src={voucherbanner} className="d-block w-100 img-fluid" alt="..."/>
-                            <div className="carousel-caption d-none d-md-block">
-                                <Link to="/MyWeather"><button className='btn btn-success' style={{width:"40%",position:"relative",float:"left"}}>Check Weather</button></Link>
-                            </div>
-                        </div>
+                <div className='bodyofmyshopbanner'>
+                    <div className='contentofmyshopbanner'>
+                        <h2>Flat 200 Rs. Discount on AgroAcers Shop</h2>
+                        <h5 className='mydiscount'>DISCOUNT COUPON: 'AGROACERSVOUCHER200'</h5>
+                        <Link to={"/shop"}><button className='btn btn-outline-success'>SHOP NOW</button></Link>
+                    </div>               
+                </div>
+
+
+                {/* Our Partners  */}
+                <div className="home_products_sell borderbrands">
+                    <h1  className="m-3" style={{fontSize: "3rem"}}>Our Partners</h1>
+                </div>
+                {/* Details of Product Brands */}
+                <div data-aos="fade-right">
+                    <div className="home-products-details container-fluid mb-2" >
+                            {ProductsBrands.map( (item) => {
+                                return(
+                                <div className="ProductforBrandsTop" key={item.id}>
+                                        <img src={item.image} alt="Product" className="Producttopbrandimage" />
+                                </div>
+                                )
+                            })}
+                    </div>
+                    {/* Details of Product Brands */}
+                    <div className="home-products-details container-fluid mb-3">
+                            {Productseat.map( (item) => {
+                                return(
+                                <div className="TopBrandsMandiPrice" key={item.id}>
+                                        <img src={item.image} alt="Product" className="MandiBrandsImage" />
+                                </div>
+                                )
+                            })}
                     </div>
                 </div>
 
-                {/* Weather  */}
-                <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel">
-                    <div className="carousel-inner">
-                        <div className="carousel-item active">
-                            <img src={weather} className="d-block w-50 img-fluid" alt="..."/>
-                            <div className="carousel-caption d-none d-md-block">
-                                <Link to="/MyWeather"><button className='btn btn-success' style={{position:"relative",float:"left"}}>Check Weather</button></Link>
-                            </div>
-                        </div>
+                 {/* Weather  */}
+                 <div className='bodyofweatherbanner'>
+                    <img src={weather} className="d-block weatherimagebnr img-fluid" alt="Weather"/>
+                    <div className='contentofweatherbanner'>
+                        <h1>Today's Weather</h1>
+                        <h6 className='mt-3 mb-3'>AgroAcers create a software to predection the live weather of 
+                            any country, any state, any village globally.
+                        </h6>
+                        <h4 className='mb-3'>Just enter the city name and get weather details</h4>
+                        <Link to="/MyWeather"><button className='btn btn-success'>Check Weather</button></Link>
                     </div>
+                      
                 </div>
 
-                
-               
-                {/* Subscribe  */}
+                 {/* Subscribe  */}
                 <div data-aos="fade-down">
                     <SellProduct />
                 </div>
