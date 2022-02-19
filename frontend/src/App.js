@@ -38,6 +38,7 @@ import SubscriberPlan from './component/Subscription/Subscriber-plan';
 import CropsDashboard from './component/SellCropsBoard/Dashboard';
 import SellerPurchace from './component/SellPurchaceCrop/sellpurchacepage';
 import MyLocalWeather from './component/home/WeatherAPI/weather';
+import FertilizerDetailPage from './component/Fertilizer/fertilizer';
 export const UserContext = createContext();
 
 const App = ()=> {
@@ -103,6 +104,7 @@ const Routing = ()=>{
               <Route path="/cart/:id" element={ <MyCart /> } />
               <Route path="/cart" element={ <MyCart /> } />
               <Route path="MyWeather" element={ <MyLocalWeather />} />
+              <Route path="fertilizer" element={ <FertilizerDetailPage />} />
               <Route path="/" element={<Home/>} exact/>
               <Route path="*" element={<PageNotFound/>}/>
           </Routes>

@@ -711,4 +711,7 @@
         display: inline-block;
         text-align: center;
     }
+    .recommend-sell h1 {
+        font-size: 2.2rem;
+    }
 }

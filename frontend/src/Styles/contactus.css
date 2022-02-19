@@ -70,6 +70,10 @@
     margin: 2px;
 }
 
+.fertilizer-form {
+    margin: 2% 13%;
+}
+
 @media (max-width: 1000px) {
     .container-img-add {
         display: none;
@@ -86,6 +90,9 @@
     }
     .contactus-form-heading {
         font-size: 3.4rem;
+    }
+    .fertilizer-form {
+        margin: 2% 8%;
     }
 }
 

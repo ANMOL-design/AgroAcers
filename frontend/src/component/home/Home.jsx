@@ -8,6 +8,7 @@ import AImg2 from "./../../Images/blogs.jpg";
 import AImg3 from "./../../Images/buy2.jpg";
 import AImg4 from "./../../Images/govt.jpg";
 import AImg5 from "./../../Images/advice2.jfif";
+import AImg6 from "./../../Images/fertilizer.jpg";
 import "./../../Styles/Homepage.css";
 import ProductsBrands from "./../AgroShop/AgroShopJSON/ProductBrands.json";
 import Productseat from "./../mandiRate/Mandibrands.json";
@@ -175,6 +176,15 @@ class Home extends React.Component{
                         <div className="card-body">
                             <Link to="/contact" className="card-title-link-home">
                                 <h5 className="card-title">Get Expert Advice within 24 hours.</h5>
+                            </Link>
+                        </div>
+                    </div>
+                    {/* Image 6  */}
+                    <div className="card">
+                        <img src={AImg6} className="card-img-top" alt="Feature" />
+                        <div className="card-body">
+                            <Link to="/fertilizer" className="card-title-link-home">
+                                <h5 className="card-title">Type of fertilizer best suited for particular soil.</h5>
                             </Link>
                         </div>
                     </div>

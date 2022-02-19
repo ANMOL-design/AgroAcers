@@ -4,6 +4,7 @@ import Loader from "../../Loader";
 import axios from "axios";
 import "./../../../Styles/Cart.css";
 import CartContext from "../../../Reducer/Cart/CartContext";
+import CartrecommendSlider from "./TopRecommend";
 
 function loadScript(src) {
 	return new Promise((resolve) => {
@@ -290,6 +291,7 @@ function MyCart(){
                     </div>
               </div>
           </div>
+          <CartrecommendSlider />
         </>
     )
 }
