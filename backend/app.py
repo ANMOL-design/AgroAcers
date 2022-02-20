@@ -1,4 +1,4 @@
-import sys
+import sys 
 from flask import Markup
 import pandas as pd
 from utils.fertilizer import fertilizer_dic
