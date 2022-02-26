@@ -50,6 +50,7 @@ const App = ()=> {
    
       <BrowserRouter>
         <UserContext.Provider value={{state,dispatch}}>
+       
             <Navbar/>
             <Routing />
             <Footer />

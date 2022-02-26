@@ -4,6 +4,7 @@ import { NavLink, Link } from "react-router-dom";
 import Logo from "./../../Images/Logo.png";
 import "./../../Styles/header.css";
 import { UserContext } from "../../App";
+import GoogleTranslate from "../home/googletranslator";
 
 
 const Navbar = () => {
@@ -626,7 +627,7 @@ const Navbar = () => {
                     </NavLink>
                   </div>
                 </li>
-
+               
                 <li className="nav-item nav-hov">
                   <Link className="nav-link" to="/contact">
                     Contact

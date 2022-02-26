@@ -10,6 +10,7 @@ function MandiRate() {
 
   const [DataisLoading, setDataisLoading] = useState(false);
   const [pricedata, setpricedata] = useState([]);
+  const [pricedata2, setpricedata2] = useState([]);
   const [pricedatabackup, setpricedatabackup] = useState([]);
   var result = [];
   
@@ -24,7 +25,18 @@ function MandiRate() {
         setpricedatabackup(data);
         window.scroll(0,0);
     }
+    // const fetchdata2 = async () =>{
+    //     const {data} = await axios.get("https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b&format=json&limit=1000");
+    //     setpricedata2(data.records);
+    //     // setpricedata(oldarray =>[...oldarray,setpricedata2]);
+    //     console.log(setpricedata2);
+    //     console.log(pricedata);
+    //     // setpricedatabackup(data);
+    //     // console.log(data.records);
+    //     window.scroll(0,0);
+    // }
     fetchdata();
+    // fetchdata2();
     setDataisLoading(true);
   }, [])
 
@@ -159,6 +171,7 @@ function MandiRate() {
               <th>Market</th>
               <th>Item</th>
               <th>Variety</th>
+              <th>Arrival Date</th>
               <th>Min price</th>
               <th>Max Price</th>
               <th>Modal Price</th>
@@ -176,6 +189,7 @@ function MandiRate() {
                 <td>{item.market}</td>
                 <td>{item.commodity}</td>
                 <td>{item.variety}</td>
+                <td>{item.arrival_date}</td>
                 <td>{item.min_price} / Quantal</td>
                 <td>{item.max_price} / Quantal</td>
                 <td>{item.modal_price} / Quantal</td>
