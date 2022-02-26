@@ -343,6 +343,7 @@ const Navbar = () => {
 
   return (
     <>
+    <GoogleTranslate/>
       <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container-fluid">
           <Link
@@ -460,6 +461,7 @@ const Navbar = () => {
                     >
                       Vegetables
                     </NavLink>
+                    
                   </div>
                 </li>
 
@@ -590,6 +592,7 @@ const Navbar = () => {
                     <NavLink className="dropdown-item" to="/crops/Vegetables">
                       Vegetables
                     </NavLink>
+                    
                   </div>
                 </li>
 

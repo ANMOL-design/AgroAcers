@@ -12,7 +12,6 @@ import AImg6 from "./../../Images/fertilizer.jpg";
 import "./../../Styles/Homepage.css";
 import ProductsBrands from "./../AgroShop/AgroShopJSON/ProductBrands.json";
 import Productseat from "./../mandiRate/Mandibrands.json";
-import GoogleTranslate from './googletranslator';
 
 class Home extends React.Component{
 
@@ -78,7 +77,7 @@ class Home extends React.Component{
                 {/* Features  */}
                 <div style={{margin:"1%"}}>
                     <h1  className="homepage-story-heading">What is AgroAcers ?</h1>
-                   <GoogleTranslate/>
+
                     <p style={{textAlign:"justify"}}>
                         AgroAcers is a data-driven full-stack technology platform that makes farming 
                         intelligent and empowers farmers to double their income. Farmers can get soil testing, 
