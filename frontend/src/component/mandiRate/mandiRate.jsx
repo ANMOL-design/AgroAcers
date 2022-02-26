@@ -10,7 +10,7 @@ function MandiRate() {
 
   const [DataisLoading, setDataisLoading] = useState(false);
   const [pricedata, setpricedata] = useState([]);
-  const [pricedata2, setpricedata2] = useState([]);
+  // const [pricedata2, setpricedata2] = useState([]);
   const [pricedatabackup, setpricedatabackup] = useState([]);
   var result = [];
   

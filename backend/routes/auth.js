@@ -36,11 +36,18 @@ router.post("/register", (req, res) => {
         if (password != cpassword) {
             return res.sendStatus(202);
         }
-        User.findOne({ number: number }).then((numberexist) => {
-            if (numberexist) {
-                return res.sendStatus(220);
-            }
-        })
+        if (password.length < 8) {
+            return res.sendStatus(203);
+        }
+        if (number.length != 10) {
+            return res.sendStatus(204);
+        }
+        User.findOne({ number: number })
+            .then((numberexist) => {
+                if (numberexist) {
+                    return
+                }
+            })
         User.findOne({ email: email })
             .then((existingUser) => {
                 if (existingUser) {

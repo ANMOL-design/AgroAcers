@@ -8,11 +8,13 @@ import Loader from "../../Loader";
 
 const  Register = ()=>{
     const navigate = useNavigate();
-    // const history = useHistory();
+
     const [user,setUser] =useState({
         name:"",email:"",number:"",password:"",cpassword:"",time:""
     })
-     const [Isloading,setisloading] = useState(false);
+
+    const [Isloading,setisloading] = useState(false);
+
     let name , value;
     const  handleInput =async (e)=>{
         console.log(e);
@@ -20,7 +22,9 @@ const  Register = ()=>{
         value = e.target.value;
         setUser({...user , [name]:value})
     }
+
     const postData =async (e)=>{
+
     e.preventDefault();
     const {name,email,number,password,cpassword} = user;
 
@@ -43,6 +47,7 @@ const  Register = ()=>{
         })
     } );
     
+    console.log(res)
   
     if(res.status === 200){
         window.alert("Successful Registration.\nCongratulation now you are a part of Agro Family.");
@@ -54,28 +59,37 @@ const  Register = ()=>{
     else if(res.status === 202){
         window.alert("Password are not same.");
     }
-    else if(res.status === 220){
+    else if(res.status === 203){
+        window.alert("Length of password must be atleast 8 characters.");
+    }
+    else if(res.status === 204){
+        window.alert("Invalid Mobile Number");
+    }
+    else if(res.status === 501){
         window.alert("User Mobile Number is already Registered.");
     }
     else if(res.status === 422){
-        window.alert("User Already exist.");
+        window.alert("User Already exist with entered Email ID.");
     }
     else{
         console.log(res)
         window.alert("Registration Fails , Try again")
     }
   }
+
   useEffect(()=>{
- setisloading(true)
+        setisloading(true)
   },[])
+
   if(!Isloading){
       return(
           <>
-          <Loader />
+            <Loader />
           </>
       )
-      }
-  else{
+    }
+
+    else{
     return(
         <>
            <div id="main-container">
@@ -110,7 +124,7 @@ const  Register = ()=>{
                                         className="all-input"
                                         name="email" 
                                         autoComplete="off" 
-                                        required value={user.email} 
+                                        required value={user.email.toLowerCase()} 
                                         onChange={handleInput} 
                                         id="email" 
                                         placeholder="Enter your email" 

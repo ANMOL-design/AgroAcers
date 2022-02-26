@@ -69,7 +69,7 @@ const Login = () => {
                                   autoComplete="off"
                                   type="email"
                                   name="email"
-                                  value={email}
+                                  value={email.toLowerCase()}
                                   onChange={(e) => {
                                       setEmail(e.target.value);
                                     }}
