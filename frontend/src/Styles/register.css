@@ -112,12 +112,12 @@ form {
 }
 
 .emailverify {
-    max-height: 120vh;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 4%;
+    margin-top: 2%;
 }
 
 .emailverify h2 {

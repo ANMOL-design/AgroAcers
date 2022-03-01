@@ -4,11 +4,30 @@ const dotenv = require('dotenv');
 router.use(express.json());
 dotenv.config();
 const sendEmailverification = require("../utils/emailverify");
+const passwordchangeverify = require("../utils/changepassword");
 
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const service = process.env.TWILIO_AUTH_SERVICE;
 const client = require('twilio')(accountSid, authToken);
+
+
+router.post("/sendverifyemailtochnagepassword", (req, res) => {
+    const { email, OTP } = req.body;
+    console.log(OTP);
+
+    if (OTP) {
+        passwordchangeverify(email, OTP);
+        res.status(200).send({
+            message: "Verification Email is sent!!",
+        })
+    } else {
+        res.status(400).send({
+            message: "Wrong email id:(",
+            data
+        })
+    }
+})
 
 router.post("/sendverifyemail", (req, res) => {
     const { name, email, OTP } = req.body;

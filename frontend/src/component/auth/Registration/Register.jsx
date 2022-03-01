@@ -352,6 +352,7 @@ const  Register = ()=>{
                                         onChange={handleInput} 
                                         id="number" 
                                         min={0}
+                                        maxLength={10}
                                         placeholder="Enter your number" 
                                     
                                     />
@@ -451,7 +452,7 @@ const  Register = ()=>{
 
         {emailverify && 
             <div className="emailverify">
-                <h2>AgroAcers</h2> 
+                <h2>AgroAcers Verify Your Email</h2> 
                 <p>Please take a moment to verify your Email ID send on <b>{user.email.toLowerCase()}</b>.</p>
                 <p className="colorparav">This helps us to confirm your identity and secure your account.</p>
 
@@ -483,7 +484,7 @@ const  Register = ()=>{
         }
         {numverify && 
         <div className="emailverify">
-            <h2>AgroAcers</h2> 
+            <h2>AgroAcers Verify Your Number</h2> 
             <p>Please take a moment to verify your mobile number send on <b>+91{user.number}</b>.</p>
             <p className="colorparav">This helps us to confirm your identity and secure your account.</p>
 

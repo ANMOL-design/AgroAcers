@@ -12,6 +12,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const loginUser = async (e) => {
     e.preventDefault();
     const res = await fetch("/login", {
@@ -32,7 +33,8 @@ const Login = () => {
       window.alert("Login succesful");
       navigate("/", { replace: true });
       window.location.reload()
-    }else if (res.status === 400){
+    }
+    else if (res.status === 400){
       window.alert("Enter Email and Password.");
     }
     else if (res.status === 401){
@@ -79,7 +81,7 @@ const Login = () => {
                           </label>
                           <br />
 
-                          <label htmlFor="password" className="labelinp">
+                          <label htmlFor="password" className="labelinp mt-0">
                                 <i className="fa fa-lock">&nbsp;</i>
                                 <input
                                     className="password-input"
@@ -96,7 +98,8 @@ const Login = () => {
                           </label>
                           <br />
                           <div>
-                              <p className="login-par-reg">Don't have account? <Link to="/register">Register</Link> </p>
+                              <p className="login-par-reg mb-2">Don't have account? <Link to="/register">Register</Link> </p>
+                              <Link to="/changepassword">Forgot Password?</Link>
                           </div>
                           <label htmlFor="submit" className="labelinp btn">
                             <input

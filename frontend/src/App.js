@@ -39,6 +39,7 @@ import CropsDashboard from './component/SellCropsBoard/Dashboard';
 import SellerPurchace from './component/SellPurchaceCrop/sellpurchacepage';
 import MyLocalWeather from './component/home/WeatherAPI/weather';
 import FertilizerDetailPage from './component/Fertilizer/fertilizer';
+import Changepassword from './component/auth/login/changepassword';
 export const UserContext = createContext();
 
 const App = ()=> {
@@ -61,7 +62,7 @@ const App = ()=> {
   );
     
 }
-const Routing = ()=>{
+const Routing = () => {
   
   return(
     <>
@@ -70,6 +71,7 @@ const Routing = ()=>{
               <Route path="login" element={<Login/>}/>
               <Route path="register" element={<Register/>}/>
               <Route path="contact" element={<ContactPage/>}/>
+              <Route path="changepassword" element={<Changepassword />} />
               <Route path="about" exact element={<AboutUS />} />
               <Route path="mandirates" element={<MandiRate/>} />
               <Route path="AboutUser" exact element={<AboutUser/>} />

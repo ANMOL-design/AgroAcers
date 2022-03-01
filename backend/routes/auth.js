@@ -10,7 +10,6 @@ const Authentication = require('../middleware/authentication')
 var cookieParser = require('cookie-parser');
 router.use(cookieParser());
 dotenv.config();
-const SendEmail = require("../utils/sendEmail");
 
 mongoose.connect(
     process.env.MONGODB_CONNECTION_STRING, {
@@ -68,34 +67,57 @@ router.post("/verifyregisternumber", (req, res) => {
 })
 
 router.post("/register", (req, res) => {
-        const { name, email, state, number, password, cpassword, time } = req.body;
-        console.log(name);
+    const { name, email, state, number, password, cpassword, time } = req.body;
+    console.log(name);
 
-        if (!name || !email || !number || !password || !cpassword) {
-            return res.sendStatus(201);
-        }
+    if (!name || !email || !number || !password || !cpassword) {
+        return res.sendStatus(201);
+    }
 
-        User.findOne({ email: email })
-            .then((existingUser) => {
-                if (existingUser) {
-                    return res.sendStatus(422);
-                }
-                const user = new User({ name, email, state, number, password, cpassword, time });
-                user.save().then(() => {
-                    res.status(200).json({ msg: "Registration Successful" });
-                    sendEmail(user.email, user.name)
-                }).catch((err) => {
-                    res.status(501).json({ msg: "Failed to Register" })
-                })
+    User.findOne({ email: email })
+        .then((existingUser) => {
+            if (existingUser) {
+                return res.sendStatus(422);
+            }
+            const user = new User({ name, email, state, number, password, cpassword, time });
+            user.save().then(() => {
+                res.status(200).json({ msg: "Registration Successful" });
+                sendEmail(user.email, user.name)
             }).catch((err) => {
-                console.log(err)
+                res.status(501).json({ msg: "Failed to Register" })
             })
-    })
-    //mandidata
+        }).catch((err) => {
+            console.log(err)
+        })
+})
+
+//Change The Password
+router.post("/setnewpassword", (req, res) => {
+    const { email, password, cpassword } = req.body;
+
+    console.log(email, password, cpassword)
+
+    User.findOne({ email: email })
+        .then(user => {
+            if (!user) {
+                return res.status(422).json({ error: "User dont exists with that email" })
+            }
+            user.password = password
+            user.cpassword = cpassword
+            user.save().then(() => {
+                res.json({ message: "password updated success" })
+            })
+        }).catch(err => {
+            console.log(err)
+        })
+})
+
+//mandidata
 router.get('/data', (req, res) => {
-        res.send(mandiData);
-    })
-    //login
+    res.send(mandiData);
+})
+
+//login
 router.post('/login', async(req, res) => {
     try {
         const { email, password } = req.body;
