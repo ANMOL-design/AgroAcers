@@ -60,6 +60,7 @@ class ContactPadeData extends React.Component {
   
   }
     const { DataisLoaded, items } = this.state;
+    items.reverse();
     if (!DataisLoaded)
       return (
          <Loader />

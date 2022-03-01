@@ -29,6 +29,41 @@ router.get("/AdminAgroAcers362/UserDetails", (req, res) => {
         res.send(result)
     })
 })
+router.post("/makeAdmin", (req, res) => {
+ const {id} = req.body;
+    User.findByIdAndUpdate(id, { isAdmin:true}, function(err, docs) {
+        if (err) {
+            console.log("error occured" +err)
+        } else {
+            console.log("Updated User : " + docs);
+        }
+    })
+})
+router.post("/updateBlog", (req, res) => {
+ const {id,title,Description,Image} = req.body;
+ console.log(id);
+    AddBlog.findByIdAndUpdate(id, {title:title,Description:Description,Image:Image}, function(err, docs) {
+        if (err) {
+            console.log("error occured" +err)
+        } else {
+            res.status(200).json({msg:"Updated"})
+            console.log("Updated Blog : " + docs);
+        }
+    })
+})
+router.post("/deleteBlog", (req, res) => {
+ const {id} = req.body;
+ console.log(id);
+    AddBlog.findByIdAndDelete(id, function(err, docs) {
+        if (err) {
+            console.log("error occured" +err)
+        } else {
+            res.status(200).json({msg:"deleted"})
+            console.log("Deleted : " + docs);
+        }
+    })
+
+})
 
 router.get("/AdminAgroAcers362/ContactResult", (req, res) => {
 
