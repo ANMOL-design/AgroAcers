@@ -28,7 +28,8 @@
     "nodemailer": "^6.7.2",
     "python-shell": "^3.0.1",
     "razorpay": "^2.8.0",
-    "shortid": "^2.2.16"
+    "shortid": "^2.2.16",
+    "twilio": "^3.75.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

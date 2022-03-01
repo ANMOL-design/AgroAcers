@@ -26,34 +26,61 @@ mongoose.connect(
 const User = require("../model/userschema");
 const sendEmail = require('../utils/sendEmail');
 
+
+router.post("/verifyregisteremail", (req, res) => {
+    const { name, email } = req.body;
+    console.log(name);
+
+    if (!name || !email) {
+        return res.sendStatus(201);
+    }
+
+    User.findOne({ email: email })
+        .then((existingUser) => {
+            if (existingUser) {
+                return res.sendStatus(202);
+            } else {
+                res.status(200).json({ msg: "Registration Successful" });
+            }
+        }).catch((err) => {
+            console.log(err)
+        })
+})
+
+router.post("/verifyregisternumber", (req, res) => {
+    const { name, number } = req.body;
+    console.log(name);
+
+    if (!name || !number) {
+        return res.sendStatus(201);
+    }
+
+    User.findOne({ number: number })
+        .then((existingUser) => {
+            if (existingUser) {
+                return res.sendStatus(202);
+            } else {
+                res.status(200).json({ msg: "Registration Successful" });
+            }
+        }).catch((err) => {
+            console.log(err)
+        })
+})
+
 router.post("/register", (req, res) => {
-        const { name, email, number, password, cpassword, time } = req.body;
+        const { name, email, state, number, password, cpassword, time } = req.body;
         console.log(name);
 
         if (!name || !email || !number || !password || !cpassword) {
             return res.sendStatus(201);
         }
-        if (password != cpassword) {
-            return res.sendStatus(202);
-        }
-        if (password.length < 8) {
-            return res.sendStatus(203);
-        }
-        if (number.length != 10) {
-            return res.sendStatus(204);
-        }
-        User.findOne({ number: number })
-            .then((numberexist) => {
-                if (numberexist) {
-                    return
-                }
-            })
+
         User.findOne({ email: email })
             .then((existingUser) => {
                 if (existingUser) {
                     return res.sendStatus(422);
                 }
-                const user = new User({ name, email, number, password, cpassword, time });
+                const user = new User({ name, email, state, number, password, cpassword, time });
                 user.save().then(() => {
                     res.status(200).json({ msg: "Registration Successful" });
                     sendEmail(user.email, user.name)

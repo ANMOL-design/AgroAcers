@@ -121,7 +121,7 @@ const AdminPage = () => {
             <div className="card-body">
               <h5 className="card-title">Add Govt. Scheme</h5>
               <p className="card-text">
-                This section is for add theGovernment Schemes in portal.
+                This section is for add the Government Schemes in portal.
               </p>
               <Link to="GovtScheme"  className="btn btn-primary">
                 Add Scheme

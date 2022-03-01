@@ -1,20 +1,20 @@
 var nodemailer = require('nodemailer');
 
-const sendEmail = async (UseremailId,username)=>{
-var transporter = nodemailer.createTransport({
-  service: 'gmail',
-  host: 'smtp.gmail.com',
-  port: 465,
-  auth: {
-    user: 'agroacers.team@gmail.com',
-    pass: process.env.PASSWORD
-  }
-});
+const sendEmail = async(UseremailId, username) => {
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        host: 'smtp.gmail.com',
+        port: 465,
+        auth: {
+            user: 'agroacers.team@gmail.com',
+            pass: process.env.PASSWORD
+        }
+    });
 
     var mailOptions = {
         from: 'agroacers.team@gmail.com',
         to: UseremailId,
-        subject: 'Registration in AgroAcers',
+        subject: 'Successful Registration in AgroAcers',
         html: `<p>Hello ${username},</p>
         <p> Welcome to AgroAcers!</p>
         <p>

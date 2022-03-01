@@ -8,6 +8,8 @@ app.use(require('./routes/auth'));
 app.use(require('./routes/contactPage'));
 app.use(require('./routes/CommentRoute'));
 app.use(require('./routes/SellCropRoute'));
+app.use(require('./routes/verifyuser'));
+
 // const data = require('./data/product.json');
 
 app.use(require('./routes/auth'))

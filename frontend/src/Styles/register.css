@@ -1,3 +1,18 @@
+/* Chrome, Safari, Edge, Opera */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* Firefox */
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
 .register_container {
     display: flex;
     justify-content: space-evenly;
@@ -41,13 +56,22 @@
     width: 100%;
 }
 
+#invalidregister {
+    color: red;
+    font-family: cursive;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 8px;
+    margin-right: 10%;
+}
+
 .all-input {
     border: none;
     border-bottom: 2px solid black;
     background: transparent;
     list-style: none;
     width: 80%;
-    margin-bottom: 10%;
+    margin-bottom: 7%;
 }
 
 .all-input textarea {
@@ -85,6 +109,43 @@ form {
 
 .reg-par-reg {
     margin-top: 2%;
+}
+
+.emailverify {
+    max-height: 120vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 4%;
+}
+
+.emailverify h2 {
+    font-size: 3rem;
+    color: rgb(119, 188, 63);
+}
+
+.emailverify p {
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.marginemailver {
+    margin-left: 10%;
+}
+
+.emailverify label {
+    margin-top: 1rem;
+    align-items: center;
+}
+
+.colorparav {
+    color: red;
+}
+
+.paddinginbtn {
+    padding-right: 1.9rem;
+    padding-left: 1rem;
 }
 
 @media (max-width: 1245px) {

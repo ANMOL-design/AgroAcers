@@ -373,8 +373,8 @@ const FarmerCropDetail = () => {
                         {/* State of Farmer  */}
                         <div className="col-md-3">
                               <label htmlFor="State" className="form-label">State</label>
-                              <select className="form-select" id="State" required onChange={(e) => setState(e.target.value)}>
-                                  <option selected disabled value="">Choose...</option>
+                              <select className="form-select" id="State" required value={State} onChange={(e) => setState(e.target.value)}>
+                                  <option disabled value="">Choose...</option>
                                   <option value="Andhra Pradesh">Andhra Pradesh</option>
                                   <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                                   <option value="Arunachal Pradesh">Arunachal Pradesh</option>
