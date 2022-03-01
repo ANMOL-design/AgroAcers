@@ -61,12 +61,16 @@ const CRopDetails = (e) => {
 }
     const EDITBLOG = ()=>{
         const [changeBlog,setchangeBlog] =useState({
-            title:blogData.title,Description:blogData.Description,Image:blogData.Image
+            title:blogData.title,Image:blogData.Image
         })
-  console.log(changeBlog);
+        const [Quill,setQuill]=useState({
+            Description:blogData.Description
+                })
+  console.log(Quill);
   const postChanges = async ()=>{
       const id = blogData._id
-    const {title,Description,Image} = changeBlog;
+    const {title,Image} = changeBlog;
+    const Description = Quill;
     console.log(blogData._id);
     const res =  await fetch("/updateBlog" ,{
 method : "POST",
@@ -105,9 +109,9 @@ window.location.reload()
           <label htmlFor="title">Title :</label> <br />
          <input style={{width:"90%"}} type="text" defaultValue={blogData.title} onChange={(e)=>{setchangeBlog({...changeBlog,[e.target.name]:e.target.value})}} placeholder="ENTER THE TITLE..."  name="title"  id="title" /> <br />
           <label htmlFor="title">Image :</label><br />
-         <input style={{width:"90%"}} defaultValue={blogData.Image} type="text" placeholder="add img url"   name="Image"  id="title" /><br />
+         <input style={{width:"90%"}} defaultValue={blogData.Image} onChange={(e)=>{setchangeBlog({...changeBlog,[e.target.name]:e.target.value})}} type="text" placeholder="add img url"   name="Image"  id="title" /><br />
          <label htmlFor="description">Description :</label>
-         <ReactQuill style={{width:"90%"}} value={blogData.Description} className="description"     name="description"    theme="snow"/>
+         <ReactQuill style={{width:"90%"}}   defaultValue={blogData.Description} className="description" onChange={(e)=>{setQuill(e);}}         theme="snow"/>
       
       
       <div className="modal-footer">
