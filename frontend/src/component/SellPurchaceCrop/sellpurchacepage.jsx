@@ -118,7 +118,7 @@ const SellerPurchace = () => {
     const bidprice = bidvalue;
     const farmeremail = pagedata.EmailOfFarmer;
     const UserId = userData._id;
-
+    const CropId = pagedata._id;
     const res = await fetch("/sendbid", {
       method: "POST",
       headers: {
@@ -133,7 +133,8 @@ const SellerPurchace = () => {
         farmername,
         bidprice,
         farmeremail,
-        UserId
+        UserId,
+        CropId
       }),
     });
 

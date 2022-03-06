@@ -78,6 +78,31 @@ const SellCropSchema = mongoose.Schema({
         type: Number,
         required: true
     },
+    Farmer_id: {
+        type : String,
+        required: true
+    },
+    time:{
+        type : String,
+        required: true
+    },
+    bid_by: [{
+        nameOfOrg:{
+        type : String,
+       },
+       emailoforg:{
+        type : String,
+       },
+       contactoforg:{
+        type : Number,
+       },
+       intrestoforg:{
+        type : String,
+       },
+       bidprice:{
+        type : Number,
+       },
+    }]
 })
 const FarmerCrop = mongoose.model("FARMERCROP", SellCropSchema);
 module.exports = FarmerCrop;

@@ -22,6 +22,7 @@ const AddBlog = require("../model/Postblog")
 const AgricultureUniversity = require("../model/AgricultureUniversitySchema");
 const ShoppingPage = require("../model/ShoppingProduct");
 const Commentbox = require("../model/commentBox")
+const SellerCropData = require("../model/SellCropSchema");
 router.get("/AdminAgroAcers362/UserDetails", (req, res) => {
 
     User.find({}).then((result) => {
@@ -79,6 +80,13 @@ router.get('/cropdata', (req, res) => {
     })
 
 })
+router.get('/Sellercropdata', (req, res) => {
+    SellerCropData.find({}).then((result) => {
+        // console.log(result);
+        res.send(result)
+    })
+
+})
 router.get('/AgricultureUniversityData', (req, res) => {
     AgricultureUniversity.find({}).then((result) => {
 
@@ -100,7 +108,6 @@ router.get('/Shopproductdata', (req, res) => {
     })
 
 })
-const SellerCropData = require("../model/SellCropSchema")
 router.get('/sellerCrop/:id', (req, res) => {
     const id = req.params.id;
 
@@ -120,6 +127,19 @@ router.get('/Shopproductdata/:id', (req, res) => {
     const id = req.params.id;
 
     ShoppingPage.findOne({ _id: id }).then((product) => {
+        if (product) {
+            return res.send(product)
+        }
+    }).catch((err) => {
+        console.log(err)
+        res.sendStatus(404)
+    })
+})
+router.get('/CropSellDashboard/myApplication/:id', (req, res) => {
+
+    const id = req.params.id;
+
+    SellerCropData.findOne({ _id: id }).then((product) => {
         if (product) {
             return res.send(product)
         }

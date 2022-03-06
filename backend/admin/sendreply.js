@@ -5,8 +5,10 @@ const dotenv = require("dotenv");
 const sendmsgtofarmer = require("../utils/SendmailFarmer")
 const sendbidmsg = require("../utils/sentbidmsg");
 const cartmail = require("../utils/cartmail");
+const sendReplyMsg = require("../utils/sendReplyMsg")
 dotenv.config();
 const UserInfo = require("../model/userschema");
+const farmercrops = require("../model/SellCropSchema");
 mongoose.connect(
     process.env.MONGODB_CONNECTION_STRING, {
         useNewUrlParser: true,
@@ -21,7 +23,7 @@ mongoose.connect(
 router.post("/sendReply", (req, res) => {
     try {
         const { name, mail, subject, body } = req.body;
-        sendReplymsg(mail, name, subject, body).then(() => {
+        sendReplyMsg(mail, name, subject, body).then(() => {
             res.status(201).json({ msg: "mail sent Succesfully" })
         }).catch((err) => {
             res.status(400).json({ msg: "error occured" })
@@ -47,15 +49,21 @@ router.post("/sendMessagetofarmer", (req, res) => {
 
 router.post("/sendbid", (req, res) => {
     try {
-        const { nameOfOrg, emailoforg, contactoforg, intrestoforg, cropname, farmername, bidprice, farmeremail, UserId } = req.body;
+        const { nameOfOrg, emailoforg, contactoforg, intrestoforg, cropname, farmername, bidprice, farmeremail, UserId ,CropId} = req.body;
 
-        if (!nameOfOrg || !emailoforg || !contactoforg || !intrestoforg || !cropname || !farmername || !bidprice || !farmeremail) {
+        if (!nameOfOrg || !emailoforg || !contactoforg || !intrestoforg || !cropname || !farmername || !bidprice || !farmeremail || !CropId ) {
             res.status(500).json({ msg: "filled are required to fill" })
         } else {
             sendbidmsg(nameOfOrg, emailoforg, contactoforg, intrestoforg, cropname, farmername, bidprice, farmeremail).then(() => {
                 res.status(201).json({ msg: "mail sent Succesfully" })
             }).catch((err) => {
                 res.status(400).json({ msg: "error occured" })
+            })
+            console.log(CropId);
+            farmercrops.updateMany({_id:CropId},{$push:{bid_by:{nameOfOrg:nameOfOrg,emailoforg:emailoforg,contactoforg:contactoforg,intrestoforg:intrestoforg,bidprice:bidprice}}}).then((res)=>{
+             console.log("confirm"+res);
+            }).catch((err)=>{
+                console.log("error occur"+err);
             })
             UserInfo.findByIdAndUpdate(UserId, { $inc: { NoOfBids: -1 } }, function(err, docs) {
                 if (err) {
@@ -95,6 +103,7 @@ router.post("/sendcartReply", (req, res) => {
 
 
 const Subscribermail = require("../utils/subscriberemail");
+const sendReplymsg = require("../utils/sendReplyMsg");
 
 router.post("/sendSubscription", (req, res) => {
     try {

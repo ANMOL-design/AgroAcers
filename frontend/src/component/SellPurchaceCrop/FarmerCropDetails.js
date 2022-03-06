@@ -203,7 +203,15 @@ const FarmerCropDetail = () => {
                 else {
                     window.alert("Error occured , try again")
                 }
-
+        const Farmer_id = UserDetail._id;
+        let today  = new Date();
+        let dd = today.getDate();
+        let mm = today.getMonth()+1;
+        let yy =today.getFullYear();
+        let hh = today.getHours();
+        let mi = today.getMinutes();
+        let ss = today.getSeconds();
+        let time = dd+"/"+mm+"/"+yy+"("+hh+":"+mi+":"+ss+")";
         const resp =  await fetch("/SellCrop" ,{
           method : "POST",
           headers : { 
@@ -228,7 +236,9 @@ const FarmerCropDetail = () => {
             HarvestTime,
             ImageOfCrop,
             Min_price,
-            Max_price
+            Max_price,
+            Farmer_id,
+            time
           })
         });
 

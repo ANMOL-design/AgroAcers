@@ -38,10 +38,12 @@ router.post("/SellCrop", (req, res) => {
             HarvestTime,
             ImageOfCrop,
             Min_price,
-            Max_price
+            Max_price,
+            Farmer_id,
+            time
         } = req.body;
 
-        if (!FarmerName || !FarmerFatherName || !EmailOfFarmer || !ContactNo || !Gender || !city || !State || !Pincode || !AdressOfFarmer || !AdressOfLand || !TotalLandinAcers || !CropVariety || !SeedUsed || !DescriptionOfCrop || !YieldTime || !HarvestTime || !ImageOfCrop || !Min_price, !Max_price) {
+        if (!FarmerName || !FarmerFatherName || !EmailOfFarmer || !ContactNo || !Gender || !city || !State || !Pincode || !AdressOfFarmer || !AdressOfLand || !TotalLandinAcers || !CropVariety || !SeedUsed || !DescriptionOfCrop || !YieldTime || !HarvestTime || !ImageOfCrop || !Min_price, !Max_price||!Farmer_id||!time) {
             console.log("Data Added losse Success")
             return res.sendStatus(201);
         } else {
@@ -66,7 +68,9 @@ router.post("/SellCrop", (req, res) => {
                 HarvestTime,
                 ImageOfCrop,
                 Min_price,
-                Max_price
+                Max_price,
+                Farmer_id,
+                time
             });
 
             newFarmerCrop.save().then(() => {
