@@ -9,6 +9,7 @@ app.use(require('./routes/contactPage'));
 app.use(require('./routes/CommentRoute'));
 app.use(require('./routes/SellCropRoute'));
 app.use(require('./routes/verifyuser'));
+app.use(require('./routes/checkoutproduct'));
 
 // const data = require('./data/product.json');
 

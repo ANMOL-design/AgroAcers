@@ -119,7 +119,6 @@ const Changepassword = () => {
                               <i className="fa fa-user">&nbsp;</i>
                               <input
                                   className="email-input"
-                                  autoComplete="off"
                                   type="email"
                                   name="email"
                                   autoComplete="new-password" 
@@ -161,7 +160,6 @@ const Changepassword = () => {
                               <i className="fa fa-lock">&nbsp;</i>
                               <input
                                   className="email-input"
-                                  autoComplete="off"
                                   type="password"
                                   name="otp"
                                   autoComplete="new-password" 
