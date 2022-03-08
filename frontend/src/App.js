@@ -42,6 +42,7 @@ import FertilizerDetailPage from './component/Fertilizer/fertilizer';
 import Changepassword from './component/auth/login/changepassword';
 import FarmerCropDashboard from './component/SellCropsBoard/FarmerApplications';
 import FarmerBiddingInfo from './component/SellCropsBoard/farmerApplicationDetails';
+import HelpFarmer from './component/Crops/HelpFarmer';
 export const UserContext = createContext();
 
 const App = ()=> {
@@ -88,6 +89,8 @@ const Routing = () => {
               <Route path="Sellercrop/:id" exact element={<SellerPurchace />} />
               <Route path="Crops/rabi" exact element={<RabiCrop/>} />
               <Route path="Crops/Kharif" exact element={<KharifCrop/>} />
+              <Route path="Crops/strategies" exact element={<HelpFarmer />} />
+              <Route path="Crops/strategies/:id" exact element={<CRopDetails/>} />
               <Route path="Crops/Vegetables" exact element={<VegetableCrop/>} />
               <Route path="Crops/Vegetables/:id" exact element={<CRopDetails/>} />
               <Route path="Crops/Kharif/:id" exact element={<CRopDetails/>} />

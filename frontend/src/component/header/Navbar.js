@@ -461,6 +461,15 @@ const Navbar = () => {
                     >
                       Vegetables
                     </NavLink>
+                    <NavLink className="dropdown-item" to="/crops/strategies"
+                              data-toggle="collapse"
+                              data-target="#navbarSupportedContent"
+                              aria-controls="navbarSupportedContent"
+                              aria-expanded="false"
+                              aria-label="Toggle navigation"
+                    >
+                      Strategies
+                    </NavLink>
                     
                   </div>
                 </li>
@@ -592,7 +601,9 @@ const Navbar = () => {
                     <NavLink className="dropdown-item" to="/crops/Vegetables">
                       Vegetables
                     </NavLink>
-                    
+                    <NavLink className="dropdown-item" to="/crops/strategies">
+                      Strategies
+                    </NavLink>
                   </div>
                 </li>
 
