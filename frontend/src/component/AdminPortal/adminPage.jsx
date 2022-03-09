@@ -112,6 +112,8 @@ const AdminPage = () => {
               </Link>
             </div>
           </div>
+
+          {/* Card to add Govt Scheme  */}
           <div className="card" style={{width: '18rem'}}>
             <img
               className="card-img-top img-fluid"
@@ -125,6 +127,24 @@ const AdminPage = () => {
               </p>
               <Link to="GovtScheme"  className="btn btn-primary">
                 Add Scheme
+              </Link>
+            </div>
+          </div>
+
+          {/* Card to See Shop Details  */}
+          <div className="card" style={{width: '18rem'}}>
+            <img
+              className="card-img-top img-fluid"
+              src={blogBanner}
+              alt="Card cap"
+            />
+            <div className="card-body">
+              <h5 className="card-title">Check Order Details</h5>
+              <p className="card-text">
+                This section helps to check the ordered products in Shop.
+              </p>
+              <Link to="adminshopdetail"  className="btn btn-primary">
+                Check Now
               </Link>
             </div>
           </div>

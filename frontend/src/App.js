@@ -44,6 +44,7 @@ import FarmerCropDashboard from "./component/SellCropsBoard/FarmerApplications";
 import FarmerBiddingInfo from "./component/SellCropsBoard/farmerApplicationDetails";
 import HelpFarmer from "./component/Crops/HelpFarmer";
 import Croprecommended from "./component/Crop-reccomend/crop-recommend";
+import ShopOrderDetails from "./component/AdminPortal/Shopbuydetails";
 export const UserContext = createContext();
 
 const App = () => {
@@ -105,6 +106,7 @@ const Routing = () => {
         <Route path="admin/AddUniversity" element={<AddUniversity />} />
         <Route path="admin/shoppingpost" element={<ShoppingData />} />
         <Route path="admin/GovtScheme" element={<AddGovtScheme />} />
+        <Route path="admin/adminshopdetail" element={<ShopOrderDetails />} />
         <Route path="admin" element={<AdminPage />} />
         <Route path="PrivacyPolicy" element={<PrivacyPolicy />} />
         <Route path="/shop" element={<ShopHome />} />

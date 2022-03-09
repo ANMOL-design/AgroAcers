@@ -416,7 +416,7 @@ function MyCart(){
 
           {checkoutpage ? 
             <>
-              <div className="row mt-3 mx-3">
+              <div className="row mt-3 mx-3" style={{height: "92vh", alignItems: "center"}}>
                 {/* First Side  */}
                 <div className="col-md-3">
                     {/* Text  */}

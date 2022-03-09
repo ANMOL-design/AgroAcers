@@ -80,4 +80,40 @@ router.post("/sendcheckoutdata", async(req, res) => {
     }
 })
 
+router.get("/orderdata", (req, res) => {
+    shopbuyproduct.find({}).then((result) => {
+        res.send(result)
+    })
+})
+
+router.post('/updatedispatchdetail', (req, res) => {
+
+    const { id } = req.body;
+
+    shopbuyproduct.findByIdAndUpdate(id, { isDispatch: true }, function(err, docs) {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log("User Updated ");
+            res.sendStatus(200);
+        }
+    })
+
+})
+
+router.post('/updatedeliverdetail', (req, res) => {
+
+    const { id } = req.body;
+
+    shopbuyproduct.findByIdAndUpdate(id, { isDelivered: true }, function(err, docs) {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log("User Updated ");
+            res.sendStatus(200);
+        }
+    })
+
+})
+
 module.exports = router;

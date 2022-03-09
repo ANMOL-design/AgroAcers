@@ -1,39 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import Loader from "../Loader";
-// class IsADmin extends React.Component{
-//   constructor(props) {
-//     super(props);
 
-//     this.state = {
-//       items: [],
-//       DataisLoaded: false,
-//       dataslice :10
-//     };
-  
-//   }
-//   componentDidMount() {
-//     fetch("/AdminAgroAcers362/UserDetails")
-//       .then((res) => res.json())
-//       .then((json) => {
-//         this.setState({
-//           items: json,
-//           DataisLoaded: true,
-//         });
-//       });
-//   }
-//   render(){
-//     const { DataisLoaded, items } = this.state;
-//     items.reverse();
-//     if (!DataisLoaded)
-//       return (
-//          <Loader />
-//       );
-//     return(<>
-    
-//     </>)
-//   }
-// }
 class UserData extends React.Component {
   // Constructor
   constructor(props) {
@@ -92,18 +60,18 @@ class UserData extends React.Component {
                 <td>{item.email}</td>
                 <td>{item.number}</td>
                 <td>{item.time}</td>
-                <td>{(item.isAdmin==true)?<button style={{backgroundColor:"lightgreen"}}>you Already admin</button>:<button onClick={async ()=>{
+                <td>{(item.isAdmin==true)?<button style={{backgroundColor:"lightgreen"}}>You Already Admin</button>:<button onClick={async ()=>{
                   const id = item._id;
                   const res =  await fetch("/makeAdmin" ,{
-            method : "POST",
-            headers : { 
-                "content-Type" : "application/json"
-            },
-            body : JSON.stringify({
-                id
-            })
-        });
-}} style={{backgroundColor:"lightyellow"}}>give admin access</button>}</td>
+                    method : "POST",
+                    headers : { 
+                        "content-Type" : "application/json"
+                    },
+                    body : JSON.stringify({
+                        id
+                    })
+                });
+              }} style={{backgroundColor:"lightyellow"}}>Give Admin Access</button>}</td>
 
               </tr>
             ))}

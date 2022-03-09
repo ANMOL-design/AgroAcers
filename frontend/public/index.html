@@ -58,25 +58,30 @@
         AOS.refresh();
     </script>
     <script type="text/javascript">
-      function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-      }
-      </script>
-      
-      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-      <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
         window.watsonAssistantChatOptions = {
             integrationID: "081626e7-7d60-456a-b6be-3a2ce782a520", // The ID of this integration.
             region: "eu-gb", // The region your integration is hosted in.
             serviceInstanceID: "bd1bc709-a6d2-4669-b3a6-9106c433c30b", // The ID of your service instance.
-            onLoad: function(instance) { instance.render(); }
-          };
-        setTimeout(function(){
-          const t=document.createElement('script');
-          t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js"
-          document.head.appendChild(t);
+            onLoad: function(instance) {
+                instance.render();
+            }
+        };
+        setTimeout(function() {
+            const t = document.createElement('script');
+            t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js"
+            document.head.appendChild(t);
         });
-      </script>
+    </script>
 </body>
 
 </html>
