@@ -73,7 +73,7 @@ class Home extends React.Component{
         return(
             <>
                 <CrousalBanner />
-
+                
                 {/* Features  */}
                 <div style={{margin:"1%"}}>
                     <h1  className="homepage-story-heading">What is AgroAcers ?</h1>
