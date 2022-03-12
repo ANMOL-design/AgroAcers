@@ -38,6 +38,26 @@ const SellCropSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    BankName :{
+        type: String,
+        required: true
+    },
+    BankIFSC :{
+        type: String,
+        required: true
+    },
+    BankAccountNo :{
+        type: Number,
+        required: true
+    },
+    AadharNumber :{
+        type: Number,
+        required: true,
+    },
+    dateofbirth :{
+        type: String,
+        required: true
+    },
     AdressOfLand: {
         type: String,
         required: true

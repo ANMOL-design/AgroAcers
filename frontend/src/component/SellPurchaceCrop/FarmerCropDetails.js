@@ -34,10 +34,10 @@ const FarmerCropDetail = () => {
 
   // States for Personal Details 
   const [BankName, setBankName] = useState("");
-  const [BankNum, setBankNum] = useState("");
-  const [BankCode, setBankCode] = useState("");
+  const [BankAccountNo, setBankNum] = useState("");
+  const [BankIFSC, setBankCode] = useState("");
   const [dateofbirth, setdateofbirth] = useState("");
-  const [aadhar, setaadhar] = useState("");
+  const [AadharNumber, setaadhar] = useState("");
 
   // States for Land Details
   const [AdressOfLand, setAdressOfLand] = useState("");
@@ -98,7 +98,7 @@ const FarmerCropDetail = () => {
     
     if(page === 4) return;
     
-    else if(!FarmerName || !FarmerFatherName || !EmailOfFarmer || !ContactNo || !Gender || !city || !State || !Pincode || !AdressOfFarmer || !dateofbirth){
+    else if(!FarmerName || !FarmerFatherName || !EmailOfFarmer || !ContactNo || !Gender || !city || !State || !Pincode  || !AdressOfFarmer ){
         alert("Please enter all the required fields.")
     }
     
@@ -112,7 +112,7 @@ const FarmerCropDetail = () => {
     
     if(page === 4) return;
     
-    else if(!BankName || !BankNum || !BankCode || !aadhar){
+    else if(!BankName || !BankAccountNo || !BankIFSC || !AadharNumber ||!dateofbirth){
         alert("Please enter all the required fields.")
     }
     
@@ -227,7 +227,12 @@ const FarmerCropDetail = () => {
             State,
             Pincode,
             AdressOfFarmer,
+            BankName,
+            BankIFSC,
+            BankAccountNo,
+            AadharNumber,
             AdressOfLand,
+            dateofbirth,
             TotalLandinAcers,
             CropVariety,
             SeedUsed,
@@ -490,7 +495,7 @@ const FarmerCropDetail = () => {
                                type="number"
                                className="form-control"
                                id="BankNum"
-                               value={BankNum}
+                               value={BankAccountNo}
                                required
                                min={0}
                                onChange={(e) => setBankNum(e.target.value)}
@@ -505,7 +510,7 @@ const FarmerCropDetail = () => {
                                  type="text"
                                  className="form-control"
                                  id="BankCode"
-                                 value={BankCode}
+                                 value={BankIFSC}
                                  required
                                  onChange={(e) => setBankCode(e.target.value)}
                                />
@@ -532,7 +537,7 @@ const FarmerCropDetail = () => {
                                 placeholder="XXXX XXXX XXXX" 
                                 id="inputNumberadd" 
                                 min={0} required
-                                value={aadhar}
+                                value={AadharNumber}
                                 onChange={(e) => setaadhar(e.target.value)}
                               />
                          </div>
