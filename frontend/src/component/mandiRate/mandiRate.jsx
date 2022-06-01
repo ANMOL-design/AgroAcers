@@ -20,17 +20,18 @@ function MandiRate() {
 
   useEffect(() => {
     const fetchdata = async () =>{
-        const {data} = await axios.get("/data");
-        setpricedata(data);
-        setpricedatabackup(data);
+       const {data} = await axios.get("https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd000001df21b028314f4ca54ba1d2e6e742376b&format=json&offset=0&limit=4999");
+        setpricedata(data.records);
+        console.log(data);
+        setpricedatabackup(data.records);
         window.scroll(0,0);
     }
     // const fetchdata2 = async () =>{
-    //     const {data} = await axios.get("https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b&format=json&limit=1000");
+    //     const {data} = await axios.get("https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd000001df21b028314f4ca54ba1d2e6e742376b&format=json&offset=0&limit=3999");
     //     setpricedata2(data.records);
     //     // setpricedata(oldarray =>[...oldarray,setpricedata2]);
-    //     console.log(setpricedata2);
-    //     console.log(pricedata);
+        
+        
     //     // setpricedatabackup(data);
     //     // console.log(data.records);
     //     window.scroll(0,0);
@@ -39,7 +40,7 @@ function MandiRate() {
     // fetchdata2();
     setDataisLoading(true);
   }, [])
-
+// console.log(pricedata2);
     const LoadMoreData = () => {
         setstart(start + 10)
     }
