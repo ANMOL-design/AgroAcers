@@ -5,7 +5,6 @@ router.use(express.json());
 dotenv.config();
 const sendEmailverification = require("../utils/emailverify");
 const passwordchangeverify = require("../utils/changepassword");
-
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const service = process.env.TWILIO_AUTH_SERVICE;
