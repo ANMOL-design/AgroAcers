@@ -29,6 +29,11 @@ router.post("/SellCrop", (req, res) => {
             State,
             Pincode,
             AdressOfFarmer,
+            BankName,
+            BankIFSC,
+            BankAccountNo,
+            AadharNumber,
+            dateofbirth,
             AdressOfLand,
             TotalLandinAcers,
             CropVariety,
@@ -43,7 +48,7 @@ router.post("/SellCrop", (req, res) => {
             time
         } = req.body;
 
-        if (!FarmerName || !FarmerFatherName || !EmailOfFarmer || !ContactNo || !Gender || !city || !State || !Pincode || !AdressOfFarmer || !AdressOfLand || !TotalLandinAcers || !CropVariety || !SeedUsed || !DescriptionOfCrop || !YieldTime || !HarvestTime || !ImageOfCrop || !Min_price, !Max_price||!Farmer_id||!time) {
+        if (!FarmerName || !FarmerFatherName ||!dateofbirth|| !EmailOfFarmer || !ContactNo || !Gender || !city || !State || !Pincode || !AdressOfFarmer  || !BankName || !BankIFSC || !BankAccountNo  || !AadharNumber|| !AdressOfLand || !TotalLandinAcers || !CropVariety || !SeedUsed || !DescriptionOfCrop || !YieldTime || !HarvestTime || !ImageOfCrop || !Min_price, !Max_price||!Farmer_id||!time) {
             console.log("Data Added losse Success")
             return res.sendStatus(201);
         } else {
@@ -59,10 +64,15 @@ router.post("/SellCrop", (req, res) => {
                 State,
                 Pincode,
                 AdressOfFarmer,
+                BankName,
+                BankIFSC,
+                BankAccountNo,
+                AadharNumber,
                 AdressOfLand,
                 TotalLandinAcers,
                 CropVariety,
                 SeedUsed,
+                dateofbirth,
                 DescriptionOfCrop,
                 YieldTime,
                 HarvestTime,
@@ -78,6 +88,7 @@ router.post("/SellCrop", (req, res) => {
                 })
                 .catch((err) => {
                     res.json({ msg: "data not added error occured" });
+                    console.log(err);
                 });
         }
     } catch (error) {

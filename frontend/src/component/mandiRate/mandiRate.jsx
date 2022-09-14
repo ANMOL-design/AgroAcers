@@ -21,7 +21,7 @@ function MandiRate() {
       const { data } = await axios.get(
         "https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b&format=json&limit=1000"
       );
-      console.log(data)
+      console.log(data);
       setpricedata(data.records);
       setpricedatabackup(data.records);
       window.scroll(0, 0);
