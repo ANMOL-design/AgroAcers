@@ -250,7 +250,7 @@ function MyCart(){
 		// console.log(data)
 
 		const options = {
-			key: 'rzp_test_119cJvO3u59nKY',
+			key: 'rzp_test_18Hu4bjMNivXOV',
 			currency: data.currency,
 			amount: data.amount.toString(),
 			order_id: data.id,
