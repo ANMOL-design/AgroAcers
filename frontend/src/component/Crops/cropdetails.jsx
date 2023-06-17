@@ -20,6 +20,7 @@ import axios from "axios";
 import SimilarProduct from "./MorePageBlog";
 import CommentBox from "../../CommentBox/CommentBox";
 import ReactQuill from "react-quill";
+import AdSense from "../Adsens";
 
 const CRopDetails = (e) => {
 
@@ -32,7 +33,7 @@ const CRopDetails = (e) => {
     useEffect(() => {
         const fetchdata = async () =>{
             if(id){
-                const {data} = await axios.get("/cropdata/" + id);
+                const {data} = await axios.get("https://agroacers-backend.onrender.com/cropdata/" + id);
                 setblogData(data);
                 setIsLoading(true);
             }
@@ -45,7 +46,7 @@ const CRopDetails = (e) => {
     const deleteBlog = async ()=>{
             const id = blogData._id;
             console.log(blogData._id);
-            const res =  await fetch("/deleteBlog" ,{
+            const res =  await fetch("https://agroacers-backend.onrender.com/deleteBlog" ,{
       method : "POST",
       headers : { 
           "content-Type" : "application/json"
@@ -73,7 +74,7 @@ const CRopDetails = (e) => {
             const {title,Image} = changeBlog;
             const Description = Quill;
             console.log(blogData._id);
-            const res =  await fetch("/updateBlog" ,{
+            const res =  await fetch("https://agroacers-backend.onrender.com/updateBlog" ,{
                 method : "POST",
                 headers : { 
                   "content-Type" : "application/json"
@@ -160,7 +161,7 @@ const CRopDetails = (e) => {
    
     const callAboutPage = async () => {
         try {
-            const res = await fetch('/aboutuser', {
+            const res = await fetch('https://agroacers-backend.onrender.com/aboutuser', {
                 method: "GET",
                 headers: {
                     "Accept" : "application/json",
@@ -247,11 +248,11 @@ const CRopDetails = (e) => {
                     </TelegramShareButton>
                 </div>
 
-              
+                <AdSense/>
             <div id="crop-blog-description" className="crop-blog-des-containior">
                 {blogData.Description}
             </div>
-
+<AdSense/>
             <hr />
 
             <div className="author-details">

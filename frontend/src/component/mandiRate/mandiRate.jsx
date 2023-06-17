@@ -29,7 +29,7 @@ function MandiRate() {
     fetchdata();
     setDataisLoading(true);
   }, []);
-
+console.log(pricedata);
   const LoadMoreData = () => {
     setstart(start + 10);
   };

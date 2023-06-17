@@ -15,7 +15,7 @@ const Login = () => {
 
   const loginUser = async (e) => {
     e.preventDefault();
-    const res = await fetch("/login", {
+    const res = await fetch("https://agroacers-backend.onrender.com/login", {
       method: "POST",
       headers: {
         "content-Type": "application/json",
@@ -25,10 +25,12 @@ const Login = () => {
         password,
       }),
     });
-   
+  
     if (res.status === 200) {
+      const data = await res.json()
       dispatch({type:"USER",payload:true});
       localStorage.setItem("isLoggedin", Number(true));
+      localStorage.setItem("user", JSON.stringify(data.user));
       localStorage.removeItem("cartItems");
       window.alert("Login succesful");
       navigate("/", { replace: true });

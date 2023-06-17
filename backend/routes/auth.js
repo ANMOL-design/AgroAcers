@@ -131,7 +131,7 @@ router.post('/login', async(req, res) => {
         if (userLogin) {
             const isMatch = await bycrypt.compare(password, userLogin.password)
             const token = await userLogin.generateAuthToken();
-
+            
             res.cookie("jwtToken", token, {
                 expires: new Date(2147483647 * 1000),
                 httpOnly: true
@@ -140,7 +140,7 @@ router.post('/login', async(req, res) => {
             if (!isMatch) {
                 return res.status(401).json({ msg: "Invalid Credential" });
             } else {
-                res.status(200).json({ msg: "login Succesfully" })
+                res.status(200).json({ msg: "login Succesfully", user:userLogin })
             }
         } else {
             return res.status(402).json({ msg: "Invalid Credential" });
@@ -150,11 +150,20 @@ router.post('/login', async(req, res) => {
     }
 })
 
-router.get('/aboutuser', Authentication, (req, res) => {
-    res.send(req.rootUser);
-
-
-});
+router.get('/aboutuser/:id',  async(req, res) => {
+    
+        const id = req.params.id;
+      await User.findOne({_id:id}).findOne({ _id: id }).then((product) => {
+        if (product) {
+            return res.send(product)
+        }
+    }).catch((err) => {
+        console.log(err)
+        res.sendStatus(404)
+    })
+     
+   
+  });
 router.get('/logout', (req, res) => {
     res.clearCookie('jwtToken')
     res.status(200).send('user logout');
